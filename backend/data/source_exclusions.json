@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-08-05",
+  "sources": [
+    {
+      "url": "https://www.fbi.gov/wanted/cei/amritpal-singh",
+      "reason": "Official case page and media redirect to the FBI homepage."
+    },
+    {
+      "url": "https://www.fbi.gov/wanted/vicap/missing-persons/henrietta-ilene-marshall---waco-texas",
+      "reason": "Official case page and media redirect to the FBI homepage."
+    },
+    {
+      "url": "https://www.fbi.gov/wanted/cei/onita-rostas",
+      "reason": "Official case media no longer resolves to an image."
+    },
+    {
+      "url": "https://rewardsforjustice.net/rewards/alas-chiricanas-flight-901-bombing-colon-panama-july-19-1994/",
+      "reason": "The official WordPress media record exists, but all published image sizes return 404."
+    }
+  ]
+}

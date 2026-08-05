@@ -1,0 +1,124 @@
+{
+  "updatedAt": "2026-08-05T22:23:01.077980+00:00",
+  "allSourcesFresh": true,
+  "totalCount": 2073,
+  "sources": [
+    {
+      "id": "fbi",
+      "name": "FBI Wanted API",
+      "country": "US",
+      "success": true,
+      "usedStaleData": false,
+      "count": 1196,
+      "error": null
+    },
+    {
+      "id": "opp",
+      "name": "Ontario Provincial Police public investigations",
+      "country": "Canada",
+      "success": true,
+      "usedStaleData": false,
+      "count": 92,
+      "error": null
+    },
+    {
+      "id": "rcmp-sk",
+      "name": "Saskatchewan RCMP monthly wanted persons",
+      "country": "Canada",
+      "success": true,
+      "usedStaleData": false,
+      "count": 6,
+      "error": null
+    },
+    {
+      "id": "fq",
+      "name": "Fugitifs Quebec provincial wanted list",
+      "country": "Canada",
+      "success": true,
+      "usedStaleData": false,
+      "count": 15,
+      "error": null
+    },
+    {
+      "id": "eps",
+      "name": "Edmonton Police Service most wanted list",
+      "country": "Canada",
+      "success": true,
+      "usedStaleData": false,
+      "count": 10,
+      "error": null
+    },
+    {
+      "id": "rcmp-bc",
+      "name": "British Columbia RCMP wanted news releases",
+      "country": "Canada",
+      "success": true,
+      "usedStaleData": false,
+      "count": 18,
+      "error": null
+    },
+    {
+      "id": "vpd",
+      "name": "Vancouver Police wanted news releases",
+      "country": "Canada",
+      "success": true,
+      "usedStaleData": false,
+      "count": 2,
+      "error": null
+    },
+    {
+      "id": "cfseu-bc",
+      "name": "CFSEU-BC wanted news releases",
+      "country": "Canada",
+      "success": true,
+      "usedStaleData": false,
+      "count": 3,
+      "error": null
+    },
+    {
+      "id": "rfj",
+      "name": "U.S. Department of State Rewards for Justice",
+      "country": "US",
+      "success": true,
+      "usedStaleData": false,
+      "count": 229,
+      "error": null
+    },
+    {
+      "id": "usms",
+      "name": "U.S. Marshals Service profiled fugitives with cash rewards",
+      "country": "US",
+      "success": true,
+      "usedStaleData": false,
+      "count": 55,
+      "error": null
+    },
+    {
+      "id": "ns-reward",
+      "name": "Nova Scotia Rewards for Major Unsolved Crimes",
+      "country": "Canada",
+      "success": true,
+      "usedStaleData": false,
+      "count": 117,
+      "error": null
+    },
+    {
+      "id": "uspis",
+      "name": "U.S. Postal Inspection Service wanted posters with cash rewards",
+      "country": "US",
+      "success": true,
+      "usedStaleData": false,
+      "count": 292,
+      "error": null
+    },
+    {
+      "id": "txdps",
+      "name": "Texas DPS active Most Wanted reward directories",
+      "country": "US",
+      "success": true,
+      "usedStaleData": false,
+      "count": 75,
+      "error": null
+    }
+  ]
+}

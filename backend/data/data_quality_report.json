@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-05T22:23:01.077980+00:00",
+  "totalCases": 2073,
+  "sourceRecords": 2110,
+  "multiSourceCases": 37,
+  "countries": {
+    "Canada": 263,
+    "US": 1810
+  },
+  "statuses": {
+    "Closed": 4,
+    "Information Requested": 1365,
+    "Open": 704
+  },
+  "sources": {
+    "CFSEU-BC": 3,
+    "Cranbrook RCMP": 1,
+    "Edmonton Police Service": 10,
+    "Federal Bureau of Investigation": 1196,
+    "Fugitifs Quebec": 15,
+    "Hope RCMP": 1,
+    "IHIT": 1,
+    "Kamloops RCMP": 2,
+    "Nanaimo RCMP": 1,
+    "Nova Scotia Department of Justice": 117,
+    "Ontario Provincial Police": 92,
+    "Prince George RCMP": 7,
+    "Prince Rupert RCMP": 1,
+    "Ridge Meadows RCMP": 1,
+    "Saskatchewan RCMP": 6,
+    "Terrace RCMP": 2,
+    "Texas Department of Public Safety": 75,
+    "U.S. Department of State - Rewards for Justice": 229,
+    "U.S. Marshals Service": 55,
+    "United States Postal Inspection Service": 292,
+    "Vancouver Police Department": 2,
+    "West Shore RCMP": 1
+  },
+  "rewards": {
+    "published": 1321,
+    "notPublished": 752,
+    "maximum": 25000000,
+    "currencies": {
+      "CAD": 209,
+      "USD": 1112
+    }
+  },
+  "images": {
+    "casesWithoutPrimaryImage": 0,
+    "localPrimaryImages": 75,
+    "remotePrimaryImages": 1998
+  },
+  "regions": {
+    "casesWithoutRegion": 45
+  },
+  "freshness": {
+    "allSourcesFresh": true,
+    "staleSources": []
+  },
+  "checks": {
+    "uniqueCaseIds": true,
+    "rewardUnitsConsistent": true,
+    "rewardCurrenciesPresent": true
+  }
+}

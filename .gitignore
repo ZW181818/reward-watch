@@ -1,0 +1,16 @@
+node_modules/
+.expo/
+dist/
+web-build/
+.codex-export/
+.codex-run/
+.wrangler/
+
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+.env
+.env.local
+*.db

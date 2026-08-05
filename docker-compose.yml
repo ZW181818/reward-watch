@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-reward_watch}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-reward_watch_local}
+      POSTGRES_USER: ${POSTGRES_USER:-reward_watch}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-reward_watch} -d ${POSTGRES_DB:-reward_watch}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    ports:
+      - "5432:5432"
+    volumes:
+      - reward-watch-postgres:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-reward_watch}:${POSTGRES_PASSWORD:-reward_watch_local}@postgres:5432/${POSTGRES_DB:-reward_watch}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8081,http://127.0.0.1:8081}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET:-reward-watch-local-development-secret-change-me}
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    volumes:
+      - reward-watch-media:/app/backend/data/media
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: ["python", "scripts/hourly_sync.py"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-reward_watch}:${POSTGRES_PASSWORD:-reward_watch_local}@postgres:5432/${POSTGRES_DB:-reward_watch}
+      SYNC_MINUTE: ${SYNC_MINUTE:-20}
+      SYNC_RUN_ON_STARTUP: ${SYNC_RUN_ON_STARTUP:-true}
+    restart: unless-stopped
+    volumes:
+      - reward-watch-media:/app/backend/data/media
+
+volumes:
+  reward-watch-media:
+  reward-watch-postgres:

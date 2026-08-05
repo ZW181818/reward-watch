@@ -1,0 +1,80 @@
+[
+  {
+    "id": "us-aurora-001",
+    "title": "Aurora County Witness Assistance Notice",
+    "agency": "Aurora County Public Safety Office",
+    "country": "US",
+    "reward": 25000,
+    "status": "Open",
+    "summary": "Investigators are requesting public information about a fictional commercial property incident. The notice is intended for tips submitted through official channels only.",
+    "publishedDate": "2026-07-29",
+    "lastVerified": "2026-08-02",
+    "sourceUrl": "https://example.gov/reward-watch/us-aurora-001",
+    "imageUrl": null
+  },
+  {
+    "id": "ca-northbridge-002",
+    "title": "Northbridge Transit Property Damage Inquiry",
+    "agency": "Northbridge Regional Police Service",
+    "country": "Canada",
+    "reward": 10000,
+    "status": "Information Requested",
+    "summary": "A fictional Canadian public agency is seeking information related to a transit property damage investigation. Members of the public should not make contact with any person involved.",
+    "publishedDate": "2026-07-25",
+    "lastVerified": "2026-08-01",
+    "sourceUrl": "https://example.ca/reward-watch/ca-northbridge-002",
+    "imageUrl": null
+  },
+  {
+    "id": "us-harbor-003",
+    "title": "Harbor District Arson Tip Reward",
+    "agency": "Harbor District Fire Marshal",
+    "country": "US",
+    "reward": 50000,
+    "status": "Open",
+    "summary": "This fictional notice offers a reward for information about an arson investigation at a storage facility. Tips must be submitted directly to the listed agency.",
+    "publishedDate": "2026-07-18",
+    "lastVerified": "2026-07-31",
+    "sourceUrl": "https://example.gov/reward-watch/us-harbor-003",
+    "imageUrl": null
+  },
+  {
+    "id": "ca-prairie-004",
+    "title": "Prairie Lakes Missing Property Reward",
+    "agency": "Prairie Lakes Community Safety Department",
+    "country": "Canada",
+    "reward": 7500,
+    "status": "Open",
+    "summary": "A fictional public notice requests information about missing municipal equipment. The reward applies only to information provided through official reporting channels.",
+    "publishedDate": "2026-07-14",
+    "lastVerified": "2026-07-30",
+    "sourceUrl": "https://example.ca/reward-watch/ca-prairie-004",
+    "imageUrl": null
+  },
+  {
+    "id": "us-summit-005",
+    "title": "Summit Junction Financial Fraud Bulletin",
+    "agency": "Summit Junction Consumer Protection Bureau",
+    "country": "US",
+    "reward": 15000,
+    "status": "Open",
+    "summary": "This fictional bulletin asks for information related to a suspected financial fraud pattern. It does not authorize private investigation or direct engagement.",
+    "publishedDate": "2026-07-10",
+    "lastVerified": "2026-07-29",
+    "sourceUrl": "https://example.gov/reward-watch/us-summit-005",
+    "imageUrl": null
+  },
+  {
+    "id": "ca-maple-006",
+    "title": "Maple Coast Public Assistance Request",
+    "agency": "Maple Coast Provincial Investigation Service",
+    "country": "Canada",
+    "reward": 30000,
+    "status": "Information Requested",
+    "summary": "A fictional provincial agency is collecting tips connected to a public safety investigation. Any information should be sent to the official agency source.",
+    "publishedDate": "2026-07-04",
+    "lastVerified": "2026-07-28",
+    "sourceUrl": "https://example.ca/reward-watch/ca-maple-006",
+    "imageUrl": null
+  }
+]

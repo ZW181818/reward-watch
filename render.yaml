@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: reward-watch-api
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: CORS_ORIGINS
+        value: https://reward-watch.pages.dev
+      - key: ADMIN_JWT_SECRET
+        generateValue: true
