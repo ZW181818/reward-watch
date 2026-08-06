@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { API_BASE_URL, fetchCase, resolveApiAssetUrl } from '@/lib/cases';
+import { fetchCase, resolveApiAssetUrl } from '@/lib/cases';
 import {
   formatCaseReward,
   formatRewardAmount,
@@ -24,15 +24,12 @@ import {
   getCaseSourceName,
 } from '@/lib/case-display';
 import { isCaseFavorite, loadFavoriteIds, toggleFavoriteCase } from '@/lib/favorites';
+import { LanguageSelector } from '@/components/language-selector';
+import { getLocalizedCountry, getLocalizedStatus, useLanguage } from '@/lib/i18n';
 import type { RewardCase } from '@/types/reward-case';
 
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  month: 'short',
-  day: 'numeric',
-  year: 'numeric',
-});
-
 export default function CaseDetailScreen() {
+  const { formatDate, t } = useLanguage();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [rewardCase, setRewardCase] = useState<RewardCase | null>(null);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -98,28 +95,29 @@ export default function CaseDetailScreen() {
                 size={16}
                 tintColor="#6C63FF"
               />
-              <Text style={styles.backLinkText}>All Cases</Text>
+              <Text style={styles.backLinkText}>{t('allCases')}</Text>
             </Pressable>
           </Link>
 
-          <Link href="/favorites" asChild>
-            <Pressable accessibilityRole="link" style={styles.savedLink}>
-              <Text style={styles.savedLinkText}>Saved</Text>
-            </Pressable>
-          </Link>
+          <View style={styles.topBarActions}>
+            <LanguageSelector />
+            <Link href="/favorites" asChild>
+              <Pressable accessibilityRole="link" style={styles.savedLink}>
+                <Text style={styles.savedLinkText}>{t('saved')}</Text>
+              </Pressable>
+            </Link>
+          </View>
         </View>
 
         {isLoading ? (
           <View style={styles.loadingArea}>
             <ActivityIndicator color="#6366F1" />
-            <Text style={styles.loadingText}>Loading case details</Text>
+            <Text style={styles.loadingText}>{t('loadingCaseDetails')}</Text>
           </View>
         ) : error || !rewardCase ? (
           <View style={styles.errorState}>
-            <Text style={styles.errorTitle}>Case unavailable</Text>
-            <Text style={styles.errorText}>
-              {error ?? `The API at ${API_BASE_URL} did not return this case.`}
-            </Text>
+            <Text style={styles.errorTitle}>{t('caseUnavailable')}</Text>
+            <Text style={styles.errorText}>{error ?? t('apiLoadHint')}</Text>
           </View>
         ) : (
           <>
@@ -129,10 +127,10 @@ export default function CaseDetailScreen() {
               <View style={styles.heroCopy}>
                 <View style={styles.metaRow}>
                   <View style={styles.countryBadge}>
-                    <Text style={styles.countryBadgeText}>{rewardCase.country}</Text>
+                    <Text style={styles.countryBadgeText}>{getLocalizedCountry(rewardCase.country, t)}</Text>
                   </View>
                   <View style={styles.sourceStack}>
-                    <Text style={styles.sourceEyebrow}>Official source</Text>
+                    <Text style={styles.sourceEyebrow}>{t('officialSource')}</Text>
                     <Text style={styles.sourceName} numberOfLines={1}>
                       {getCaseSourceName(rewardCase)}
                     </Text>
@@ -155,13 +153,13 @@ export default function CaseDetailScreen() {
                 ) : null}
 
                 <View style={styles.factGrid}>
-                  <Fact label="Reward" value={formatCaseReward(rewardCase)} emphasis />
-                  <Fact label="Status" value={rewardCase.status} />
-                  <Fact label="Published" value={formatDate(rewardCase.publishedDate)} />
+                  <Fact label={t('reward')} value={formatCaseReward(rewardCase)} emphasis />
+                  <Fact label={t('status')} value={getLocalizedStatus(rewardCase.status, t)} />
+                  <Fact label={t('published')} value={formatDate(rewardCase.publishedDate)} />
                   {rewardCase.sourceUpdatedDate ? (
-                    <Fact label="Source updated" value={formatDate(rewardCase.sourceUpdatedDate)} />
+                    <Fact label={t('sourceUpdated')} value={formatDate(rewardCase.sourceUpdatedDate)} />
                   ) : null}
-                  <Fact label="Data checked" value={formatDate(rewardCase.lastVerified)} />
+                  <Fact label={t('dataChecked')} value={formatDate(rewardCase.lastVerified)} />
                 </View>
 
                 <View style={styles.actionRow}>
@@ -179,7 +177,7 @@ export default function CaseDetailScreen() {
                         styles.favoriteButtonText,
                         isFavorite && styles.favoriteButtonTextActive,
                       ]}>
-                      {isFavorite ? 'Saved' : 'Save case'}
+                      {isFavorite ? t('saved') : t('saveCase')}
                     </Text>
                   </Pressable>
 
@@ -187,7 +185,7 @@ export default function CaseDetailScreen() {
                     accessibilityRole="link"
                     onPress={() => Linking.openURL(rewardCase.sourceUrl)}
                     style={styles.sourceButton}>
-                    <Text style={styles.sourceButtonText}>Official source</Text>
+                    <Text style={styles.sourceButtonText}>{t('officialSource')}</Text>
                     <SymbolView
                       name={{ ios: 'arrow.up.right', android: 'open_in_new', web: 'open_in_new' }}
                       size={16}
@@ -208,18 +206,18 @@ export default function CaseDetailScreen() {
                   />
                 </View>
                 <View style={styles.officialWarningCopy}>
-                  <Text style={styles.officialWarningLabel}>Official source warning</Text>
+                  <Text style={styles.officialWarningLabel}>{t('officialSourceWarning')}</Text>
                   <Text style={styles.officialWarningText}>{rewardCase.warningMessage}</Text>
                 </View>
               </View>
             ) : null}
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Case summary</Text>
+              <Text style={styles.sectionTitle}>{t('caseSummary')}</Text>
               <Text style={styles.summary}>{rewardCase.summary}</Text>
               {rewardCase.rewardText ? (
                 <View style={styles.rewardStatement}>
-                  <Text style={styles.rewardStatementLabel}>Official reward notice</Text>
+                  <Text style={styles.rewardStatementLabel}>{t('officialRewardNotice')}</Text>
                   <Text style={styles.rewardStatementText}>{rewardCase.rewardText}</Text>
                 </View>
               ) : null}
@@ -237,7 +235,7 @@ export default function CaseDetailScreen() {
                 />
               </View>
               <Text style={styles.safetyText}>
-                Do not approach any individual. Submit information directly to the official source.
+                {t('safetyMessage')}
               </Text>
             </View>
           </>
@@ -248,6 +246,7 @@ export default function CaseDetailScreen() {
 }
 
 function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: RewardCase }) {
+  const { t } = useLanguage();
   const images = useMemo(() => getCaseImages(rewardCase), [rewardCase]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -304,7 +303,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
             size={58}
             tintColor="#5A63D8"
           />
-          <Text style={styles.placeholderText}>Official Notice</Text>
+          <Text style={styles.placeholderText}>{t('officialNotice')}</Text>
         </View>
       </View>
     );
@@ -315,8 +314,8 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
       <Pressable
         accessibilityLabel={
           mainImageFailed
-            ? `Retry photo ${selectedIndex + 1} of ${images.length}`
-            : `Open photo ${selectedIndex + 1} of ${images.length}`
+            ? t('retryPhoto', { current: selectedIndex + 1, total: images.length })
+            : t('openPhoto', { current: selectedIndex + 1, total: images.length })
         }
         accessibilityRole="button"
         onPress={() => {
@@ -332,7 +331,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
         <ReliableImage
           accessibilityLabel={`${rewardCase.title} official case image ${selectedIndex + 1}`}
           contentFit="cover"
-          fallbackLabel="Tap to retry"
+          fallbackLabel={t('tapToRetry')}
           onFinalError={() => setMainImageFailed(true)}
           onLoad={() => setMainImageFailed(false)}
           priority="high"
@@ -347,7 +346,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
             tintColor="#FFFFFF"
           />
           <Text style={styles.photoCountText}>
-            {images.length === 1 ? 'View photo' : `View all ${images.length}`}
+            {images.length === 1 ? t('viewPhoto') : t('viewAllPhotos', { count: images.length })}
           </Text>
         </View>
       </Pressable>
@@ -359,7 +358,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
           showsHorizontalScrollIndicator={false}>
           {images.map((imageUrl, index) => (
             <Pressable
-              accessibilityLabel={`Show photo ${index + 1}`}
+              accessibilityLabel={t('showPhoto', { number: index + 1 })}
               accessibilityRole="button"
               key={imageUrl}
               onPress={() => setSelectedIndex(index)}
@@ -393,13 +392,13 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
         <SafeAreaView style={styles.viewerBackdrop}>
           <View style={styles.viewerHeader}>
             <View>
-              <Text style={styles.viewerTitle}>Case photos</Text>
+              <Text style={styles.viewerTitle}>{t('casePhotos')}</Text>
               <Text style={styles.viewerCounter}>
-                {selectedIndex + 1} of {images.length}
+                {t('photoCounter', { current: selectedIndex + 1, total: images.length })}
               </Text>
             </View>
             <Pressable
-              accessibilityLabel="Close photo viewer"
+              accessibilityLabel={t('closePhotoViewer')}
               accessibilityRole="button"
               onPress={() => setIsViewerOpen(false)}
               style={styles.viewerCloseButton}>
@@ -413,7 +412,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
 
           <View style={[styles.viewerStage, { minHeight: Math.max(280, height - 230) }]}>
             <Pressable
-              accessibilityLabel="Previous photo"
+              accessibilityLabel={t('previousPhoto')}
               accessibilityRole="button"
               disabled={selectedIndex === 0}
               onPress={selectPrevious}
@@ -437,7 +436,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
             />
 
             <Pressable
-              accessibilityLabel="Next photo"
+              accessibilityLabel={t('nextPhoto')}
               accessibilityRole="button"
               disabled={selectedIndex === images.length - 1}
               onPress={selectNext}
@@ -460,7 +459,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
               showsHorizontalScrollIndicator={false}>
               {images.map((imageUrl, index) => (
                 <Pressable
-                  accessibilityLabel={`View photo ${index + 1}`}
+                  accessibilityLabel={t('showPhoto', { number: index + 1 })}
                   accessibilityRole="button"
                   key={imageUrl}
                   onPress={() => setSelectedIndex(index)}
@@ -502,7 +501,7 @@ function getCaseImages(rewardCase: RewardCase) {
 function ReliableImage({
   accessibilityLabel,
   contentFit,
-  fallbackLabel = 'Image unavailable',
+  fallbackLabel,
   maxRetries = 3,
   onFinalError,
   onLoad,
@@ -522,6 +521,8 @@ function ReliableImage({
   style: ImageProps['style'];
   uri: string;
 }) {
+  const { t } = useLanguage();
+  const resolvedFallbackLabel = fallbackLabel ?? t('imageUnavailable');
   const [attempt, setAttempt] = useState(0);
   const [hasFailed, setHasFailed] = useState(false);
   const loadTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -585,8 +586,8 @@ function ReliableImage({
           size={24}
           tintColor="#8793A8"
         />
-        {fallbackLabel ? (
-          <Text style={styles.reliableImageFallbackText}>{fallbackLabel}</Text>
+        {resolvedFallbackLabel ? (
+          <Text style={styles.reliableImageFallbackText}>{resolvedFallbackLabel}</Text>
         ) : null}
       </View>
     );
@@ -645,24 +646,25 @@ function Fact({
 }
 
 function CaseProfile({ rewardCase }: { rewardCase: RewardCase }) {
+  const { t } = useLanguage();
   const profileItems = [
     {
-      label: rewardCase.country === 'US' ? 'State' : 'Province',
+      label: rewardCase.country === 'US' ? t('state') : t('province'),
       value: getCaseRegionLabel(rewardCase),
     },
-    { label: 'Aliases', value: rewardCase.aliases?.join(', ') },
-    { label: 'Age', value: rewardCase.age },
-    { label: 'Date of birth used', value: rewardCase.dateOfBirth },
-    { label: 'Place of birth', value: rewardCase.placeOfBirth },
-    { label: 'Sex', value: rewardCase.sex },
-    { label: 'Race', value: rewardCase.race },
-    { label: 'Nationality', value: rewardCase.nationality },
-    { label: 'Hair', value: rewardCase.hair },
-    { label: 'Eyes', value: rewardCase.eyes },
-    { label: 'Height', value: rewardCase.height },
-    { label: 'Weight', value: rewardCase.weight },
-    { label: 'Possible communities', value: rewardCase.locations },
-    { label: 'Identifying features', value: rewardCase.distinguishingFeatures },
+    { label: t('aliases'), value: rewardCase.aliases?.join(', ') },
+    { label: t('age'), value: rewardCase.age },
+    { label: t('dateOfBirthUsed'), value: rewardCase.dateOfBirth },
+    { label: t('placeOfBirth'), value: rewardCase.placeOfBirth },
+    { label: t('sex'), value: rewardCase.sex },
+    { label: t('race'), value: rewardCase.race },
+    { label: t('nationality'), value: rewardCase.nationality },
+    { label: t('hair'), value: rewardCase.hair },
+    { label: t('eyes'), value: rewardCase.eyes },
+    { label: t('height'), value: rewardCase.height },
+    { label: t('weight'), value: rewardCase.weight },
+    { label: t('possibleCommunities'), value: rewardCase.locations },
+    { label: t('identifyingFeatures'), value: rewardCase.distinguishingFeatures },
   ].filter((item): item is { label: string; value: string } => Boolean(item.value));
 
   if (profileItems.length === 0) {
@@ -671,7 +673,7 @@ function CaseProfile({ rewardCase }: { rewardCase: RewardCase }) {
 
   return (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>Official case information</Text>
+      <Text style={styles.sectionTitle}>{t('officialCaseInformation')}</Text>
       <View style={styles.profileGrid}>
         {profileItems.map((item) => (
           <View key={item.label} style={styles.profileItem}>
@@ -685,16 +687,17 @@ function CaseProfile({ rewardCase }: { rewardCase: RewardCase }) {
 }
 
 function OfficialSources({ rewardCase }: { rewardCase: RewardCase }) {
+  const { t } = useLanguage();
   const sources = getCaseOfficialSources(rewardCase);
 
   return (
     <View style={styles.sourceAttribution}>
       <Text style={styles.sourceAttributionLabel}>
-        {sources.length > 1 ? `Official sources (${sources.length})` : 'Source attribution'}
+        {sources.length > 1 ? t('officialSources', { count: sources.length }) : t('sourceAttribution')}
       </Text>
       {sources.map((source) => (
         <Pressable
-          accessibilityLabel={`Open official source from ${source.author}`}
+          accessibilityLabel={t('openOfficialSource', { source: source.author })}
           accessibilityRole="link"
           key={`${source.caseId}-${source.url}`}
           onPress={() => Linking.openURL(source.url)}
@@ -725,16 +728,6 @@ function OfficialSources({ rewardCase }: { rewardCase: RewardCase }) {
   );
 }
 
-function formatDate(value: string) {
-  const parsedDate = new Date(`${value}T00:00:00`);
-
-  if (Number.isNaN(parsedDate.getTime())) {
-    return value;
-  }
-
-  return dateFormatter.format(parsedDate);
-}
-
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
@@ -753,6 +746,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    position: 'relative',
+    zIndex: 100,
+  },
+  topBarActions: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
   },
   backLink: {
     alignItems: 'center',

@@ -13,13 +13,15 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { API_BASE_URL, fetchCasePage, type CaseSortMode } from '@/lib/cases';
+import { fetchCasePage, type CaseSortMode } from '@/lib/cases';
 import {
   formatCaseReward,
   getCaseRegionLabel,
   getCaseSourceName,
 } from '@/lib/case-display';
 import { ReliableCaseImage } from '@/components/reliable-case-image';
+import { LanguageSelector } from '@/components/language-selector';
+import { getLocalizedCountry, getLocalizedStatus, useLanguage } from '@/lib/i18n';
 import type { CaseFacets, RewardCase, RewardCountry } from '@/types/reward-case';
 
 type CountryFilter = 'All' | RewardCountry;
@@ -30,20 +32,8 @@ type SortMode = CaseSortMode;
 type RegionOption = { count: number; label: string };
 
 const countryFilters: CountryFilter[] = ['All', 'US', 'Canada'];
-const sortOptions: { label: string; value: SortMode }[] = [
-  { label: 'Newest', value: 'published_desc' },
-  { label: 'Reward high to low', value: 'reward_desc' },
-  { label: 'Reward low to high', value: 'reward_asc' },
-  { label: 'Title A-Z', value: 'title_asc' },
-];
 const pageSize = 12;
 const emptyFacets: CaseFacets = { regions: [], sources: [], statuses: [] };
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  month: 'short',
-  day: 'numeric',
-  year: 'numeric',
-});
 
 function useDebouncedValue(value: string, delayMs: number) {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -57,6 +47,7 @@ function useDebouncedValue(value: string, delayMs: number) {
 }
 
 export default function CasesScreen() {
+  const { t } = useLanguage();
   const [cases, setCases] = useState<RewardCase[]>([]);
   const [query, setQuery] = useState('');
   const [country, setCountry] = useState<CountryFilter>('All');
@@ -112,6 +103,12 @@ export default function CasesScreen() {
   }, [country, debouncedQuery, region, sortMode, source, status]);
 
   const statusOptions = ['All', ...facets.statuses.map((option) => option.value)];
+  const sortOptions: { label: string; value: SortMode }[] = [
+    { label: t('newest'), value: 'published_desc' },
+    { label: t('rewardHighToLow'), value: 'reward_desc' },
+    { label: t('rewardLowToHigh'), value: 'reward_asc' },
+    { label: t('titleAZ'), value: 'title_asc' },
+  ];
   const regionOptions: RegionOption[] = facets.regions.map((option) => ({
     count: option.count,
     label: option.value,
@@ -142,7 +139,7 @@ export default function CasesScreen() {
       setTotal(response.total);
       setError(null);
     } catch (requestError) {
-      setError(requestError instanceof Error ? requestError.message : 'Unable to load more cases');
+      setError(requestError instanceof Error ? requestError.message : t('unableToLoadMore'));
     } finally {
       setIsLoadingMore(false);
     }
@@ -160,19 +157,18 @@ export default function CasesScreen() {
                   size={16}
                   tintColor="#6C63FF"
                 />
-                <Text style={styles.backLinkText}>Home</Text>
+                <Text style={styles.backLinkText}>{t('home')}</Text>
               </Pressable>
             </Link>
-            <Text style={styles.title}>All Cases</Text>
-            <Text style={styles.subtitle}>
-              Search official notices by country, state or province, status, and reward amount.
-            </Text>
+            <Text style={styles.title}>{t('allCases')}</Text>
+            <Text style={styles.subtitle}>{t('casesSubtitle')}</Text>
           </View>
-          <View style={styles.resultSummary}>
-            <Text style={styles.resultNumber}>{total}</Text>
-            <Text style={styles.resultLabel}>
-              {total === 1 ? 'result' : 'results'}
-            </Text>
+          <View style={styles.headerAside}>
+            <LanguageSelector />
+            <View style={styles.resultSummary}>
+              <Text style={styles.resultNumber}>{total}</Text>
+              <Text style={styles.resultLabel}>{total === 1 ? t('result') : t('results')}</Text>
+            </View>
           </View>
         </View>
 
@@ -183,30 +179,30 @@ export default function CasesScreen() {
             tintColor="#667085"
           />
           <TextInput
-            accessibilityLabel="Search all cases"
+            accessibilityLabel={t('searchAllCases')}
             autoCapitalize="none"
             autoCorrect={false}
             onChangeText={setQuery}
-            placeholder="Search titles, sources, locations or summaries"
+            placeholder={t('searchAllPlaceholder')}
             placeholderTextColor="#8A94A6"
             style={styles.searchInput}
             value={query}
           />
           {query.length > 0 && (
             <Pressable accessibilityRole="button" onPress={() => setQuery('')} style={styles.clearButton}>
-              <Text style={styles.clearButtonText}>Clear</Text>
+              <Text style={styles.clearButtonText}>{t('clear')}</Text>
             </Pressable>
           )}
         </View>
 
         <View style={styles.filterSurface}>
-          <FilterBlock label="Country">
+          <FilterBlock label={t('country')}>
             <View style={styles.segmentedControl}>
               {countryFilters.map((filter) => (
                 <FilterButton
                   isActive={country === filter}
                   key={filter}
-                  label={filter}
+                  label={getLocalizedCountry(filter, t)}
                   onPress={() => {
                     setCountry(filter);
                     setRegion('All');
@@ -219,13 +215,13 @@ export default function CasesScreen() {
             </View>
           </FilterBlock>
 
-          <FilterBlock label="Status">
+          <FilterBlock label={t('status')}>
             <View style={styles.chipRowWrap}>
               {statusOptions.map((option) => (
                 <Chip
                   isActive={status === option}
                   key={option}
-                  label={option}
+                  label={option === 'All' ? t('all') : getLocalizedStatus(option, t)}
                   onPress={() => setStatus(option)}
                 />
               ))}
@@ -249,7 +245,7 @@ export default function CasesScreen() {
           <RegionSelect
             country={country === 'Canada' ? 'Canada' : 'US'}
             isOpen={isSourceMenuOpen}
-            label="Source"
+            label={t('source')}
             onSelect={(nextSource) => {
               setSource(nextSource);
               setIsSourceMenuOpen(false);
@@ -259,7 +255,7 @@ export default function CasesScreen() {
             value={source}
           />
 
-          <FilterBlock label="Sort">
+          <FilterBlock label={t('sort')}>
             <View style={styles.chipRowWrap}>
               {sortOptions.map((option) => (
                 <Chip
@@ -275,17 +271,15 @@ export default function CasesScreen() {
 
         {error && (
           <View style={styles.notice}>
-            <Text style={styles.noticeTitle}>Unable to load cases</Text>
-            <Text style={styles.noticeText}>
-              The API at {API_BASE_URL} did not respond successfully.
-            </Text>
+            <Text style={styles.noticeTitle}>{t('unableToLoadCases')}</Text>
+            <Text style={styles.noticeText}>{t('apiLoadHint')}</Text>
           </View>
         )}
 
         {isLoading ? (
           <View style={styles.loadingArea}>
             <ActivityIndicator color="#6366F1" />
-            <Text style={styles.loadingText}>Loading all cases</Text>
+            <Text style={styles.loadingText}>{t('loadingAllCases')}</Text>
           </View>
         ) : cases.length === 0 ? (
           <EmptyState onReset={() => {
@@ -301,9 +295,9 @@ export default function CasesScreen() {
         ) : (
           <>
             <View style={styles.listHeader}>
-              <Text style={styles.listTitle}>Cases</Text>
+              <Text style={styles.listTitle}>{t('cases')}</Text>
               <Text style={styles.listMeta}>
-                Showing {cases.length} of {total}
+                {t('showingResults', { visible: cases.length, total })}
               </Text>
             </View>
 
@@ -328,7 +322,7 @@ export default function CasesScreen() {
                 {isLoadingMore ? (
                   <ActivityIndicator color="#FFFFFF" />
                 ) : (
-                  <Text style={styles.loadMoreText}>Load more cases</Text>
+                  <Text style={styles.loadMoreText}>{t('loadMoreCases')}</Text>
                 )}
               </Pressable>
             )}
@@ -386,18 +380,15 @@ function RegionSelect({
   options: RegionOption[];
   value: RegionFilter;
 }) {
-  const categoryLabel = label ?? (country === 'US' ? 'State' : 'Province');
-  const allLabel = label
-    ? `All ${label.toLowerCase()}s`
-    : country === 'US'
-      ? 'All states'
-      : 'All provinces';
+  const { t } = useLanguage();
+  const categoryLabel = label ?? (country === 'US' ? t('state') : t('province'));
+  const allLabel = label ? t('allSources') : country === 'US' ? t('allStates') : t('allProvinces');
 
   return (
     <FilterBlock label={categoryLabel}>
       <View style={styles.regionSelect}>
         <Pressable
-          accessibilityLabel={`Choose ${categoryLabel.toLowerCase()}`}
+          accessibilityLabel={t('chooseValue', { label: categoryLabel })}
           accessibilityRole="button"
           onPress={onToggle}
           style={[styles.regionSelectButton, isOpen && styles.regionSelectButtonOpen]}>
@@ -493,6 +484,8 @@ function Chip({
 }
 
 function EmptyState({ onReset }: { onReset: () => void }) {
+  const { t } = useLanguage();
+
   return (
     <View style={styles.emptyState}>
       <SymbolView
@@ -500,12 +493,10 @@ function EmptyState({ onReset }: { onReset: () => void }) {
         size={36}
         tintColor="#667085"
       />
-      <Text style={styles.emptyTitle}>No cases match these filters</Text>
-      <Text style={styles.emptyText}>
-        Try clearing the search term or broadening the country, region, or status filters.
-      </Text>
+      <Text style={styles.emptyTitle}>{t('emptyCasesTitle')}</Text>
+      <Text style={styles.emptyText}>{t('emptyCasesBody')}</Text>
       <Pressable accessibilityRole="button" onPress={onReset} style={styles.resetButton}>
-        <Text style={styles.resetButtonText}>Reset filters</Text>
+        <Text style={styles.resetButtonText}>{t('resetFilters')}</Text>
       </Pressable>
     </View>
   );
@@ -522,6 +513,7 @@ function CaseListCard({
   showRegion: boolean;
   visualIndex: number;
 }) {
+  const { formatDate, t } = useLanguage();
   const statusStyle =
     rewardCase.status === 'Open'
       ? styles.statusOpen
@@ -548,7 +540,7 @@ function CaseListCard({
               <Text style={styles.countryBadgeText}>{rewardCase.country === 'Canada' ? 'CA' : 'US'}</Text>
             </View>
             <View style={styles.sourceStack}>
-              <Text style={styles.sourceEyebrow}>Official source</Text>
+              <Text style={styles.sourceEyebrow}>{t('officialSource')}</Text>
               <Text style={styles.sourceName} numberOfLines={1}>
                 {getCaseSourceName(rewardCase)}
               </Text>
@@ -568,15 +560,15 @@ function CaseListCard({
         </View>
         <View style={[styles.statusPill, statusStyle]}>
           <Text style={[styles.statusText, statusTextStyle]} numberOfLines={1}>
-            {rewardCase.status}
+            {getLocalizedStatus(rewardCase.status, t)}
           </Text>
         </View>
       </View>
 
       <View style={styles.cardFooter}>
-        <InfoItem label="Reward" value={formatCaseReward(rewardCase)} valueStyle={styles.rewardValue} />
-        <InfoItem label="Published" value={formatDate(rewardCase.publishedDate)} />
-        <InfoItem label="Data checked" value={formatDate(rewardCase.lastVerified)} />
+        <InfoItem label={t('reward')} value={formatCaseReward(rewardCase)} valueStyle={styles.rewardValue} />
+        <InfoItem label={t('published')} value={formatDate(rewardCase.publishedDate)} />
+        <InfoItem label={t('dataChecked')} value={formatDate(rewardCase.lastVerified)} />
       </View>
     </Pressable>
     </Link>
@@ -625,16 +617,6 @@ function InfoItem({
   );
 }
 
-function formatDate(value: string) {
-  const parsedDate = new Date(`${value}T00:00:00`);
-
-  if (Number.isNaN(parsedDate.getTime())) {
-    return value;
-  }
-
-  return dateFormatter.format(parsedDate);
-}
-
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
@@ -651,11 +633,17 @@ const styles = StyleSheet.create({
   },
   header: {
     gap: 18,
+    position: 'relative',
+    zIndex: 100,
   },
   headerWide: {
     alignItems: 'flex-end',
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  headerAside: {
+    alignItems: 'flex-end',
+    gap: 10,
   },
   headerCopy: {
     flex: 1,

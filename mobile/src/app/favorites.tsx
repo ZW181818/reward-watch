@@ -15,9 +15,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { fetchCase } from '@/lib/cases';
 import { formatCaseReward, getCaseSourceName } from '@/lib/case-display';
 import { isCaseFavorite, loadFavoriteIds } from '@/lib/favorites';
+import { LanguageSelector } from '@/components/language-selector';
+import { useLanguage } from '@/lib/i18n';
 import type { RewardCase } from '@/types/reward-case';
 
 export default function FavoritesScreen() {
+  const { t } = useLanguage();
   const [cases, setCases] = useState<RewardCase[]>([]);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -77,26 +80,25 @@ export default function FavoritesScreen() {
                 size={16}
                 tintColor="#6C63FF"
               />
-              <Text style={styles.backLinkText}>Home</Text>
+              <Text style={styles.backLinkText}>{t('home')}</Text>
             </Pressable>
           </Link>
+          <LanguageSelector />
         </View>
 
         <View style={styles.header}>
-          <Text style={styles.title}>Saved Cases</Text>
-          <Text style={styles.subtitle}>
-            Cases saved locally on this device. No account or cloud sync is used in MVP0.
-          </Text>
+          <Text style={styles.title}>{t('savedCases')}</Text>
+          <Text style={styles.subtitle}>{t('savedCasesSubtitle')}</Text>
         </View>
 
         {isLoading ? (
           <View style={styles.loadingArea}>
             <ActivityIndicator color="#6366F1" />
-            <Text style={styles.loadingText}>Loading saved cases</Text>
+            <Text style={styles.loadingText}>{t('loadingSavedCases')}</Text>
           </View>
         ) : error ? (
           <View style={styles.stateCard}>
-            <Text style={styles.stateTitle}>Unable to load saved cases</Text>
+            <Text style={styles.stateTitle}>{t('unableToLoadSaved')}</Text>
             <Text style={styles.stateText}>{error}</Text>
           </View>
         ) : favoriteCases.length === 0 ? (
@@ -106,13 +108,11 @@ export default function FavoritesScreen() {
               size={38}
               tintColor="#667085"
             />
-            <Text style={styles.stateTitle}>No saved cases yet</Text>
-            <Text style={styles.stateText}>
-              Open a case detail page and tap Save case to keep it here.
-            </Text>
+            <Text style={styles.stateTitle}>{t('noSavedCasesTitle')}</Text>
+            <Text style={styles.stateText}>{t('noSavedCasesBody')}</Text>
             <Link href="/cases" asChild>
               <Pressable accessibilityRole="link" style={styles.primaryButton}>
-                <Text style={styles.primaryButtonText}>Browse cases</Text>
+                <Text style={styles.primaryButtonText}>{t('browseCases')}</Text>
               </Pressable>
             </Link>
           </View>
@@ -131,7 +131,7 @@ export default function FavoritesScreen() {
                     />
                   </View>
                   <View style={styles.cardBody}>
-                    <Text style={styles.sourceEyebrow}>Official source</Text>
+                    <Text style={styles.sourceEyebrow}>{t('officialSource')}</Text>
                     <Text style={styles.sourceName} numberOfLines={1}>
                       {getCaseSourceName(rewardCase)}
                     </Text>
@@ -167,6 +167,9 @@ const styles = StyleSheet.create({
   topBar: {
     alignItems: 'center',
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    position: 'relative',
+    zIndex: 100,
   },
   backLink: {
     alignItems: 'center',

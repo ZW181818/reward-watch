@@ -13,13 +13,15 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { API_BASE_URL, fetchCase, fetchCasePage, fetchHomeSettings } from '@/lib/cases';
+import { fetchCase, fetchCasePage, fetchHomeSettings } from '@/lib/cases';
 import {
   formatCaseReward,
   getCaseRegionLabel,
   getCaseSourceName,
 } from '@/lib/case-display';
 import { ReliableCaseImage } from '@/components/reliable-case-image';
+import { LanguageSelector } from '@/components/language-selector';
+import { getLocalizedCountry, getLocalizedStatus, useLanguage } from '@/lib/i18n';
 import type { RewardCase, RewardCountry } from '@/types/reward-case';
 
 type CountryFilter = 'All' | RewardCountry;
@@ -33,12 +35,6 @@ const defaultHomeSettings = {
 
 const countryFilters: CountryFilter[] = ['All', 'US', 'Canada'];
 
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  month: 'short',
-  day: 'numeric',
-  year: 'numeric',
-});
-
 function useDebouncedValue(value: string, delayMs: number) {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
@@ -51,6 +47,7 @@ function useDebouncedValue(value: string, delayMs: number) {
 }
 
 export default function HomeScreen() {
+  const { language, t } = useLanguage();
   const [recentCases, setRecentCases] = useState<RewardCase[]>([]);
   const [highestRewardCases, setHighestRewardCases] = useState<RewardCase[]>([]);
   const [visibleTotal, setVisibleTotal] = useState(0);
@@ -112,15 +109,17 @@ export default function HomeScreen() {
             <View style={styles.brandCopy}>
               <Text style={styles.title}>Reward Watch</Text>
               <Text style={styles.subtitle}>
-                {homeSettings.brandSubtitle}
+                {language === 'en' ? homeSettings.brandSubtitle : t('homeSubtitle')}
               </Text>
             </View>
           </View>
 
           <View style={styles.headerActions}>
-            <View style={styles.marketFilterWrap}>
+            <View style={styles.headerControlRow}>
+              <LanguageSelector />
+              <View style={styles.marketFilterWrap}>
               <Pressable
-                accessibilityLabel="Choose country"
+                accessibilityLabel={t('chooseCountry')}
                 accessibilityRole="button"
                 onPress={() => setIsCountryMenuOpen((current) => !current)}
                 style={[styles.marketBadge, isCountryMenuOpen && styles.marketBadgeActive]}>
@@ -129,7 +128,7 @@ export default function HomeScreen() {
                   size={20}
                   tintColor="#5B5FF7"
                 />
-                <Text style={styles.marketBadgeText}>{getCountryLabel(country)}</Text>
+                <Text style={styles.marketBadgeText}>{getLocalizedCountry(country, t)}</Text>
                 <SymbolView
                   name={{ ios: 'chevron.down', android: 'keyboard_arrow_down', web: 'keyboard_arrow_down' }}
                   size={15}
@@ -144,7 +143,7 @@ export default function HomeScreen() {
 
                     return (
                       <Pressable
-                        accessibilityLabel={`Set header country filter to ${getCountryAccessibilityLabel(filter)}`}
+                        accessibilityLabel={`${t('chooseCountry')}: ${getLocalizedCountry(filter, t)}`}
                         accessibilityRole="button"
                         key={filter}
                         onPress={() => {
@@ -157,7 +156,7 @@ export default function HomeScreen() {
                             styles.marketMenuItemText,
                             isSelected && styles.marketMenuItemTextActive,
                           ]}>
-                          {getCountryLabel(filter)}
+                          {getLocalizedCountry(filter, t)}
                         </Text>
                         {isSelected && (
                           <SymbolView
@@ -171,6 +170,7 @@ export default function HomeScreen() {
                   })}
                 </View>
               )}
+              </View>
             </View>
 
             <Link href="/favorites" asChild>
@@ -180,7 +180,7 @@ export default function HomeScreen() {
                   size={16}
                   tintColor="#5B4DFF"
                 />
-                <Text style={styles.savedButtonText}>Saved</Text>
+                <Text style={styles.savedButtonText}>{t('saved')}</Text>
               </Pressable>
             </Link>
           </View>
@@ -189,17 +189,17 @@ export default function HomeScreen() {
         <View style={styles.searchPanel}>
           <View style={[styles.searchBox, !isWide && styles.searchBoxMobile]}>
             <SymbolView
-              fallback={<Text style={styles.searchIconFallback}>Search</Text>}
+              fallback={<Text style={styles.searchIconFallback}>{t('searchCases')}</Text>}
               name={{ ios: 'magnifyingglass', android: 'search', web: 'search' }}
               size={isWide ? 39 : 30}
               tintColor="#6868FF"
             />
             <TextInput
-              accessibilityLabel="Search cases"
+              accessibilityLabel={t('searchCases')}
               autoCapitalize="none"
               autoCorrect={false}
               onChangeText={setQuery}
-              placeholder="Search cases, sources or keywords"
+              placeholder={isWide ? t('searchPlaceholder') : t('searchCases')}
               placeholderTextColor="#66738A"
               style={[styles.searchInput, !isWide && styles.searchInputMobile]}
               value={query}
@@ -215,36 +215,36 @@ export default function HomeScreen() {
                 accessibilityRole="button"
                 onPress={() => setQuery('')}
                 style={styles.clearButton}>
-                <Text style={styles.clearButtonText}>Clear</Text>
+                <Text style={styles.clearButtonText}>{t('clear')}</Text>
               </Pressable>
             )}
           </View>
 
         </View>
 
-        <View style={styles.metricRow}>
+        <View style={[styles.metricRow, !isWide && styles.metricRowMobile]}>
           <Metric
             compact={!isWide}
             iconName={{ ios: 'folder.fill', android: 'folder', web: 'folder' }}
-            label="Visible cases"
+            label={t('visibleCases')}
             tone="violet"
             value={visibleTotal.toString()}
           />
           <Metric
             compact={!isWide}
             iconName={{ ios: 'dollarsign.circle.fill', android: 'attach_money', web: 'attach_money' }}
-            label="Highest reward"
+            label={t('highestReward')}
             tone="green"
             value={
               highestRewardCases[0]
                 ? formatCaseReward(highestRewardCases[0])
-                : 'Not published'
+                : t('notPublished')
             }
           />
           <Metric
             compact={!isWide}
             iconName={{ ios: 'globe.americas.fill', android: 'globe', web: 'globe' }}
-            label="Markets covered"
+            label={t('marketsCovered')}
             tone="blue"
             value="2"
           />
@@ -252,23 +252,21 @@ export default function HomeScreen() {
 
         {error && (
           <View style={styles.notice}>
-            <Text style={styles.noticeTitle}>API connection unavailable</Text>
-            <Text style={styles.noticeText}>
-              Start the FastAPI server at {API_BASE_URL} to load public notice data.
-            </Text>
+            <Text style={styles.noticeTitle}>{t('apiConnectionUnavailable')}</Text>
+            <Text style={styles.noticeText}>{t('apiLoadHint')}</Text>
           </View>
         )}
 
         {isLoading ? (
           <View style={styles.loadingArea}>
             <ActivityIndicator color="#6366F1" />
-            <Text style={styles.loadingText}>Loading cases</Text>
+            <Text style={styles.loadingText}>{t('loadingCases')}</Text>
           </View>
         ) : (
           <>
             {featuredCases.length > 0 && country === 'All' && !debouncedQuery ? (
               <>
-                <SectionTitle subtitle="Selected by Reward Watch editors" title="Featured Cases" />
+                <SectionTitle subtitle={t('selectedByEditors')} title={t('featuredCases')} />
                 <View style={[styles.cardGrid, isWide && styles.cardGridWide]}>
                   {featuredCases.map((rewardCase, index) => (
                     <CaseCard isWide={isWide} key={rewardCase.id} rewardCase={rewardCase} showRegion={false} visualIndex={index} />
@@ -276,7 +274,7 @@ export default function HomeScreen() {
                 </View>
               </>
             ) : null}
-            <SectionTitle title="Recent Cases" />
+            <SectionTitle title={t('recentCases')} />
             {recentCases.length === 0 ? (
               <HomeEmptyState
                 onReset={() => {
@@ -300,7 +298,7 @@ export default function HomeScreen() {
 
             <Link href="/cases" asChild>
               <Pressable accessibilityRole="link" style={styles.viewAllButton}>
-                <Text style={styles.viewAllButtonText}>View all cases</Text>
+                <Text style={styles.viewAllButtonText}>{t('viewAllCases')}</Text>
                 <SymbolView
                   name={{ ios: 'arrow.right', android: 'arrow_forward', web: 'arrow_forward' }}
                   size={17}
@@ -309,11 +307,14 @@ export default function HomeScreen() {
               </Pressable>
             </Link>
 
-            <SafetyBanner isWide={isWide} message={homeSettings.safetyMessage} />
+            <SafetyBanner
+              isWide={isWide}
+              message={language === 'en' ? homeSettings.safetyMessage : t('safetyMessage')}
+            />
 
             {highestRewardCases.length > 0 && (
               <>
-                <SectionTitle subtitle="Ranked by public reward amount" title="Highest Rewards" />
+                <SectionTitle subtitle={t('rankedByReward')} title={t('highestRewards')} />
                 <View style={[styles.cardGrid, isWide && styles.cardGridWide]}>
                   {highestRewardCases.map((rewardCase, index) => (
                     <CaseCard
@@ -407,6 +408,7 @@ function CaseCard({
   showRegion: boolean;
   visualIndex: number;
 }) {
+  const { formatDate, t } = useLanguage();
   const statusStyle =
     rewardCase.status === 'Open'
       ? styles.statusOpen
@@ -444,7 +446,7 @@ function CaseCard({
               </Text>
             </View>
             <View style={styles.caseMetaStack}>
-              <Text style={styles.sourceEyebrow}>Official source</Text>
+              <Text style={styles.sourceEyebrow}>{t('officialSource')}</Text>
               <Text style={styles.sourceName} numberOfLines={1}>
                 {getCaseSourceName(rewardCase)}
               </Text>
@@ -460,7 +462,7 @@ function CaseCard({
           </View>
           <View style={[styles.statusPill, !isWide && styles.statusPillCompact, statusStyle]}>
             <Text style={[styles.statusText, statusTextStyle]} numberOfLines={1}>
-              {rewardCase.status}
+              {getLocalizedStatus(rewardCase.status, t)}
             </Text>
           </View>
         </View>
@@ -473,7 +475,7 @@ function CaseCard({
         </Text>
         <View style={styles.caseFooter}>
           <Text style={styles.reward}>{formatCaseReward(rewardCase)}</Text>
-          <Text style={styles.rewardLabel}>Public reward</Text>
+          <Text style={styles.rewardLabel}>{t('publicReward')}</Text>
         </View>
       </View>
     </Pressable>
@@ -519,6 +521,8 @@ function CaseVisual({
 }
 
 function SafetyBanner({ isWide, message }: { isWide: boolean; message: string }) {
+  const { t } = useLanguage();
+
   return (
     <View style={styles.safetyBanner}>
       <View style={styles.safetyIcon}>
@@ -531,7 +535,7 @@ function SafetyBanner({ isWide, message }: { isWide: boolean; message: string })
       <Text style={styles.safetyText}>{message}</Text>
       {isWide && (
         <View style={styles.learnMorePill}>
-          <Text style={styles.learnMoreText}>Learn more</Text>
+          <Text style={styles.learnMoreText}>{t('learnMore')}</Text>
           <SymbolView
             name={{ ios: 'arrow.right', android: 'arrow_forward', web: 'arrow_forward' }}
             size={14}
@@ -544,6 +548,8 @@ function SafetyBanner({ isWide, message }: { isWide: boolean; message: string })
 }
 
 function HomeEmptyState({ onReset }: { onReset: () => void }) {
+  const { t } = useLanguage();
+
   return (
     <View style={styles.emptyState}>
       <SymbolView
@@ -551,41 +557,13 @@ function HomeEmptyState({ onReset }: { onReset: () => void }) {
         size={34}
         tintColor="#667085"
       />
-      <Text style={styles.emptyTitle}>No cases match this search</Text>
-      <Text style={styles.emptyText}>
-        Try a broader keyword or switch back to all North America notices.
-      </Text>
+      <Text style={styles.emptyTitle}>{t('emptyHomeTitle')}</Text>
+      <Text style={styles.emptyText}>{t('emptyHomeBody')}</Text>
       <Pressable accessibilityRole="button" onPress={onReset} style={styles.emptyButton}>
-        <Text style={styles.emptyButtonText}>Reset</Text>
+        <Text style={styles.emptyButtonText}>{t('reset')}</Text>
       </Pressable>
     </View>
   );
-}
-
-function formatDate(value: string) {
-  const parsedDate = new Date(`${value}T00:00:00`);
-
-  if (Number.isNaN(parsedDate.getTime())) {
-    return value;
-  }
-
-  return dateFormatter.format(parsedDate);
-}
-
-function getCountryLabel(country: CountryFilter) {
-  if (country === 'All') {
-    return 'All';
-  }
-
-  return country;
-}
-
-function getCountryAccessibilityLabel(country: CountryFilter) {
-  if (country === 'All') {
-    return 'All markets';
-  }
-
-  return country;
 }
 
 const styles = StyleSheet.create({
@@ -607,6 +585,8 @@ const styles = StyleSheet.create({
   header: {
     gap: 18,
     paddingBottom: 2,
+    position: 'relative',
+    zIndex: 100,
   },
   headerWide: {
     alignItems: 'flex-start',
@@ -616,6 +596,11 @@ const styles = StyleSheet.create({
   headerActions: {
     alignItems: 'flex-end',
     gap: 10,
+  },
+  headerControlRow: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    gap: 8,
   },
   brandRow: {
     alignItems: 'center',
@@ -652,6 +637,7 @@ const styles = StyleSheet.create({
   marketFilterWrap: {
     alignItems: 'flex-end',
     alignSelf: 'flex-start',
+    position: 'relative',
     zIndex: 10,
   },
   marketBadge: {
@@ -681,9 +667,11 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderWidth: 1,
     gap: 4,
-    marginTop: 8,
     minWidth: 190,
     padding: 6,
+    position: 'absolute',
+    right: 0,
+    top: 50,
     zIndex: 20,
     boxShadow: '0 18px 36px rgba(50, 65, 100, 0.15)',
   },
@@ -794,6 +782,9 @@ const styles = StyleSheet.create({
     gap: 14,
     width: '100%',
   },
+  metricRowMobile: {
+    flexWrap: 'wrap',
+  },
   metric: {
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.78)',
@@ -811,9 +802,11 @@ const styles = StyleSheet.create({
   },
   metricCompact: {
     alignItems: 'flex-start',
+    flexBasis: '45%',
     flexDirection: 'column',
     gap: 9,
-    minHeight: 116,
+    minHeight: 108,
+    minWidth: 140,
     paddingHorizontal: 12,
     paddingVertical: 14,
   },
