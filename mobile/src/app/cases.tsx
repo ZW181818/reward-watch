@@ -566,7 +566,11 @@ function CaseListCard({
       </View>
 
       <View style={styles.cardFooter}>
-        <InfoItem label={t('reward')} value={formatCaseReward(rewardCase)} valueStyle={styles.rewardValue} />
+        <InfoItem
+          label={t('reward')}
+          value={rewardCase.reward === null ? t('notPublished') : formatCaseReward(rewardCase)}
+          valueStyle={styles.rewardValue}
+        />
         <InfoItem label={t('published')} value={formatDate(rewardCase.publishedDate)} />
         <InfoItem label={t('dataChecked')} value={formatDate(rewardCase.lastVerified)} />
       </View>

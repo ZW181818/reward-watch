@@ -153,7 +153,11 @@ export default function CaseDetailScreen() {
                 ) : null}
 
                 <View style={styles.factGrid}>
-                  <Fact label={t('reward')} value={formatCaseReward(rewardCase)} emphasis />
+                  <Fact
+                    label={t('reward')}
+                    value={rewardCase.reward === null ? t('notPublished') : formatCaseReward(rewardCase)}
+                    emphasis
+                  />
                   <Fact label={t('status')} value={getLocalizedStatus(rewardCase.status, t)} />
                   <Fact label={t('published')} value={formatDate(rewardCase.publishedDate)} />
                   {rewardCase.sourceUpdatedDate ? (
@@ -710,11 +714,9 @@ function OfficialSources({ rewardCase }: { rewardCase: RewardCase }) {
               </Text>
             ) : null}
             <Text style={styles.sourceRecordReward}>
-              {formatRewardAmount(
-                source.reward,
-                source.rewardCurrency,
-                rewardCase.country
-              )}
+              {source.reward === null || source.reward === undefined
+                ? t('notPublished')
+                : formatRewardAmount(source.reward, source.rewardCurrency, rewardCase.country)}
             </Text>
           </View>
           <SymbolView

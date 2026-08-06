@@ -474,7 +474,9 @@ function CaseCard({
           {rewardCase.summary}
         </Text>
         <View style={styles.caseFooter}>
-          <Text style={styles.reward}>{formatCaseReward(rewardCase)}</Text>
+          <Text style={styles.reward}>
+            {rewardCase.reward === null ? t('notPublished') : formatCaseReward(rewardCase)}
+          </Text>
           <Text style={styles.rewardLabel}>{t('publicReward')}</Text>
         </View>
       </View>

@@ -138,7 +138,9 @@ export default function FavoritesScreen() {
                     <Text style={styles.cardTitle} numberOfLines={2}>
                       {rewardCase.title}
                     </Text>
-                    <Text style={styles.reward}>{formatCaseReward(rewardCase)}</Text>
+                    <Text style={styles.reward}>
+                      {rewardCase.reward === null ? t('notPublished') : formatCaseReward(rewardCase)}
+                    </Text>
                   </View>
                 </Pressable>
               </Link>
