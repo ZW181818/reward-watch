@@ -46,6 +46,7 @@ export type RewardCase = {
   sourceUrl: string;
   sourceTitle?: string | null;
   sourceAuthor?: string | null;
+  sourceKind?: 'official' | 'publisher';
   sourceRecords?: OfficialSourceRecord[];
   imageUrl: string | null;
   imageUrls?: string[];

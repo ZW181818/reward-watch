@@ -21,9 +21,35 @@ service. Confirm that this endpoint returns an HTTP 200 response:
 https://reward-watch-api.onrender.com/health
 ```
 
-The public API can read the validated JSON snapshot without a database. Add a
-Neon `DATABASE_URL` later when administrator changes and hourly database sync
-need to persist independently of deployments.
+The public API can read the validated JSON snapshot without a database. The
+administrator console requires persistent services before it can be used in
+production:
+
+1. Create a Neon PostgreSQL database and set its pooled connection string as
+   `DATABASE_URL` in Render.
+2. Create a private Cloudflare R2 bucket for uploaded case images, connect a
+   public media domain, and set `R2_ENDPOINT_URL`, `R2_ACCESS_KEY_ID`,
+   `R2_SECRET_ACCESS_KEY`, `R2_BUCKET_NAME`, and `R2_PUBLIC_BASE_URL` in Render.
+3. Keep `ADMIN_JWT_SECRET` as a generated Render secret and never expose it to
+   the frontend.
+
+The API refuses production image uploads if R2 is incomplete. This prevents
+administrator media from being written to Render's temporary filesystem.
+
+After `DATABASE_URL` is configured, initialize the database from a trusted
+machine and create the only administrator account using the hidden password
+prompt:
+
+```powershell
+$env:DATABASE_URL = "postgresql+psycopg://..."
+cd backend
+.\.venv\Scripts\python.exe scripts\sync_database.py
+.\.venv\Scripts\python.exe scripts\create_admin.py --email you@example.com
+```
+
+Do not pass the password with `--password` in a shared shell or CI log. Open
+`https://reward-watch.pages.dev/admin`, sign in, create a notice as a hidden
+draft, verify its public source and images, then set it visible and published.
 
 ## 3. Deploy the Expo web app on Cloudflare Pages
 

@@ -40,11 +40,13 @@ export type AdminCaseSummary = {
   isVisible: boolean;
   reviewStatus: 'draft' | 'published';
   hasOverride: boolean;
+  isManual: boolean;
 };
 
 export type AdminCaseDetail = {
   raw: RewardCase;
   effective: RewardCase;
+  isManual: boolean;
   override: {
     fields: Partial<RewardCase>;
     isVisible: boolean;
@@ -53,6 +55,24 @@ export type AdminCaseDetail = {
     updatedBy?: string | null;
     updatedAt: string;
   } | null;
+};
+
+export type ManualCaseInput = {
+  title: string;
+  summary: string;
+  country: 'US' | 'Canada';
+  regions: string[];
+  generalLocation?: string | null;
+  caseType?: string | null;
+  status: 'Open' | 'Information Requested' | 'Closed';
+  reward?: number | null;
+  rewardCurrency?: 'USD' | 'CAD' | null;
+  publishedDate: string;
+  sourceUrl: string;
+  sourceTitle: string;
+  sourceAuthor: string;
+  imageUrls: string[];
+  note?: string | null;
 };
 
 export type AuditEntry = {
@@ -117,6 +137,17 @@ export async function loginAdmin(email: string, password: string) {
   }>;
 }
 
+export function changeAdminPassword(
+  token: string,
+  currentPassword: string,
+  newPassword: string
+) {
+  return adminRequest<{ changed: boolean }>('/admin/auth/change-password', token, {
+    method: 'POST',
+    body: JSON.stringify({ currentPassword, newPassword }),
+  });
+}
+
 export function fetchAdminDashboard(token: string) {
   return adminRequest<AdminDashboard>('/admin/dashboard', token);
 }
@@ -147,6 +178,36 @@ export function updateAdminCase(token: string, caseId: string, body: Record<stri
     method: 'PATCH',
     body: JSON.stringify(body),
   });
+}
+
+export function createAdminCase(token: string, body: ManualCaseInput) {
+  return adminRequest<{ case: RewardCase }>(`/admin/cases/manual`, token, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+}
+
+export function deleteAdminManualCase(token: string, caseId: string) {
+  return adminRequest<{ deleted: boolean }>(
+    `/admin/cases/manual/${encodeURIComponent(caseId)}`,
+    token,
+    { method: 'DELETE' }
+  );
+}
+
+export async function uploadAdminImage(token: string, file: Blob, fileName: string) {
+  const formData = new FormData();
+  formData.append('file', file, fileName);
+  const response = await fetch(`${API_BASE_URL}/admin/media`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}` },
+    body: formData,
+  });
+  if (!response.ok) {
+    const payload = await response.json().catch(() => null);
+    throw new Error(payload?.detail ?? `Image upload failed with status ${response.status}`);
+  }
+  return response.json() as Promise<{ url: string }>;
 }
 
 export function resetAdminCase(token: string, caseId: string) {

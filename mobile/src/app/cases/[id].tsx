@@ -22,6 +22,7 @@ import {
   getCaseOfficialSources,
   getCaseRegionLabel,
   getCaseSourceName,
+  isPublisherNotice,
 } from '@/lib/case-display';
 import { isCaseFavorite, loadFavoriteIds, toggleFavoriteCase } from '@/lib/favorites';
 import { LanguageSelector } from '@/components/language-selector';
@@ -37,6 +38,7 @@ export default function CaseDetailScreen() {
   const [error, setError] = useState<string | null>(null);
   const { width } = useWindowDimensions();
   const isWide = width >= 900;
+  const publisherNotice = rewardCase ? isPublisherNotice(rewardCase) : false;
 
   useEffect(() => {
     let isMounted = true;
@@ -130,7 +132,9 @@ export default function CaseDetailScreen() {
                     <Text style={styles.countryBadgeText}>{getLocalizedCountry(rewardCase.country, t)}</Text>
                   </View>
                   <View style={styles.sourceStack}>
-                    <Text style={styles.sourceEyebrow}>{t('officialSource')}</Text>
+                    <Text style={styles.sourceEyebrow}>
+                      {t(publisherNotice ? 'publisherSource' : 'officialSource')}
+                    </Text>
                     <Text style={styles.sourceName} numberOfLines={1}>
                       {getCaseSourceName(rewardCase)}
                     </Text>
@@ -189,7 +193,9 @@ export default function CaseDetailScreen() {
                     accessibilityRole="link"
                     onPress={() => Linking.openURL(rewardCase.sourceUrl)}
                     style={styles.sourceButton}>
-                    <Text style={styles.sourceButtonText}>{t('officialSource')}</Text>
+                    <Text style={styles.sourceButtonText}>
+                      {t(publisherNotice ? 'publisherSource' : 'officialSource')}
+                    </Text>
                     <SymbolView
                       name={{ ios: 'arrow.up.right', android: 'open_in_new', web: 'open_in_new' }}
                       size={16}
@@ -210,7 +216,9 @@ export default function CaseDetailScreen() {
                   />
                 </View>
                 <View style={styles.officialWarningCopy}>
-                  <Text style={styles.officialWarningLabel}>{t('officialSourceWarning')}</Text>
+                  <Text style={styles.officialWarningLabel}>
+                    {t(publisherNotice ? 'publisherSourceWarning' : 'officialSourceWarning')}
+                  </Text>
                   <Text style={styles.officialWarningText}>{rewardCase.warningMessage}</Text>
                 </View>
               </View>
@@ -239,7 +247,7 @@ export default function CaseDetailScreen() {
                 />
               </View>
               <Text style={styles.safetyText}>
-                {t('safetyMessage')}
+                {t(publisherNotice ? 'publisherSafetyMessage' : 'safetyMessage')}
               </Text>
             </View>
           </>
@@ -333,7 +341,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
         }}
         style={styles.mainImageButton}>
         <ReliableImage
-          accessibilityLabel={`${rewardCase.title} official case image ${selectedIndex + 1}`}
+          accessibilityLabel={`${rewardCase.title} case image ${selectedIndex + 1}`}
           contentFit="cover"
           fallbackLabel={t('tapToRetry')}
           onFinalError={() => setMainImageFailed(true)}
@@ -432,7 +440,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
             </Pressable>
 
             <ReliableImage
-              accessibilityLabel={`${rewardCase.title} official case image ${selectedIndex + 1}`}
+              accessibilityLabel={`${rewardCase.title} case image ${selectedIndex + 1}`}
               contentFit="contain"
               priority="high"
               style={styles.viewerImage}
@@ -677,7 +685,9 @@ function CaseProfile({ rewardCase }: { rewardCase: RewardCase }) {
 
   return (
     <View style={styles.section}>
-      <Text style={styles.sectionTitle}>{t('officialCaseInformation')}</Text>
+      <Text style={styles.sectionTitle}>
+        {t(isPublisherNotice(rewardCase) ? 'publisherCaseInformation' : 'officialCaseInformation')}
+      </Text>
       <View style={styles.profileGrid}>
         {profileItems.map((item) => (
           <View key={item.label} style={styles.profileItem}>
@@ -701,7 +711,10 @@ function OfficialSources({ rewardCase }: { rewardCase: RewardCase }) {
       </Text>
       {sources.map((source) => (
         <Pressable
-          accessibilityLabel={t('openOfficialSource', { source: source.author })}
+          accessibilityLabel={t(
+            isPublisherNotice(rewardCase) ? 'openPublisherSource' : 'openOfficialSource',
+            { source: source.author }
+          )}
           accessibilityRole="link"
           key={`${source.caseId}-${source.url}`}
           onPress={() => Linking.openURL(source.url)}

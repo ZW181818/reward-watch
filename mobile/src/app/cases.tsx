@@ -18,6 +18,7 @@ import {
   formatCaseReward,
   getCaseRegionLabel,
   getCaseSourceName,
+  isPublisherNotice,
 } from '@/lib/case-display';
 import { ReliableCaseImage } from '@/components/reliable-case-image';
 import { LanguageSelector } from '@/components/language-selector';
@@ -540,7 +541,9 @@ function CaseListCard({
               <Text style={styles.countryBadgeText}>{rewardCase.country === 'Canada' ? 'CA' : 'US'}</Text>
             </View>
             <View style={styles.sourceStack}>
-              <Text style={styles.sourceEyebrow}>{t('officialSource')}</Text>
+              <Text style={styles.sourceEyebrow}>
+                {t(isPublisherNotice(rewardCase) ? 'publisherSource' : 'officialSource')}
+              </Text>
               <Text style={styles.sourceName} numberOfLines={1}>
                 {getCaseSourceName(rewardCase)}
               </Text>

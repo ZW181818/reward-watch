@@ -18,6 +18,7 @@ import {
   formatCaseReward,
   getCaseRegionLabel,
   getCaseSourceName,
+  isPublisherNotice,
 } from '@/lib/case-display';
 import { ReliableCaseImage } from '@/components/reliable-case-image';
 import { LanguageSelector } from '@/components/language-selector';
@@ -27,8 +28,8 @@ import type { RewardCase, RewardCountry } from '@/types/reward-case';
 type CountryFilter = 'All' | RewardCountry;
 
 const defaultHomeSettings = {
-  brandSubtitle: 'Official public reward notices across North America',
-  safetyMessage: 'Do not approach or attempt to detain any person. Submit information directly to the relevant official agency.',
+  brandSubtitle: 'Official and reviewed public reward notices across North America',
+  safetyMessage: "Do not approach or attempt to detain any person. Submit information through the listed publisher's source page.",
   featuredCaseIds: [] as string[],
   recentCaseLimit: 4,
 };
@@ -446,7 +447,9 @@ function CaseCard({
               </Text>
             </View>
             <View style={styles.caseMetaStack}>
-              <Text style={styles.sourceEyebrow}>{t('officialSource')}</Text>
+              <Text style={styles.sourceEyebrow}>
+                {t(isPublisherNotice(rewardCase) ? 'publisherSource' : 'officialSource')}
+              </Text>
               <Text style={styles.sourceName} numberOfLines={1}>
                 {getCaseSourceName(rewardCase)}
               </Text>

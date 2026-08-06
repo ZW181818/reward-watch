@@ -1,7 +1,7 @@
 import { Image } from 'expo-image';
 import { Link } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
@@ -15,8 +15,12 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { AdminImagePicker, type AdminUploadFile } from '@/components/admin-image-picker';
 import {
+  changeAdminPassword,
   clearAdminToken,
+  createAdminCase,
+  deleteAdminManualCase,
   fetchAdminCase,
   fetchAdminCases,
   fetchAdminDashboard,
@@ -31,11 +35,13 @@ import {
   saveAdminHomeSettings,
   triggerAdminSync,
   updateAdminCase,
+  uploadAdminImage,
   type AdminCaseDetail,
   type AdminCaseSummary,
   type AdminDashboard,
   type AuditEntry,
   type HomeSettings,
+  type ManualCaseInput,
 } from '@/lib/admin-api';
 
 
@@ -274,6 +280,8 @@ function Overview({ dashboard, onRefresh, token }: { dashboard: AdminDashboard |
           ))}
         </View>
       </View>
+
+      <PasswordPanel token={token} />
     </View>
   );
 }
@@ -289,6 +297,87 @@ function AdminMetric({ label, tone, value }: { label: string; tone: 'neutral' | 
   );
 }
 
+function PasswordPanel({ token }: { token: string }) {
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmation, setConfirmation] = useState('');
+  const [isSaving, setIsSaving] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+  const canSave = Boolean(
+    currentPassword && newPassword.length >= 12 && newPassword === confirmation
+  );
+
+  async function submit() {
+    if (!canSave) return;
+    setIsSaving(true);
+    setMessage(null);
+    try {
+      await changeAdminPassword(token, currentPassword, newPassword);
+      setCurrentPassword('');
+      setNewPassword('');
+      setConfirmation('');
+      setMessage('Password updated. Your current session remains active.');
+    } catch (requestError) {
+      setMessage(requestError instanceof Error ? requestError.message : 'Unable to update password');
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
+  return (
+    <View style={styles.panel}>
+      <View style={styles.panelHeader}>
+        <View style={styles.panelHeadingCopy}>
+          <Text style={styles.panelTitle}>Account security</Text>
+          <Text style={styles.panelMeta}>Use at least 12 characters. Passwords are never shown in the audit log.</Text>
+        </View>
+      </View>
+      <View style={styles.securityForm}>
+        <Field label="Current password">
+          <TextInput
+            autoCapitalize="none"
+            onChangeText={setCurrentPassword}
+            onSubmitEditing={submit}
+            secureTextEntry
+            style={styles.textInput}
+            value={currentPassword}
+          />
+        </Field>
+        <Field label="New password">
+          <TextInput
+            autoCapitalize="none"
+            onChangeText={setNewPassword}
+            onSubmitEditing={submit}
+            secureTextEntry
+            style={styles.textInput}
+            value={newPassword}
+          />
+        </Field>
+        <Field label="Confirm new password">
+          <TextInput
+            autoCapitalize="none"
+            onChangeText={setConfirmation}
+            onSubmitEditing={submit}
+            secureTextEntry
+            style={styles.textInput}
+            value={confirmation}
+          />
+        </Field>
+        {confirmation && confirmation !== newPassword ? (
+          <Text style={styles.securityError}>The new passwords do not match.</Text>
+        ) : null}
+        {message ? <Text style={styles.securityMessage}>{message}</Text> : null}
+        <Pressable
+          disabled={!canSave || isSaving}
+          onPress={submit}
+          style={[styles.primaryButton, styles.securityButton, (!canSave || isSaving) && styles.buttonDisabled]}>
+          {isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Update password</Text>}
+        </Pressable>
+      </View>
+    </View>
+  );
+}
+
 function CasesManager({ token }: { token: string }) {
   const [query, setQuery] = useState('');
   const [visibility, setVisibility] = useState<VisibilityFilter>('all');
@@ -297,6 +386,7 @@ function CasesManager({ token }: { token: string }) {
   const [page, setPage] = useState(1);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [detail, setDetail] = useState<AdminCaseDetail | null>(null);
+  const [isCreating, setIsCreating] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const debouncedQuery = useDebouncedValue(query, 300);
@@ -328,6 +418,7 @@ function CasesManager({ token }: { token: string }) {
   }, [loadCases]);
 
   async function openCase(caseId: string) {
+    setIsCreating(false);
     setSelectedId(caseId);
     setDetail(null);
     try {
@@ -351,6 +442,16 @@ function CasesManager({ token }: { token: string }) {
             </Pressable>
           ))}
         </View>
+        <Pressable
+          onPress={() => {
+            setSelectedId(null);
+            setDetail(null);
+            setIsCreating(true);
+          }}
+          style={styles.createButton}>
+          <SymbolView name={{ ios: 'plus', android: 'add', web: 'add' }} size={17} tintColor="#FFFFFF" />
+          <Text style={styles.createButtonText}>New notice</Text>
+        </Pressable>
       </View>
       {error ? <Notice text={error} /> : null}
 
@@ -371,6 +472,7 @@ function CasesManager({ token }: { token: string }) {
                     <View style={styles.adminCaseFlags}>
                       <Text style={[styles.miniStatus, !rewardCase.isVisible && styles.miniStatusHidden]}>{rewardCase.isVisible ? rewardCase.status : 'Hidden'}</Text>
                       {rewardCase.hasOverride ? <Text style={styles.overrideLabel}>Edited</Text> : null}
+                      {rewardCase.isManual ? <Text style={styles.manualLabel}>Manual</Text> : null}
                     </View>
                   </View>
                   <SymbolView name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }} size={17} tintColor="#98A2B3" />
@@ -385,8 +487,27 @@ function CasesManager({ token }: { token: string }) {
         </View>
 
         <View style={[styles.editorPanel, !hasSplitEditor && styles.editorPanelCompact]}>
-          {selectedId && !detail ? <CenteredLoader embedded label="Opening case" /> : detail ? (
-            <CaseEditor detail={detail} onChanged={async () => { await loadCases(page); await openCase(detail.effective.id); }} token={token} />
+          {isCreating ? (
+            <ManualCaseForm
+              onCancel={() => setIsCreating(false)}
+              onCreated={async (caseId) => {
+                await loadCases(1);
+                await openCase(caseId);
+              }}
+              token={token}
+            />
+          ) : selectedId && !detail ? <CenteredLoader embedded label="Opening case" /> : detail ? (
+            <CaseEditor
+              detail={detail}
+              key={detail.effective.id}
+              onChanged={async () => { await loadCases(page); await openCase(detail.effective.id); }}
+              onDeleted={async () => {
+                setSelectedId(null);
+                setDetail(null);
+                await loadCases(1);
+              }}
+              token={token}
+            />
           ) : (
             <View style={styles.editorEmpty}>
               <SymbolView name={{ ios: 'slider.horizontal.3', android: 'tune', web: 'tune' }} size={28} tintColor="#98A2B3" />
@@ -399,20 +520,217 @@ function CasesManager({ token }: { token: string }) {
   );
 }
 
-function CaseEditor({ detail, onChanged, token }: { detail: AdminCaseDetail; onChanged: () => Promise<void>; token: string }) {
+async function uploadFiles(token: string, files: AdminUploadFile[]) {
+  const uploadedUrls: string[] = [];
+  for (const file of files) {
+    const response = await uploadAdminImage(token, file.blob, file.name);
+    uploadedUrls.push(response.url);
+  }
+  return uploadedUrls;
+}
+
+function ManualCaseForm({
+  onCancel,
+  onCreated,
+  token,
+}: {
+  onCancel: () => void;
+  onCreated: (caseId: string) => Promise<void>;
+  token: string;
+}) {
+  const [title, setTitle] = useState('');
+  const [summary, setSummary] = useState('');
+  const [country, setCountry] = useState<'US' | 'Canada'>('US');
+  const [regions, setRegions] = useState('');
+  const [generalLocation, setGeneralLocation] = useState('');
+  const [caseType, setCaseType] = useState('Public reward notice');
+  const [status, setStatus] = useState<ManualCaseInput['status']>('Information Requested');
+  const [reward, setReward] = useState('');
+  const [currency, setCurrency] = useState<'USD' | 'CAD'>('USD');
+  const [publishedDate, setPublishedDate] = useState(new Date().toISOString().slice(0, 10));
+  const [sourceAuthor, setSourceAuthor] = useState('');
+  const [sourceTitle, setSourceTitle] = useState('');
+  const [sourceUrl, setSourceUrl] = useState('');
+  const [note, setNote] = useState('');
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
+  const [isUploading, setIsUploading] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+
+  const regionList = regions.split(',').map((value) => value.trim()).filter(Boolean);
+  const canSave = Boolean(
+    title.trim().length >= 4 &&
+    summary.trim().length >= 20 &&
+    regionList.length &&
+    sourceAuthor.trim() &&
+    sourceTitle.trim() &&
+    /^https?:\/\//i.test(sourceUrl.trim()) &&
+    publishedDate
+  );
+
+  async function handleFiles(files: AdminUploadFile[]) {
+    if (!files.length) return;
+    if (imageUrls.length + files.length > 8) {
+      setMessage('A notice can contain up to 8 photos.');
+      return;
+    }
+    setIsUploading(true);
+    setMessage(null);
+    try {
+      const uploaded = await uploadFiles(token, files);
+      setImageUrls((current) => [...current, ...uploaded]);
+    } catch (requestError) {
+      setMessage(requestError instanceof Error ? requestError.message : 'Unable to upload photos');
+    } finally {
+      setIsUploading(false);
+    }
+  }
+
+  async function saveDraft() {
+    setIsSaving(true);
+    setMessage(null);
+    try {
+      const response = await createAdminCase(token, {
+        title: title.trim(),
+        summary: summary.trim(),
+        country,
+        regions: regionList,
+        generalLocation: generalLocation.trim() || null,
+        caseType: caseType.trim() || null,
+        status,
+        reward: reward.trim() ? Number(reward.replace(/,/g, '')) : null,
+        rewardCurrency: reward.trim() ? currency : null,
+        publishedDate,
+        sourceUrl: sourceUrl.trim(),
+        sourceTitle: sourceTitle.trim(),
+        sourceAuthor: sourceAuthor.trim(),
+        imageUrls,
+        note: note.trim() || null,
+      });
+      await onCreated(response.case.id);
+    } catch (requestError) {
+      setMessage(requestError instanceof Error ? requestError.message : 'Unable to create notice');
+    } finally {
+      setIsSaving(false);
+    }
+  }
+
+  return (
+    <ScrollView contentContainerStyle={styles.editorContent} nestedScrollEnabled>
+      <View style={styles.editorHeader}>
+        <View style={styles.editorHeaderCopy}>
+          <Text style={styles.editorId}>New verified notice</Text>
+          <Text style={styles.editorSource}>Saved as a hidden draft until you publish it</Text>
+        </View>
+        <Text style={styles.draftBadge}>Draft</Text>
+      </View>
+
+      <View style={styles.editorNotice}>
+        <SymbolView name={{ ios: 'checkmark.shield', android: 'verified_user', web: 'verified_user' }} size={19} tintColor="#475467" />
+        <Text style={styles.editorNoticeText}>
+          A public source URL and publishing organization are required. Enter only a general jurisdiction or city area, never a live location, home address, or movement history.
+        </Text>
+      </View>
+
+      <Field label="Display title"><TextInput onChangeText={setTitle} placeholder="Public notice title" placeholderTextColor="#98A2B3" style={styles.textInput} value={title} /></Field>
+      <Field label="Summary"><TextInput multiline onChangeText={setSummary} placeholder="Factual summary from the published source" placeholderTextColor="#98A2B3" style={[styles.textInput, styles.textArea]} textAlignVertical="top" value={summary} /></Field>
+
+      <View style={styles.editorTwoColumns}>
+        <Field grow label="Country">
+          <View style={styles.smallSegment}>{(['US', 'Canada'] as const).map((value) => <Pressable key={value} onPress={() => { setCountry(value); setCurrency(value === 'Canada' ? 'CAD' : 'USD'); }} style={[styles.smallSegmentButton, country === value && styles.smallSegmentButtonActive]}><Text style={[styles.smallSegmentText, country === value && styles.smallSegmentTextActive]}>{value}</Text></Pressable>)}</View>
+        </Field>
+        <Field grow label="State / province"><TextInput onChangeText={setRegions} placeholder="Washington, Oregon" placeholderTextColor="#98A2B3" style={styles.textInput} value={regions} /></Field>
+      </View>
+      <Field label="General area (optional)"><TextInput onChangeText={setGeneralLocation} placeholder="City or broad jurisdiction only" placeholderTextColor="#98A2B3" style={styles.textInput} value={generalLocation} /></Field>
+
+      <View style={styles.editorTwoColumns}>
+        <Field grow label="Notice type"><TextInput onChangeText={setCaseType} style={styles.textInput} value={caseType} /></Field>
+        <Field grow label="Published date"><TextInput onChangeText={setPublishedDate} placeholder="YYYY-MM-DD" placeholderTextColor="#98A2B3" style={styles.textInput} value={publishedDate} /></Field>
+      </View>
+
+      <Field label="Status">
+        <View style={styles.chipRow}>{(['Information Requested', 'Open', 'Closed'] as const).map((value) => <Pressable key={value} onPress={() => setStatus(value)} style={[styles.statusChoice, status === value && styles.statusChoiceActive]}><Text style={[styles.statusChoiceText, status === value && styles.statusChoiceTextActive]}>{value}</Text></Pressable>)}</View>
+      </Field>
+      <View style={styles.editorTwoColumns}>
+        <Field grow label="Reward amount"><TextInput keyboardType="numeric" onChangeText={setReward} placeholder="Leave blank if not published" placeholderTextColor="#98A2B3" style={styles.textInput} value={reward} /></Field>
+        <Field grow label="Currency"><View style={styles.smallSegment}>{(['USD', 'CAD'] as const).map((value) => <Pressable key={value} onPress={() => setCurrency(value)} style={[styles.smallSegmentButton, currency === value && styles.smallSegmentButtonActive]}><Text style={[styles.smallSegmentText, currency === value && styles.smallSegmentTextActive]}>{value}</Text></Pressable>)}</View></Field>
+      </View>
+
+      <View style={styles.formDivider} />
+      <Text style={styles.formSectionTitle}>Source verification</Text>
+      <Field label="Publishing organization"><TextInput onChangeText={setSourceAuthor} placeholder="Organization shown on the source page" placeholderTextColor="#98A2B3" style={styles.textInput} value={sourceAuthor} /></Field>
+      <Field label="Source page title"><TextInput onChangeText={setSourceTitle} placeholder="Exact title of the public notice" placeholderTextColor="#98A2B3" style={styles.textInput} value={sourceTitle} /></Field>
+      <Field label="Public source URL"><TextInput autoCapitalize="none" keyboardType="url" onChangeText={setSourceUrl} placeholder="https://..." placeholderTextColor="#98A2B3" style={styles.textInput} value={sourceUrl} /></Field>
+
+      <View style={styles.formDivider} />
+      <Text style={styles.formSectionTitle}>Photos</Text>
+      <Text style={styles.fieldHint}>JPEG, PNG, or WebP. Up to 8 files, 10 MB each. Metadata is removed during upload.</Text>
+      {imageUrls.length ? (
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.galleryRow}>
+          {imageUrls.map((url, index) => (
+            <View key={url} style={styles.uploadedImageWrap}>
+              <Image contentFit="cover" source={resolveAdminImage(url)} style={styles.galleryImage} />
+              <Pressable accessibilityLabel={`Remove photo ${index + 1}`} onPress={() => setImageUrls((current) => current.filter((item) => item !== url))} style={styles.removePhotoButton}>
+                <SymbolView name={{ ios: 'xmark', android: 'close', web: 'close' }} size={14} tintColor="#FFFFFF" />
+              </Pressable>
+            </View>
+          ))}
+        </ScrollView>
+      ) : null}
+      <AdminImagePicker disabled={isUploading || imageUrls.length >= 8} onFiles={handleFiles} />
+
+      <Field label="Internal review note (optional)"><TextInput multiline onChangeText={setNote} style={[styles.textInput, styles.noteArea]} textAlignVertical="top" value={note} /></Field>
+      {message ? <Text style={styles.inlineMessage}>{message}</Text> : null}
+      <View style={styles.editorActions}>
+        <Pressable disabled={isSaving} onPress={onCancel} style={styles.tertiaryButton}><Text style={styles.tertiaryButtonText}>Cancel</Text></Pressable>
+        <Pressable disabled={isSaving || isUploading || !canSave} onPress={saveDraft} style={[styles.primaryButton, (isSaving || isUploading || !canSave) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Save draft</Text>}</Pressable>
+      </View>
+    </ScrollView>
+  );
+}
+
+function CaseEditor({ detail, onChanged, onDeleted, token }: { detail: AdminCaseDetail; onChanged: () => Promise<void>; onDeleted: () => Promise<void>; token: string }) {
   const rewardCase = detail.effective;
   const [title, setTitle] = useState(rewardCase.title);
   const [summary, setSummary] = useState(rewardCase.summary);
   const [status, setStatus] = useState(rewardCase.status);
   const [reward, setReward] = useState(rewardCase.reward?.toString() ?? '');
   const [currency, setCurrency] = useState(rewardCase.rewardCurrency ?? 'USD');
+  const [regions, setRegions] = useState((rewardCase.regions ?? []).join(', '));
+  const [generalLocation, setGeneralLocation] = useState(rewardCase.locations ?? '');
+  const [caseType, setCaseType] = useState(rewardCase.caseType ?? '');
+  const [publishedDate, setPublishedDate] = useState(rewardCase.publishedDate);
+  const [sourceAuthor, setSourceAuthor] = useState(rewardCase.sourceAuthor ?? rewardCase.agency);
+  const [sourceTitle, setSourceTitle] = useState(rewardCase.sourceTitle ?? '');
+  const [sourceUrl, setSourceUrl] = useState(rewardCase.sourceUrl);
   const [imageUrl, setImageUrl] = useState(rewardCase.imageUrl ?? '');
+  const [imageUrls, setImageUrls] = useState(rewardCase.imageUrls ?? []);
   const [isVisible, setIsVisible] = useState(detail.override?.isVisible ?? true);
   const [reviewStatus, setReviewStatus] = useState<'draft' | 'published'>(detail.override?.reviewStatus ?? 'published');
   const [note, setNote] = useState(detail.override?.note ?? '');
   const [isSaving, setIsSaving] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-  const gallery = useMemo(() => rewardCase.imageUrls ?? [], [rewardCase.imageUrls]);
+
+  async function handleFiles(files: AdminUploadFile[]) {
+    if (!files.length) return;
+    if (imageUrls.length + files.length > 8) {
+      setMessage('A case can contain up to 8 photos.');
+      return;
+    }
+    setIsUploading(true);
+    try {
+      const uploaded = await uploadFiles(token, files);
+      setImageUrls((current) => [...current, ...uploaded]);
+      setImageUrl((current) => current || uploaded[0] || '');
+      setMessage('Photos uploaded. Save changes to publish them.');
+    } catch (requestError) {
+      setMessage(requestError instanceof Error ? requestError.message : 'Unable to upload photos');
+    } finally {
+      setIsUploading(false);
+    }
+  }
 
   async function save() {
     setIsSaving(true);
@@ -424,6 +742,16 @@ function CaseEditor({ detail, onChanged, token }: { detail: AdminCaseDetail; onC
         reward: reward.trim() ? Number(reward.replace(/,/g, '')) : null,
         rewardCurrency: reward.trim() ? currency : null,
         imageUrl: imageUrl || null,
+        imageUrls,
+        ...(detail.isManual ? {
+          regions: regions.split(',').map((value) => value.trim()).filter(Boolean),
+          locations: generalLocation.trim() || null,
+          caseType: caseType.trim() || null,
+          publishedDate,
+          sourceAuthor: sourceAuthor.trim(),
+          sourceTitle: sourceTitle.trim(),
+          sourceUrl: sourceUrl.trim(),
+        } : {}),
         isVisible,
         reviewStatus,
         note: note.trim() || null,
@@ -450,6 +778,22 @@ function CaseEditor({ detail, onChanged, token }: { detail: AdminCaseDetail; onC
     }
   }
 
+  async function removeManualCase() {
+    if (!confirmDelete) {
+      setConfirmDelete(true);
+      setMessage('Select Delete manual case again to confirm permanent removal.');
+      return;
+    }
+    setIsSaving(true);
+    try {
+      await deleteAdminManualCase(token, rewardCase.id);
+      await onDeleted();
+    } catch (requestError) {
+      setMessage(requestError instanceof Error ? requestError.message : 'Unable to delete case');
+      setIsSaving(false);
+    }
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.editorContent} nestedScrollEnabled>
       <View style={styles.editorHeader}>
@@ -472,6 +816,21 @@ function CaseEditor({ detail, onChanged, token }: { detail: AdminCaseDetail; onC
       </Field>
       <Field label="Display title"><TextInput onChangeText={setTitle} style={styles.textInput} value={title} /></Field>
       <Field label="Summary"><TextInput multiline onChangeText={setSummary} style={[styles.textInput, styles.textArea]} textAlignVertical="top" value={summary} /></Field>
+      {detail.isManual ? (
+        <>
+          <View style={styles.editorTwoColumns}>
+            <Field grow label="State / province"><TextInput onChangeText={setRegions} style={styles.textInput} value={regions} /></Field>
+            <Field grow label="General area"><TextInput onChangeText={setGeneralLocation} style={styles.textInput} value={generalLocation} /></Field>
+          </View>
+          <View style={styles.editorTwoColumns}>
+            <Field grow label="Notice type"><TextInput onChangeText={setCaseType} style={styles.textInput} value={caseType} /></Field>
+            <Field grow label="Published date"><TextInput onChangeText={setPublishedDate} style={styles.textInput} value={publishedDate} /></Field>
+          </View>
+          <Field label="Publishing organization"><TextInput onChangeText={setSourceAuthor} style={styles.textInput} value={sourceAuthor} /></Field>
+          <Field label="Source page title"><TextInput onChangeText={setSourceTitle} style={styles.textInput} value={sourceTitle} /></Field>
+          <Field label="Public source URL"><TextInput autoCapitalize="none" keyboardType="url" onChangeText={setSourceUrl} style={styles.textInput} value={sourceUrl} /></Field>
+        </>
+      ) : null}
       <View style={styles.editorTwoColumns}>
         <Field grow label="Status"><TextInput onChangeText={setStatus} style={styles.textInput} value={status} /></Field>
         <Field grow label="Reward"><TextInput keyboardType="numeric" onChangeText={setReward} placeholder="Not published" placeholderTextColor="#98A2B3" style={styles.textInput} value={reward} /></Field>
@@ -480,12 +839,20 @@ function CaseEditor({ detail, onChanged, token }: { detail: AdminCaseDetail; onC
         <View style={styles.smallSegment}>{(['USD', 'CAD'] as const).map((value) => <Pressable key={value} onPress={() => setCurrency(value)} style={[styles.smallSegmentButton, currency === value && styles.smallSegmentButtonActive]}><Text style={[styles.smallSegmentText, currency === value && styles.smallSegmentTextActive]}>{value}</Text></Pressable>)}</View>
       </Field>
 
-      {gallery.length ? <Field label="Cover image"><ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.galleryRow}>{gallery.map((url) => <Pressable key={url} onPress={() => setImageUrl(url)} style={[styles.galleryChoice, imageUrl === url && styles.galleryChoiceSelected]}><Image contentFit="cover" source={resolveAdminImage(url)} style={styles.galleryImage} /></Pressable>)}</ScrollView></Field> : null}
+      <Field label="Case photos">
+        {imageUrls.length ? <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.galleryRow}>{imageUrls.map((url) => <Pressable key={url} onPress={() => setImageUrl(url)} style={[styles.galleryChoice, imageUrl === url && styles.galleryChoiceSelected]}><Image contentFit="cover" source={resolveAdminImage(url)} style={styles.galleryImage} /></Pressable>)}</ScrollView> : null}
+        <AdminImagePicker disabled={isUploading || imageUrls.length >= 8} onFiles={handleFiles} />
+        <Text style={styles.fieldHint}>Select a thumbnail to use it as the cover image.</Text>
+      </Field>
       <Field label="Internal note"><TextInput multiline onChangeText={setNote} style={[styles.textInput, styles.noteArea]} textAlignVertical="top" value={note} /></Field>
       {message ? <Text style={styles.inlineMessage}>{message}</Text> : null}
       <View style={styles.editorActions}>
-        <Pressable disabled={isSaving} onPress={reset} style={styles.tertiaryButton}><Text style={styles.tertiaryButtonText}>Reset override</Text></Pressable>
-        <Pressable disabled={isSaving || !title.trim() || !summary.trim()} onPress={save} style={[styles.primaryButton, (isSaving || !title.trim() || !summary.trim()) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Save changes</Text>}</Pressable>
+        {detail.isManual ? (
+          <Pressable disabled={isSaving} onPress={removeManualCase} style={[styles.deleteButton, confirmDelete && styles.deleteButtonConfirm]}><Text style={[styles.deleteButtonText, confirmDelete && styles.deleteButtonTextConfirm]}>Delete manual case</Text></Pressable>
+        ) : (
+          <Pressable disabled={isSaving} onPress={reset} style={styles.tertiaryButton}><Text style={styles.tertiaryButtonText}>Reset override</Text></Pressable>
+        )}
+        <Pressable disabled={isSaving || isUploading || !title.trim() || !summary.trim()} onPress={save} style={[styles.primaryButton, (isSaving || isUploading || !title.trim() || !summary.trim()) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Save changes</Text>}</Pressable>
       </View>
     </ScrollView>
   );
@@ -678,6 +1045,10 @@ const styles = StyleSheet.create({
   panelHeadingCopy: { flex: 1, gap: 3, minWidth: 0 },
   panelTitle: { color: '#101828', fontSize: 16, fontWeight: '900' },
   panelMeta: { color: '#98A2B3', fontSize: 12, fontWeight: '700' },
+  securityForm: { alignSelf: 'stretch', gap: 13, maxWidth: 620, padding: 18 },
+  securityButton: { alignSelf: 'flex-start', minWidth: 150 },
+  securityError: { color: '#B42318', fontSize: 12, fontWeight: '700' },
+  securityMessage: { color: '#475467', fontSize: 12, fontWeight: '700' },
   secondaryButton: { alignItems: 'center', backgroundColor: '#F4F3FF', borderRadius: 8, flexDirection: 'row', gap: 7, minHeight: 38, paddingHorizontal: 12 },
   secondaryButtonText: { color: '#5B4DFF', fontSize: 12, fontWeight: '900' },
   inlineMessage: { color: '#475467', fontSize: 12, fontWeight: '700', paddingHorizontal: 18, paddingTop: 12 },
@@ -694,6 +1065,8 @@ const styles = StyleSheet.create({
   sourceStateBad: { backgroundColor: '#FEF3F2', color: '#B42318' },
   caseManager: { gap: 14 },
   caseToolbar: { alignItems: 'center', flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
+  createButton: { alignItems: 'center', backgroundColor: '#5B4DFF', borderRadius: 8, flexDirection: 'row', gap: 7, minHeight: 44, paddingHorizontal: 14 },
+  createButtonText: { color: '#FFFFFF', fontSize: 12, fontWeight: '900' },
   adminSearch: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#D0D5DD', borderRadius: 8, borderWidth: 1, flex: 1, flexDirection: 'row', gap: 9, minHeight: 44, minWidth: 260, paddingHorizontal: 12 },
   adminSearchInput: { color: '#101828', flex: 1, fontSize: 14, minWidth: 0, paddingVertical: 10 },
   smallSegment: { backgroundColor: '#EAECF0', borderRadius: 8, flexDirection: 'row', padding: 3 },
@@ -719,6 +1092,7 @@ const styles = StyleSheet.create({
   miniStatus: { color: '#027A48', fontSize: 10, fontWeight: '900' },
   miniStatusHidden: { color: '#B42318' },
   overrideLabel: { backgroundColor: '#F4F3FF', borderRadius: 999, color: '#5B4DFF', fontSize: 9, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 6, paddingVertical: 2 },
+  manualLabel: { backgroundColor: '#E8F7F0', borderRadius: 999, color: '#027A48', fontSize: 9, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 6, paddingVertical: 2 },
   pagination: { flexDirection: 'row', gap: 8, justifyContent: 'flex-end', padding: 12 },
   pageButton: { alignItems: 'center', borderColor: '#D0D5DD', borderRadius: 7, borderWidth: 1, height: 34, justifyContent: 'center', width: 36 },
   editorPanel: { backgroundColor: '#FFFFFF', borderColor: '#E4E7EC', borderRadius: 8, borderWidth: 1, flex: 1, minHeight: 560, minWidth: 0, overflow: 'hidden' },
@@ -731,16 +1105,32 @@ const styles = StyleSheet.create({
   editorId: { color: '#101828', fontSize: 16, fontWeight: '900' },
   editorSource: { color: '#667085', fontSize: 12, fontWeight: '700' },
   overrideBadge: { backgroundColor: '#F4F3FF', borderRadius: 999, color: '#5B4DFF', fontSize: 10, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 9, paddingVertical: 5 },
+  draftBadge: { backgroundColor: '#FFF4E5', borderRadius: 999, color: '#B54708', fontSize: 10, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 9, paddingVertical: 5 },
+  editorNotice: { alignItems: 'flex-start', backgroundColor: '#F8FAFC', borderColor: '#E4E7EC', borderRadius: 8, borderWidth: 1, flexDirection: 'row', gap: 10, padding: 13 },
+  editorNoticeText: { color: '#475467', flex: 1, fontSize: 12, fontWeight: '700', lineHeight: 18 },
   publishRow: { alignItems: 'center', backgroundColor: '#F8FAFC', borderRadius: 8, flexDirection: 'row', padding: 13 },
   publishCopy: { flex: 1 },
   editorTwoColumns: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
+  chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  statusChoice: { backgroundColor: '#F8FAFC', borderColor: '#E4E7EC', borderRadius: 999, borderWidth: 1, paddingHorizontal: 11, paddingVertical: 8 },
+  statusChoiceActive: { backgroundColor: '#F4F3FF', borderColor: '#C7C2FF' },
+  statusChoiceText: { color: '#667085', fontSize: 11, fontWeight: '800' },
+  statusChoiceTextActive: { color: '#5B4DFF' },
+  formDivider: { backgroundColor: '#EAECF0', height: 1, marginVertical: 2 },
+  formSectionTitle: { color: '#101828', fontSize: 13, fontWeight: '900' },
   galleryRow: { gap: 9 },
   galleryChoice: { borderColor: 'transparent', borderRadius: 8, borderWidth: 2, padding: 2 },
   galleryChoiceSelected: { borderColor: '#5B4DFF' },
   galleryImage: { backgroundColor: '#EEF2F6', borderRadius: 5, height: 76, width: 68 },
+  uploadedImageWrap: { position: 'relative' },
+  removePhotoButton: { alignItems: 'center', backgroundColor: '#344054', borderRadius: 12, height: 24, justifyContent: 'center', position: 'absolute', right: -5, top: -5, width: 24 },
   editorActions: { alignItems: 'center', borderTopColor: '#EAECF0', borderTopWidth: 1, flexDirection: 'row', gap: 10, justifyContent: 'flex-end', paddingTop: 16 },
   tertiaryButton: { alignItems: 'center', borderColor: '#D0D5DD', borderRadius: 8, borderWidth: 1, justifyContent: 'center', minHeight: 44, paddingHorizontal: 14 },
   tertiaryButtonText: { color: '#475467', fontSize: 12, fontWeight: '900' },
+  deleteButton: { alignItems: 'center', borderColor: '#FDA29B', borderRadius: 8, borderWidth: 1, justifyContent: 'center', minHeight: 44, paddingHorizontal: 14 },
+  deleteButtonConfirm: { backgroundColor: '#D92D20', borderColor: '#D92D20' },
+  deleteButtonText: { color: '#B42318', fontSize: 12, fontWeight: '900' },
+  deleteButtonTextConfirm: { color: '#FFFFFF' },
   settingsLayout: { alignItems: 'flex-start', flexDirection: 'row', flexWrap: 'wrap', gap: 14 },
   settingsPanel: { flex: 2, minWidth: 320 },
   settingsForm: { gap: 16, minWidth: 0, padding: 18 },

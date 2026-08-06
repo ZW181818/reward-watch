@@ -3,16 +3,17 @@ from __future__ import annotations
 import subprocess
 import sys
 import threading
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 from pathlib import Path
 from typing import Annotated, Literal
+from uuid import uuid4
 
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query, status
-from pydantic import BaseModel, Field
+from fastapi import APIRouter, BackgroundTasks, Depends, File, HTTPException, Query, UploadFile, status
+from pydantic import AnyHttpUrl, BaseModel, ConfigDict, Field, field_validator
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
-from .admin_security import create_access_token, require_admin, verify_password
+from .admin_security import create_access_token, hash_password, require_admin, verify_password
 from .database import (
     AdminUserRow,
     AppSettingRow,
@@ -22,8 +23,10 @@ from .database import (
     SyncRunRow,
     initialize_database,
 )
-from .models import RewardCase, RewardCurrency
+from .media_storage import InvalidImageUpload, MAX_UPLOAD_BYTES, store_admin_image
+from .models import CountryCode, RewardCase, RewardCurrency
 from .settings import DEFAULT_HOME_SETTINGS, HomeSettings
+from .storage import MANUAL_CASE_PREFIX, upsert_case_payload
 
 
 router = APIRouter(prefix="/admin", tags=["admin"])
@@ -36,6 +39,11 @@ class LoginRequest(BaseModel):
     password: str
 
 
+class ChangePasswordRequest(BaseModel):
+    currentPassword: str
+    newPassword: str = Field(min_length=12, max_length=128)
+
+
 class CaseUpdateRequest(BaseModel):
     title: str | None = None
     summary: str | None = None
@@ -46,9 +54,48 @@ class CaseUpdateRequest(BaseModel):
     imageUrls: list[str] | None = None
     regions: list[str] | None = None
     warningMessage: str | None = None
+    caseType: str | None = None
+    locations: str | None = None
+    publishedDate: date | None = None
+    sourceUrl: AnyHttpUrl | None = None
+    sourceTitle: str | None = None
+    sourceAuthor: str | None = None
     isVisible: bool | None = None
     reviewStatus: Literal["draft", "published"] | None = None
     note: str | None = None
+
+
+class ManualCaseCreateRequest(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True)
+
+    title: str = Field(min_length=4, max_length=220)
+    summary: str = Field(min_length=20, max_length=8000)
+    country: CountryCode
+    regions: list[str] = Field(min_length=1, max_length=8)
+    generalLocation: str | None = Field(default=None, max_length=300)
+    caseType: str | None = Field(default=None, max_length=120)
+    status: Literal["Open", "Information Requested", "Closed"] = "Information Requested"
+    reward: int | None = Field(default=None, ge=0)
+    rewardCurrency: RewardCurrency | None = None
+    publishedDate: date = Field(default_factory=date.today)
+    sourceUrl: AnyHttpUrl
+    sourceTitle: str = Field(min_length=4, max_length=300)
+    sourceAuthor: str = Field(min_length=2, max_length=300)
+    imageUrls: list[str] = Field(default_factory=list, max_length=8)
+    warningMessage: str = Field(
+        default="Do not approach any individual. Submit information directly to the published source.",
+        min_length=20,
+        max_length=800,
+    )
+    note: str | None = Field(default=None, max_length=2000)
+
+    @field_validator("regions")
+    @classmethod
+    def validate_regions(cls, regions: list[str]) -> list[str]:
+        cleaned = list(dict.fromkeys(region.strip() for region in regions if region.strip()))
+        if not cleaned:
+            raise ValueError("At least one state or province is required")
+        return cleaned
 
 
 EDITABLE_FIELDS = {
@@ -61,6 +108,12 @@ EDITABLE_FIELDS = {
     "imageUrls",
     "regions",
     "warningMessage",
+    "caseType",
+    "locations",
+    "publishedDate",
+    "sourceUrl",
+    "sourceTitle",
+    "sourceAuthor",
 }
 
 
@@ -77,6 +130,7 @@ def _audit(
     admin_email: str,
     action: str,
     entity_id: str,
+    entity_type: str = "case",
     before: dict | None,
     after: dict | None,
 ) -> None:
@@ -84,12 +138,58 @@ def _audit(
         AuditLogRow(
             admin_email=admin_email,
             action=action,
-            entity_type="case",
+            entity_type=entity_type,
             entity_id=entity_id,
             before_payload=before,
             after_payload=after,
         )
     )
+
+
+def _manual_source_record(case_id: str, payload: dict) -> dict:
+    return {
+        "caseId": case_id,
+        "url": payload["sourceUrl"],
+        "title": payload.get("sourceTitle"),
+        "author": payload["sourceAuthor"],
+        "reward": payload.get("reward"),
+        "rewardCurrency": payload.get("rewardCurrency"),
+        "rewardText": payload.get("rewardText"),
+        "sourceUpdatedDate": payload.get("sourceUpdatedDate"),
+    }
+
+
+def _manual_case_payload(body: ManualCaseCreateRequest) -> dict:
+    case_id = f"{MANUAL_CASE_PREFIX}{uuid4().hex}"
+    published_date = body.publishedDate.isoformat()
+    image_urls = list(dict.fromkeys(url.strip() for url in body.imageUrls if url.strip()))
+    payload = {
+        "id": case_id,
+        "title": body.title.strip(),
+        "agency": body.sourceAuthor.strip(),
+        "country": body.country,
+        "regions": body.regions,
+        "caseType": body.caseType.strip() if body.caseType else "Public reward notice",
+        "description": body.summary.strip(),
+        "reward": body.reward,
+        "rewardCurrency": body.rewardCurrency if body.reward is not None else None,
+        "status": body.status,
+        "summary": body.summary.strip(),
+        "warningMessage": body.warningMessage.strip(),
+        "locations": body.generalLocation.strip() if body.generalLocation else None,
+        "publishedDate": published_date,
+        "lastVerified": date.today().isoformat(),
+        "sourceUpdatedDate": published_date,
+        "sourceUrl": str(body.sourceUrl),
+        "sourceTitle": body.sourceTitle.strip(),
+        "sourceAuthor": body.sourceAuthor.strip(),
+        "sourceKind": "publisher",
+        "sourceRecords": [],
+        "imageUrl": image_urls[0] if image_urls else None,
+        "imageUrls": image_urls,
+    }
+    payload["sourceRecords"] = [_manual_source_record(case_id, payload)]
+    return RewardCase.model_validate(payload).model_dump()
 
 
 @router.post("/auth/login")
@@ -110,6 +210,35 @@ def login(body: LoginRequest):
                 "expiresIn": 8 * 60 * 60,
                 "admin": {"email": user.email, "role": user.role},
             }
+    finally:
+        engine.dispose()
+
+
+@router.post("/auth/change-password")
+def change_password(
+    body: ChangePasswordRequest,
+    admin_email: str = Depends(require_admin),
+):
+    engine = initialize_database()
+    try:
+        with Session(engine) as session, session.begin():
+            user = session.query(AdminUserRow).filter(AdminUserRow.email == admin_email).one()
+            if not verify_password(body.currentPassword, user.password_hash):
+                raise HTTPException(status_code=400, detail="Current password is incorrect")
+            if verify_password(body.newPassword, user.password_hash):
+                raise HTTPException(status_code=400, detail="New password must be different")
+
+            user.password_hash = hash_password(body.newPassword)
+            _audit(
+                session,
+                admin_email=admin_email,
+                action="admin.password.changed",
+                entity_id=admin_email,
+                entity_type="admin",
+                before=None,
+                after={"changed": True},
+            )
+        return {"changed": True}
     finally:
         engine.dispose()
 
@@ -138,6 +267,65 @@ def dashboard(admin_email: str = Depends(require_admin)):
                 "quality": latest.quality_payload if latest else None,
                 "syncRunning": SYNC_LOCK.locked(),
             }
+    finally:
+        engine.dispose()
+
+
+@router.post("/media", status_code=status.HTTP_201_CREATED)
+async def upload_admin_media(
+    file: UploadFile = File(...),
+    _admin_email: str = Depends(require_admin),
+):
+    if file.content_type not in {"image/jpeg", "image/png", "image/webp"}:
+        raise HTTPException(status_code=415, detail="Only JPEG, PNG, or WebP images are accepted")
+
+    contents = await file.read(MAX_UPLOAD_BYTES + 1)
+    try:
+        return {"url": store_admin_image(contents)}
+    except InvalidImageUpload as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@router.post("/cases/manual", status_code=status.HTTP_201_CREATED)
+def create_manual_case(
+    body: ManualCaseCreateRequest,
+    admin_email: str = Depends(require_admin),
+):
+    payload = _manual_case_payload(body)
+    internal_note = body.note.strip() if body.note else "Manual notice awaiting source review"
+    engine = initialize_database()
+    try:
+        with Session(engine) as session, session.begin():
+            upsert_case_payload(session, payload)
+            override = CaseOverrideRow(
+                case_id=payload["id"],
+                fields={},
+                is_visible=False,
+                review_status="draft",
+                note=internal_note,
+                updated_by=admin_email,
+                updated_at=datetime.now(UTC),
+            )
+            session.add(override)
+            _audit(
+                session,
+                admin_email=admin_email,
+                action="case.manual.created",
+                entity_id=payload["id"],
+                before=None,
+                after={"case": payload, "reviewStatus": "draft", "isVisible": False},
+            )
+        return {
+            "case": payload,
+            "override": {
+                "fields": {},
+                "isVisible": False,
+                "reviewStatus": "draft",
+                "note": internal_note,
+            },
+        }
     finally:
         engine.dispose()
 
@@ -200,6 +388,7 @@ def list_admin_cases(
                         "isVisible": override.is_visible if override else True,
                         "reviewStatus": override.review_status if override else "published",
                         "hasOverride": override is not None,
+                        "isManual": row.id.startswith(MANUAL_CASE_PREFIX),
                     }
                 )
             return {"items": items, "total": total, "page": page, "pageSize": page_size}
@@ -219,6 +408,7 @@ def get_admin_case(case_id: str, _admin_email: str = Depends(require_admin)):
             return {
                 "raw": row.payload,
                 "effective": _effective_payload(row, override),
+                "isManual": row.id.startswith(MANUAL_CASE_PREFIX),
                 "override": {
                     "fields": override.fields,
                     "isVisible": override.is_visible,
@@ -258,10 +448,18 @@ def update_admin_case(
             supplied = body.model_fields_set
             next_fields = dict(override.fields)
             for field_name in EDITABLE_FIELDS & supplied:
-                next_fields[field_name] = getattr(body, field_name)
+                value = getattr(body, field_name)
+                if field_name == "sourceUrl" and value is not None:
+                    value = str(value)
+                elif field_name == "publishedDate" and value is not None:
+                    value = value.isoformat()
+                next_fields[field_name] = value
 
             effective = dict(row.payload)
             effective.update(next_fields)
+            if row.id.startswith(MANUAL_CASE_PREFIX):
+                effective["sourceRecords"] = [_manual_source_record(row.id, effective)]
+                next_fields["sourceRecords"] = effective["sourceRecords"]
             RewardCase.model_validate(effective)
 
             override.fields = next_fields
@@ -298,6 +496,11 @@ def reset_admin_case(case_id: str, admin_email: str = Depends(require_admin)):
     engine = initialize_database()
     try:
         with Session(engine) as session, session.begin():
+            if case_id.startswith(MANUAL_CASE_PREFIX):
+                raise HTTPException(
+                    status_code=409,
+                    detail="Manual cases do not have official source values to restore",
+                )
             override = session.get(CaseOverrideRow, case_id)
             if override is None:
                 return {"reset": False}
@@ -317,6 +520,35 @@ def reset_admin_case(case_id: str, admin_email: str = Depends(require_admin)):
                 after=None,
             )
             return {"reset": True}
+    finally:
+        engine.dispose()
+
+
+@router.delete("/cases/manual/{case_id}")
+def delete_manual_case(case_id: str, admin_email: str = Depends(require_admin)):
+    if not case_id.startswith(MANUAL_CASE_PREFIX):
+        raise HTTPException(status_code=400, detail="Only manual cases can be deleted here")
+
+    engine = initialize_database()
+    try:
+        with Session(engine) as session, session.begin():
+            row = session.get(CaseRow, case_id)
+            if row is None:
+                raise HTTPException(status_code=404, detail="Case not found")
+            before = dict(row.payload)
+            override = session.get(CaseOverrideRow, case_id)
+            if override is not None:
+                session.delete(override)
+            session.delete(row)
+            _audit(
+                session,
+                admin_email=admin_email,
+                action="case.manual.deleted",
+                entity_id=case_id,
+                before=before,
+                after=None,
+            )
+            return {"deleted": True}
     finally:
         engine.dispose()
 

@@ -12,12 +12,12 @@ router = APIRouter(prefix="/settings", tags=["settings"])
 
 class HomeSettings(BaseModel):
     brandSubtitle: str = Field(
-        default="Official public reward notices across North America",
+        default="Official and reviewed public reward notices across North America",
         min_length=10,
         max_length=120,
     )
     safetyMessage: str = Field(
-        default="Do not approach or attempt to detain any person. Submit information directly to the relevant official agency.",
+        default="Do not approach or attempt to detain any person. Submit information through the listed publisher's source page.",
         min_length=20,
         max_length=240,
     )

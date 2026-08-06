@@ -9,6 +9,10 @@ export function getCaseSourceName(rewardCase: RewardCase) {
   return rewardCase.sourceAuthor?.trim() || rewardCase.agency;
 }
 
+export function isPublisherNotice(rewardCase: RewardCase) {
+  return rewardCase.sourceKind === 'publisher' || rewardCase.id.startsWith('manual-');
+}
+
 export function getCaseRegions(rewardCase: RewardCase) {
   return rewardCase.regions?.filter(Boolean) ?? [];
 }

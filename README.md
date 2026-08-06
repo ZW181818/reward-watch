@@ -53,8 +53,17 @@ cd backend
 
 Open `http://localhost:8081/admin`. The console provides source-health status,
 case search, display overrides, image selection, hide/draft controls, manual
-sync, and an audit log. Source refreshes update raw records without overwriting
-administrator display overrides.
+sync, and an audit log. It can also create a source-backed public notice with a
+broad jurisdiction, reward amount, and up to eight uploaded images. Every new
+notice starts hidden and in draft review. Source refreshes update raw records
+without overwriting administrator display overrides or deleting manual notices.
+
+There is no public administrator registration route. Uploaded images are
+validated, resized, re-encoded, and stripped of metadata. Development stores
+them below `backend/data/media`; production requires Cloudflare R2 because the
+Render filesystem is not durable. The form is intentionally for public,
+source-backed notices only: do not publish live locations, private addresses,
+tracking history, or instructions to approach or detain anyone.
 
 Home subtitle, safety copy, recent-case count, and featured cases use a separate
 draft and publish workflow. Saving a draft does not change the public app;

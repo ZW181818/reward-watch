@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 
 CountryCode = Literal["US", "Canada"]
 RewardCurrency = Literal["USD", "CAD"]
+SourceKind = Literal["official", "publisher"]
 
 
 class OfficialSourceRecord(BaseModel):
@@ -52,6 +53,7 @@ class RewardCase(BaseModel):
     sourceUrl: str
     sourceTitle: str | None = None
     sourceAuthor: str | None = None
+    sourceKind: SourceKind = "official"
     sourceRecords: list[OfficialSourceRecord] = Field(default_factory=list)
     imageUrl: str | None = None
     imageUrls: list[str] = Field(default_factory=list)

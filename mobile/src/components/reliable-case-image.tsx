@@ -121,7 +121,7 @@ export function ReliableCaseImage({
 
   return (
     <Image
-      accessibilityLabel={`${rewardCase.title} official case image`}
+      accessibilityLabel={`${rewardCase.title} case image`}
       cachePolicy="memory-disk"
       contentFit={contentFit}
       key={`${imageUrl}-${attempt}`}

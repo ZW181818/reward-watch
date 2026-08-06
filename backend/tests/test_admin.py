@@ -8,8 +8,13 @@ from sqlalchemy.orm import Session
 
 from app.admin import (
     CaseUpdateRequest,
+    ChangePasswordRequest,
     LoginRequest,
+    ManualCaseCreateRequest,
     audit_log,
+    change_password,
+    create_manual_case,
+    delete_manual_case,
     get_admin_case,
     get_admin_home_settings,
     login,
@@ -95,6 +100,24 @@ class AdminTests(unittest.TestCase):
         self.assertTrue(result["accessToken"])
         self.assertEqual(result["admin"]["role"], "admin")
 
+    def test_admin_can_change_password(self):
+        result = change_password(
+            ChangePasswordRequest(
+                currentPassword="correct horse battery staple",
+                newPassword="replacement horse battery staple",
+            ),
+            "admin@example.test",
+        )
+
+        self.assertTrue(result["changed"])
+        login(
+            LoginRequest(
+                email="admin@example.test",
+                password="replacement horse battery staple",
+            )
+        )
+        self.assertEqual(audit_log(30, "admin@example.test")[0]["action"], "admin.password.changed")
+
     def test_case_override_and_reset_are_audited(self):
         update_admin_case(
             "fbi-admin-test",
@@ -127,6 +150,70 @@ class AdminTests(unittest.TestCase):
         publish_admin_home_settings("admin@example.test")
         self.assertEqual(get_home_settings().recentCaseLimit, 5)
         self.assertIsNone(get_admin_home_settings("admin@example.test")["draft"])
+
+    def test_manual_case_stays_draft_until_published_and_survives_sync(self):
+        created = create_manual_case(
+            ManualCaseCreateRequest(
+                title="Verified community reward notice",
+                summary="A source-backed public notice requesting information from the public.",
+                country="US",
+                regions=["Washington"],
+                generalLocation="Seattle metropolitan area",
+                reward=5000,
+                rewardCurrency="USD",
+                sourceUrl="https://example.test/public-notice",
+                sourceTitle="Public information request",
+                sourceAuthor="Example Public Safety Foundation",
+                imageUrls=["https://example.test/notice.jpg"],
+            ),
+            "admin@example.test",
+        )
+        case_id = created["case"]["id"]
+
+        self.assertTrue(case_id.startswith("manual-"))
+        self.assertEqual(created["case"]["sourceKind"], "publisher")
+        self.assertEqual(load_database_cases(self.database_url)[0].id, "fbi-admin-test")
+        detail = get_admin_case(case_id, "admin@example.test")
+        self.assertTrue(detail["isManual"])
+        self.assertEqual(detail["override"]["reviewStatus"], "draft")
+        self.assertFalse(detail["override"]["isVisible"])
+
+        update_admin_case(
+            case_id,
+            CaseUpdateRequest(reviewStatus="published", isVisible=True),
+            "admin@example.test",
+        )
+        self.assertIn(case_id, {case.id for case in load_database_cases(self.database_url)})
+
+        payload = case_payload()
+        sync_case_snapshot(
+            cases=[payload],
+            source_cases=[payload],
+            update_status={
+                "updatedAt": "2026-08-05T11:00:00+00:00",
+                "allSourcesFresh": True,
+                "totalCount": 1,
+                "sources": [],
+            },
+            quality_report={"qualityGate": {"passed": True}},
+            database_url=self.database_url,
+        )
+        self.assertIn(case_id, {case.id for case in load_database_cases(self.database_url)})
+
+        delete_manual_case(case_id, "admin@example.test")
+        self.assertNotIn(case_id, {case.id for case in load_database_cases(self.database_url)})
+
+    def test_manual_case_requires_a_real_region(self):
+        with self.assertRaises(ValueError):
+            ManualCaseCreateRequest(
+                title="Verified public notice",
+                summary="A sufficiently detailed public notice summary for validation.",
+                country="US",
+                regions=["  "],
+                sourceUrl="https://example.test/notices/region-check",
+                sourceTitle="Verified public notice source",
+                sourceAuthor="Example Public Safety Foundation",
+            )
 
 
 if __name__ == "__main__":

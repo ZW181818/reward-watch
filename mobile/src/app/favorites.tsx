@@ -13,7 +13,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { fetchCase } from '@/lib/cases';
-import { formatCaseReward, getCaseSourceName } from '@/lib/case-display';
+import { formatCaseReward, getCaseSourceName, isPublisherNotice } from '@/lib/case-display';
 import { isCaseFavorite, loadFavoriteIds } from '@/lib/favorites';
 import { LanguageSelector } from '@/components/language-selector';
 import { useLanguage } from '@/lib/i18n';
@@ -131,7 +131,9 @@ export default function FavoritesScreen() {
                     />
                   </View>
                   <View style={styles.cardBody}>
-                    <Text style={styles.sourceEyebrow}>{t('officialSource')}</Text>
+                    <Text style={styles.sourceEyebrow}>
+                      {t(isPublisherNotice(rewardCase) ? 'publisherSource' : 'officialSource')}
+                    </Text>
                     <Text style={styles.sourceName} numberOfLines={1}>
                       {getCaseSourceName(rewardCase)}
                     </Text>

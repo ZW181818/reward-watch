@@ -10,6 +10,9 @@ from .database import CaseOverrideRow, CaseRow, SourceCaseRow, SyncRunRow, initi
 from .models import RewardCase
 
 
+MANUAL_CASE_PREFIX = "manual-"
+
+
 def _source_names(reward_case: dict[str, Any]) -> list[str]:
     names = {
         str(name).strip()
@@ -57,6 +60,48 @@ def _search_text(reward_case: dict[str, Any]) -> str:
     return " ".join(str(value).strip() for value in values if value).casefold()
 
 
+def upsert_case_payload(
+    session: Session,
+    payload: dict[str, Any],
+    *,
+    now: datetime | None = None,
+) -> CaseRow:
+    timestamp = now or datetime.now(UTC)
+    case_id = str(payload["id"])
+    source_names = _source_names(payload)
+    row = session.get(CaseRow, case_id)
+    if row is None:
+        row = CaseRow(
+            id=case_id,
+            country=str(payload["country"]),
+            status=str(payload["status"]),
+            reward=payload.get("reward"),
+            published_date=str(payload["publishedDate"]),
+            source_name=source_names[0] if source_names else str(payload.get("agency", "")),
+            search_text=_search_text(payload),
+            regions_text="",
+            sources_text="",
+            payload=payload,
+            created_at=timestamp,
+            updated_at=timestamp,
+        )
+        session.add(row)
+
+    row.country = str(payload["country"])
+    row.status = str(payload["status"])
+    row.reward = payload.get("reward")
+    row.published_date = str(payload["publishedDate"])
+    row.source_name = source_names[0] if source_names else str(payload.get("agency", ""))
+    row.search_text = _search_text(payload)
+    row.regions_text = "|" + "|".join(
+        str(value).casefold() for value in payload.get("regions", [])
+    ) + "|"
+    row.sources_text = "|" + "|".join(value.casefold() for value in source_names) + "|"
+    row.payload = payload
+    row.updated_at = timestamp
+    return row
+
+
 def sync_case_snapshot(
     *,
     cases: list[dict[str, Any]],
@@ -75,39 +120,11 @@ def sync_case_snapshot(
         for payload in cases:
             case_id = str(payload["id"])
             next_case_ids.add(case_id)
-            source_names = _source_names(payload)
-            row = session.get(CaseRow, case_id)
-            if row is None:
-                row = CaseRow(
-                    id=case_id,
-                    country=str(payload["country"]),
-                    status=str(payload["status"]),
-                    reward=payload.get("reward"),
-                    published_date=str(payload["publishedDate"]),
-                    source_name=source_names[0] if source_names else str(payload.get("agency", "")),
-                    search_text=_search_text(payload),
-                    regions_text="|" + "|".join(str(value).casefold() for value in payload.get("regions", [])) + "|",
-                    sources_text="|" + "|".join(value.casefold() for value in source_names) + "|",
-                    payload=payload,
-                    created_at=now,
-                    updated_at=now,
-                )
-                session.add(row)
-            else:
-                row.country = str(payload["country"])
-                row.status = str(payload["status"])
-                row.reward = payload.get("reward")
-                row.published_date = str(payload["publishedDate"])
-                row.source_name = source_names[0] if source_names else str(payload.get("agency", ""))
-                row.search_text = _search_text(payload)
-                row.regions_text = "|" + "|".join(
-                    str(value).casefold() for value in payload.get("regions", [])
-                ) + "|"
-                row.sources_text = "|" + "|".join(value.casefold() for value in source_names) + "|"
-                row.payload = payload
-                row.updated_at = now
+            upsert_case_payload(session, payload, now=now)
 
         for removed_id in current_case_ids - next_case_ids:
+            if removed_id.startswith(MANUAL_CASE_PREFIX):
+                continue
             row = session.get(CaseRow, removed_id)
             if row is not None:
                 session.delete(row)
