@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-05T22:23:01.077980+00:00",
-  "allSourcesFresh": true,
-  "totalCount": 2073,
+  "updatedAt": "2026-08-17T03:50:14.861706+00:00",
+  "allSourcesFresh": false,
+  "totalCount": 2086,
   "sources": [
     {
       "id": "fbi",
@@ -9,7 +9,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1196,
+      "count": 1203,
       "error": null
     },
     {
@@ -54,7 +54,7 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -70,10 +70,10 @@
       "id": "cfseu-bc",
       "name": "CFSEU-BC wanted news releases",
       "country": "Canada",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 3,
-      "error": null
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "id": "rfj",
@@ -90,7 +90,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 55,
+      "count": 56,
       "error": null
     },
     {
@@ -108,7 +108,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 292,
+      "count": 295,
       "error": null
     },
     {
@@ -117,7 +117,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 75,
+      "count": 76,
       "error": null
     }
   ]

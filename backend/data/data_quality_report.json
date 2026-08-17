@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-05T22:23:01.077980+00:00",
-  "totalCases": 2073,
-  "sourceRecords": 2110,
+  "generatedAt": "2026-08-17T03:50:14.861706+00:00",
+  "totalCases": 2086,
+  "sourceRecords": 2123,
   "multiSourceCases": 37,
   "countries": {
-    "Canada": 263,
-    "US": 1810
+    "Canada": 264,
+    "US": 1822
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1365,
-    "Open": 704
+    "Information Requested": 1372,
+    "Open": 710
   },
   "sources": {
     "CFSEU-BC": 3,
     "Cranbrook RCMP": 1,
     "Edmonton Police Service": 10,
-    "Federal Bureau of Investigation": 1196,
+    "Federal Bureau of Investigation": 1203,
     "Fugitifs Quebec": 15,
     "Hope RCMP": 1,
     "IHIT": 1,
@@ -25,38 +25,40 @@
     "Nanaimo RCMP": 1,
     "Nova Scotia Department of Justice": 117,
     "Ontario Provincial Police": 92,
-    "Prince George RCMP": 7,
+    "Prince George RCMP": 8,
     "Prince Rupert RCMP": 1,
     "Ridge Meadows RCMP": 1,
     "Saskatchewan RCMP": 6,
     "Terrace RCMP": 2,
-    "Texas Department of Public Safety": 75,
+    "Texas Department of Public Safety": 76,
     "U.S. Department of State - Rewards for Justice": 229,
-    "U.S. Marshals Service": 55,
-    "United States Postal Inspection Service": 292,
+    "U.S. Marshals Service": 56,
+    "United States Postal Inspection Service": 295,
     "Vancouver Police Department": 2,
     "West Shore RCMP": 1
   },
   "rewards": {
-    "published": 1321,
-    "notPublished": 752,
+    "published": 1331,
+    "notPublished": 755,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
-      "USD": 1112
+      "USD": 1122
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
-    "localPrimaryImages": 75,
-    "remotePrimaryImages": 1998
+    "localPrimaryImages": 76,
+    "remotePrimaryImages": 2010
   },
   "regions": {
     "casesWithoutRegion": 45
   },
   "freshness": {
-    "allSourcesFresh": true,
-    "staleSources": []
+    "allSourcesFresh": false,
+    "staleSources": [
+      "cfseu-bc"
+    ]
   },
   "checks": {
     "uniqueCaseIds": true,
