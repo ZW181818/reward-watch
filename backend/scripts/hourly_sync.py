@@ -10,11 +10,14 @@ from pathlib import Path
 
 SCRIPT_PATH = Path(__file__).resolve().parent / "update_cases.py"
 SYNC_MINUTE = int(os.getenv("SYNC_MINUTE", "20"))
+SYNC_INTERVAL_HOURS = int(os.getenv("SYNC_INTERVAL_HOURS", "6"))
 
 
 def next_run(now: datetime) -> datetime:
-    candidate = now.replace(minute=SYNC_MINUTE, second=0, microsecond=0)
-    return candidate if candidate > now else candidate + timedelta(hours=1)
+    candidate = now.replace(hour=0, minute=SYNC_MINUTE, second=0, microsecond=0)
+    while candidate <= now:
+        candidate += timedelta(hours=SYNC_INTERVAL_HOURS)
+    return candidate
 
 
 def run_sync() -> None:
@@ -23,7 +26,7 @@ def run_sync() -> None:
         check=False,
     )
     if completed.returncode:
-        print(f"Hourly sync completed with status {completed.returncode}", flush=True)
+        print(f"Scheduled sync completed with status {completed.returncode}", flush=True)
 
 
 def main() -> int:
@@ -41,3 +44,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
