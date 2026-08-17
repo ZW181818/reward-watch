@@ -92,10 +92,13 @@ class StorageTests(unittest.TestCase):
 
             self.assertEqual(load_database_cases(database_url), [])
 
-    def test_hourly_scheduler_uses_the_next_minute_twenty(self):
+    def test_scheduler_uses_six_hour_intervals_at_minute_twenty(self):
         now = datetime(2026, 8, 5, 10, 25, tzinfo=UTC)
-        self.assertEqual(next_run(now), datetime(2026, 8, 5, 11, 20, tzinfo=UTC))
+        self.assertEqual(next_run(now), datetime(2026, 8, 5, 12, 20, tzinfo=UTC))
+        before_slot = datetime(2026, 8, 5, 12, 19, tzinfo=UTC)
+        self.assertEqual(next_run(before_slot), datetime(2026, 8, 5, 12, 20, tzinfo=UTC))
 
 
 if __name__ == "__main__":
     unittest.main()
+
