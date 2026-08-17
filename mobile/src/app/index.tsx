@@ -249,7 +249,7 @@ export default function HomeScreen() {
             iconName={{ ios: 'globe.americas.fill', android: 'globe', web: 'globe' }}
             label={t('marketsCovered')}
             tone="blue"
-            value="2"
+            value={String(countryFilters.length - 1)}
           />
         </View>
 
