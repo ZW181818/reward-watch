@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export type AdminUploadFile = {
   blob: Blob;
   name: string;
+  previewUrl?: string;
 };
 
 export function AdminImagePicker({ disabled }: { disabled?: boolean; onFiles: (files: AdminUploadFile[]) => void }) {

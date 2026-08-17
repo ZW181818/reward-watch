@@ -52,11 +52,15 @@ cd backend
 ```
 
 Open `http://localhost:8081/admin`. The console provides source-health status,
-case search, display overrides, image selection, hide/draft controls, manual
-sync, and an audit log. It can also create a source-backed public notice with a
-broad jurisdiction, reward amount, and up to eight uploaded images. Every new
-notice starts hidden and in draft review. Source refreshes update raw records
-without overwriting administrator display overrides or deleting manual notices.
+case search, complete display overrides, image upload previews, cover selection,
+single-image removal, hide/draft controls, manual sync, and an audit log. Every
+public case field except its immutable ID can be reviewed and overridden,
+including source metadata, dates, aliases, physical details, warnings, rewards,
+and the public image gallery. The console can also create a source-backed public
+notice with a broad jurisdiction, full case details, and up to eight images.
+Every new notice starts hidden and in draft review. Source refreshes update raw
+records without overwriting administrator display overrides or deleting manual
+notices.
 
 There is no public administrator registration route. Uploaded images are
 validated, resized, re-encoded, and stripped of metadata. Development stores
@@ -102,11 +106,22 @@ Public Safety active Most Wanted, wanted sex offender, criminal illegal
 immigrant, and Still Wanted reward directories. It writes normalized records to
 `backend/data/cases.json`.
 
+Mainland China coverage is limited to reviewed criminal reward notices issued
+by public-security authorities. The reviewed manifest currently contains 122
+subjects: two from a Quanzhou Public Security Bureau notice, all 100 from eight
+issuing bureaus in the December 2025 nationwide telecom-fraud reward release,
+and 20 from Guangzhou Tianhe Public Security's June 2025 cybercrime reward
+notice. Seven telecom-fraud posters are hosted by Wuhan Public Security; the
+43-person Longyan poster is preserved on Xinhua's official copy of the Ministry
+of Public Security release. Court enforcement rewards, generic tip campaigns,
+private missing-person posts, expired notices, and notices with an explicit
+revocation or capture update are outside this connector's scope.
+
 The updater also writes `backend/data/source_cases.json` as the per-source
 fallback snapshot and `backend/data/data_quality_report.json` as an auditable
 summary. Exact-name overlaps between FBI and Rewards for Justice records are
 merged conservatively for the app while every official source URL remains on
-the canonical case. Published rewards carry an explicit `USD` or `CAD`
+the canonical case. Published rewards carry an explicit `USD`, `CAD`, or `CNY`
 currency; an absent official amount is stored as `null`, not as a zero-dollar
 reward.
 
@@ -119,13 +134,14 @@ The default update is a full sync. Positive `--fbi-limit`, `--opp-limit`,
 for development samples, along with `--bc-rcmp-limit`, `--vancouver-limit`, and
 `--cfseu-bc-limit`. The cash-reward sources support
 `--rewards-for-justice-limit`, `--us-marshals-limit`, and
-`--nova-scotia-limit`, plus `--uspis-limit` and `--texas-dps-limit`. The update is source-safe: when one
+`--nova-scotia-limit`, plus `--uspis-limit`, `--texas-dps-limit`, and
+`--china-police-limit`. The update is source-safe: when one
 official source is temporarily unavailable, only that source's previous records
 are retained. The latest outcome is stored in
 `backend/data/update_status.json`.
 
 `.github/workflows/update-official-data.yml` runs the same update at 20 minutes
-past every hour, tests it, synchronizes PostgreSQL when `DATABASE_URL` is
+past every sixth hour, tests it, synchronizes PostgreSQL when `DATABASE_URL` is
 configured, and commits changed recovery snapshots. It becomes active after
 this project is pushed to a GitHub repository with Actions enabled and workflow
 write access.
@@ -136,6 +152,14 @@ a real source image, and generic "no photo" placeholders. The three dedicated
 reward catalogs additionally require a cash amount stated by the official
 source. U.S. Marshals profiles with explicit apprehended or deceased updates are
 retained as `Closed` instead of being presented as active notices.
+
+The China police connector publishes only reviewed, named criminal suspects
+from official public-security notices and official copies of their signed
+posters. It pins every reviewed poster hash so a changed image stops automatic
+ingestion for manual review. A notice-wide revocation removes all of its
+records; a capture or surrender update only removes a subject when the official
+page states that update next to the subject's name. OCR is used only during
+human review and never as an unattended production input.
 
 Texas DPS embeds official profile photos directly in its pages. The importer
 stores those images under `backend/data/media/texas-dps`, and the API serves
@@ -148,7 +172,7 @@ newer arrest, custody, located, surrendered, extradited, and deceased posts as
 lifecycle closures when the official source identifies the same person.
 
 Each normalized record includes explicit source attribution and zero or more
-`regions`. Canada records are classified by province. US records use the
+`regions`. Canada and China records are classified by province. US records use the
 official FBI field office mapping, with a title-based state fallback when the
 source does not publish a field office. Records without a reliable state remain
 available under the country-wide view instead of being assigned speculatively.

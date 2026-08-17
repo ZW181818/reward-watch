@@ -39,6 +39,7 @@ class CaseQualityTests(unittest.TestCase):
             [
                 make_case("fbi-none"),
                 make_case("opp-cad", country="Canada", reward=50_000),
+                make_case("cn-cny", country="China", reward=250_000),
             ]
         )
 
@@ -46,6 +47,7 @@ class CaseQualityTests(unittest.TestCase):
         self.assertIsNone(cases[0]["rewardCurrency"])
         self.assertEqual(cases[1]["reward"], 50_000)
         self.assertEqual(cases[1]["rewardCurrency"], "CAD")
+        self.assertEqual(cases[2]["rewardCurrency"], "CNY")
 
     def test_merges_matching_fbi_and_rewards_for_justice_records(self):
         cases = normalize_reward_metadata(

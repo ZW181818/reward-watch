@@ -12,7 +12,7 @@ router = APIRouter(prefix="/settings", tags=["settings"])
 
 class HomeSettings(BaseModel):
     brandSubtitle: str = Field(
-        default="Official and reviewed public reward notices across North America",
+        default="Official and reviewed public reward notices from supported jurisdictions",
         min_length=10,
         max_length=120,
     )

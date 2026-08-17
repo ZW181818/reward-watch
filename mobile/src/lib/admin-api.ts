@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { API_BASE_URL, resolveApiAssetUrl } from '@/lib/cases';
-import type { RewardCase } from '@/types/reward-case';
+import type { RewardCase, RewardCountry, RewardCurrency } from '@/types/reward-case';
 
 
 const ADMIN_TOKEN_KEY = 'reward-watch:admin-token';
@@ -60,17 +60,37 @@ export type AdminCaseDetail = {
 export type ManualCaseInput = {
   title: string;
   summary: string;
-  country: 'US' | 'Canada';
+  description?: string | null;
+  agency?: string | null;
+  country: RewardCountry;
   regions: string[];
-  generalLocation?: string | null;
+  locations?: string | null;
   caseType?: string | null;
   status: 'Open' | 'Information Requested' | 'Closed';
   reward?: number | null;
-  rewardCurrency?: 'USD' | 'CAD' | null;
+  rewardCurrency?: RewardCurrency | null;
+  rewardText?: string | null;
+  warningMessage: string;
+  aliases: string[];
+  age?: string | null;
+  dateOfBirth?: string | null;
+  placeOfBirth?: string | null;
+  sex?: string | null;
+  race?: string | null;
+  nationality?: string | null;
+  hair?: string | null;
+  eyes?: string | null;
+  height?: string | null;
+  weight?: string | null;
+  distinguishingFeatures?: string | null;
+  fieldOffice?: string | null;
   publishedDate: string;
+  lastVerified: string;
+  sourceUpdatedDate?: string | null;
   sourceUrl: string;
   sourceTitle: string;
   sourceAuthor: string;
+  sourceKind: 'official' | 'publisher';
   imageUrls: string[];
   note?: string | null;
 };

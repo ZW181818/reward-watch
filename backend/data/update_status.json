@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-17T03:50:14.861706+00:00",
+  "updatedAt": "2026-08-17T05:26:02.921320+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2086,
+  "totalCount": 2208,
   "sources": [
     {
       "id": "fbi",
@@ -118,6 +118,15 @@
       "success": true,
       "usedStaleData": false,
       "count": 76,
+      "error": null
+    },
+    {
+      "id": "cn-police",
+      "name": "Mainland China official public-security criminal reward notices",
+      "country": "China",
+      "success": true,
+      "usedStaleData": false,
+      "count": 122,
       "error": null
     }
   ]

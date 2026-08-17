@@ -18,6 +18,8 @@ import {
   formatCaseReward,
   getCaseRegionLabel,
   getCaseSourceName,
+  getCountryAccentColor,
+  getCountryBadge,
   isPublisherNotice,
 } from '@/lib/case-display';
 import { ReliableCaseImage } from '@/components/reliable-case-image';
@@ -28,13 +30,13 @@ import type { RewardCase, RewardCountry } from '@/types/reward-case';
 type CountryFilter = 'All' | RewardCountry;
 
 const defaultHomeSettings = {
-  brandSubtitle: 'Official and reviewed public reward notices across North America',
+  brandSubtitle: 'Official and reviewed public reward notices from supported jurisdictions',
   safetyMessage: "Do not approach or attempt to detain any person. Submit information through the listed publisher's source page.",
   featuredCaseIds: [] as string[],
   recentCaseLimit: 4,
 };
 
-const countryFilters: CountryFilter[] = ['All', 'US', 'Canada'];
+const countryFilters: CountryFilter[] = ['All', 'US', 'Canada', 'China'];
 
 function useDebouncedValue(value: string, delayMs: number) {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -440,10 +442,14 @@ function CaseCard({
             <View
               style={[
                 styles.countryMark,
-                rewardCase.country === 'Canada' ? styles.countryMarkCanada : styles.countryMarkUs,
+                rewardCase.country === 'Canada'
+                  ? styles.countryMarkCanada
+                  : rewardCase.country === 'China'
+                    ? styles.countryMarkChina
+                    : styles.countryMarkUs,
               ]}>
               <Text style={styles.countryMarkText}>
-                {rewardCase.country === 'Canada' ? 'CA' : 'US'}
+                {getCountryBadge(rewardCase.country)}
               </Text>
             </View>
             <View style={styles.caseMetaStack}>
@@ -509,7 +515,7 @@ function CaseVisual({
           <SymbolView
             name={{ ios: 'doc.text.magnifyingglass', android: 'description', web: 'description' }}
             size={compact ? 32 : 40}
-            tintColor={rewardCase.country === 'Canada' ? '#367D97' : '#5A63D8'}
+            tintColor={getCountryAccentColor(rewardCase.country)}
           />
         }
         loadDelayMs={visualIndex * 450}
@@ -518,7 +524,7 @@ function CaseVisual({
       />
       <View style={styles.caseVisualBadge}>
         <Text style={styles.caseVisualBadgeText}>
-          {rewardCase.country === 'Canada' ? 'CA' : 'US'}
+          {getCountryBadge(rewardCase.country)}
         </Text>
       </View>
     </View>
@@ -1058,6 +1064,11 @@ const styles = StyleSheet.create({
   countryMarkCanada: {
     backgroundColor: '#E8F5F9',
     borderColor: '#CDE8F0',
+    borderWidth: 1,
+  },
+  countryMarkChina: {
+    backgroundColor: '#FFF4E5',
+    borderColor: '#FEDF89',
     borderWidth: 1,
   },
   countryMarkUs: {

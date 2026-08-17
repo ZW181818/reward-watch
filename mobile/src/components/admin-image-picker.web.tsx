@@ -6,6 +6,7 @@ import { Pressable, StyleSheet, Text } from 'react-native';
 export type AdminUploadFile = {
   blob: Blob;
   name: string;
+  previewUrl?: string;
 };
 
 export function AdminImagePicker({
@@ -25,7 +26,11 @@ export function AdminImagePicker({
         multiple
         onChange={(event) => {
           const files = Array.from(event.currentTarget.files ?? []).slice(0, 8);
-          onFiles(files.map((file) => ({ blob: file, name: file.name })));
+          onFiles(files.map((file) => ({
+            blob: file,
+            name: file.name,
+            previewUrl: URL.createObjectURL(file),
+          })));
           event.currentTarget.value = '';
         }}
         ref={inputRef}

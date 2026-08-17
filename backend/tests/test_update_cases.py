@@ -42,6 +42,20 @@ class UpdateCasesTests(unittest.TestCase):
         self.assertTrue(status["success"])
         self.assertFalse(status["usedStaleData"])
 
+    def test_allows_a_verified_source_to_remove_every_record(self):
+        cases, status = refresh_source(
+            country="China",
+            existing_cases=[{"id": "cn-police-previous", "country": "China"}],
+            fetcher=lambda: [],
+            id_prefix="cn-police-",
+            name="Test China police source",
+            allow_empty=True,
+        )
+
+        self.assertEqual(cases, [])
+        self.assertTrue(status["success"])
+        self.assertFalse(status["usedStaleData"])
+
     def test_deduplicates_ids_but_keeps_shared_release_urls(self):
         cases = deduplicate_cases(
             [

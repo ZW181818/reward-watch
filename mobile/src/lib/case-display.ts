@@ -21,6 +21,18 @@ export function getCaseRegionLabel(rewardCase: RewardCase) {
   return getCaseRegions(rewardCase).join(' / ');
 }
 
+export function getCountryBadge(country: RewardCountry) {
+  return { Canada: 'CA', China: 'CN', US: 'US' }[country];
+}
+
+export function getCountryAccentColor(country: RewardCountry) {
+  return { Canada: '#367D97', China: '#B54708', US: '#5A63D8' }[country];
+}
+
+export function getDefaultRewardCurrency(country: RewardCountry): RewardCurrency {
+  return ({ Canada: 'CAD', China: 'CNY', US: 'USD' } as const)[country];
+}
+
 export function formatCaseReward(rewardCase: RewardCase) {
   return formatRewardAmount(
     rewardCase.reward,
@@ -38,14 +50,14 @@ export function formatRewardAmount(
     return 'Not published';
   }
 
-  const resolvedCurrency = currency ?? (country === 'Canada' ? 'CAD' : 'USD');
+  const resolvedCurrency = currency ?? getDefaultRewardCurrency(country);
   const formatted = new Intl.NumberFormat('en-US', {
     maximumFractionDigits: 0,
     style: 'currency',
     currency: resolvedCurrency,
     currencyDisplay: 'narrowSymbol',
   }).format(value);
-  return resolvedCurrency === 'CAD' ? `${formatted} CAD` : formatted;
+  return resolvedCurrency === 'USD' ? formatted : `${formatted} ${resolvedCurrency}`;
 }
 
 export function getCaseOfficialSources(rewardCase: RewardCase): OfficialSourceRecord[] {

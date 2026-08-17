@@ -134,6 +134,81 @@ class AdminTests(unittest.TestCase):
         self.assertEqual(load_database_cases(self.database_url)[0].title, "Original title")
         self.assertEqual(len(audit_log(30, "admin@example.test")), 2)
 
+    def test_admin_can_override_the_complete_case_payload(self):
+        update_admin_case(
+            "fbi-admin-test",
+            CaseUpdateRequest(
+                title="Reviewed public title",
+                agency="Reviewed Agency",
+                country="Canada",
+                regions=["Ontario", "Ontario", "Quebec"],
+                caseType="Public information request",
+                description="Reviewed description",
+                reward=2500,
+                rewardCurrency="CAD",
+                rewardText="Up to CAD 2,500",
+                status="Information Requested",
+                summary="A complete reviewed summary with enough detail for publication.",
+                warningMessage="Do not approach. Contact the official agency directly with information.",
+                aliases=["Example Alias", "Example Alias"],
+                age="42",
+                dateOfBirth="1984-01-02",
+                placeOfBirth="Ottawa, Ontario",
+                sex="Female",
+                race="Not published",
+                nationality="Canadian",
+                hair="Brown",
+                eyes="Green",
+                height="170 cm",
+                weight="65 kg",
+                locations="Ontario and Quebec",
+                distinguishingFeatures="Reviewed public identifying details.",
+                fieldOffice="Ottawa",
+                publishedDate="2026-08-10",
+                lastVerified="2026-08-11",
+                sourceUpdatedDate="2026-08-09",
+                sourceUrl="https://agency.example.test/notices/reviewed",
+                sourceTitle="Reviewed source notice",
+                sourceAuthor="Reviewed Agency",
+                sourceKind="official",
+                sourceRecords=[
+                    {
+                        "caseId": "fbi-admin-test",
+                        "url": "https://agency.example.test/notices/reviewed",
+                        "title": "Reviewed source notice",
+                        "author": "Reviewed Agency",
+                        "reward": 2500,
+                        "rewardCurrency": "CAD",
+                        "rewardText": "Up to CAD 2,500",
+                        "sourceUpdatedDate": "2026-08-09",
+                    }
+                ],
+                imageUrl="https://agency.example.test/images/cover.jpg",
+                imageUrls=[
+                    "https://agency.example.test/images/cover.jpg",
+                    "https://agency.example.test/images/profile.jpg",
+                    "https://agency.example.test/images/profile.jpg",
+                ],
+            ),
+            "admin@example.test",
+        )
+
+        effective = get_admin_case("fbi-admin-test", "admin@example.test")["effective"]
+        self.assertEqual(effective["agency"], "Reviewed Agency")
+        self.assertEqual(effective["country"], "Canada")
+        self.assertEqual(effective["regions"], ["Ontario", "Quebec"])
+        self.assertEqual(effective["aliases"], ["Example Alias"])
+        self.assertEqual(effective["lastVerified"], "2026-08-11")
+        self.assertEqual(effective["sourceRecords"][0]["rewardCurrency"], "CAD")
+        self.assertEqual(
+            effective["imageUrls"],
+            [
+                "https://agency.example.test/images/cover.jpg",
+                "https://agency.example.test/images/profile.jpg",
+            ],
+        )
+        self.assertEqual(load_database_cases(self.database_url)[0].agency, "Reviewed Agency")
+
     def test_home_settings_require_draft_then_publish(self):
         settings = HomeSettings(
             brandSubtitle="Verified notices from official North American sources",

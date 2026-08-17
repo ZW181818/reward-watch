@@ -1,17 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-17T03:50:14.861706+00:00",
-  "totalCases": 2086,
-  "sourceRecords": 2123,
+  "generatedAt": "2026-08-17T05:26:02.921320+00:00",
+  "totalCases": 2208,
+  "sourceRecords": 2245,
   "multiSourceCases": 37,
   "countries": {
     "Canada": 264,
+    "China": 122,
     "US": 1822
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1372,
-    "Open": 710
+    "Open": 832
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -35,20 +36,30 @@
     "U.S. Marshals Service": 56,
     "United States Postal Inspection Service": 295,
     "Vancouver Police Department": 2,
-    "West Shore RCMP": 1
+    "West Shore RCMP": 1,
+    "平顶山市公安局": 1,
+    "广州市公安局天河区分局": 20,
+    "昆明市公安局": 3,
+    "杭州市公安局": 4,
+    "泉州市公安局": 13,
+    "深圳市公安局": 18,
+    "温州市公安局": 8,
+    "重庆市公安局": 12,
+    "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1331,
+    "published": 1453,
     "notPublished": 755,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
+      "CNY": 122,
       "USD": 1122
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
-    "localPrimaryImages": 76,
+    "localPrimaryImages": 198,
     "remotePrimaryImages": 2010
   },
   "regions": {

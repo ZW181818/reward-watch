@@ -18,6 +18,8 @@ import {
   formatCaseReward,
   getCaseRegionLabel,
   getCaseSourceName,
+  getCountryAccentColor,
+  getCountryBadge,
   isPublisherNotice,
 } from '@/lib/case-display';
 import { ReliableCaseImage } from '@/components/reliable-case-image';
@@ -32,7 +34,7 @@ type SourceFilter = 'All' | string;
 type SortMode = CaseSortMode;
 type RegionOption = { count: number; label: string };
 
-const countryFilters: CountryFilter[] = ['All', 'US', 'Canada'];
+const countryFilters: CountryFilter[] = ['All', 'US', 'Canada', 'China'];
 const pageSize = 12;
 const emptyFacets: CaseFacets = { regions: [], sources: [], statuses: [] };
 
@@ -244,7 +246,7 @@ export default function CasesScreen() {
           ) : null}
 
           <RegionSelect
-            country={country === 'Canada' ? 'Canada' : 'US'}
+            country={country === 'All' ? 'US' : country}
             isOpen={isSourceMenuOpen}
             label={t('source')}
             onSelect={(nextSource) => {
@@ -538,7 +540,7 @@ function CaseListCard({
         <View style={styles.caseCardMain}>
           <View style={styles.metaRow}>
             <View style={styles.countryBadge}>
-              <Text style={styles.countryBadgeText}>{rewardCase.country === 'Canada' ? 'CA' : 'US'}</Text>
+              <Text style={styles.countryBadgeText}>{getCountryBadge(rewardCase.country)}</Text>
             </View>
             <View style={styles.sourceStack}>
               <Text style={styles.sourceEyebrow}>
@@ -584,7 +586,7 @@ function CaseListCard({
 
 function CaseVisual({ rewardCase, visualIndex }: { rewardCase: RewardCase; visualIndex: number }) {
   const backgroundColor = visualIndex % 2 === 0 ? '#DDEBFF' : '#E9F8F5';
-  const iconColor = rewardCase.country === 'Canada' ? '#367D97' : '#5A63D8';
+  const iconColor = getCountryAccentColor(rewardCase.country);
 
   return (
     <View style={[styles.caseVisual, { backgroundColor }]}>

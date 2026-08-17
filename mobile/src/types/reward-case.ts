@@ -1,5 +1,5 @@
-export type RewardCountry = 'US' | 'Canada';
-export type RewardCurrency = 'USD' | 'CAD';
+export type RewardCountry = 'US' | 'Canada' | 'China';
+export type RewardCurrency = 'USD' | 'CAD' | 'CNY';
 
 export type OfficialSourceRecord = {
   caseId: string;

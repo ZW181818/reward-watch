@@ -3,8 +3,8 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 
-CountryCode = Literal["US", "Canada"]
-RewardCurrency = Literal["USD", "CAD"]
+CountryCode = Literal["US", "Canada", "China"]
+RewardCurrency = Literal["USD", "CAD", "CNY"]
 SourceKind = Literal["official", "publisher"]
 
 

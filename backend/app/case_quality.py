@@ -24,7 +24,7 @@ def normalize_reward_metadata(
             reward_case["reward"] = reward
             reward_case["rewardCurrency"] = reward_case.get(
                 "rewardCurrency"
-            ) or ("CAD" if reward_case.get("country") == "Canada" else "USD")
+            ) or _default_currency(str(reward_case.get("country", "")))
         else:
             reward_case["reward"] = None
             reward_case["rewardCurrency"] = None
@@ -80,7 +80,7 @@ def validate_data_quality(cases: list[dict[str, Any]]) -> None:
         reward_text = str(reward_case.get("rewardText") or "")
         if reward is None and currency is not None:
             errors.append(f"{case_id}: currency exists without a published reward")
-        if isinstance(reward, int) and reward > 0 and currency not in {"USD", "CAD"}:
+        if isinstance(reward, int) and reward > 0 and currency not in {"USD", "CAD", "CNY"}:
             errors.append(f"{case_id}: published reward is missing a supported currency")
         if reward_text and re.search(r"\b(?:million|billion|thousand|[kmb])\b", reward_text, re.I):
             parsed = extract_cash_amount(reward_text)
@@ -257,6 +257,14 @@ def _unique_values(group: list[dict[str, Any]], field: str) -> list[str]:
 
 def _source_prefix(reward_case: dict[str, Any]) -> str:
     return str(reward_case.get("id", "")).split("-", 1)[0]
+
+
+def _default_currency(country: str) -> str:
+    return {
+        "Canada": "CAD",
+        "China": "CNY",
+        "US": "USD",
+    }.get(country, "USD")
 
 
 def _case_source_names(reward_case: dict[str, Any]) -> list[str]:

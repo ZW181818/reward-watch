@@ -15,7 +15,14 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AdminImagePicker, type AdminUploadFile } from '@/components/admin-image-picker';
+import {
+  AdminCaseFields,
+  adminCaseFormFromCase,
+  buildAdminCaseMutation,
+  DEFAULT_CASE_WARNING,
+  emptyAdminCaseForm,
+} from '@/components/admin-case-fields';
+import { AdminPhotoManager, normalizeCaseImages } from '@/components/admin-photo-manager';
 import {
   changeAdminPassword,
   clearAdminToken,
@@ -35,7 +42,6 @@ import {
   saveAdminHomeSettings,
   triggerAdminSync,
   updateAdminCase,
-  uploadAdminImage,
   type AdminCaseDetail,
   type AdminCaseSummary,
   type AdminDashboard,
@@ -455,8 +461,21 @@ function CasesManager({ token }: { token: string }) {
       </View>
       {error ? <Notice text={error} /> : null}
 
+      {!hasSplitEditor && (isCreating || selectedId) ? (
+        <Pressable
+          onPress={() => {
+            setIsCreating(false);
+            setSelectedId(null);
+            setDetail(null);
+          }}
+          style={styles.compactBackButton}>
+          <SymbolView name={{ ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' }} size={17} tintColor="#475467" />
+          <Text style={styles.compactBackText}>Back to case list</Text>
+        </Pressable>
+      ) : null}
+
       <View style={[styles.caseWorkspace, !hasSplitEditor && styles.caseWorkspaceCompact]}>
-        <View style={[styles.caseListPanel, !hasSplitEditor && styles.caseListPanelCompact]}>
+        {hasSplitEditor || (!isCreating && !selectedId) ? <View style={[styles.caseListPanel, !hasSplitEditor && styles.caseListPanelCompact]}>
           <View style={styles.listCountRow}>
             <Text style={styles.listCount}>{total.toLocaleString()} cases</Text>
             <Text style={styles.panelMeta}>Page {page} of {totalPages}</Text>
@@ -484,9 +503,9 @@ function CasesManager({ token }: { token: string }) {
             <Pressable disabled={page <= 1} onPress={() => loadCases(page - 1)} style={[styles.pageButton, page <= 1 && styles.buttonDisabled]}><SymbolView name={{ ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' }} size={17} tintColor="#475467" /></Pressable>
             <Pressable disabled={page >= totalPages} onPress={() => loadCases(page + 1)} style={[styles.pageButton, page >= totalPages && styles.buttonDisabled]}><SymbolView name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }} size={17} tintColor="#475467" /></Pressable>
           </View>
-        </View>
+        </View> : null}
 
-        <View style={[styles.editorPanel, !hasSplitEditor && styles.editorPanelCompact]}>
+        {hasSplitEditor || isCreating || selectedId ? <View style={[styles.editorPanel, !hasSplitEditor && styles.editorPanelCompact]}>
           {isCreating ? (
             <ManualCaseForm
               onCancel={() => setIsCreating(false)}
@@ -514,19 +533,10 @@ function CasesManager({ token }: { token: string }) {
               <Text style={styles.editorEmptyTitle}>Select a case</Text>
             </View>
           )}
-        </View>
+        </View> : null}
       </View>
     </View>
   );
-}
-
-async function uploadFiles(token: string, files: AdminUploadFile[]) {
-  const uploadedUrls: string[] = [];
-  for (const file of files) {
-    const response = await uploadAdminImage(token, file.blob, file.name);
-    uploadedUrls.push(response.url);
-  }
-  return uploadedUrls;
 }
 
 function ManualCaseForm({
@@ -538,75 +548,57 @@ function ManualCaseForm({
   onCreated: (caseId: string) => Promise<void>;
   token: string;
 }) {
-  const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
-  const [country, setCountry] = useState<'US' | 'Canada'>('US');
-  const [regions, setRegions] = useState('');
-  const [generalLocation, setGeneralLocation] = useState('');
-  const [caseType, setCaseType] = useState('Public reward notice');
-  const [status, setStatus] = useState<ManualCaseInput['status']>('Information Requested');
-  const [reward, setReward] = useState('');
-  const [currency, setCurrency] = useState<'USD' | 'CAD'>('USD');
-  const [publishedDate, setPublishedDate] = useState(new Date().toISOString().slice(0, 10));
-  const [sourceAuthor, setSourceAuthor] = useState('');
-  const [sourceTitle, setSourceTitle] = useState('');
-  const [sourceUrl, setSourceUrl] = useState('');
+  const [form, setForm] = useState(emptyAdminCaseForm);
   const [note, setNote] = useState('');
   const [imageUrls, setImageUrls] = useState<string[]>([]);
+  const [imageUrl, setImageUrl] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-
-  const regionList = regions.split(',').map((value) => value.trim()).filter(Boolean);
-  const canSave = Boolean(
-    title.trim().length >= 4 &&
-    summary.trim().length >= 20 &&
-    regionList.length &&
-    sourceAuthor.trim() &&
-    sourceTitle.trim() &&
-    /^https?:\/\//i.test(sourceUrl.trim()) &&
-    publishedDate
-  );
-
-  async function handleFiles(files: AdminUploadFile[]) {
-    if (!files.length) return;
-    if (imageUrls.length + files.length > 8) {
-      setMessage('A notice can contain up to 8 photos.');
-      return;
-    }
-    setIsUploading(true);
-    setMessage(null);
-    try {
-      const uploaded = await uploadFiles(token, files);
-      setImageUrls((current) => [...current, ...uploaded]);
-    } catch (requestError) {
-      setMessage(requestError instanceof Error ? requestError.message : 'Unable to upload photos');
-    } finally {
-      setIsUploading(false);
-    }
-  }
 
   async function saveDraft() {
     setIsSaving(true);
     setMessage(null);
     try {
-      const response = await createAdminCase(token, {
-        title: title.trim(),
-        summary: summary.trim(),
-        country,
-        regions: regionList,
-        generalLocation: generalLocation.trim() || null,
-        caseType: caseType.trim() || null,
-        status,
-        reward: reward.trim() ? Number(reward.replace(/,/g, '')) : null,
-        rewardCurrency: reward.trim() ? currency : null,
-        publishedDate,
-        sourceUrl: sourceUrl.trim(),
-        sourceTitle: sourceTitle.trim(),
-        sourceAuthor: sourceAuthor.trim(),
-        imageUrls,
+      const mutation = buildAdminCaseMutation(form, { includeSourceRecords: false, manualCreate: true });
+      const manualInput: ManualCaseInput = {
+        title: mutation.title,
+        summary: mutation.summary,
+        description: mutation.description,
+        agency: mutation.agency,
+        country: mutation.country,
+        regions: mutation.regions ?? [],
+        locations: mutation.locations,
+        caseType: mutation.caseType,
+        status: mutation.status as ManualCaseInput['status'],
+        reward: mutation.reward,
+        rewardCurrency: mutation.rewardCurrency,
+        rewardText: mutation.rewardText,
+        warningMessage: mutation.warningMessage ?? DEFAULT_CASE_WARNING,
+        aliases: mutation.aliases ?? [],
+        age: mutation.age,
+        dateOfBirth: mutation.dateOfBirth,
+        placeOfBirth: mutation.placeOfBirth,
+        sex: mutation.sex,
+        race: mutation.race,
+        nationality: mutation.nationality,
+        hair: mutation.hair,
+        eyes: mutation.eyes,
+        height: mutation.height,
+        weight: mutation.weight,
+        distinguishingFeatures: mutation.distinguishingFeatures,
+        fieldOffice: mutation.fieldOffice,
+        publishedDate: mutation.publishedDate,
+        lastVerified: mutation.lastVerified,
+        sourceUpdatedDate: mutation.sourceUpdatedDate,
+        sourceUrl: mutation.sourceUrl,
+        sourceTitle: mutation.sourceTitle ?? form.sourceTitle.trim(),
+        sourceAuthor: mutation.sourceAuthor ?? form.sourceAuthor.trim(),
+        sourceKind: mutation.sourceKind ?? 'publisher',
+        imageUrls: normalizeCaseImages(imageUrl, imageUrls),
         note: note.trim() || null,
-      });
+      };
+      const response = await createAdminCase(token, manualInput);
       await onCreated(response.case.id);
     } catch (requestError) {
       setMessage(requestError instanceof Error ? requestError.message : 'Unable to create notice');
@@ -631,59 +623,25 @@ function ManualCaseForm({
           A public source URL and publishing organization are required. Enter only a general jurisdiction or city area, never a live location, home address, or movement history.
         </Text>
       </View>
-
-      <Field label="Display title"><TextInput onChangeText={setTitle} placeholder="Public notice title" placeholderTextColor="#98A2B3" style={styles.textInput} value={title} /></Field>
-      <Field label="Summary"><TextInput multiline onChangeText={setSummary} placeholder="Factual summary from the published source" placeholderTextColor="#98A2B3" style={[styles.textInput, styles.textArea]} textAlignVertical="top" value={summary} /></Field>
-
-      <View style={styles.editorTwoColumns}>
-        <Field grow label="Country">
-          <View style={styles.smallSegment}>{(['US', 'Canada'] as const).map((value) => <Pressable key={value} onPress={() => { setCountry(value); setCurrency(value === 'Canada' ? 'CAD' : 'USD'); }} style={[styles.smallSegmentButton, country === value && styles.smallSegmentButtonActive]}><Text style={[styles.smallSegmentText, country === value && styles.smallSegmentTextActive]}>{value}</Text></Pressable>)}</View>
-        </Field>
-        <Field grow label="State / province"><TextInput onChangeText={setRegions} placeholder="Washington, Oregon" placeholderTextColor="#98A2B3" style={styles.textInput} value={regions} /></Field>
-      </View>
-      <Field label="General area (optional)"><TextInput onChangeText={setGeneralLocation} placeholder="City or broad jurisdiction only" placeholderTextColor="#98A2B3" style={styles.textInput} value={generalLocation} /></Field>
-
-      <View style={styles.editorTwoColumns}>
-        <Field grow label="Notice type"><TextInput onChangeText={setCaseType} style={styles.textInput} value={caseType} /></Field>
-        <Field grow label="Published date"><TextInput onChangeText={setPublishedDate} placeholder="YYYY-MM-DD" placeholderTextColor="#98A2B3" style={styles.textInput} value={publishedDate} /></Field>
-      </View>
-
-      <Field label="Status">
-        <View style={styles.chipRow}>{(['Information Requested', 'Open', 'Closed'] as const).map((value) => <Pressable key={value} onPress={() => setStatus(value)} style={[styles.statusChoice, status === value && styles.statusChoiceActive]}><Text style={[styles.statusChoiceText, status === value && styles.statusChoiceTextActive]}>{value}</Text></Pressable>)}</View>
-      </Field>
-      <View style={styles.editorTwoColumns}>
-        <Field grow label="Reward amount"><TextInput keyboardType="numeric" onChangeText={setReward} placeholder="Leave blank if not published" placeholderTextColor="#98A2B3" style={styles.textInput} value={reward} /></Field>
-        <Field grow label="Currency"><View style={styles.smallSegment}>{(['USD', 'CAD'] as const).map((value) => <Pressable key={value} onPress={() => setCurrency(value)} style={[styles.smallSegmentButton, currency === value && styles.smallSegmentButtonActive]}><Text style={[styles.smallSegmentText, currency === value && styles.smallSegmentTextActive]}>{value}</Text></Pressable>)}</View></Field>
-      </View>
-
-      <View style={styles.formDivider} />
-      <Text style={styles.formSectionTitle}>Source verification</Text>
-      <Field label="Publishing organization"><TextInput onChangeText={setSourceAuthor} placeholder="Organization shown on the source page" placeholderTextColor="#98A2B3" style={styles.textInput} value={sourceAuthor} /></Field>
-      <Field label="Source page title"><TextInput onChangeText={setSourceTitle} placeholder="Exact title of the public notice" placeholderTextColor="#98A2B3" style={styles.textInput} value={sourceTitle} /></Field>
-      <Field label="Public source URL"><TextInput autoCapitalize="none" keyboardType="url" onChangeText={setSourceUrl} placeholder="https://..." placeholderTextColor="#98A2B3" style={styles.textInput} value={sourceUrl} /></Field>
-
-      <View style={styles.formDivider} />
-      <Text style={styles.formSectionTitle}>Photos</Text>
-      <Text style={styles.fieldHint}>JPEG, PNG, or WebP. Up to 8 files, 10 MB each. Metadata is removed during upload.</Text>
-      {imageUrls.length ? (
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.galleryRow}>
-          {imageUrls.map((url, index) => (
-            <View key={url} style={styles.uploadedImageWrap}>
-              <Image contentFit="cover" source={resolveAdminImage(url)} style={styles.galleryImage} />
-              <Pressable accessibilityLabel={`Remove photo ${index + 1}`} onPress={() => setImageUrls((current) => current.filter((item) => item !== url))} style={styles.removePhotoButton}>
-                <SymbolView name={{ ios: 'xmark', android: 'close', web: 'close' }} size={14} tintColor="#FFFFFF" />
-              </Pressable>
-            </View>
-          ))}
-        </ScrollView>
-      ) : null}
-      <AdminImagePicker disabled={isUploading || imageUrls.length >= 8} onFiles={handleFiles} />
+      <AdminCaseFields includeSourceRecords={false} manualCreate onChange={setForm} values={form} />
+      <AdminPhotoManager
+        coverUrl={imageUrl}
+        imageUrls={imageUrls}
+        onBusyChange={setIsUploading}
+        onChange={(nextUrls, nextCover) => {
+          const normalized = normalizeCaseImages(nextCover, nextUrls);
+          setImageUrls(normalized);
+          setImageUrl(nextCover || normalized[0] || '');
+        }}
+        onMessage={setMessage}
+        token={token}
+      />
 
       <Field label="Internal review note (optional)"><TextInput multiline onChangeText={setNote} style={[styles.textInput, styles.noteArea]} textAlignVertical="top" value={note} /></Field>
       {message ? <Text style={styles.inlineMessage}>{message}</Text> : null}
       <View style={styles.editorActions}>
         <Pressable disabled={isSaving} onPress={onCancel} style={styles.tertiaryButton}><Text style={styles.tertiaryButtonText}>Cancel</Text></Pressable>
-        <Pressable disabled={isSaving || isUploading || !canSave} onPress={saveDraft} style={[styles.primaryButton, (isSaving || isUploading || !canSave) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Save draft</Text>}</Pressable>
+        <Pressable disabled={isSaving || isUploading} onPress={saveDraft} style={[styles.primaryButton, (isSaving || isUploading) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Save draft</Text>}</Pressable>
       </View>
     </ScrollView>
   );
@@ -691,20 +649,10 @@ function ManualCaseForm({
 
 function CaseEditor({ detail, onChanged, onDeleted, token }: { detail: AdminCaseDetail; onChanged: () => Promise<void>; onDeleted: () => Promise<void>; token: string }) {
   const rewardCase = detail.effective;
-  const [title, setTitle] = useState(rewardCase.title);
-  const [summary, setSummary] = useState(rewardCase.summary);
-  const [status, setStatus] = useState(rewardCase.status);
-  const [reward, setReward] = useState(rewardCase.reward?.toString() ?? '');
-  const [currency, setCurrency] = useState(rewardCase.rewardCurrency ?? 'USD');
-  const [regions, setRegions] = useState((rewardCase.regions ?? []).join(', '));
-  const [generalLocation, setGeneralLocation] = useState(rewardCase.locations ?? '');
-  const [caseType, setCaseType] = useState(rewardCase.caseType ?? '');
-  const [publishedDate, setPublishedDate] = useState(rewardCase.publishedDate);
-  const [sourceAuthor, setSourceAuthor] = useState(rewardCase.sourceAuthor ?? rewardCase.agency);
-  const [sourceTitle, setSourceTitle] = useState(rewardCase.sourceTitle ?? '');
-  const [sourceUrl, setSourceUrl] = useState(rewardCase.sourceUrl);
+  const [form, setForm] = useState(() => adminCaseFormFromCase(rewardCase));
+  const initialImages = normalizeCaseImages(rewardCase.imageUrl, rewardCase.imageUrls ?? []);
   const [imageUrl, setImageUrl] = useState(rewardCase.imageUrl ?? '');
-  const [imageUrls, setImageUrls] = useState(rewardCase.imageUrls ?? []);
+  const [imageUrls, setImageUrls] = useState(initialImages);
   const [isVisible, setIsVisible] = useState(detail.override?.isVisible ?? true);
   const [reviewStatus, setReviewStatus] = useState<'draft' | 'published'>(detail.override?.reviewStatus ?? 'published');
   const [note, setNote] = useState(detail.override?.note ?? '');
@@ -713,45 +661,15 @@ function CaseEditor({ detail, onChanged, onDeleted, token }: { detail: AdminCase
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
-  async function handleFiles(files: AdminUploadFile[]) {
-    if (!files.length) return;
-    if (imageUrls.length + files.length > 8) {
-      setMessage('A case can contain up to 8 photos.');
-      return;
-    }
-    setIsUploading(true);
-    try {
-      const uploaded = await uploadFiles(token, files);
-      setImageUrls((current) => [...current, ...uploaded]);
-      setImageUrl((current) => current || uploaded[0] || '');
-      setMessage('Photos uploaded. Save changes to publish them.');
-    } catch (requestError) {
-      setMessage(requestError instanceof Error ? requestError.message : 'Unable to upload photos');
-    } finally {
-      setIsUploading(false);
-    }
-  }
-
   async function save() {
     setIsSaving(true);
+    setMessage(null);
     try {
+      const mutation = buildAdminCaseMutation(form);
       await updateAdminCase(token, rewardCase.id, {
-        title: title.trim(),
-        summary: summary.trim(),
-        status: status.trim(),
-        reward: reward.trim() ? Number(reward.replace(/,/g, '')) : null,
-        rewardCurrency: reward.trim() ? currency : null,
+        ...mutation,
         imageUrl: imageUrl || null,
         imageUrls,
-        ...(detail.isManual ? {
-          regions: regions.split(',').map((value) => value.trim()).filter(Boolean),
-          locations: generalLocation.trim() || null,
-          caseType: caseType.trim() || null,
-          publishedDate,
-          sourceAuthor: sourceAuthor.trim(),
-          sourceTitle: sourceTitle.trim(),
-          sourceUrl: sourceUrl.trim(),
-        } : {}),
         isVisible,
         reviewStatus,
         note: note.trim() || null,
@@ -814,36 +732,19 @@ function CaseEditor({ detail, onChanged, onDeleted, token }: { detail: AdminCase
           {(['published', 'draft'] as const).map((value) => <Pressable key={value} onPress={() => setReviewStatus(value)} style={[styles.smallSegmentButton, reviewStatus === value && styles.smallSegmentButtonActive]}><Text style={[styles.smallSegmentText, reviewStatus === value && styles.smallSegmentTextActive]}>{value === 'published' ? 'Published' : 'Draft'}</Text></Pressable>)}
         </View>
       </Field>
-      <Field label="Display title"><TextInput onChangeText={setTitle} style={styles.textInput} value={title} /></Field>
-      <Field label="Summary"><TextInput multiline onChangeText={setSummary} style={[styles.textInput, styles.textArea]} textAlignVertical="top" value={summary} /></Field>
-      {detail.isManual ? (
-        <>
-          <View style={styles.editorTwoColumns}>
-            <Field grow label="State / province"><TextInput onChangeText={setRegions} style={styles.textInput} value={regions} /></Field>
-            <Field grow label="General area"><TextInput onChangeText={setGeneralLocation} style={styles.textInput} value={generalLocation} /></Field>
-          </View>
-          <View style={styles.editorTwoColumns}>
-            <Field grow label="Notice type"><TextInput onChangeText={setCaseType} style={styles.textInput} value={caseType} /></Field>
-            <Field grow label="Published date"><TextInput onChangeText={setPublishedDate} style={styles.textInput} value={publishedDate} /></Field>
-          </View>
-          <Field label="Publishing organization"><TextInput onChangeText={setSourceAuthor} style={styles.textInput} value={sourceAuthor} /></Field>
-          <Field label="Source page title"><TextInput onChangeText={setSourceTitle} style={styles.textInput} value={sourceTitle} /></Field>
-          <Field label="Public source URL"><TextInput autoCapitalize="none" keyboardType="url" onChangeText={setSourceUrl} style={styles.textInput} value={sourceUrl} /></Field>
-        </>
-      ) : null}
-      <View style={styles.editorTwoColumns}>
-        <Field grow label="Status"><TextInput onChangeText={setStatus} style={styles.textInput} value={status} /></Field>
-        <Field grow label="Reward"><TextInput keyboardType="numeric" onChangeText={setReward} placeholder="Not published" placeholderTextColor="#98A2B3" style={styles.textInput} value={reward} /></Field>
-      </View>
-      <Field label="Currency">
-        <View style={styles.smallSegment}>{(['USD', 'CAD'] as const).map((value) => <Pressable key={value} onPress={() => setCurrency(value)} style={[styles.smallSegmentButton, currency === value && styles.smallSegmentButtonActive]}><Text style={[styles.smallSegmentText, currency === value && styles.smallSegmentTextActive]}>{value}</Text></Pressable>)}</View>
-      </Field>
-
-      <Field label="Case photos">
-        {imageUrls.length ? <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.galleryRow}>{imageUrls.map((url) => <Pressable key={url} onPress={() => setImageUrl(url)} style={[styles.galleryChoice, imageUrl === url && styles.galleryChoiceSelected]}><Image contentFit="cover" source={resolveAdminImage(url)} style={styles.galleryImage} /></Pressable>)}</ScrollView> : null}
-        <AdminImagePicker disabled={isUploading || imageUrls.length >= 8} onFiles={handleFiles} />
-        <Text style={styles.fieldHint}>Select a thumbnail to use it as the cover image.</Text>
-      </Field>
+      <AdminCaseFields onChange={setForm} values={form} />
+      <AdminPhotoManager
+        coverUrl={imageUrl}
+        imageUrls={imageUrls}
+        onBusyChange={setIsUploading}
+        onChange={(nextUrls, nextCover) => {
+          const normalized = normalizeCaseImages(nextCover, nextUrls);
+          setImageUrls(normalized);
+          setImageUrl(nextCover || normalized[0] || '');
+        }}
+        onMessage={setMessage}
+        token={token}
+      />
       <Field label="Internal note"><TextInput multiline onChangeText={setNote} style={[styles.textInput, styles.noteArea]} textAlignVertical="top" value={note} /></Field>
       {message ? <Text style={styles.inlineMessage}>{message}</Text> : null}
       <View style={styles.editorActions}>
@@ -852,7 +753,7 @@ function CaseEditor({ detail, onChanged, onDeleted, token }: { detail: AdminCase
         ) : (
           <Pressable disabled={isSaving} onPress={reset} style={styles.tertiaryButton}><Text style={styles.tertiaryButtonText}>Reset override</Text></Pressable>
         )}
-        <Pressable disabled={isSaving || isUploading || !title.trim() || !summary.trim()} onPress={save} style={[styles.primaryButton, (isSaving || isUploading || !title.trim() || !summary.trim()) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Save changes</Text>}</Pressable>
+        <Pressable disabled={isSaving || isUploading} onPress={save} style={[styles.primaryButton, (isSaving || isUploading) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Save changes</Text>}</Pressable>
       </View>
     </ScrollView>
   );
@@ -1076,6 +977,8 @@ const styles = StyleSheet.create({
   smallSegmentTextActive: { color: '#344054' },
   caseWorkspace: { alignItems: 'flex-start', flexDirection: 'row', gap: 14 },
   caseWorkspaceCompact: { flexDirection: 'column' },
+  compactBackButton: { alignItems: 'center', alignSelf: 'flex-start', backgroundColor: '#FFFFFF', borderColor: '#D0D5DD', borderRadius: 8, borderWidth: 1, flexDirection: 'row', gap: 6, minHeight: 40, paddingHorizontal: 12 },
+  compactBackText: { color: '#475467', fontSize: 12, fontWeight: '900' },
   caseListPanel: { backgroundColor: '#FFFFFF', borderColor: '#E4E7EC', borderRadius: 8, borderWidth: 1, overflow: 'hidden', width: 440 },
   caseListPanelCompact: { width: '100%' },
   listCountRow: { alignItems: 'center', borderBottomColor: '#EAECF0', borderBottomWidth: 1, flexDirection: 'row', justifyContent: 'space-between', minHeight: 52, paddingHorizontal: 14 },

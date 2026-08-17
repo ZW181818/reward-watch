@@ -24,7 +24,13 @@ from .database import (
     initialize_database,
 )
 from .media_storage import InvalidImageUpload, MAX_UPLOAD_BYTES, store_admin_image
-from .models import CountryCode, RewardCase, RewardCurrency
+from .models import (
+    CountryCode,
+    OfficialSourceRecord,
+    RewardCase,
+    RewardCurrency,
+    SourceKind,
+)
 from .settings import DEFAULT_HOME_SETTINGS, HomeSettings
 from .storage import MANUAL_CASE_PREFIX, upsert_case_payload
 
@@ -45,24 +51,54 @@ class ChangePasswordRequest(BaseModel):
 
 
 class CaseUpdateRequest(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True)
+
     title: str | None = None
+    agency: str | None = None
+    country: CountryCode | None = None
+    regions: list[str] | None = None
+    caseType: str | None = None
+    description: str | None = None
     summary: str | None = None
     status: str | None = None
     reward: int | None = Field(default=None, ge=0)
     rewardCurrency: RewardCurrency | None = None
-    imageUrl: str | None = None
-    imageUrls: list[str] | None = None
-    regions: list[str] | None = None
+    rewardText: str | None = None
     warningMessage: str | None = None
-    caseType: str | None = None
+    aliases: list[str] | None = None
+    age: str | None = None
+    dateOfBirth: str | None = None
+    placeOfBirth: str | None = None
+    sex: str | None = None
+    race: str | None = None
+    nationality: str | None = None
+    hair: str | None = None
+    eyes: str | None = None
+    height: str | None = None
+    weight: str | None = None
     locations: str | None = None
+    distinguishingFeatures: str | None = None
+    fieldOffice: str | None = None
     publishedDate: date | None = None
+    lastVerified: date | None = None
+    sourceUpdatedDate: date | None = None
     sourceUrl: AnyHttpUrl | None = None
     sourceTitle: str | None = None
     sourceAuthor: str | None = None
+    sourceKind: SourceKind | None = None
+    sourceRecords: list[OfficialSourceRecord] | None = None
+    imageUrl: str | None = None
+    imageUrls: list[str] | None = Field(default=None, max_length=8)
     isVisible: bool | None = None
     reviewStatus: Literal["draft", "published"] | None = None
     note: str | None = None
+
+    @field_validator("regions", "aliases", "imageUrls")
+    @classmethod
+    def clean_string_lists(cls, values: list[str] | None) -> list[str] | None:
+        if values is None:
+            return None
+        return list(dict.fromkeys(value.strip() for value in values if value.strip()))
 
 
 class ManualCaseCreateRequest(BaseModel):
@@ -70,17 +106,37 @@ class ManualCaseCreateRequest(BaseModel):
 
     title: str = Field(min_length=4, max_length=220)
     summary: str = Field(min_length=20, max_length=8000)
+    description: str | None = Field(default=None, max_length=8000)
+    agency: str | None = Field(default=None, max_length=300)
     country: CountryCode
     regions: list[str] = Field(min_length=1, max_length=8)
     generalLocation: str | None = Field(default=None, max_length=300)
+    locations: str | None = Field(default=None, max_length=300)
     caseType: str | None = Field(default=None, max_length=120)
     status: Literal["Open", "Information Requested", "Closed"] = "Information Requested"
     reward: int | None = Field(default=None, ge=0)
     rewardCurrency: RewardCurrency | None = None
+    rewardText: str | None = Field(default=None, max_length=1000)
+    aliases: list[str] = Field(default_factory=list, max_length=30)
+    age: str | None = Field(default=None, max_length=80)
+    dateOfBirth: str | None = Field(default=None, max_length=160)
+    placeOfBirth: str | None = Field(default=None, max_length=300)
+    sex: str | None = Field(default=None, max_length=80)
+    race: str | None = Field(default=None, max_length=160)
+    nationality: str | None = Field(default=None, max_length=160)
+    hair: str | None = Field(default=None, max_length=160)
+    eyes: str | None = Field(default=None, max_length=160)
+    height: str | None = Field(default=None, max_length=160)
+    weight: str | None = Field(default=None, max_length=160)
+    distinguishingFeatures: str | None = Field(default=None, max_length=2000)
+    fieldOffice: str | None = Field(default=None, max_length=300)
     publishedDate: date = Field(default_factory=date.today)
+    lastVerified: date = Field(default_factory=date.today)
+    sourceUpdatedDate: date | None = None
     sourceUrl: AnyHttpUrl
     sourceTitle: str = Field(min_length=4, max_length=300)
     sourceAuthor: str = Field(min_length=2, max_length=300)
+    sourceKind: SourceKind = "publisher"
     imageUrls: list[str] = Field(default_factory=list, max_length=8)
     warningMessage: str = Field(
         default="Do not approach any individual. Submit information directly to the published source.",
@@ -89,32 +145,16 @@ class ManualCaseCreateRequest(BaseModel):
     )
     note: str | None = Field(default=None, max_length=2000)
 
-    @field_validator("regions")
+    @field_validator("regions", "aliases", "imageUrls")
     @classmethod
-    def validate_regions(cls, regions: list[str]) -> list[str]:
-        cleaned = list(dict.fromkeys(region.strip() for region in regions if region.strip()))
-        if not cleaned:
-            raise ValueError("At least one state or province is required")
+    def clean_string_lists(cls, values: list[str], info) -> list[str]:
+        cleaned = list(dict.fromkeys(value.strip() for value in values if value.strip()))
+        if info.field_name == "regions" and not cleaned:
+            raise ValueError("At least one state, province, or region is required")
         return cleaned
 
 
-EDITABLE_FIELDS = {
-    "title",
-    "summary",
-    "status",
-    "reward",
-    "rewardCurrency",
-    "imageUrl",
-    "imageUrls",
-    "regions",
-    "warningMessage",
-    "caseType",
-    "locations",
-    "publishedDate",
-    "sourceUrl",
-    "sourceTitle",
-    "sourceAuthor",
-}
+EDITABLE_FIELDS = set(RewardCase.model_fields) - {"id"}
 
 
 def _effective_payload(row: CaseRow, override: CaseOverrideRow | None) -> dict:
@@ -166,24 +206,40 @@ def _manual_case_payload(body: ManualCaseCreateRequest) -> dict:
     payload = {
         "id": case_id,
         "title": body.title.strip(),
-        "agency": body.sourceAuthor.strip(),
+        "agency": body.agency.strip() if body.agency else body.sourceAuthor.strip(),
         "country": body.country,
         "regions": body.regions,
         "caseType": body.caseType.strip() if body.caseType else "Public reward notice",
-        "description": body.summary.strip(),
+        "description": body.description.strip() if body.description else body.summary.strip(),
         "reward": body.reward,
         "rewardCurrency": body.rewardCurrency if body.reward is not None else None,
+        "rewardText": body.rewardText.strip() if body.rewardText else None,
         "status": body.status,
         "summary": body.summary.strip(),
         "warningMessage": body.warningMessage.strip(),
-        "locations": body.generalLocation.strip() if body.generalLocation else None,
+        "aliases": body.aliases,
+        "age": body.age,
+        "dateOfBirth": body.dateOfBirth,
+        "placeOfBirth": body.placeOfBirth,
+        "sex": body.sex,
+        "race": body.race,
+        "nationality": body.nationality,
+        "hair": body.hair,
+        "eyes": body.eyes,
+        "height": body.height,
+        "weight": body.weight,
+        "locations": body.locations or body.generalLocation,
+        "distinguishingFeatures": body.distinguishingFeatures,
+        "fieldOffice": body.fieldOffice,
         "publishedDate": published_date,
-        "lastVerified": date.today().isoformat(),
-        "sourceUpdatedDate": published_date,
+        "lastVerified": body.lastVerified.isoformat(),
+        "sourceUpdatedDate": (
+            body.sourceUpdatedDate.isoformat() if body.sourceUpdatedDate else published_date
+        ),
         "sourceUrl": str(body.sourceUrl),
         "sourceTitle": body.sourceTitle.strip(),
         "sourceAuthor": body.sourceAuthor.strip(),
-        "sourceKind": "publisher",
+        "sourceKind": body.sourceKind,
         "sourceRecords": [],
         "imageUrl": image_urls[0] if image_urls else None,
         "imageUrls": image_urls,
@@ -446,18 +502,14 @@ def update_admin_case(
                 session.add(override)
 
             supplied = body.model_fields_set
+            serialized = body.model_dump(mode="json", exclude_unset=True)
             next_fields = dict(override.fields)
             for field_name in EDITABLE_FIELDS & supplied:
-                value = getattr(body, field_name)
-                if field_name == "sourceUrl" and value is not None:
-                    value = str(value)
-                elif field_name == "publishedDate" and value is not None:
-                    value = value.isoformat()
-                next_fields[field_name] = value
+                next_fields[field_name] = serialized[field_name]
 
             effective = dict(row.payload)
             effective.update(next_fields)
-            if row.id.startswith(MANUAL_CASE_PREFIX):
+            if row.id.startswith(MANUAL_CASE_PREFIX) and "sourceRecords" not in supplied:
                 effective["sourceRecords"] = [_manual_source_record(row.id, effective)]
                 next_fields["sourceRecords"] = effective["sourceRecords"]
             RewardCase.model_validate(effective)

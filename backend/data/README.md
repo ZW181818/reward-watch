@@ -26,6 +26,20 @@ Those adapters import explicit wanted notices with official images and use
 later official closure posts to remove identified people who were arrested,
 located, returned to custody, surrendered, extradited, or reported deceased.
 
+The mainland China connector is intentionally narrower: it imports only
+reviewed, named criminal reward notices from official public-security pages or
+official copies of their signed posters. The current reviewed manifest covers
+two subjects from Quanzhou Public Security, all 100 subjects visible in eight
+issuing-bureau posters from the December 2025 nationwide telecom-fraud release,
+and 20 subjects in Guangzhou Tianhe Public Security's June 2025 cybercrime
+reward notice. Seven telecom-fraud posters are hosted by Wuhan Public Security,
+while Xinhua's official copy of the Ministry of Public Security release
+preserves the 43-person Longyan poster. Because these notices are image-based,
+the connector verifies page metadata and reviewed poster hashes instead of
+relying on unattended OCR. A changed poster is held for manual review; notice-
+wide revocation text removes the notice, while a capture or surrender update
+must be associated with a named subject before that subject is removed.
+
 Four dedicated cash-reward adapters broaden coverage beyond general wanted
 feeds. The U.S. Department of State adapter follows every published Rewards for
 Justice API page. The U.S. Marshals adapter follows the complete Profiled
@@ -47,7 +61,7 @@ successfully retrieved the record from the official source;
 `sourceUpdatedDate` records the source's own modification date.
 
 `sourceTitle` and `sourceAuthor` identify the official origin shown in the app.
-`regions` contains normalized US states or Canadian provinces used by the case
+`regions` contains normalized US states or Canadian or Chinese provinces used by the case
 browser. Empty US regions mean the source did not provide enough information to
 assign a state reliably; those records remain visible under `All states`.
 
@@ -67,10 +81,10 @@ source outage can reuse that source's last successful snapshot even when the
 app-facing records have been merged. `data_quality_report.json` records counts,
 currencies, multi-source merges, image coverage, freshness, and quality-gate
 results for each completed update. An absent cash amount is `null`; positive
-amounts include `USD` or `CAD` in `rewardCurrency`.
+amounts include `USD`, `CAD`, or `CNY` in `rewardCurrency`.
 
 The GitHub Actions workflow in `.github/workflows/update-official-data.yml`
-runs hourly and commits refreshed case data and source status.
+runs every six hours and commits refreshed case data and source status.
 
 The RCMP adapter is suitable for development and non-commercial use with the
 included source attribution. RCMP terms require prior written permission for

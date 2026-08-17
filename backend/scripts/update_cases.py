@@ -29,6 +29,7 @@ from app.case_quality import (  # noqa: E402
 from app.ingestion.fbi import fetch_fbi_cases  # noqa: E402
 from app.ingestion.bc_rcmp import fetch_bc_rcmp_wanted_cases  # noqa: E402
 from app.ingestion.cfseu import fetch_cfseu_bc_wanted_cases  # noqa: E402
+from app.ingestion.china_police import fetch_china_police_reward_cases  # noqa: E402
 from app.ingestion.edmonton import fetch_edmonton_most_wanted_cases  # noqa: E402
 from app.ingestion.opp import fetch_opp_cases  # noqa: E402
 from app.ingestion.quebec import fetch_quebec_fugitive_cases  # noqa: E402
@@ -83,6 +84,7 @@ def refresh_source(
     fetcher: Callable[[], list[dict[str, Any]]],
     id_prefix: str,
     name: str,
+    allow_empty: bool = False,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     previous = [
         item
@@ -92,7 +94,7 @@ def refresh_source(
 
     try:
         cases = fetcher()
-        if not cases:
+        if not cases and not allow_empty:
             raise ValueError("source returned no publishable records")
     except Exception as error:  # Network and upstream format failures share stale fallback handling.
         return previous, {
@@ -197,6 +199,12 @@ def main() -> int:
         type=int,
         default=0,
         help="Maximum Texas DPS active reward records to import, or 0 for all.",
+    )
+    parser.add_argument(
+        "--china-police-limit",
+        type=int,
+        default=0,
+        help="Maximum mainland China public-security criminal reward records to import, or 0 for all.",
     )
     parser.add_argument(
         "--strict",
@@ -348,6 +356,16 @@ def main() -> int:
         id_prefix="txdps-",
         name="Texas DPS active Most Wanted reward directories",
     )
+    china_police_cases, china_police_status = refresh_source(
+        country="China",
+        existing_cases=existing_cases,
+        fetcher=lambda: fetch_china_police_reward_cases(
+            limit=_optional_limit(args.china_police_limit),
+        ),
+        id_prefix="cn-police-",
+        name="Mainland China official public-security criminal reward notices",
+        allow_empty=True,
+    )
     source_cases = normalize_reward_metadata(
         deduplicate_cases(
             [
@@ -364,6 +382,7 @@ def main() -> int:
                 *nova_scotia_cases,
                 *uspis_cases,
                 *texas_dps_cases,
+                *china_police_cases,
             ]
         )
     )
@@ -390,6 +409,7 @@ def main() -> int:
         nova_scotia_status,
         uspis_status,
         texas_dps_status,
+        china_police_status,
     ]
     updated_at = datetime.now(UTC).isoformat()
     validate_data_quality(source_cases)
