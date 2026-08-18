@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-18T02:00:00.208352+00:00",
+  "updatedAt": "2026-08-18T19:07:15.386668+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2206,
+  "totalCount": 2205,
   "sources": [
     {
       "id": "fbi",
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "id": "rfj",
@@ -81,7 +81,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 229,
+      "count": 234,
       "error": null
     },
     {

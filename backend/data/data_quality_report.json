@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-18T02:00:00.208352+00:00",
-  "totalCases": 2206,
+  "generatedAt": "2026-08-18T19:07:15.386668+00:00",
+  "totalCases": 2205,
   "sourceRecords": 2243,
-  "multiSourceCases": 37,
+  "multiSourceCases": 38,
   "countries": {
     "Canada": 262,
     "China": 122,
-    "US": 1822
+    "US": 1821
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1372,
-    "Open": 830
+    "Information Requested": 1375,
+    "Open": 826
   },
   "sources": {
     "CFSEU-BC": 3,
     "Cranbrook RCMP": 1,
     "Edmonton Police Service": 10,
-    "Federal Bureau of Investigation": 1203,
+    "Federal Bureau of Investigation": 1198,
     "Fugitifs Quebec": 15,
     "Hope RCMP": 1,
     "IHIT": 1,
@@ -32,7 +32,7 @@
     "Saskatchewan RCMP": 6,
     "Terrace RCMP": 2,
     "Texas Department of Public Safety": 76,
-    "U.S. Department of State - Rewards for Justice": 229,
+    "U.S. Department of State - Rewards for Justice": 234,
     "U.S. Marshals Service": 56,
     "United States Postal Inspection Service": 295,
     "Vancouver Police Department": 2,
@@ -48,19 +48,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1453,
-    "notPublished": 753,
+    "published": 1457,
+    "notPublished": 748,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1122
+      "USD": 1126
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 198,
-    "remotePrimaryImages": 2008
+    "remotePrimaryImages": 2007
   },
   "regions": {
     "casesWithoutRegion": 45
