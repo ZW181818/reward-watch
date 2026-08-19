@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-18T19:07:15.386668+00:00",
+  "updatedAt": "2026-08-19T02:01:11.647619+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2205,
+  "totalCount": 2211,
   "sources": [
     {
       "id": "fbi",
@@ -9,7 +9,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1203,
+      "count": 1204,
       "error": null
     },
     {
@@ -115,10 +115,10 @@
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 76,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "id": "cn-police",
