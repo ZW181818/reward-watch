@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-19T02:01:11.647619+00:00",
+  "updatedAt": "2026-08-19T07:15:05.501685+00:00",
   "allSourcesFresh": false,
   "totalCount": 2211,
   "sources": [
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "id": "rfj",
@@ -97,10 +97,10 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 117,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "id": "uspis",
