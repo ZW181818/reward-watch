@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-19T07:15:05.501685+00:00",
+  "updatedAt": "2026-08-19T19:01:25.736947+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2211,
+  "totalCount": 2214,
   "sources": [
     {
       "id": "fbi",
@@ -54,7 +54,7 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 17,
+      "count": 19,
       "error": null
     },
     {
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "id": "rfj",
@@ -97,10 +97,10 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 117,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "id": "uspis",
@@ -108,17 +108,17 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 295,
+      "count": 296,
       "error": null
     },
     {
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 76,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "error": null
     },
     {
       "id": "cn-police",
