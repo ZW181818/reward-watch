@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T19:05:44.002952+00:00",
-  "totalCases": 2215,
-  "sourceRecords": 2253,
+  "generatedAt": "2026-08-22T07:07:28.234941+00:00",
+  "totalCases": 2214,
+  "sourceRecords": 2252,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 264,
     "China": 122,
-    "US": 1829
+    "US": 1828
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1378,
-    "Open": 833
+    "Open": 832
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -31,7 +31,7 @@
     "Ridge Meadows RCMP": 1,
     "Saskatchewan RCMP": 6,
     "Terrace RCMP": 2,
-    "Texas Department of Public Safety": 76,
+    "Texas Department of Public Safety": 75,
     "U.S. Department of State - Rewards for Justice": 234,
     "U.S. Marshals Service": 56,
     "United States Postal Inspection Service": 296,
@@ -49,18 +49,18 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1459,
+    "published": 1458,
     "notPublished": 756,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1128
+      "USD": 1127
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
-    "localPrimaryImages": 198,
+    "localPrimaryImages": 197,
     "remotePrimaryImages": 2017
   },
   "regions": {
@@ -69,8 +69,7 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
-      "cfseu-bc",
-      "txdps"
+      "cfseu-bc"
     ]
   },
   "checks": {
