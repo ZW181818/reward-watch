@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-23T02:08:02.464708+00:00",
+  "updatedAt": "2026-08-23T18:55:39.137622+00:00",
   "allSourcesFresh": false,
   "totalCount": 2214,
   "sources": [
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "id": "rfj",
@@ -106,19 +106,19 @@
       "id": "uspis",
       "name": "U.S. Postal Inspection Service wanted posters with cash rewards",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 296,
-      "error": null
+      "error": "HTTPError: HTTP Error 502: Bad Gateway"
     },
     {
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 75,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "id": "cn-police",
