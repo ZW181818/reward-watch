@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-25T07:17:02.695536+00:00",
+  "updatedAt": "2026-08-25T13:22:34.470751+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2217,
+  "totalCount": 2218,
   "sources": [
     {
       "id": "fbi",
@@ -81,7 +81,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 234,
+      "count": 235,
       "error": null
     },
     {
@@ -124,10 +124,10 @@
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 122,
-      "error": null
+      "error": "TimeoutError: The read operation timed out"
     }
   ]
 }
