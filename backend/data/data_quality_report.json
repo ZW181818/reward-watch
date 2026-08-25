@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T13:22:34.470751+00:00",
-  "totalCases": 2218,
-  "sourceRecords": 2256,
+  "generatedAt": "2026-08-25T19:07:00.013601+00:00",
+  "totalCases": 2220,
+  "sourceRecords": 2258,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 263,
     "China": 122,
-    "US": 1833
+    "US": 1835
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1383,
-    "Open": 831
+    "Information Requested": 1384,
+    "Open": 832
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -31,10 +31,10 @@
     "Ridge Meadows RCMP": 1,
     "Saskatchewan RCMP": 6,
     "Terrace RCMP": 2,
-    "Texas Department of Public Safety": 75,
+    "Texas Department of Public Safety": 76,
     "U.S. Department of State - Rewards for Justice": 235,
     "U.S. Marshals Service": 56,
-    "United States Postal Inspection Service": 298,
+    "United States Postal Inspection Service": 299,
     "Vancouver Police Department": 2,
     "Vernon North Okanagan RCMP": 1,
     "West Shore RCMP": 1,
@@ -49,19 +49,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1463,
+    "published": 1465,
     "notPublished": 755,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1132
+      "USD": 1134
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
-    "localPrimaryImages": 197,
-    "remotePrimaryImages": 2021
+    "localPrimaryImages": 198,
+    "remotePrimaryImages": 2022
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -69,8 +69,7 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
-      "cfseu-bc",
-      "cn-police"
+      "cfseu-bc"
     ]
   },
   "checks": {
