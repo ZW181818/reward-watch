@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-24T07:37:33.313748+00:00",
+  "updatedAt": "2026-08-25T02:01:11.600990+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2214,
+  "totalCount": 2217,
   "sources": [
     {
       "id": "fbi",
@@ -9,7 +9,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1205,
+      "count": 1207,
       "error": null
     },
     {
@@ -54,7 +54,7 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
@@ -97,10 +97,10 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 117,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "id": "uspis",
@@ -108,7 +108,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 296,
+      "count": 298,
       "error": null
     },
     {
