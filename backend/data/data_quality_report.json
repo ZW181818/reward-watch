@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T19:07:00.013601+00:00",
-  "totalCases": 2220,
-  "sourceRecords": 2258,
+  "generatedAt": "2026-08-26T20:17:12.790071+00:00",
+  "totalCases": 2221,
+  "sourceRecords": 2259,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 263,
+    "Canada": 264,
     "China": 122,
     "US": 1835
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1384,
+    "Information Requested": 1385,
     "Open": 832
   },
   "sources": {
     "CFSEU-BC": 3,
     "Cranbrook RCMP": 1,
     "Edmonton Police Service": 10,
-    "Federal Bureau of Investigation": 1207,
+    "Federal Bureau of Investigation": 1206,
     "Fugitifs Quebec": 15,
     "Hope RCMP": 1,
     "IHIT": 1,
@@ -26,17 +26,16 @@
     "Nanaimo RCMP": 1,
     "Nova Scotia Department of Justice": 117,
     "Ontario Provincial Police": 92,
-    "Prince George RCMP": 6,
+    "Prince George RCMP": 7,
     "Prince Rupert RCMP": 1,
     "Ridge Meadows RCMP": 1,
     "Saskatchewan RCMP": 6,
-    "Terrace RCMP": 2,
+    "Terrace RCMP": 3,
     "Texas Department of Public Safety": 76,
     "U.S. Department of State - Rewards for Justice": 235,
     "U.S. Marshals Service": 56,
-    "United States Postal Inspection Service": 299,
+    "United States Postal Inspection Service": 300,
     "Vancouver Police Department": 2,
-    "Vernon North Okanagan RCMP": 1,
     "West Shore RCMP": 1,
     "平顶山市公安局": 1,
     "广州市公安局天河区分局": 20,
@@ -49,19 +48,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1465,
+    "published": 1466,
     "notPublished": 755,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1134
+      "USD": 1135
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 198,
-    "remotePrimaryImages": 2022
+    "remotePrimaryImages": 2023
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -69,7 +68,8 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj"
     ]
   },
   "checks": {

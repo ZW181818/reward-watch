@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-25T19:07:00.013601+00:00",
+  "updatedAt": "2026-08-26T20:17:12.790071+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2220,
+  "totalCount": 2221,
   "sources": [
     {
       "id": "fbi",
@@ -9,7 +9,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1207,
+      "count": 1206,
       "error": null
     },
     {
@@ -54,7 +54,7 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -79,10 +79,10 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 235,
-      "error": null
+      "error": "IncompleteRead: IncompleteRead(105926 bytes read)"
     },
     {
       "id": "usms",
@@ -108,7 +108,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 299,
+      "count": 300,
       "error": null
     },
     {
