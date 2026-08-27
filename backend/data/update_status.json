@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-26T20:17:12.790071+00:00",
+  "updatedAt": "2026-08-27T10:04:05.520551+00:00",
   "allSourcesFresh": false,
   "totalCount": 2221,
   "sources": [
@@ -52,10 +52,10 @@
       "id": "rcmp-bc",
       "name": "British Columbia RCMP wanted news releases",
       "country": "Canada",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 19,
-      "error": null
+      "error": "ValueError: source returned no publishable records"
     },
     {
       "id": "vpd",
@@ -82,7 +82,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 235,
-      "error": "IncompleteRead: IncompleteRead(105926 bytes read)"
+      "error": "IncompleteRead: IncompleteRead(443709 bytes read)"
     },
     {
       "id": "usms",
@@ -97,10 +97,10 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 117,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "id": "uspis",
@@ -124,10 +124,10 @@
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 122,
-      "error": null
+      "error": "TimeoutError: The read operation timed out"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T20:17:12.790071+00:00",
+  "generatedAt": "2026-08-27T10:04:05.520551+00:00",
   "totalCases": 2221,
   "sourceRecords": 2259,
   "multiSourceCases": 38,
@@ -68,8 +68,11 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
+      "rcmp-bc",
       "cfseu-bc",
-      "rfj"
+      "rfj",
+      "ns-reward",
+      "cn-police"
     ]
   },
   "checks": {
