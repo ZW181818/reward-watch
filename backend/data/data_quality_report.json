@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-27T22:25:32.552982+00:00",
+  "generatedAt": "2026-08-29T07:13:42.588564+00:00",
   "totalCases": 2221,
   "sourceRecords": 2259,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 263,
+    "Canada": 262,
     "China": 122,
-    "US": 1836
+    "US": 1837
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1385,
-    "Open": 832
+    "Information Requested": 1386,
+    "Open": 831
   },
   "sources": {
     "CFSEU-BC": 3,
     "Cranbrook RCMP": 1,
     "Edmonton Police Service": 10,
-    "Federal Bureau of Investigation": 1207,
+    "Federal Bureau of Investigation": 1208,
     "Fugitifs Quebec": 15,
     "Hope RCMP": 1,
     "IHIT": 1,
@@ -30,7 +30,7 @@
     "Prince Rupert RCMP": 1,
     "Ridge Meadows RCMP": 1,
     "Saskatchewan RCMP": 7,
-    "Terrace RCMP": 3,
+    "Terrace RCMP": 2,
     "Texas Department of Public Safety": 76,
     "U.S. Department of State - Rewards for Justice": 235,
     "U.S. Marshals Service": 56,
@@ -48,13 +48,13 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1466,
-    "notPublished": 755,
+    "published": 1467,
+    "notPublished": 754,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1135
+      "USD": 1136
     }
   },
   "images": {
@@ -68,7 +68,8 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj"
     ]
   },
   "checks": {
