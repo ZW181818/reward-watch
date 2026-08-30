@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-29T07:13:42.588564+00:00",
+  "updatedAt": "2026-08-30T05:34:59.724869+00:00",
   "allSourcesFresh": false,
   "totalCount": 2221,
   "sources": [
@@ -73,16 +73,16 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 235,
-      "error": "IncompleteRead: IncompleteRead(196356 bytes read)"
+      "error": null
     },
     {
       "id": "usms",
