@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T12:03:49.365122+00:00",
+  "updatedAt": "2026-08-30T21:17:28.376559+00:00",
   "allSourcesFresh": false,
   "totalCount": 2221,
   "sources": [
@@ -79,10 +79,10 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 235,
-      "error": null
+      "error": "IncompleteRead: IncompleteRead(97238 bytes read)"
     },
     {
       "id": "usms",
@@ -124,10 +124,10 @@
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 122,
-      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
+      "error": null
     }
   ]
 }
