@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T05:34:59.724869+00:00",
+  "updatedAt": "2026-08-30T12:03:49.365122+00:00",
   "allSourcesFresh": false,
   "totalCount": 2221,
   "sources": [
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "id": "rfj",
@@ -124,10 +124,10 @@
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 122,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
     }
   ]
 }
