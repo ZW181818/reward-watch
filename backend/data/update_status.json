@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-30T21:17:28.376559+00:00",
+  "updatedAt": "2026-08-31T23:00:39.932313+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2221,
+  "totalCount": 2220,
   "sources": [
     {
       "id": "fbi",
@@ -54,7 +54,7 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 16,
+      "count": 15,
       "error": null
     },
     {
@@ -73,16 +73,16 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 235,
-      "error": "IncompleteRead: IncompleteRead(97238 bytes read)"
+      "error": null
     },
     {
       "id": "usms",
@@ -97,10 +97,10 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 117,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "id": "uspis",

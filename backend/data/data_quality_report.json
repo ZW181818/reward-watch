@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-30T21:17:28.376559+00:00",
-  "totalCases": 2221,
-  "sourceRecords": 2259,
+  "generatedAt": "2026-08-31T23:00:39.932313+00:00",
+  "totalCases": 2220,
+  "sourceRecords": 2258,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 262,
+    "Canada": 261,
     "China": 122,
     "US": 1837
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1386,
-    "Open": 831
+    "Open": 830
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -26,7 +26,7 @@
     "Nanaimo RCMP": 1,
     "Nova Scotia Department of Justice": 117,
     "Ontario Provincial Police": 92,
-    "Prince George RCMP": 5,
+    "Prince George RCMP": 4,
     "Prince Rupert RCMP": 1,
     "Ridge Meadows RCMP": 1,
     "Saskatchewan RCMP": 7,
@@ -49,7 +49,7 @@
   },
   "rewards": {
     "published": 1467,
-    "notPublished": 754,
+    "notPublished": 753,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
@@ -60,7 +60,7 @@
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 198,
-    "remotePrimaryImages": 2023
+    "remotePrimaryImages": 2022
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -69,7 +69,7 @@
     "allSourcesFresh": false,
     "staleSources": [
       "cfseu-bc",
-      "rfj"
+      "ns-reward"
     ]
   },
   "checks": {
