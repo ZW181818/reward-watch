@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-01T11:50:43.837511+00:00",
+  "updatedAt": "2026-09-01T16:50:12.492674+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2220,
+  "totalCount": 2221,
   "sources": [
     {
       "id": "fbi",
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "URLError: <urlopen error timed out>"
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "id": "rfj",
@@ -117,7 +117,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 76,
+      "count": 77,
       "error": null
     },
     {
