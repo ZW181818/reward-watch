@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-01T16:50:12.492674+00:00",
-  "totalCases": 2221,
-  "sourceRecords": 2259,
+  "generatedAt": "2026-09-02T04:48:04.867179+00:00",
+  "totalCases": 2220,
+  "sourceRecords": 2258,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 261,
+    "Canada": 260,
     "China": 122,
     "US": 1838
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1386,
-    "Open": 831
+    "Open": 830
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -29,7 +29,7 @@
     "Prince George RCMP": 4,
     "Prince Rupert RCMP": 1,
     "Ridge Meadows RCMP": 1,
-    "Saskatchewan RCMP": 7,
+    "Saskatchewan RCMP": 6,
     "Terrace RCMP": 2,
     "Texas Department of Public Safety": 77,
     "U.S. Department of State - Rewards for Justice": 235,
@@ -49,7 +49,7 @@
   },
   "rewards": {
     "published": 1468,
-    "notPublished": 753,
+    "notPublished": 752,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
@@ -60,7 +60,7 @@
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 199,
-    "remotePrimaryImages": 2022
+    "remotePrimaryImages": 2021
   },
   "regions": {
     "casesWithoutRegion": 45

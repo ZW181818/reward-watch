@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-01T16:50:12.492674+00:00",
+  "updatedAt": "2026-09-02T04:48:04.867179+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2221,
+  "totalCount": 2220,
   "sources": [
     {
       "id": "fbi",
@@ -27,7 +27,7 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 7,
+      "count": 6,
       "error": null
     },
     {
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "id": "rfj",
