@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-02T04:48:04.867179+00:00",
+  "updatedAt": "2026-09-02T21:13:31.008396+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2220,
+  "totalCount": 2222,
   "sources": [
     {
       "id": "fbi",
@@ -9,7 +9,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1208,
+      "count": 1209,
       "error": null
     },
     {
@@ -34,10 +34,10 @@
       "id": "fq",
       "name": "Fugitifs Quebec provincial wanted list",
       "country": "Canada",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 15,
-      "error": null
+      "error": "ValueError: Fugitifs Quebec index did not include active profiles"
     },
     {
       "id": "eps",
@@ -54,7 +54,7 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 15,
+      "count": 16,
       "error": null
     },
     {
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "id": "rfj",

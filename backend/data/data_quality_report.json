@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-02T04:48:04.867179+00:00",
-  "totalCases": 2220,
-  "sourceRecords": 2258,
+  "generatedAt": "2026-09-02T21:13:31.008396+00:00",
+  "totalCases": 2222,
+  "sourceRecords": 2260,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 260,
+    "Canada": 261,
     "China": 122,
-    "US": 1838
+    "US": 1839
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1386,
-    "Open": 830
+    "Information Requested": 1387,
+    "Open": 831
   },
   "sources": {
     "CFSEU-BC": 3,
     "Cranbrook RCMP": 1,
     "Edmonton Police Service": 10,
-    "Federal Bureau of Investigation": 1208,
+    "Federal Bureau of Investigation": 1209,
     "Fugitifs Quebec": 15,
     "Hope RCMP": 1,
     "IHIT": 1,
@@ -26,7 +26,7 @@
     "Nanaimo RCMP": 1,
     "Nova Scotia Department of Justice": 117,
     "Ontario Provincial Police": 92,
-    "Prince George RCMP": 4,
+    "Prince George RCMP": 5,
     "Prince Rupert RCMP": 1,
     "Ridge Meadows RCMP": 1,
     "Saskatchewan RCMP": 6,
@@ -48,19 +48,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1468,
-    "notPublished": 752,
+    "published": 1469,
+    "notPublished": 753,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1137
+      "USD": 1138
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 199,
-    "remotePrimaryImages": 2021
+    "remotePrimaryImages": 2023
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -68,6 +68,7 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
+      "fq",
       "cfseu-bc"
     ]
   },
