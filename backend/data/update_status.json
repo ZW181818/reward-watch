@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T04:43:23.745800+00:00",
+  "updatedAt": "2026-09-03T11:25:30.184153+00:00",
   "allSourcesFresh": false,
   "totalCount": 2223,
   "sources": [
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "id": "rfj",
@@ -115,19 +115,19 @@
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 77,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 122,
-      "error": null
+      "error": "IncompleteRead: IncompleteRead(1176 bytes read)"
     }
   ]
 }

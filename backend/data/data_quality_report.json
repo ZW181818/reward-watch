@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T04:43:23.745800+00:00",
+  "generatedAt": "2026-09-03T11:25:30.184153+00:00",
   "totalCases": 2223,
   "sourceRecords": 2261,
   "multiSourceCases": 38,
@@ -69,7 +69,9 @@
     "allSourcesFresh": false,
     "staleSources": [
       "cfseu-bc",
-      "ns-reward"
+      "ns-reward",
+      "txdps",
+      "cn-police"
     ]
   },
   "checks": {
