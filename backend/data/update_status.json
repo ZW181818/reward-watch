@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-03T11:25:30.184153+00:00",
+  "updatedAt": "2026-09-03T21:11:28.470315+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2223,
+  "totalCount": 2222,
   "sources": [
     {
       "id": "fbi",
@@ -9,7 +9,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1210,
+      "count": 1212,
       "error": null
     },
     {
@@ -81,7 +81,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 235,
+      "count": 236,
       "error": null
     },
     {
@@ -97,10 +97,10 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 117,
-      "error": "URLError: <urlopen error timed out>"
+      "error": null
     },
     {
       "id": "uspis",
@@ -115,19 +115,19 @@
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
-      "count": 77,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+      "success": true,
+      "usedStaleData": false,
+      "count": 76,
+      "error": null
     },
     {
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 122,
-      "error": "IncompleteRead: IncompleteRead(1176 bytes read)"
+      "error": null
     }
   ]
 }
