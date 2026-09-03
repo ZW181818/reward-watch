@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-02T21:13:31.008396+00:00",
+  "updatedAt": "2026-09-03T04:43:23.745800+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2222,
+  "totalCount": 2223,
   "sources": [
     {
       "id": "fbi",
@@ -9,7 +9,7 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1209,
+      "count": 1210,
       "error": null
     },
     {
@@ -34,10 +34,10 @@
       "id": "fq",
       "name": "Fugitifs Quebec provincial wanted list",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 15,
-      "error": "ValueError: Fugitifs Quebec index did not include active profiles"
+      "error": null
     },
     {
       "id": "eps",
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "id": "rfj",
@@ -97,10 +97,10 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 117,
-      "error": null
+      "error": "URLError: <urlopen error timed out>"
     },
     {
       "id": "uspis",
