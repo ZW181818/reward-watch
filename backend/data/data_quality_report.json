@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-04T04:45:22.259367+00:00",
-  "totalCases": 2226,
-  "sourceRecords": 2264,
+  "generatedAt": "2026-09-04T16:32:01.647630+00:00",
+  "totalCases": 2225,
+  "sourceRecords": 2263,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 261,
+    "Canada": 260,
     "China": 122,
     "US": 1843
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1389,
-    "Open": 833
+    "Open": 832
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -21,7 +21,6 @@
     "Federal Bureau of Investigation": 1213,
     "Fugitifs Quebec": 15,
     "Hope RCMP": 1,
-    "IHIT": 1,
     "Kamloops RCMP": 2,
     "Nanaimo RCMP": 1,
     "Nova Scotia Department of Justice": 117,
@@ -49,7 +48,7 @@
   },
   "rewards": {
     "published": 1473,
-    "notPublished": 753,
+    "notPublished": 752,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
@@ -60,7 +59,7 @@
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 198,
-    "remotePrimaryImages": 2028
+    "remotePrimaryImages": 2027
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -68,7 +67,8 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
-      "cfseu-bc"
+      "cfseu-bc",
+      "txdps"
     ]
   },
   "checks": {

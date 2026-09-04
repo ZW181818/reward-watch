@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-09-04T04:45:22.259367+00:00",
+  "updatedAt": "2026-09-04T16:32:01.647630+00:00",
   "allSourcesFresh": false,
-  "totalCount": 2226,
+  "totalCount": 2225,
   "sources": [
     {
       "id": "fbi",
@@ -54,7 +54,7 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 16,
+      "count": 15,
       "error": null
     },
     {
@@ -73,7 +73,7 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "id": "rfj",
@@ -115,10 +115,10 @@
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 76,
-      "error": null
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
     },
     {
       "id": "cn-police",
