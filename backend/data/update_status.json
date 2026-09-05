@@ -1,27 +1,17 @@
 {
-  "updatedAt": "2026-09-05T12:19:12.500547+00:00",
+  "updatedAt": "2026-09-05T16:55:55.289873+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "full",
+    "name": "canada-east",
     "requestedSources": [
-      "fbi",
       "opp",
-      "rcmp-sk",
       "fq",
       "eps",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc",
-      "rfj",
-      "usms",
-      "ns-reward",
-      "uspis",
-      "txdps",
-      "cn-police"
+      "ns-reward"
     ],
-    "updatedToday": 12,
+    "updatedToday": 13,
     "totalSources": 14
   },
   "sources": [
@@ -33,8 +23,8 @@
       "usedStaleData": false,
       "count": 1213,
       "error": null,
-      "durationSeconds": 2.127,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
     },
@@ -46,10 +36,10 @@
       "usedStaleData": false,
       "count": 92,
       "error": null,
-      "durationSeconds": 1.176,
+      "durationSeconds": 1.171,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
-      "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
+      "lastAttemptAt": "2026-09-05T16:55:55.289873+00:00",
+      "lastSuccessAt": "2026-09-05T16:55:55.289873+00:00"
     },
     {
       "id": "rcmp-sk",
@@ -59,8 +49,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 0.695,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
     },
@@ -72,10 +62,10 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 2.454,
+      "durationSeconds": 2.324,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
-      "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
+      "lastAttemptAt": "2026-09-05T16:55:55.289873+00:00",
+      "lastSuccessAt": "2026-09-05T16:55:55.289873+00:00"
     },
     {
       "id": "eps",
@@ -85,10 +75,10 @@
       "usedStaleData": false,
       "count": 10,
       "error": null,
-      "durationSeconds": 5.378,
+      "durationSeconds": 5.711,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
-      "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
+      "lastAttemptAt": "2026-09-05T16:55:55.289873+00:00",
+      "lastSuccessAt": "2026-09-05T16:55:55.289873+00:00"
     },
     {
       "id": "rcmp-bc",
@@ -98,8 +88,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 3.038,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
     },
@@ -111,8 +101,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.436,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
     },
@@ -124,8 +114,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.277,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": null
     },
@@ -137,8 +127,8 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": 0.625,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
     },
@@ -150,8 +140,8 @@
       "usedStaleData": false,
       "count": 56,
       "error": null,
-      "durationSeconds": 10.767,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
     },
@@ -159,14 +149,14 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 117,
-      "error": "URLError: <urlopen error timed out>",
-      "durationSeconds": 38.208,
+      "error": null,
+      "durationSeconds": 4.556,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
-      "lastSuccessAt": "2026-09-04T16:32:01.647630+00:00"
+      "lastAttemptAt": "2026-09-05T16:55:55.289873+00:00",
+      "lastSuccessAt": "2026-09-05T16:55:55.289873+00:00"
     },
     {
       "id": "uspis",
@@ -176,8 +166,8 @@
       "usedStaleData": false,
       "count": 300,
       "error": null,
-      "durationSeconds": 123.164,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
     },
@@ -189,8 +179,8 @@
       "usedStaleData": false,
       "count": 76,
       "error": null,
-      "durationSeconds": 9.803,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
     },
@@ -202,8 +192,8 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": 452.145,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
       "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
     }
