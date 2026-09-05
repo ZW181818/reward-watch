@@ -2,13 +2,34 @@ name: Update official case data
 
 on:
   workflow_dispatch:
+    inputs:
+      batch:
+        description: Source batch to refresh
+        required: true
+        default: full
+        type: choice
+        options:
+          - full
+          - us-core
+          - us-postal
+          - us-justice
+          - china
+          - canada-east
+          - canada-west
+          - catch-up
   push:
     branches:
       - main
     paths:
       - "backend/**"
   schedule:
-    - cron: "20 */6 * * *"
+    - cron: "37 0 * * *"
+    - cron: "7 4 * * *"
+    - cron: "37 7 * * *"
+    - cron: "7 11 * * *"
+    - cron: "37 14 * * *"
+    - cron: "7 18 * * *"
+    - cron: "37 20 * * *"
 
 permissions:
   contents: write
@@ -20,7 +41,7 @@ concurrency:
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - name: Check out repository
@@ -40,10 +61,41 @@ jobs:
         shell: bash
         run: echo "SYNC_STARTED_AT=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_ENV"
 
+      - name: Select source batch
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          REQUESTED_BATCH: ${{ inputs.batch }}
+        shell: bash
+        run: |
+          batch=""
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ "$REQUESTED_BATCH" != "full" ]; then
+            batch="$REQUESTED_BATCH"
+          elif [ "$EVENT_NAME" = "schedule" ]; then
+            case "$SCHEDULE" in
+              "37 0 * * *") batch="us-core" ;;
+              "7 4 * * *") batch="us-postal" ;;
+              "37 7 * * *") batch="us-justice" ;;
+              "7 11 * * *") batch="china" ;;
+              "37 14 * * *") batch="canada-east" ;;
+              "7 18 * * *") batch="canada-west" ;;
+              "37 20 * * *") batch="catch-up" ;;
+              *) echo "Unknown schedule: $SCHEDULE"; exit 1 ;;
+            esac
+          fi
+          echo "REFRESH_BATCH=$batch" >> "$GITHUB_ENV"
+          echo "Selected source batch: ${batch:-full}" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Refresh official data
         id: refresh
         continue-on-error: true
-        run: python backend/scripts/update_cases.py --strict --skip-database
+        shell: bash
+        run: |
+          if [ -n "$REFRESH_BATCH" ]; then
+            python backend/scripts/update_cases.py --strict --skip-database --batch "$REFRESH_BATCH"
+          else
+            python backend/scripts/update_cases.py --strict --skip-database
+          fi
 
       - name: Validate generated snapshot
         env:
@@ -63,9 +115,14 @@ jobs:
           if int(status.get("totalCount", 0)) <= 0:
               raise SystemExit("The updater produced an empty case snapshot.")
 
+          attempted_sources = [
+              source
+              for source in status.get("sources", [])
+              if source.get("attemptedThisRun", True)
+          ]
           stale_sources = [
               source["name"]
-              for source in status.get("sources", [])
+              for source in attempted_sources
               if not source.get("success", False)
           ]
           if stale_sources:
@@ -77,22 +134,22 @@ jobs:
               )
           elif os.environ["REFRESH_OUTCOME"] != "success":
               raise SystemExit("The strict updater failed without reporting a stale source fallback.")
+
+          batch = status.get("batch", {})
+          print(
+              "Daily source coverage: "
+              f"{batch.get('updatedToday', 0)}/{batch.get('totalSources', 0)}"
+          )
+          if batch.get("name") == "catch-up" and not status.get("allSourcesUpdatedToday"):
+              print(
+                  "::warning title=Daily source coverage incomplete::"
+                  "At least one official source still has no successful refresh today."
+              )
           PY
 
       - name: Run ingestion tests
         working-directory: backend
         run: python -m unittest discover -s tests -v
-
-      - name: Sync validated snapshot to PostgreSQL
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        shell: bash
-        run: |
-          if [ -z "$DATABASE_URL" ]; then
-            echo "::error title=Missing database configuration::DATABASE_URL is not configured in GitHub Actions secrets."
-            exit 1
-          fi
-          python backend/scripts/sync_database.py
 
       - name: Commit changed data
         shell: bash
@@ -106,4 +163,15 @@ jobs:
           git add backend/data/cases.json backend/data/source_cases.json backend/data/update_status.json backend/data/data_quality_report.json backend/data/media/texas-dps backend/data/media/china-police
           git commit -m "chore(data): refresh official cases"
           git push
+
+      - name: Sync validated snapshot to PostgreSQL
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        shell: bash
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "::error title=Missing database configuration::DATABASE_URL is not configured in GitHub Actions secrets."
+            exit 1
+          fi
+          python backend/scripts/sync_database.py
 

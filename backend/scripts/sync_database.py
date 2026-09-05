@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
+from time import monotonic
 
 
 BACKEND_DIR = Path(__file__).resolve().parents[1]
@@ -19,13 +20,17 @@ def _load(name: str):
 
 
 def main() -> int:
+    started_at = monotonic()
     sync_case_snapshot(
         cases=_load("cases.json"),
         source_cases=_load("source_cases.json"),
         update_status=_load("update_status.json"),
         quality_report=_load("data_quality_report.json"),
     )
-    print("Synchronized the validated case snapshot to DATABASE_URL")
+    print(
+        "Synchronized the validated case snapshot to DATABASE_URL in "
+        f"{monotonic() - started_at:.3f}s"
+    )
     return 0
 
 

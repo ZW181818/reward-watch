@@ -5,6 +5,7 @@ import json
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
+from time import monotonic
 from typing import Any, Callable
 
 
@@ -16,6 +17,32 @@ SOURCE_CASES_PATH = DATA_DIR / "source_cases.json"
 EXCLUSIONS_PATH = DATA_DIR / "source_exclusions.json"
 STATUS_PATH = DATA_DIR / "update_status.json"
 QUALITY_REPORT_PATH = DATA_DIR / "data_quality_report.json"
+
+SOURCE_IDS = (
+    "fbi",
+    "opp",
+    "rcmp-sk",
+    "fq",
+    "eps",
+    "rcmp-bc",
+    "vpd",
+    "cfseu-bc",
+    "rfj",
+    "usms",
+    "ns-reward",
+    "uspis",
+    "txdps",
+    "cn-police",
+)
+SOURCE_BATCHES = {
+    "us-core": ("fbi", "rfj"),
+    "us-postal": ("uspis",),
+    "us-justice": ("txdps", "usms"),
+    "canada-east": ("opp", "fq", "eps", "ns-reward"),
+    "canada-west": ("rcmp-sk", "rcmp-bc", "vpd", "cfseu-bc"),
+    "china": ("cn-police",),
+}
+CATCH_UP_REDUNDANCY = ("rfj", "cfseu-bc")
 
 if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
@@ -67,6 +94,14 @@ def load_existing_cases(path: Path) -> list[dict[str, Any]]:
     return [item for item in payload if isinstance(item, dict)] if isinstance(payload, list) else []
 
 
+def load_existing_status(path: Path = STATUS_PATH) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload if isinstance(payload, dict) else {}
+
+
 def write_json_atomic(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary_path = path.with_suffix(f"{path.suffix}.tmp")
@@ -86,6 +121,7 @@ def refresh_source(
     name: str,
     allow_empty: bool = False,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    started_at = monotonic()
     previous = [
         item
         for item in existing_cases
@@ -105,6 +141,7 @@ def refresh_source(
             "usedStaleData": bool(previous),
             "count": len(previous),
             "error": f"{type(error).__name__}: {error}",
+            "durationSeconds": round(monotonic() - started_at, 3),
         }
 
     return cases, {
@@ -115,7 +152,117 @@ def refresh_source(
         "usedStaleData": False,
         "count": len(cases),
         "error": None,
+        "durationSeconds": round(monotonic() - started_at, 3),
     }
+
+
+def refresh_or_retain_source(
+    *,
+    country: str,
+    existing_cases: list[dict[str, Any]],
+    fetcher: Callable[[], list[dict[str, Any]]],
+    id_prefix: str,
+    name: str,
+    selected_source_ids: set[str],
+    previous_status: dict[str, Any] | None,
+    allow_empty: bool = False,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    source_id = id_prefix.rstrip("-")
+    if source_id in selected_source_ids:
+        return refresh_source(
+            country=country,
+            existing_cases=existing_cases,
+            fetcher=fetcher,
+            id_prefix=id_prefix,
+            name=name,
+            allow_empty=allow_empty,
+        )
+
+    previous = [
+        item
+        for item in existing_cases
+        if str(item.get("id", "")).startswith(id_prefix)
+    ]
+    prior = previous_status or {}
+    return previous, {
+        "id": source_id,
+        "name": name,
+        "country": country,
+        "success": bool(prior.get("success", False)),
+        "usedStaleData": bool(prior.get("usedStaleData", not prior)),
+        "count": len(previous),
+        "error": prior.get("error"),
+        "durationSeconds": None,
+    }
+
+
+def source_ids_for_batch(
+    batch: str | None,
+    previous_status: dict[str, Any],
+    *,
+    now: datetime,
+) -> set[str]:
+    if batch is None:
+        return set(SOURCE_IDS)
+    if batch != "catch-up":
+        return set(SOURCE_BATCHES[batch])
+
+    previous_updated_at = previous_status.get("updatedAt")
+    previous_by_id = {
+        str(status.get("id")): status
+        for status in previous_status.get("sources", [])
+        if isinstance(status, dict) and status.get("id")
+    }
+    selected = set(CATCH_UP_REDUNDANCY)
+    for source_id in SOURCE_IDS:
+        prior = previous_by_id.get(source_id, {})
+        last_success_at = prior.get("lastSuccessAt")
+        if not last_success_at and prior.get("success"):
+            last_success_at = previous_updated_at
+        if not _is_same_utc_date(last_success_at, now):
+            selected.add(source_id)
+    return selected
+
+
+def attach_source_refresh_history(
+    statuses: list[dict[str, Any]],
+    previous_status: dict[str, Any],
+    *,
+    selected_source_ids: set[str],
+    updated_at: str,
+) -> None:
+    previous_updated_at = previous_status.get("updatedAt")
+    previous_by_id = {
+        str(status.get("id")): status
+        for status in previous_status.get("sources", [])
+        if isinstance(status, dict) and status.get("id")
+    }
+    for status in statuses:
+        source_id = str(status["id"])
+        prior = previous_by_id.get(source_id, {})
+        attempted = source_id in selected_source_ids
+        prior_last_attempt = prior.get("lastAttemptAt") or previous_updated_at
+        prior_last_success = prior.get("lastSuccessAt")
+        if not prior_last_success and prior.get("success"):
+            prior_last_success = previous_updated_at
+
+        status["attemptedThisRun"] = attempted
+        status["lastAttemptAt"] = updated_at if attempted else prior_last_attempt
+        status["lastSuccessAt"] = (
+            updated_at if attempted and status["success"] else prior_last_success
+        )
+
+
+def _is_same_utc_date(value: Any, now: datetime) -> bool:
+    if not value:
+        return False
+    try:
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=UTC)
+    return parsed.astimezone(UTC).date() == now.astimezone(UTC).date()
 
 
 def main() -> int:
@@ -212,6 +359,14 @@ def main() -> int:
         help="Return a failure code when any source uses stale fallback data.",
     )
     parser.add_argument(
+        "--batch",
+        choices=(*SOURCE_BATCHES, "catch-up"),
+        help=(
+            "Refresh one scheduled source batch. Omit this option for a manual "
+            "full refresh; catch-up retries sources not yet refreshed successfully today."
+        ),
+    )
+    parser.add_argument(
         "--skip-database",
         action="store_true",
         help="Write validated JSON snapshots without updating DATABASE_URL.",
@@ -230,8 +385,20 @@ def main() -> int:
         else args.output
     )
     existing_cases = load_existing_cases(source_snapshot_path)
+    previous_update_status = load_existing_status()
+    run_started_at = datetime.now(UTC)
+    selected_source_ids = source_ids_for_batch(
+        args.batch,
+        previous_update_status,
+        now=run_started_at,
+    )
+    previous_status_by_id = {
+        str(status.get("id")): status
+        for status in previous_update_status.get("sources", [])
+        if isinstance(status, dict) and status.get("id")
+    }
     excluded_source_urls = load_excluded_source_urls()
-    fbi_cases, fbi_status = refresh_source(
+    fbi_cases, fbi_status = refresh_or_retain_source(
         country="US",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_fbi_cases(
@@ -240,15 +407,19 @@ def main() -> int:
         ),
         id_prefix="fbi-",
         name="FBI Wanted API",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("fbi"),
     )
-    opp_cases, opp_status = refresh_source(
+    opp_cases, opp_status = refresh_or_retain_source(
         country="Canada",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_opp_cases(limit=_optional_limit(args.opp_limit)),
         id_prefix="opp-",
         name="Ontario Provincial Police public investigations",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("opp"),
     )
-    rcmp_cases, rcmp_status = refresh_source(
+    rcmp_cases, rcmp_status = refresh_or_retain_source(
         country="Canada",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_rcmp_saskatchewan_cases(
@@ -256,8 +427,10 @@ def main() -> int:
         ),
         id_prefix="rcmp-sk-",
         name="Saskatchewan RCMP monthly wanted persons",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("rcmp-sk"),
     )
-    quebec_cases, quebec_status = refresh_source(
+    quebec_cases, quebec_status = refresh_or_retain_source(
         country="Canada",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_quebec_fugitive_cases(
@@ -265,8 +438,10 @@ def main() -> int:
         ),
         id_prefix="fq-",
         name="Fugitifs Quebec provincial wanted list",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("fq"),
     )
-    edmonton_cases, edmonton_status = refresh_source(
+    edmonton_cases, edmonton_status = refresh_or_retain_source(
         country="Canada",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_edmonton_most_wanted_cases(
@@ -274,8 +449,10 @@ def main() -> int:
         ),
         id_prefix="eps-",
         name="Edmonton Police Service most wanted list",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("eps"),
     )
-    bc_rcmp_cases, bc_rcmp_status = refresh_source(
+    bc_rcmp_cases, bc_rcmp_status = refresh_or_retain_source(
         country="Canada",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_bc_rcmp_wanted_cases(
@@ -283,8 +460,10 @@ def main() -> int:
         ),
         id_prefix="rcmp-bc-",
         name="British Columbia RCMP wanted news releases",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("rcmp-bc"),
     )
-    vancouver_cases, vancouver_status = refresh_source(
+    vancouver_cases, vancouver_status = refresh_or_retain_source(
         country="Canada",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_vancouver_wanted_cases(
@@ -292,8 +471,10 @@ def main() -> int:
         ),
         id_prefix="vpd-",
         name="Vancouver Police wanted news releases",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("vpd"),
     )
-    cfseu_cases, cfseu_status = refresh_source(
+    cfseu_cases, cfseu_status = refresh_or_retain_source(
         country="Canada",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_cfseu_bc_wanted_cases(
@@ -301,8 +482,10 @@ def main() -> int:
         ),
         id_prefix="cfseu-bc-",
         name="CFSEU-BC wanted news releases",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("cfseu-bc"),
     )
-    rewards_for_justice_cases, rewards_for_justice_status = refresh_source(
+    rewards_for_justice_cases, rewards_for_justice_status = refresh_or_retain_source(
         country="US",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_rewards_for_justice_cases(
@@ -311,8 +494,10 @@ def main() -> int:
         ),
         id_prefix="rfj-",
         name="U.S. Department of State Rewards for Justice",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("rfj"),
     )
-    us_marshals_cases, us_marshals_status = refresh_source(
+    us_marshals_cases, us_marshals_status = refresh_or_retain_source(
         country="US",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_us_marshals_cases(
@@ -320,8 +505,10 @@ def main() -> int:
         ),
         id_prefix="usms-",
         name="U.S. Marshals Service profiled fugitives with cash rewards",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("usms"),
     )
-    nova_scotia_cases, nova_scotia_status = refresh_source(
+    nova_scotia_cases, nova_scotia_status = refresh_or_retain_source(
         country="Canada",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_nova_scotia_reward_cases(
@@ -329,8 +516,10 @@ def main() -> int:
         ),
         id_prefix="ns-reward-",
         name="Nova Scotia Rewards for Major Unsolved Crimes",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("ns-reward"),
     )
-    uspis_cases, uspis_status = refresh_source(
+    uspis_cases, uspis_status = refresh_or_retain_source(
         country="US",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_uspis_cases(
@@ -339,6 +528,8 @@ def main() -> int:
         ),
         id_prefix="uspis-",
         name="U.S. Postal Inspection Service wanted posters with cash rewards",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("uspis"),
     )
     texas_published_dates = {
         str(item.get("id")): str(item.get("publishedDate"))
@@ -346,7 +537,7 @@ def main() -> int:
         if str(item.get("id", "")).startswith("txdps-")
         and item.get("publishedDate")
     }
-    texas_dps_cases, texas_dps_status = refresh_source(
+    texas_dps_cases, texas_dps_status = refresh_or_retain_source(
         country="US",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_texas_dps_cases(
@@ -355,8 +546,10 @@ def main() -> int:
         ),
         id_prefix="txdps-",
         name="Texas DPS active Most Wanted reward directories",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("txdps"),
     )
-    china_police_cases, china_police_status = refresh_source(
+    china_police_cases, china_police_status = refresh_or_retain_source(
         country="China",
         existing_cases=existing_cases,
         fetcher=lambda: fetch_china_police_reward_cases(
@@ -364,6 +557,8 @@ def main() -> int:
         ),
         id_prefix="cn-police-",
         name="Mainland China official public-security criminal reward notices",
+        selected_source_ids=selected_source_ids,
+        previous_status=previous_status_by_id.get("cn-police"),
         allow_empty=True,
     )
     source_cases = normalize_reward_metadata(
@@ -411,13 +606,33 @@ def main() -> int:
         texas_dps_status,
         china_police_status,
     ]
-    updated_at = datetime.now(UTC).isoformat()
+    updated_at_datetime = datetime.now(UTC)
+    updated_at = updated_at_datetime.isoformat()
+    attach_source_refresh_history(
+        source_statuses,
+        previous_update_status,
+        selected_source_ids=selected_source_ids,
+        updated_at=updated_at,
+    )
+    updated_today_count = sum(
+        _is_same_utc_date(status.get("lastSuccessAt"), updated_at_datetime)
+        for status in source_statuses
+    )
     validate_data_quality(source_cases)
     validate_data_quality(cases)
     update_status = {
         "updatedAt": updated_at,
         "allSourcesFresh": all(status["success"] for status in source_statuses),
+        "allSourcesUpdatedToday": updated_today_count == len(source_statuses),
         "totalCount": len(cases),
+        "batch": {
+            "name": args.batch or "full",
+            "requestedSources": [
+                source_id for source_id in SOURCE_IDS if source_id in selected_source_ids
+            ],
+            "updatedToday": updated_today_count,
+            "totalSources": len(source_statuses),
+        },
         "sources": source_statuses,
     }
     quality_report = build_data_quality_report(
@@ -439,9 +654,20 @@ def main() -> int:
         )
 
     print(f"Wrote {len(cases)} official records to {args.output}")
+    print(
+        f"Batch {args.batch or 'full'} attempted {len(selected_source_ids)} sources; "
+        f"daily coverage is {updated_today_count}/{len(source_statuses)}"
+    )
     for status in source_statuses:
-        state = "fresh" if status["success"] else "stale fallback"
-        print(f"- {status['country']}: {status['count']} records ({state})")
+        if not status["attemptedThisRun"]:
+            state = "retained"
+        else:
+            state = "fresh" if status["success"] else "stale fallback"
+        duration = status.get("durationSeconds")
+        timing = f", {duration:.3f}s" if isinstance(duration, (int, float)) else ""
+        print(
+            f"- {status['country']}: {status['count']} records ({state}{timing})"
+        )
         if status["error"]:
             print(f"  {status['error']}")
     if excluded_source_urls:
@@ -451,7 +677,10 @@ def main() -> int:
         f"{quality_report['rewards']['published']} records publish a cash amount"
     )
 
-    if args.strict and not update_status["allSourcesFresh"]:
+    attempted_statuses = [
+        status for status in source_statuses if status["attemptedThisRun"]
+    ]
+    if args.strict and any(not status["success"] for status in attempted_statuses):
         return 1
     return 0
 

@@ -8,6 +8,12 @@ services:
     dockerContext: .
     healthCheckPath: /health
     autoDeployTrigger: checksPass
+    buildFilter:
+      ignoredPaths:
+        - backend/data/cases.json
+        - backend/data/source_cases.json
+        - backend/data/update_status.json
+        - backend/data/data_quality_report.json
     envVars:
       - key: APP_ENV
         value: production

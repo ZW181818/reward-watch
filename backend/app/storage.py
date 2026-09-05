@@ -32,6 +32,7 @@ def _source_names(reward_case: dict[str, Any]) -> list[str]:
 def _source_id(case_id: str) -> str:
     prefixes = (
         "cfseu-bc",
+        "cn-police",
         "ns-reward",
         "rcmp-bc",
         "rcmp-sk",
@@ -68,8 +69,19 @@ def upsert_case_payload(
 ) -> CaseRow:
     timestamp = now or datetime.now(UTC)
     case_id = str(payload["id"])
-    source_names = _source_names(payload)
     row = session.get(CaseRow, case_id)
+    return _apply_case_payload(session, row, payload, timestamp=timestamp)
+
+
+def _apply_case_payload(
+    session: Session,
+    row: CaseRow | None,
+    payload: dict[str, Any],
+    *,
+    timestamp: datetime,
+) -> CaseRow:
+    case_id = str(payload["id"])
+    source_names = _source_names(payload)
     if row is None:
         row = CaseRow(
             id=case_id,
@@ -114,45 +126,62 @@ def sync_case_snapshot(
     now = datetime.now(UTC)
 
     with Session(engine) as session, session.begin():
-        current_case_ids = set(session.scalars(select(CaseRow.id)))
+        current_case_rows = {
+            row.id: row for row in session.scalars(select(CaseRow)).all()
+        }
+        current_case_ids = set(current_case_rows)
         next_case_ids: set[str] = set()
 
         for payload in cases:
             case_id = str(payload["id"])
             next_case_ids.add(case_id)
-            upsert_case_payload(session, payload, now=now)
+            existing_row = current_case_rows.get(case_id)
+            if existing_row is not None and existing_row.payload == payload:
+                continue
+            _apply_case_payload(
+                session,
+                existing_row,
+                payload,
+                timestamp=now,
+            )
 
         for removed_id in current_case_ids - next_case_ids:
             if removed_id.startswith(MANUAL_CASE_PREFIX):
                 continue
-            row = session.get(CaseRow, removed_id)
-            if row is not None:
-                session.delete(row)
+            session.delete(current_case_rows[removed_id])
 
-        current_source_ids = set(session.scalars(select(SourceCaseRow.id)))
+        current_source_rows = {
+            row.id: row for row in session.scalars(select(SourceCaseRow)).all()
+        }
+        current_source_ids = set(current_source_rows)
         next_source_ids: set[str] = set()
         for payload in source_cases:
             case_id = str(payload["id"])
             next_source_ids.add(case_id)
-            row = session.get(SourceCaseRow, case_id)
+            row = current_source_rows.get(case_id)
+            source_id = _source_id(case_id)
+            if (
+                row is not None
+                and row.source_id == source_id
+                and row.payload == payload
+            ):
+                continue
             if row is None:
                 session.add(
                     SourceCaseRow(
                         id=case_id,
-                        source_id=_source_id(case_id),
+                        source_id=source_id,
                         payload=payload,
                         updated_at=now,
                     )
                 )
             else:
-                row.source_id = _source_id(case_id)
+                row.source_id = source_id
                 row.payload = payload
                 row.updated_at = now
 
         for removed_id in current_source_ids - next_source_ids:
-            row = session.get(SourceCaseRow, removed_id)
-            if row is not None:
-                session.delete(row)
+            session.delete(current_source_rows[removed_id])
 
         session.add(
             SyncRunRow(
