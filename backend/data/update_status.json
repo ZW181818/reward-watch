@@ -1,15 +1,13 @@
 {
-  "updatedAt": "2026-09-05T20:17:09.841074+00:00",
+  "updatedAt": "2026-09-05T22:12:29.117676+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj"
     ],
     "updatedToday": 13,
     "totalSources": 14
@@ -49,8 +47,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 1.1,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T20:17:09.841074+00:00",
       "lastSuccessAt": "2026-09-05T20:17:09.841074+00:00"
     },
@@ -88,8 +86,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 6.658,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T20:17:09.841074+00:00",
       "lastSuccessAt": "2026-09-05T20:17:09.841074+00:00"
     },
@@ -101,8 +99,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.446,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-05T20:17:09.841074+00:00",
       "lastSuccessAt": "2026-09-05T20:17:09.841074+00:00"
     },
@@ -113,10 +111,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.31,
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "durationSeconds": 0.699,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-05T20:17:09.841074+00:00",
+      "lastAttemptAt": "2026-09-05T22:12:29.117676+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +125,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-05T12:19:12.500547+00:00",
-      "lastSuccessAt": "2026-09-05T12:19:12.500547+00:00"
+      "durationSeconds": 0.606,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-05T22:12:29.117676+00:00",
+      "lastSuccessAt": "2026-09-05T22:12:29.117676+00:00"
     },
     {
       "id": "usms",
