@@ -24,7 +24,9 @@ import {
 } from '@/lib/case-display';
 import { ReliableCaseImage } from '@/components/reliable-case-image';
 import { LanguageSelector } from '@/components/language-selector';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { getLocalizedCountry, getLocalizedStatus, useLanguage } from '@/lib/i18n';
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 import type { RewardCase, RewardCountry } from '@/types/reward-case';
 
 type CountryFilter = 'All' | RewardCountry;
@@ -120,6 +122,7 @@ export default function HomeScreen() {
           <View style={styles.headerActions}>
             <View style={styles.headerControlRow}>
               <LanguageSelector />
+              <ThemeToggle />
               <View style={styles.marketFilterWrap}>
               <Pressable
                 accessibilityLabel={t('chooseCountry')}
@@ -129,13 +132,13 @@ export default function HomeScreen() {
                 <SymbolView
                   name={{ ios: 'globe.americas.fill', android: 'globe', web: 'globe' }}
                   size={20}
-                  tintColor="#5B5FF7"
+                  tintColor={themedForeground('#5B5FF7')}
                 />
                 <Text style={styles.marketBadgeText}>{getLocalizedCountry(country, t)}</Text>
                 <SymbolView
                   name={{ ios: 'chevron.down', android: 'keyboard_arrow_down', web: 'keyboard_arrow_down' }}
                   size={15}
-                  tintColor="#7B8497"
+                  tintColor={themedForeground('#7B8497')}
                 />
               </Pressable>
 
@@ -165,7 +168,7 @@ export default function HomeScreen() {
                           <SymbolView
                             name={{ ios: 'checkmark', android: 'check', web: 'check' }}
                             size={16}
-                            tintColor="#5B4DFF"
+                            tintColor={themedForeground('#5B4DFF')}
                           />
                         )}
                       </Pressable>
@@ -181,7 +184,7 @@ export default function HomeScreen() {
                 <SymbolView
                   name={{ ios: 'bookmark', android: 'bookmark', web: 'bookmark' }}
                   size={16}
-                  tintColor="#5B4DFF"
+                  tintColor={themedForeground('#5B4DFF')}
                 />
                 <Text style={styles.savedButtonText}>{t('saved')}</Text>
               </Pressable>
@@ -195,7 +198,7 @@ export default function HomeScreen() {
               fallback={<Text style={styles.searchIconFallback}>{t('searchCases')}</Text>}
               name={{ ios: 'magnifyingglass', android: 'search', web: 'search' }}
               size={isWide ? 39 : 30}
-              tintColor="#6868FF"
+              tintColor={themedForeground('#6868FF')}
             />
             <TextInput
               accessibilityLabel={t('searchCases')}
@@ -203,7 +206,7 @@ export default function HomeScreen() {
               autoCorrect={false}
               onChangeText={setQuery}
               placeholder={isWide ? t('searchPlaceholder') : t('searchCases')}
-              placeholderTextColor="#66738A"
+              placeholderTextColor={themedForeground('#66738A')}
               style={[styles.searchInput, !isWide && styles.searchInputMobile]}
               value={query}
             />
@@ -262,7 +265,7 @@ export default function HomeScreen() {
 
         {isLoading ? (
           <View style={styles.loadingArea}>
-            <ActivityIndicator color="#6366F1" />
+            <ActivityIndicator color={themedForeground('#6366F1')} />
             <Text style={styles.loadingText}>{t('loadingCases')}</Text>
           </View>
         ) : (
@@ -305,7 +308,7 @@ export default function HomeScreen() {
                 <SymbolView
                   name={{ ios: 'arrow.right', android: 'arrow_forward', web: 'arrow_forward' }}
                   size={17}
-                  tintColor="#6C63FF"
+                  tintColor={themedForeground('#6C63FF')}
                 />
               </Pressable>
             </Link>
@@ -344,7 +347,7 @@ function BrandIcon() {
       <SymbolView
         name={{ ios: 'checkmark.shield.fill', android: 'verified_user', web: 'verified_user' }}
         size={32}
-        tintColor="#FFFFFF"
+        tintColor={themedForeground('#FFFFFF')}
       />
     </View>
   );
@@ -370,7 +373,7 @@ function Metric({
   return (
     <View style={[styles.metric, compact && styles.metricCompact]}>
       <View style={[styles.metricIcon, compact && styles.metricIconCompact, iconStyle]}>
-        <SymbolView name={iconName} size={compact ? 19 : 24} tintColor={iconTint} />
+        <SymbolView name={iconName} size={compact ? 19 : 24} tintColor={themedForeground(iconTint)} />
       </View>
       <View style={styles.metricCopy}>
         <Text style={[styles.metricValue, compact && styles.metricValueCompact]} numberOfLines={1}>
@@ -390,7 +393,7 @@ function SectionTitle({ subtitle, title }: { subtitle?: string; title: string })
       <SymbolView
         name={{ ios: 'sparkles', android: 'auto_awesome', web: 'auto_awesome' }}
         size={24}
-        tintColor="#9B8CFF"
+        tintColor={themedForeground('#9B8CFF')}
       />
       <View style={styles.sectionCopy}>
         <Text style={styles.sectionTitle}>{title}</Text>
@@ -515,7 +518,7 @@ function CaseVisual({
           <SymbolView
             name={{ ios: 'doc.text.magnifyingglass', android: 'description', web: 'description' }}
             size={compact ? 32 : 40}
-            tintColor={getCountryAccentColor(rewardCase.country)}
+            tintColor={themedForeground(getCountryAccentColor(rewardCase.country))}
           />
         }
         loadDelayMs={visualIndex * 450}
@@ -540,7 +543,7 @@ function SafetyBanner({ isWide, message }: { isWide: boolean; message: string })
         <SymbolView
           name={{ ios: 'checkmark.shield.fill', android: 'verified_user', web: 'verified_user' }}
           size={23}
-          tintColor="#FFFFFF"
+          tintColor={themedForeground('#FFFFFF')}
         />
       </View>
       <Text style={styles.safetyText}>{message}</Text>
@@ -550,7 +553,7 @@ function SafetyBanner({ isWide, message }: { isWide: boolean; message: string })
           <SymbolView
             name={{ ios: 'arrow.right', android: 'arrow_forward', web: 'arrow_forward' }}
             size={14}
-            tintColor="#6C63FF"
+            tintColor={themedForeground('#6C63FF')}
           />
         </View>
       )}
@@ -566,7 +569,7 @@ function HomeEmptyState({ onReset }: { onReset: () => void }) {
       <SymbolView
         name={{ ios: 'doc.text.magnifyingglass', android: 'description', web: 'description' }}
         size={34}
-        tintColor="#667085"
+        tintColor={themedForeground('#667085')}
       />
       <Text style={styles.emptyTitle}>{t('emptyHomeTitle')}</Text>
       <Text style={styles.emptyText}>{t('emptyHomeBody')}</Text>
@@ -577,7 +580,7 @@ function HomeEmptyState({ onReset }: { onReset: () => void }) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   safeArea: {
     flex: 1,
     backgroundColor: '#F5F9FF',

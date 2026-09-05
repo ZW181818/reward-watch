@@ -8,7 +8,6 @@ import {
   Modal,
   Pressable,
   ScrollView,
-  StyleSheet,
   Text,
   useWindowDimensions,
   View,
@@ -26,7 +25,9 @@ import {
 } from '@/lib/case-display';
 import { isCaseFavorite, loadFavoriteIds, toggleFavoriteCase } from '@/lib/favorites';
 import { LanguageSelector } from '@/components/language-selector';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { getLocalizedCountry, getLocalizedStatus, useLanguage } from '@/lib/i18n';
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 import type { RewardCase } from '@/types/reward-case';
 
 export default function CaseDetailScreen() {
@@ -95,7 +96,7 @@ export default function CaseDetailScreen() {
               <SymbolView
                 name={{ ios: 'arrow.left', android: 'arrow_back', web: 'arrow_back' }}
                 size={16}
-                tintColor="#6C63FF"
+                tintColor={themedForeground('#6C63FF')}
               />
               <Text style={styles.backLinkText}>{t('allCases')}</Text>
             </Pressable>
@@ -103,6 +104,7 @@ export default function CaseDetailScreen() {
 
           <View style={styles.topBarActions}>
             <LanguageSelector />
+            <ThemeToggle />
             <Link href="/favorites" asChild>
               <Pressable accessibilityRole="link" style={styles.savedLink}>
                 <Text style={styles.savedLinkText}>{t('saved')}</Text>
@@ -113,7 +115,7 @@ export default function CaseDetailScreen() {
 
         {isLoading ? (
           <View style={styles.loadingArea}>
-            <ActivityIndicator color="#6366F1" />
+            <ActivityIndicator color={themedForeground('#6366F1')} />
             <Text style={styles.loadingText}>{t('loadingCaseDetails')}</Text>
           </View>
         ) : error || !rewardCase ? (
@@ -178,7 +180,7 @@ export default function CaseDetailScreen() {
                     <SymbolView
                       name={{ ios: isFavorite ? 'bookmark.fill' : 'bookmark', android: 'bookmark', web: 'bookmark' }}
                       size={18}
-                      tintColor={isFavorite ? '#FFFFFF' : '#6C63FF'}
+                      tintColor={themedForeground(isFavorite ? '#FFFFFF' : '#6C63FF')}
                     />
                     <Text
                       style={[
@@ -199,7 +201,7 @@ export default function CaseDetailScreen() {
                     <SymbolView
                       name={{ ios: 'arrow.up.right', android: 'open_in_new', web: 'open_in_new' }}
                       size={16}
-                      tintColor="#6C63FF"
+                      tintColor={themedForeground('#6C63FF')}
                     />
                   </Pressable>
                 </View>
@@ -212,7 +214,7 @@ export default function CaseDetailScreen() {
                   <SymbolView
                     name={{ ios: 'exclamationmark.triangle.fill', android: 'warning', web: 'warning' }}
                     size={20}
-                    tintColor="#A15C00"
+                    tintColor={themedForeground('#A15C00')}
                   />
                 </View>
                 <View style={styles.officialWarningCopy}>
@@ -243,7 +245,7 @@ export default function CaseDetailScreen() {
                 <SymbolView
                   name={{ ios: 'checkmark.shield.fill', android: 'verified_user', web: 'verified_user' }}
                   size={23}
-                  tintColor="#FFFFFF"
+                  tintColor={themedForeground('#FFFFFF')}
                 />
               </View>
               <Text style={styles.safetyText}>
@@ -313,7 +315,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
           <SymbolView
             name={{ ios: 'doc.text.magnifyingglass', android: 'description', web: 'description' }}
             size={58}
-            tintColor="#5A63D8"
+            tintColor={themedForeground('#5A63D8')}
           />
           <Text style={styles.placeholderText}>{t('officialNotice')}</Text>
         </View>
@@ -355,7 +357,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
           <SymbolView
             name={{ ios: 'photo.on.rectangle', android: 'collections', web: 'collections' }}
             size={15}
-            tintColor="#FFFFFF"
+            tintColor={themedForeground('#FFFFFF')}
           />
           <Text style={styles.photoCountText}>
             {images.length === 1 ? t('viewPhoto') : t('viewAllPhotos', { count: images.length })}
@@ -417,7 +419,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
               <SymbolView
                 name={{ ios: 'xmark', android: 'close', web: 'close' }}
                 size={22}
-                tintColor="#344054"
+                tintColor={themedForeground('#344054')}
               />
             </Pressable>
           </View>
@@ -435,7 +437,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
               <SymbolView
                 name={{ ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' }}
                 size={26}
-                tintColor="#344054"
+                tintColor={themedForeground('#344054')}
               />
             </Pressable>
 
@@ -459,7 +461,7 @@ function CaseGallery({ isWide, rewardCase }: { isWide: boolean; rewardCase: Rewa
               <SymbolView
                 name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }}
                 size={26}
-                tintColor="#344054"
+                tintColor={themedForeground('#344054')}
               />
             </Pressable>
           </View>
@@ -596,7 +598,7 @@ function ReliableImage({
         <SymbolView
           name={{ ios: 'photo', android: 'image', web: 'image' }}
           size={24}
-          tintColor="#8793A8"
+          tintColor={themedForeground('#8793A8')}
         />
         {resolvedFallbackLabel ? (
           <Text style={styles.reliableImageFallbackText}>{resolvedFallbackLabel}</Text>
@@ -735,7 +737,7 @@ function OfficialSources({ rewardCase }: { rewardCase: RewardCase }) {
           <SymbolView
             name={{ ios: 'arrow.up.right', android: 'open_in_new', web: 'open_in_new' }}
             size={16}
-            tintColor="#6C63FF"
+            tintColor={themedForeground('#6C63FF')}
           />
         </Pressable>
       ))}
@@ -743,7 +745,7 @@ function OfficialSources({ rewardCase }: { rewardCase: RewardCase }) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   safeArea: {
     flex: 1,
     backgroundColor: '#F6F8FC',

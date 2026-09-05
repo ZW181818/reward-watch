@@ -24,7 +24,9 @@ import {
 } from '@/lib/case-display';
 import { ReliableCaseImage } from '@/components/reliable-case-image';
 import { LanguageSelector } from '@/components/language-selector';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { getLocalizedCountry, getLocalizedStatus, useLanguage } from '@/lib/i18n';
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 import type { CaseFacets, RewardCase, RewardCountry } from '@/types/reward-case';
 
 type CountryFilter = 'All' | RewardCountry;
@@ -158,7 +160,7 @@ export default function CasesScreen() {
                 <SymbolView
                   name={{ ios: 'arrow.left', android: 'arrow_back', web: 'arrow_back' }}
                   size={16}
-                  tintColor="#6C63FF"
+                  tintColor={themedForeground('#6C63FF')}
                 />
                 <Text style={styles.backLinkText}>{t('home')}</Text>
               </Pressable>
@@ -167,7 +169,10 @@ export default function CasesScreen() {
             <Text style={styles.subtitle}>{t('casesSubtitle')}</Text>
           </View>
           <View style={styles.headerAside}>
-            <LanguageSelector />
+            <View style={styles.headerControlRow}>
+              <LanguageSelector />
+              <ThemeToggle />
+            </View>
             <View style={styles.resultSummary}>
               <Text style={styles.resultNumber}>{total}</Text>
               <Text style={styles.resultLabel}>{total === 1 ? t('result') : t('results')}</Text>
@@ -179,7 +184,7 @@ export default function CasesScreen() {
           <SymbolView
             name={{ ios: 'magnifyingglass', android: 'search', web: 'search' }}
             size={24}
-            tintColor="#667085"
+            tintColor={themedForeground('#667085')}
           />
           <TextInput
             accessibilityLabel={t('searchAllCases')}
@@ -187,7 +192,7 @@ export default function CasesScreen() {
             autoCorrect={false}
             onChangeText={setQuery}
             placeholder={t('searchAllPlaceholder')}
-            placeholderTextColor="#8A94A6"
+            placeholderTextColor={themedForeground('#8A94A6')}
             style={styles.searchInput}
             value={query}
           />
@@ -281,7 +286,7 @@ export default function CasesScreen() {
 
         {isLoading ? (
           <View style={styles.loadingArea}>
-            <ActivityIndicator color="#6366F1" />
+            <ActivityIndicator color={themedForeground('#6366F1')} />
             <Text style={styles.loadingText}>{t('loadingAllCases')}</Text>
           </View>
         ) : cases.length === 0 ? (
@@ -323,7 +328,7 @@ export default function CasesScreen() {
                 onPress={loadMoreCases}
                 style={styles.loadMoreButton}>
                 {isLoadingMore ? (
-                  <ActivityIndicator color="#FFFFFF" />
+                  <ActivityIndicator color={themedForeground('#FFFFFF')} />
                 ) : (
                   <Text style={styles.loadMoreText}>{t('loadMoreCases')}</Text>
                 )}
@@ -404,7 +409,7 @@ function RegionSelect({
           <SymbolView
             name={{ ios: isOpen ? 'chevron.up' : 'chevron.down', android: isOpen ? 'expand_less' : 'expand_more', web: isOpen ? 'expand_less' : 'expand_more' }}
             size={18}
-            tintColor="#667085"
+            tintColor={themedForeground('#667085')}
           />
         </Pressable>
 
@@ -458,7 +463,7 @@ function RegionOptionRow({
         <SymbolView
           name={{ ios: 'checkmark', android: 'check', web: 'check' }}
           size={16}
-          tintColor="#5B4DFF"
+          tintColor={themedForeground('#5B4DFF')}
         />
       ) : null}
     </Pressable>
@@ -494,7 +499,7 @@ function EmptyState({ onReset }: { onReset: () => void }) {
       <SymbolView
         name={{ ios: 'doc.text.magnifyingglass', android: 'description', web: 'description' }}
         size={36}
-        tintColor="#667085"
+        tintColor={themedForeground('#667085')}
       />
       <Text style={styles.emptyTitle}>{t('emptyCasesTitle')}</Text>
       <Text style={styles.emptyText}>{t('emptyCasesBody')}</Text>
@@ -596,7 +601,7 @@ function CaseVisual({ rewardCase, visualIndex }: { rewardCase: RewardCase; visua
           <SymbolView
             name={{ ios: 'doc.text.magnifyingglass', android: 'description', web: 'description' }}
             size={30}
-            tintColor={iconColor}
+            tintColor={themedForeground(iconColor)}
           />
         }
         loadDelayMs={visualIndex * 450}
@@ -626,7 +631,7 @@ function InfoItem({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   safeArea: {
     flex: 1,
     backgroundColor: '#F6F8FC',
@@ -653,6 +658,11 @@ const styles = StyleSheet.create({
   headerAside: {
     alignItems: 'flex-end',
     gap: 10,
+  },
+  headerControlRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
   },
   headerCopy: {
     flex: 1,

@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light;
+  --rw-page-background: #f6f8fc;
   --font-display:
     Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
     Segoe UI Symbol, Noto Color Emoji;
@@ -6,4 +8,126 @@
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
   --font-serif: Georgia, 'Times New Roman', serif;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --rw-page-background: #080d18;
+  --rw-home-gradient: linear-gradient(140deg, #080d18 0%, #0b1426 48%, #15122b 100%);
+
+  --rw-bg-ffffff: #111827;
+  --rw-bg-f5f7fb: #080d18;
+  --rw-bg-f5f9ff: #080d18;
+  --rw-bg-f6f8fb: #080d18;
+  --rw-bg-f6f8fc: #080d18;
+  --rw-bg-f7f8fc: #080d18;
+  --rw-bg-f7f9fc: #111a2a;
+  --rw-bg-f8fafd: #111a2a;
+  --rw-bg-f8fafc: #151f31;
+  --rw-bg-f8faff: #151f31;
+  --rw-bg-f1f4f9: #1b2638;
+  --rw-bg-f2f4f7: #1b2638;
+  --rw-bg-f2f5fb: #1b2638;
+  --rw-bg-e8eef7: #1f2a3d;
+  --rw-bg-eaecf0: #1f2a3d;
+  --rw-bg-eef0f3: #1f2a3d;
+  --rw-bg-eef2f6: #1f2a3d;
+  --rw-bg-eef2f7: #1f2a3d;
+  --rw-bg-e5eaf3: #253147;
+  --rw-bg-f0efff: #24233f;
+  --rw-bg-f3f4ff: #24233f;
+  --rw-bg-f4f3ff: #24233f;
+  --rw-bg-f7f6ff: #24233f;
+  --rw-bg-efeafe: #282344;
+  --rw-bg-eff2ff: #202947;
+  --rw-bg-ddeBff: #172a46;
+  --rw-bg-ddebff: #172a46;
+  --rw-bg-e5f0ff: #172a46;
+  --rw-bg-e6f0ff: #172a46;
+  --rw-bg-ddf5ea: #123527;
+  --rw-bg-ddf7ea: #123527;
+  --rw-bg-e8f7f0: #123527;
+  --rw-bg-e9f8f5: #123527;
+  --rw-bg-ecfdf3: #123527;
+  --rw-bg-fef3f2: #3a1d24;
+  --rw-bg-fff0cc: #3c2b12;
+  --rw-bg-fff4e5: #3a2814;
+  --rw-bg-fff7ed: #3a2814;
+  --rw-bg-fff9ed: #3a2814;
+  --rw-bg-fffaeb: #3a2814;
+  --rw-bg-e8f5f9: #15313a;
+  --rw-bg-rgba255255255068: rgba(17, 24, 39, 0.78);
+  --rw-bg-rgba255255255070: rgba(17, 24, 39, 0.8);
+  --rw-bg-rgba255255255072: rgba(17, 24, 39, 0.82);
+  --rw-bg-rgba255255255075: rgba(17, 24, 39, 0.84);
+  --rw-bg-rgba255255255078: rgba(17, 24, 39, 0.87);
+  --rw-bg-rgba255255255082: rgba(17, 24, 39, 0.9);
+  --rw-bg-rgba248250252098: rgba(17, 24, 39, 0.98);
+
+  --rw-fg-0f172a: #f8fafc;
+  --rw-fg-101828: #f8fafc;
+  --rw-fg-111827: #f8fafc;
+  --rw-fg-1e293b: #edf2f9;
+  --rw-fg-344054: #e2e8f0;
+  --rw-fg-39435a: #e2e8f0;
+  --rw-fg-475467: #cbd5e1;
+  --rw-fg-536179: #cbd5e1;
+  --rw-fg-60646c: #b5c1d2;
+  --rw-fg-667085: #aab7cc;
+  --rw-fg-66738a: #aab7cc;
+  --rw-fg-697895: #aab7cc;
+  --rw-fg-718096: #aab7cc;
+  --rw-fg-7b8497: #aab7cc;
+  --rw-fg-7c879a: #aab7cc;
+  --rw-fg-8090aa: #aab7cc;
+  --rw-fg-8793a8: #aab7cc;
+  --rw-fg-8a94a6: #94a3b8;
+  --rw-fg-98a2b3: #94a3b8;
+  --rw-fg-5a63d8: #9fa7ff;
+  --rw-fg-5b4dff: #a99fff;
+  --rw-fg-5b5ff7: #a99fff;
+  --rw-fg-6366f1: #a99fff;
+  --rw-fg-6868ff: #a99fff;
+  --rw-fg-6c63ff: #a99fff;
+  --rw-fg-6c74ff: #a99fff;
+  --rw-fg-7663f2: #a99fff;
+  --rw-fg-7f75ff: #a99fff;
+  --rw-fg-9b8cff: #b8aeff;
+  --rw-fg-027a48: #65d7a0;
+  --rw-fg-078349: #65d7a0;
+  --rw-fg-159a5b: #65d7a0;
+  --rw-fg-1b5cc7: #8fb7ff;
+  --rw-fg-3c72f5: #8fb7ff;
+  --rw-fg-b42318: #ff938a;
+  --rw-fg-d92d20: #ff938a;
+  --rw-fg-a15c00: #fdba74;
+  --rw-fg-b45309: #fdba74;
+  --rw-fg-b54708: #fdba74;
+  --rw-fg-9a3412: #fdba74;
+
+  --rw-border-d0d5dd: #3a4860;
+  --rw-border-d8dfea: #3a4860;
+  --rw-border-dde4f0: #2b3950;
+  --rw-border-dde4f2: #2b3950;
+  --rw-border-d9dffd: #49447d;
+  --rw-border-d9d6fe: #49447d;
+  --rw-border-e1e6ef: #2b3950;
+  --rw-border-e2e8f0: #2b3950;
+  --rw-border-e3e8f3: #2b3950;
+  --rw-border-e4e7ec: #2b3950;
+  --rw-border-e5eaf3: #2b3950;
+  --rw-border-eaecf0: #2b3950;
+  --rw-border-afa9ff: #625b9f;
+  --rw-border-c7c2ff: #625b9f;
+  --rw-border-c7d2fe: #4e5a96;
+  --rw-border-fda29b: #7f3732;
+  --rw-border-fdba74: #6d4a1f;
+  --rw-border-fedf89: #6d4a1f;
+}
+
+html,
+body,
+#root {
+  background: var(--rw-page-background);
+  transition: background-color 160ms ease;
 }

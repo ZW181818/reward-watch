@@ -1,10 +1,11 @@
 import { Image } from 'expo-image';
 import { SymbolView } from 'expo-symbols';
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 
 import { AdminImagePicker, type AdminUploadFile } from '@/components/admin-image-picker';
 import { resolveAdminImage, uploadAdminImage } from '@/lib/admin-api';
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 
 
 const MAX_CASE_IMAGES = 8;
@@ -105,7 +106,7 @@ export function AdminPhotoManager({
                 {coverUrl === url ? <Text style={styles.coverBadge}>Cover</Text> : null}
               </Pressable>
               <Pressable accessibilityLabel={`Remove photo ${index + 1}`} onPress={() => removeImage(url)} style={styles.removeButton}>
-                <SymbolView name={{ ios: 'xmark', android: 'close', web: 'close' }} size={13} tintColor="#FFFFFF" />
+                <SymbolView name={{ ios: 'xmark', android: 'close', web: 'close' }} size={13} tintColor={themedForeground('#FFFFFF')} />
               </Pressable>
             </View>
           ))}
@@ -118,7 +119,7 @@ export function AdminPhotoManager({
         </ScrollView>
       ) : (
         <View style={styles.emptyGallery}>
-          <SymbolView name={{ ios: 'photo.on.rectangle.angled', android: 'photo_library', web: 'photo_library' }} size={24} tintColor="#98A2B3" />
+          <SymbolView name={{ ios: 'photo.on.rectangle.angled', android: 'photo_library', web: 'photo_library' }} size={24} tintColor={themedForeground('#98A2B3')} />
           <Text style={styles.emptyText}>No photos attached</Text>
         </View>
       )}
@@ -133,7 +134,7 @@ export function AdminPhotoManager({
             onChangeText={setRemoteUrl}
             onSubmitEditing={addRemoteUrl}
             placeholder="Or paste an image URL"
-            placeholderTextColor="#98A2B3"
+            placeholderTextColor={themedForeground('#98A2B3')}
             style={styles.urlInput}
             value={remoteUrl}
           />
@@ -147,7 +148,7 @@ export function AdminPhotoManager({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   wrapper: { backgroundColor: '#F8FAFC', borderColor: '#E4E7EC', borderRadius: 10, borderWidth: 1, gap: 13, padding: 15 },
   headingRow: { alignItems: 'flex-start', flexDirection: 'row', gap: 12 },
   headingCopy: { flex: 1, gap: 3, minWidth: 0 },

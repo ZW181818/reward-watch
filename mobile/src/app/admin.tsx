@@ -6,7 +6,6 @@ import {
   ActivityIndicator,
   Pressable,
   ScrollView,
-  StyleSheet,
   Switch,
   Text,
   TextInput,
@@ -23,6 +22,8 @@ import {
   emptyAdminCaseForm,
 } from '@/components/admin-case-fields';
 import { AdminPhotoManager, normalizeCaseImages } from '@/components/admin-photo-manager';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 import {
   changeAdminPassword,
   clearAdminToken,
@@ -104,14 +105,15 @@ function AdminLogin({ onAuthenticated }: { onAuthenticated: (token: string) => v
       <View style={styles.loginTopBar}>
         <Link href="/" asChild>
           <Pressable accessibilityRole="link" style={styles.backLink}>
-            <SymbolView name={{ ios: 'arrow.left', android: 'arrow_back', web: 'arrow_back' }} size={17} tintColor="#5B4DFF" />
+            <SymbolView name={{ ios: 'arrow.left', android: 'arrow_back', web: 'arrow_back' }} size={17} tintColor={themedForeground('#5B4DFF')} />
             <Text style={styles.backLinkText}>Reward Watch</Text>
           </Pressable>
         </Link>
+        <ThemeToggle />
       </View>
       <View style={styles.loginPanel}>
         <View style={styles.adminMark}>
-          <SymbolView name={{ ios: 'lock.shield.fill', android: 'admin_panel_settings', web: 'admin_panel_settings' }} size={27} tintColor="#FFFFFF" />
+          <SymbolView name={{ ios: 'lock.shield.fill', android: 'admin_panel_settings', web: 'admin_panel_settings' }} size={27} tintColor={themedForeground('#FFFFFF')} />
         </View>
         <View style={styles.loginHeading}>
           <Text style={styles.loginTitle}>Operations Console</Text>
@@ -125,7 +127,7 @@ function AdminLogin({ onAuthenticated }: { onAuthenticated: (token: string) => v
         </Field>
         {error ? <Text style={styles.formError}>{error}</Text> : null}
         <Pressable disabled={isSubmitting || !email || !password} onPress={submit} style={[styles.primaryButton, (isSubmitting || !email || !password) && styles.buttonDisabled]}>
-          {isSubmitting ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Sign in</Text>}
+          {isSubmitting ? <ActivityIndicator color={themedForeground('#FFFFFF')} /> : <Text style={styles.primaryButtonText}>Sign in</Text>}
         </Pressable>
       </View>
     </SafeAreaView>
@@ -167,7 +169,7 @@ function AdminWorkspace({ onSignOut, token }: { onSignOut: () => void; token: st
         <View style={[styles.sidebar, !isWide && styles.sidebarCompact]}>
           <View style={styles.sidebarBrand}>
             <View style={styles.sidebarMark}>
-              <SymbolView name={{ ios: 'checkmark.shield.fill', android: 'verified_user', web: 'verified_user' }} size={20} tintColor="#FFFFFF" />
+              <SymbolView name={{ ios: 'checkmark.shield.fill', android: 'verified_user', web: 'verified_user' }} size={20} tintColor={themedForeground('#FFFFFF')} />
             </View>
             <View style={styles.sidebarBrandCopy}>
               <Text style={styles.sidebarTitle}>Reward Watch</Text>
@@ -184,7 +186,7 @@ function AdminWorkspace({ onSignOut, token }: { onSignOut: () => void; token: st
             <View style={styles.sidebarFooter}>
               <Text style={styles.adminEmail} numberOfLines={1}>{dashboard?.adminEmail}</Text>
               <Pressable onPress={signOut} style={styles.signOutButton}>
-                <SymbolView name={{ ios: 'rectangle.portrait.and.arrow.right', android: 'logout', web: 'logout' }} size={17} tintColor="#667085" />
+                <SymbolView name={{ ios: 'rectangle.portrait.and.arrow.right', android: 'logout', web: 'logout' }} size={17} tintColor={themedForeground('#667085')} />
                 <Text style={styles.signOutText}>Sign out</Text>
               </Pressable>
             </View>
@@ -197,7 +199,10 @@ function AdminWorkspace({ onSignOut, token }: { onSignOut: () => void; token: st
               <Text style={styles.contentEyebrow}>INTERNAL OPERATIONS</Text>
               <Text style={styles.contentTitle}>{view === 'overview' ? 'Overview' : view === 'cases' ? 'Case Management' : view === 'settings' ? 'Home Publishing' : 'Audit Log'}</Text>
             </View>
-            {!isWide ? <Pressable onPress={signOut} style={styles.iconButton}><SymbolView name={{ ios: 'rectangle.portrait.and.arrow.right', android: 'logout', web: 'logout' }} size={19} tintColor="#475467" /></Pressable> : null}
+            <View style={styles.contentHeaderActions}>
+              <ThemeToggle />
+              {!isWide ? <Pressable onPress={signOut} style={styles.iconButton}><SymbolView name={{ ios: 'rectangle.portrait.and.arrow.right', android: 'logout', web: 'logout' }} size={19} tintColor={themedForeground('#475467')} /></Pressable> : null}
+            </View>
           </View>
           {error ? <Notice text={error} /> : null}
           {isLoading ? <CenteredLoader label="Loading operations data" embedded /> : view === 'overview' ? (
@@ -225,7 +230,7 @@ function NavButton({ active, icon, iconOnly, label, onPress }: { active: boolean
         : { ios: 'clock.arrow.circlepath' as const, android: 'history' as const, web: 'history' as const };
   return (
     <Pressable accessibilityLabel={label} onPress={onPress} style={[styles.navButton, iconOnly && styles.navButtonIconOnly, active && styles.navButtonActive]}>
-      <SymbolView name={names} size={19} tintColor={active ? '#5B4DFF' : '#667085'} />
+      <SymbolView name={names} size={19} tintColor={themedForeground(active ? '#5B4DFF' : '#667085')} />
       {iconOnly ? null : <Text style={[styles.navButtonText, active && styles.navButtonTextActive]}>{label}</Text>}
     </Pressable>
   );
@@ -268,7 +273,7 @@ function Overview({ dashboard, onRefresh, token }: { dashboard: AdminDashboard |
             <Text style={styles.panelMeta}>Last completed {updatedAt}</Text>
           </View>
           <Pressable disabled={syncing || dashboard?.syncRunning} onPress={runSync} style={[styles.secondaryButton, (syncing || dashboard?.syncRunning) && styles.buttonDisabled]}>
-            <SymbolView name={{ ios: 'arrow.clockwise', android: 'sync', web: 'sync' }} size={17} tintColor="#5B4DFF" />
+            <SymbolView name={{ ios: 'arrow.clockwise', android: 'sync', web: 'sync' }} size={17} tintColor={themedForeground('#5B4DFF')} />
             <Text style={styles.secondaryButtonText}>{dashboard?.syncRunning ? 'Running' : 'Run sync'}</Text>
           </Pressable>
         </View>
@@ -377,7 +382,7 @@ function PasswordPanel({ token }: { token: string }) {
           disabled={!canSave || isSaving}
           onPress={submit}
           style={[styles.primaryButton, styles.securityButton, (!canSave || isSaving) && styles.buttonDisabled]}>
-          {isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Update password</Text>}
+          {isSaving ? <ActivityIndicator color={themedForeground('#FFFFFF')} /> : <Text style={styles.primaryButtonText}>Update password</Text>}
         </Pressable>
       </View>
     </View>
@@ -438,8 +443,8 @@ function CasesManager({ token }: { token: string }) {
     <View style={styles.caseManager}>
       <View style={styles.caseToolbar}>
         <View style={styles.adminSearch}>
-          <SymbolView name={{ ios: 'magnifyingglass', android: 'search', web: 'search' }} size={20} tintColor="#667085" />
-          <TextInput autoCapitalize="none" onChangeText={setQuery} placeholder="Search case ID, title or source" placeholderTextColor="#98A2B3" style={styles.adminSearchInput} value={query} />
+          <SymbolView name={{ ios: 'magnifyingglass', android: 'search', web: 'search' }} size={20} tintColor={themedForeground('#667085')} />
+          <TextInput autoCapitalize="none" onChangeText={setQuery} placeholder="Search case ID, title or source" placeholderTextColor={themedForeground('#98A2B3')} style={styles.adminSearchInput} value={query} />
         </View>
         <View style={styles.smallSegment}>
           {(['all', 'visible', 'hidden'] as VisibilityFilter[]).map((item) => (
@@ -455,7 +460,7 @@ function CasesManager({ token }: { token: string }) {
             setIsCreating(true);
           }}
           style={styles.createButton}>
-          <SymbolView name={{ ios: 'plus', android: 'add', web: 'add' }} size={17} tintColor="#FFFFFF" />
+          <SymbolView name={{ ios: 'plus', android: 'add', web: 'add' }} size={17} tintColor={themedForeground('#FFFFFF')} />
           <Text style={styles.createButtonText}>New notice</Text>
         </Pressable>
       </View>
@@ -469,7 +474,7 @@ function CasesManager({ token }: { token: string }) {
             setDetail(null);
           }}
           style={styles.compactBackButton}>
-          <SymbolView name={{ ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' }} size={17} tintColor="#475467" />
+          <SymbolView name={{ ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' }} size={17} tintColor={themedForeground('#475467')} />
           <Text style={styles.compactBackText}>Back to case list</Text>
         </Pressable>
       ) : null}
@@ -484,7 +489,7 @@ function CasesManager({ token }: { token: string }) {
             <View style={styles.adminCaseList}>
               {cases.map((rewardCase) => (
                 <Pressable key={rewardCase.id} onPress={() => openCase(rewardCase.id)} style={[styles.adminCaseRow, selectedId === rewardCase.id && styles.adminCaseRowSelected]}>
-                  {rewardCase.imageUrl ? <Image contentFit="cover" source={resolveAdminImage(rewardCase.imageUrl)} style={styles.adminCaseImage} /> : <View style={styles.adminCaseImageFallback}><SymbolView name={{ ios: 'photo', android: 'image', web: 'image' }} size={19} tintColor="#98A2B3" /></View>}
+                  {rewardCase.imageUrl ? <Image contentFit="cover" source={resolveAdminImage(rewardCase.imageUrl)} style={styles.adminCaseImage} /> : <View style={styles.adminCaseImageFallback}><SymbolView name={{ ios: 'photo', android: 'image', web: 'image' }} size={19} tintColor={themedForeground('#98A2B3')} /></View>}
                   <View style={styles.adminCaseCopy}>
                     <Text style={styles.adminCaseTitle} numberOfLines={1}>{rewardCase.title}</Text>
                     <Text style={styles.adminCaseMeta} numberOfLines={1}>{rewardCase.sourceName} · {rewardCase.country}</Text>
@@ -494,14 +499,14 @@ function CasesManager({ token }: { token: string }) {
                       {rewardCase.isManual ? <Text style={styles.manualLabel}>Manual</Text> : null}
                     </View>
                   </View>
-                  <SymbolView name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }} size={17} tintColor="#98A2B3" />
+                  <SymbolView name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }} size={17} tintColor={themedForeground('#98A2B3')} />
                 </Pressable>
               ))}
             </View>
           )}
           <View style={styles.pagination}>
-            <Pressable disabled={page <= 1} onPress={() => loadCases(page - 1)} style={[styles.pageButton, page <= 1 && styles.buttonDisabled]}><SymbolView name={{ ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' }} size={17} tintColor="#475467" /></Pressable>
-            <Pressable disabled={page >= totalPages} onPress={() => loadCases(page + 1)} style={[styles.pageButton, page >= totalPages && styles.buttonDisabled]}><SymbolView name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }} size={17} tintColor="#475467" /></Pressable>
+            <Pressable disabled={page <= 1} onPress={() => loadCases(page - 1)} style={[styles.pageButton, page <= 1 && styles.buttonDisabled]}><SymbolView name={{ ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' }} size={17} tintColor={themedForeground('#475467')} /></Pressable>
+            <Pressable disabled={page >= totalPages} onPress={() => loadCases(page + 1)} style={[styles.pageButton, page >= totalPages && styles.buttonDisabled]}><SymbolView name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }} size={17} tintColor={themedForeground('#475467')} /></Pressable>
           </View>
         </View> : null}
 
@@ -529,7 +534,7 @@ function CasesManager({ token }: { token: string }) {
             />
           ) : (
             <View style={styles.editorEmpty}>
-              <SymbolView name={{ ios: 'slider.horizontal.3', android: 'tune', web: 'tune' }} size={28} tintColor="#98A2B3" />
+              <SymbolView name={{ ios: 'slider.horizontal.3', android: 'tune', web: 'tune' }} size={28} tintColor={themedForeground('#98A2B3')} />
               <Text style={styles.editorEmptyTitle}>Select a case</Text>
             </View>
           )}
@@ -618,7 +623,7 @@ function ManualCaseForm({
       </View>
 
       <View style={styles.editorNotice}>
-        <SymbolView name={{ ios: 'checkmark.shield', android: 'verified_user', web: 'verified_user' }} size={19} tintColor="#475467" />
+        <SymbolView name={{ ios: 'checkmark.shield', android: 'verified_user', web: 'verified_user' }} size={19} tintColor={themedForeground('#475467')} />
         <Text style={styles.editorNoticeText}>
           A public source URL and publishing organization are required. Enter only a general jurisdiction or city area, never a live location, home address, or movement history.
         </Text>
@@ -641,7 +646,7 @@ function ManualCaseForm({
       {message ? <Text style={styles.inlineMessage}>{message}</Text> : null}
       <View style={styles.editorActions}>
         <Pressable disabled={isSaving} onPress={onCancel} style={styles.tertiaryButton}><Text style={styles.tertiaryButtonText}>Cancel</Text></Pressable>
-        <Pressable disabled={isSaving || isUploading} onPress={saveDraft} style={[styles.primaryButton, (isSaving || isUploading) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Save draft</Text>}</Pressable>
+        <Pressable disabled={isSaving || isUploading} onPress={saveDraft} style={[styles.primaryButton, (isSaving || isUploading) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color={themedForeground('#FFFFFF')} /> : <Text style={styles.primaryButtonText}>Save draft</Text>}</Pressable>
       </View>
     </ScrollView>
   );
@@ -753,7 +758,7 @@ function CaseEditor({ detail, onChanged, onDeleted, token }: { detail: AdminCase
         ) : (
           <Pressable disabled={isSaving} onPress={reset} style={styles.tertiaryButton}><Text style={styles.tertiaryButtonText}>Reset override</Text></Pressable>
         )}
-        <Pressable disabled={isSaving || isUploading} onPress={save} style={[styles.primaryButton, (isSaving || isUploading) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Save changes</Text>}</Pressable>
+        <Pressable disabled={isSaving || isUploading} onPress={save} style={[styles.primaryButton, (isSaving || isUploading) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color={themedForeground('#FFFFFF')} /> : <Text style={styles.primaryButtonText}>Save changes</Text>}</Pressable>
       </View>
     </ScrollView>
   );
@@ -832,14 +837,14 @@ function SettingsPanel({ token }: { token: string }) {
         <View style={styles.settingsForm}>
           <Field label="Brand subtitle"><TextInput maxLength={120} onChangeText={setSubtitle} style={styles.textInput} value={subtitle} /></Field>
           <Field label="Safety message"><TextInput maxLength={240} multiline onChangeText={setSafetyMessage} style={[styles.textInput, styles.textArea]} textAlignVertical="top" value={safetyMessage} /></Field>
-          <Field label="Featured case IDs"><TextInput autoCapitalize="none" onChangeText={setFeaturedIds} placeholder="case-id-one, case-id-two" placeholderTextColor="#98A2B3" style={styles.textInput} value={featuredIds} /></Field>
+          <Field label="Featured case IDs"><TextInput autoCapitalize="none" onChangeText={setFeaturedIds} placeholder="case-id-one, case-id-two" placeholderTextColor={themedForeground('#98A2B3')} style={styles.textInput} value={featuredIds} /></Field>
           <Field label="Recent cases">
             <View style={styles.smallSegment}>{[4, 5, 6].map((value) => <Pressable key={value} onPress={() => setRecentLimit(value)} style={[styles.smallSegmentButton, recentLimit === value && styles.smallSegmentButtonActive]}><Text style={[styles.smallSegmentText, recentLimit === value && styles.smallSegmentTextActive]}>{value}</Text></Pressable>)}</View>
           </Field>
           {message ? <Text style={styles.inlineMessageStandalone}>{message}</Text> : null}
           <View style={styles.editorActions}>
             <Pressable disabled={isSaving || subtitle.trim().length < 10 || safetyMessage.trim().length < 20} onPress={saveDraft} style={[styles.tertiaryButton, (isSaving || subtitle.trim().length < 10 || safetyMessage.trim().length < 20) && styles.buttonDisabled]}><Text style={styles.tertiaryButtonText}>Save draft</Text></Pressable>
-            <Pressable disabled={isSaving || !hasDraft} onPress={publish} style={[styles.primaryButton, (!hasDraft || isSaving) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Publish</Text>}</Pressable>
+            <Pressable disabled={isSaving || !hasDraft} onPress={publish} style={[styles.primaryButton, (!hasDraft || isSaving) && styles.buttonDisabled]}>{isSaving ? <ActivityIndicator color={themedForeground('#FFFFFF')} /> : <Text style={styles.primaryButtonText}>Publish</Text>}</Pressable>
           </View>
         </View>
       </View>
@@ -848,7 +853,7 @@ function SettingsPanel({ token }: { token: string }) {
         <Text style={styles.contentEyebrow}>CURRENTLY PUBLISHED</Text>
         <Text style={styles.previewBrand}>Reward Watch</Text>
         <Text style={styles.previewSubtitle}>{published?.brandSubtitle}</Text>
-        <View style={styles.previewSafety}><SymbolView name={{ ios: 'checkmark.shield.fill', android: 'verified_user', web: 'verified_user' }} size={19} tintColor="#5B4DFF" /><Text style={styles.previewSafetyText}>{published?.safetyMessage}</Text></View>
+        <View style={styles.previewSafety}><SymbolView name={{ ios: 'checkmark.shield.fill', android: 'verified_user', web: 'verified_user' }} size={19} tintColor={themedForeground('#5B4DFF')} /><Text style={styles.previewSafetyText}>{published?.safetyMessage}</Text></View>
         <View style={styles.previewFacts}><Text style={styles.previewFact}>{published?.recentCaseLimit ?? 4} recent cases</Text><Text style={styles.previewFact}>{published?.featuredCaseIds.length ?? 0} featured</Text></View>
       </View>
     </View>
@@ -867,7 +872,7 @@ function AuditPanel({ token }: { token: string }) {
     <View style={styles.panel}>
       <View style={styles.panelHeader}><View style={styles.panelHeadingCopy}><Text style={styles.panelTitle}>Recent administrative activity</Text><Text style={styles.panelMeta}>{entries.length} events</Text></View></View>
       {error ? <Notice text={error} /> : null}
-      <View style={styles.auditList}>{entries.map((entry) => <View key={entry.id} style={styles.auditRow}><View style={styles.auditIcon}><SymbolView name={{ ios: 'pencil.line', android: 'edit', web: 'edit' }} size={16} tintColor="#5B4DFF" /></View><View style={styles.auditCopy}><Text style={styles.auditAction}>{entry.action.replaceAll('.', ' ')}</Text><Text style={styles.auditMeta}>{entry.entityId} · {entry.adminEmail}</Text></View><Text style={styles.auditDate}>{new Date(entry.createdAt).toLocaleString()}</Text></View>)}</View>
+      <View style={styles.auditList}>{entries.map((entry) => <View key={entry.id} style={styles.auditRow}><View style={styles.auditIcon}><SymbolView name={{ ios: 'pencil.line', android: 'edit', web: 'edit' }} size={16} tintColor={themedForeground('#5B4DFF')} /></View><View style={styles.auditCopy}><Text style={styles.auditAction}>{entry.action.replaceAll('.', ' ')}</Text><Text style={styles.auditMeta}>{entry.entityId} · {entry.adminEmail}</Text></View><Text style={styles.auditDate}>{new Date(entry.createdAt).toLocaleString()}</Text></View>)}</View>
     </View>
   );
 }
@@ -877,16 +882,16 @@ function Field({ children, grow, label }: { children: React.ReactNode; grow?: bo
 }
 
 function Notice({ text }: { text: string }) {
-  return <View style={styles.notice}><SymbolView name={{ ios: 'exclamationmark.circle.fill', android: 'error', web: 'error' }} size={17} tintColor="#B54708" /><Text style={styles.noticeText}>{text}</Text></View>;
+  return <View style={styles.notice}><SymbolView name={{ ios: 'exclamationmark.circle.fill', android: 'error', web: 'error' }} size={17} tintColor={themedForeground('#B54708')} /><Text style={styles.noticeText}>{text}</Text></View>;
 }
 
 function CenteredLoader({ embedded, label }: { embedded?: boolean; label: string }) {
-  return <SafeAreaView style={embedded ? styles.loaderEmbedded : styles.loaderPage}><ActivityIndicator color="#5B4DFF" /><Text style={styles.loaderText}>{label}</Text></SafeAreaView>;
+  return <SafeAreaView style={embedded ? styles.loaderEmbedded : styles.loaderPage}><ActivityIndicator color={themedForeground('#5B4DFF')} /><Text style={styles.loaderText}>{label}</Text></SafeAreaView>;
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   loginPage: { backgroundColor: '#F5F7FB', flex: 1, padding: 24 },
-  loginTopBar: { alignSelf: 'center', maxWidth: 1180, width: '100%' },
+  loginTopBar: { alignItems: 'center', alignSelf: 'center', flexDirection: 'row', justifyContent: 'space-between', maxWidth: 1180, width: '100%' },
   backLink: { alignItems: 'center', flexDirection: 'row', gap: 8, paddingVertical: 8 },
   backLinkText: { color: '#5B4DFF', fontSize: 14, fontWeight: '800' },
   loginPanel: { alignSelf: 'center', backgroundColor: '#FFFFFF', borderColor: '#E1E6EF', borderRadius: 12, borderWidth: 1, gap: 18, marginTop: 80, maxWidth: 420, padding: 32, width: '100%', boxShadow: '0 20px 50px rgba(54, 66, 96, 0.10)' },
@@ -928,6 +933,7 @@ const styles = StyleSheet.create({
   signOutText: { color: '#667085', fontSize: 13, fontWeight: '800' },
   adminContent: { alignSelf: 'center', gap: 18, maxWidth: 1380, padding: 26, width: '100%' },
   contentHeader: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
+  contentHeaderActions: { alignItems: 'center', flexDirection: 'row', gap: 8 },
   contentEyebrow: { color: '#7F75FF', fontSize: 10, fontWeight: '900' },
   contentTitle: { color: '#101828', fontSize: 28, fontWeight: '900', lineHeight: 35, marginTop: 2 },
   iconButton: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#E4E7EC', borderRadius: 8, borderWidth: 1, height: 40, justifyContent: 'center', width: 40 },

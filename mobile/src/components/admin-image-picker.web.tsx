@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 import { SymbolView } from 'expo-symbols';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, Text } from 'react-native';
+
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 
 
 export type AdminUploadFile = {
@@ -45,7 +47,7 @@ export function AdminImagePicker({
         <SymbolView
           name={{ ios: 'photo.badge.plus', android: 'add_photo_alternate', web: 'add_photo_alternate' }}
           size={18}
-          tintColor="#5B4DFF"
+          tintColor={themedForeground('#5B4DFF')}
         />
         <Text style={styles.buttonText}>{disabled ? 'Uploading photos' : 'Upload photos'}</Text>
       </Pressable>
@@ -53,7 +55,7 @@ export function AdminImagePicker({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   button: {
     alignItems: 'center',
     alignSelf: 'flex-start',

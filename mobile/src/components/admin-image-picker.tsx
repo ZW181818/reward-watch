@@ -1,5 +1,7 @@
 import { SymbolView } from 'expo-symbols';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 
 
 export type AdminUploadFile = {
@@ -14,14 +16,14 @@ export function AdminImagePicker({ disabled }: { disabled?: boolean; onFiles: (f
       <SymbolView
         name={{ ios: 'desktopcomputer', android: 'computer', web: 'computer' }}
         size={18}
-        tintColor="#667085"
+        tintColor={themedForeground('#667085')}
       />
       <Text style={styles.noticeText}>Photo uploads are available in the web admin console.</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   notice: {
     alignItems: 'center',
     backgroundColor: '#F8FAFC',

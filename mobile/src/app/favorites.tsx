@@ -16,7 +16,9 @@ import { fetchCase } from '@/lib/cases';
 import { formatCaseReward, getCaseSourceName, isPublisherNotice } from '@/lib/case-display';
 import { isCaseFavorite, loadFavoriteIds } from '@/lib/favorites';
 import { LanguageSelector } from '@/components/language-selector';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { useLanguage } from '@/lib/i18n';
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 import type { RewardCase } from '@/types/reward-case';
 
 export default function FavoritesScreen() {
@@ -78,12 +80,15 @@ export default function FavoritesScreen() {
               <SymbolView
                 name={{ ios: 'arrow.left', android: 'arrow_back', web: 'arrow_back' }}
                 size={16}
-                tintColor="#6C63FF"
+                tintColor={themedForeground('#6C63FF')}
               />
               <Text style={styles.backLinkText}>{t('home')}</Text>
             </Pressable>
           </Link>
-          <LanguageSelector />
+          <View style={styles.topBarActions}>
+            <LanguageSelector />
+            <ThemeToggle />
+          </View>
         </View>
 
         <View style={styles.header}>
@@ -93,7 +98,7 @@ export default function FavoritesScreen() {
 
         {isLoading ? (
           <View style={styles.loadingArea}>
-            <ActivityIndicator color="#6366F1" />
+            <ActivityIndicator color={themedForeground('#6366F1')} />
             <Text style={styles.loadingText}>{t('loadingSavedCases')}</Text>
           </View>
         ) : error ? (
@@ -106,7 +111,7 @@ export default function FavoritesScreen() {
             <SymbolView
               name={{ ios: 'bookmark', android: 'bookmark', web: 'bookmark' }}
               size={38}
-              tintColor="#667085"
+              tintColor={themedForeground('#667085')}
             />
             <Text style={styles.stateTitle}>{t('noSavedCasesTitle')}</Text>
             <Text style={styles.stateText}>{t('noSavedCasesBody')}</Text>
@@ -127,7 +132,7 @@ export default function FavoritesScreen() {
                     <SymbolView
                       name={{ ios: 'bookmark.fill', android: 'bookmark', web: 'bookmark' }}
                       size={24}
-                      tintColor="#6C63FF"
+                      tintColor={themedForeground('#6C63FF')}
                     />
                   </View>
                   <View style={styles.cardBody}>
@@ -154,7 +159,7 @@ export default function FavoritesScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   safeArea: {
     flex: 1,
     backgroundColor: '#F6F8FC',
@@ -174,6 +179,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     position: 'relative',
     zIndex: 100,
+  },
+  topBarActions: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
   },
   backLink: {
     alignItems: 'center',

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { SymbolView } from 'expo-symbols';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 import { languageOptions, useLanguage } from '@/lib/i18n';
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 
 export function LanguageSelector() {
   const { language, setLanguage, t } = useLanguage();
@@ -19,13 +20,13 @@ export function LanguageSelector() {
         <SymbolView
           name={{ ios: 'character.book.closed', android: 'translate', web: 'translate' }}
           size={17}
-          tintColor="#5B4DFF"
+          tintColor={themedForeground('#5B4DFF')}
         />
         <Text style={styles.buttonText}>{currentLanguage.shortLabel}</Text>
         <SymbolView
           name={{ ios: isOpen ? 'chevron.up' : 'chevron.down', android: isOpen ? 'expand_less' : 'expand_more', web: isOpen ? 'expand_less' : 'expand_more' }}
           size={14}
-          tintColor="#7B8497"
+          tintColor={themedForeground('#7B8497')}
         />
       </Pressable>
 
@@ -51,7 +52,7 @@ export function LanguageSelector() {
                   <SymbolView
                     name={{ ios: 'checkmark', android: 'check', web: 'check' }}
                     size={16}
-                    tintColor="#5B4DFF"
+                    tintColor={themedForeground('#5B4DFF')}
                   />
                 ) : null}
               </Pressable>
@@ -63,7 +64,7 @@ export function LanguageSelector() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   wrapper: {
     alignItems: 'flex-end',
     position: 'relative',

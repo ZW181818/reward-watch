@@ -1,7 +1,8 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, Text, TextInput, View } from 'react-native';
 
 import type { OfficialSourceRecord, RewardCase, RewardCountry, RewardCurrency } from '@/types/reward-case';
 import { getDefaultRewardCurrency } from '@/lib/case-display';
+import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
 
 
 export const DEFAULT_CASE_WARNING =
@@ -272,7 +273,7 @@ export function AdminCaseFields({
         </View>
         <View style={styles.columns}>
           <Field grow label="Reward amount">
-            <TextInput keyboardType="numeric" onChangeText={(value) => setValue('reward', value)} placeholder="Not published" placeholderTextColor="#98A2B3" style={styles.input} value={values.reward} />
+            <TextInput keyboardType="numeric" onChangeText={(value) => setValue('reward', value)} placeholder="Not published" placeholderTextColor={themedForeground('#98A2B3')} style={styles.input} value={values.reward} />
           </Field>
           <Field grow label="Currency">
             <Segment onChange={(value) => setValue('rewardCurrency', value as RewardCurrency)} options={['USD', 'CAD', 'CNY']} value={values.rewardCurrency} />
@@ -304,7 +305,7 @@ export function AdminCaseFields({
           <Field grow label="Weight"><TextInput onChangeText={(value) => setValue('weight', value)} style={styles.input} value={values.weight} /></Field>
         </View>
         <Field label="General locations">
-          <TextInput onChangeText={(value) => setValue('locations', value)} placeholder="Broad public area only" placeholderTextColor="#98A2B3" style={styles.input} value={values.locations} />
+          <TextInput onChangeText={(value) => setValue('locations', value)} placeholder="Broad public area only" placeholderTextColor={themedForeground('#98A2B3')} style={styles.input} value={values.locations} />
         </Field>
         <Field label="Distinguishing features">
           <TextInput multiline onChangeText={(value) => setValue('distinguishingFeatures', value)} style={[styles.input, styles.mediumArea]} textAlignVertical="top" value={values.distinguishingFeatures} />
@@ -313,9 +314,9 @@ export function AdminCaseFields({
 
       <Section title="Source and verification">
         <View style={styles.columns}>
-          <Field grow label="Published date" required><TextInput onChangeText={(value) => setValue('publishedDate', value)} placeholder="YYYY-MM-DD" placeholderTextColor="#98A2B3" style={styles.input} value={values.publishedDate} /></Field>
-          <Field grow label="Last verified" required><TextInput onChangeText={(value) => setValue('lastVerified', value)} placeholder="YYYY-MM-DD" placeholderTextColor="#98A2B3" style={styles.input} value={values.lastVerified} /></Field>
-          <Field grow label="Source updated"><TextInput onChangeText={(value) => setValue('sourceUpdatedDate', value)} placeholder="YYYY-MM-DD" placeholderTextColor="#98A2B3" style={styles.input} value={values.sourceUpdatedDate} /></Field>
+          <Field grow label="Published date" required><TextInput onChangeText={(value) => setValue('publishedDate', value)} placeholder="YYYY-MM-DD" placeholderTextColor={themedForeground('#98A2B3')} style={styles.input} value={values.publishedDate} /></Field>
+          <Field grow label="Last verified" required><TextInput onChangeText={(value) => setValue('lastVerified', value)} placeholder="YYYY-MM-DD" placeholderTextColor={themedForeground('#98A2B3')} style={styles.input} value={values.lastVerified} /></Field>
+          <Field grow label="Source updated"><TextInput onChangeText={(value) => setValue('sourceUpdatedDate', value)} placeholder="YYYY-MM-DD" placeholderTextColor={themedForeground('#98A2B3')} style={styles.input} value={values.sourceUpdatedDate} /></Field>
         </View>
         <View style={styles.columns}>
           <Field grow label="Source organization" required><TextInput onChangeText={(value) => setValue('sourceAuthor', value)} style={styles.input} value={values.sourceAuthor} /></Field>
@@ -359,7 +360,7 @@ function Segment({ labels, onChange, options, value }: { labels?: string[]; onCh
   );
 }
 
-const styles = StyleSheet.create({
+const styles = createThemedStyles({
   formStack: { gap: 14 },
   section: { backgroundColor: '#F8FAFC', borderColor: '#E4E7EC', borderRadius: 10, borderWidth: 1, gap: 13, padding: 15 },
   sectionTitle: { color: '#101828', fontSize: 13, fontWeight: '900' },
