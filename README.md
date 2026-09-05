@@ -140,11 +140,18 @@ official source is temporarily unavailable, only that source's previous records
 are retained. The latest outcome is stored in
 `backend/data/update_status.json`.
 
-`.github/workflows/update-official-data.yml` runs the same update at 20 minutes
-past every sixth hour, tests it, synchronizes PostgreSQL when `DATABASE_URL` is
-configured, and commits changed recovery snapshots. It becomes active after
-this project is pushed to a GitHub repository with Actions enabled and workflow
-write access.
+Scheduled production refreshes use `--batch` to spread the sources across six
+UTC slots each day: `us-core`, `us-postal`, `us-justice`, `china`,
+`canada-east`, and `canada-west`. A seventh `catch-up` slot retries every source
+that has not completed successfully during the current UTC day and also
+refreshes RFJ and CFSEU-BC as redundant checks. Omitting `--batch` still runs a
+manual full refresh. Per-source `lastAttemptAt` and `lastSuccessAt` timestamps,
+plus the current daily coverage, are stored in `backend/data/update_status.json`.
+
+`.github/workflows/update-official-data.yml` tests each validated batch, commits
+the recovery snapshot, and synchronizes PostgreSQL when `DATABASE_URL` is
+configured. It becomes active after this project is pushed to a GitHub
+repository with Actions enabled and workflow write access.
 
 Only official public-safety sources are imported. The Canada adapters ignore
 inactive or arrested notices, unrelated missing-person entries, records without

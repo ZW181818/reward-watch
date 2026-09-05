@@ -2,10 +2,12 @@ import tempfile
 import unittest
 from datetime import UTC, datetime
 from pathlib import Path
+from unittest.mock import patch
 
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.database import CaseOverrideRow, initialize_database
+from app.database import CaseOverrideRow, CaseRow, initialize_database
 from app.storage import load_database_cases, sync_case_snapshot
 from scripts.hourly_sync import next_run
 
@@ -91,6 +93,38 @@ class StorageTests(unittest.TestCase):
             engine.dispose()
 
             self.assertEqual(load_database_cases(database_url), [])
+
+    def test_snapshot_sync_does_not_query_each_row_by_primary_key(self):
+        with tempfile.TemporaryDirectory() as directory:
+            database_url = f"sqlite:///{Path(directory, 'reward-watch.db').as_posix()}"
+
+            with patch.object(
+                Session,
+                "get",
+                side_effect=AssertionError("snapshot sync must use the preloaded row maps"),
+            ):
+                sync_payload(database_url)
+
+            self.assertEqual(len(load_database_cases(database_url)), 1)
+
+    def test_unchanged_snapshot_does_not_rewrite_case_row(self):
+        with tempfile.TemporaryDirectory() as directory:
+            database_url = f"sqlite:///{Path(directory, 'reward-watch.db').as_posix()}"
+            sync_payload(database_url)
+
+            engine = initialize_database(database_url)
+            with Session(engine) as session:
+                first_updated_at = session.scalar(select(CaseRow.updated_at))
+            engine.dispose()
+
+            sync_payload(database_url)
+
+            engine = initialize_database(database_url)
+            with Session(engine) as session:
+                second_updated_at = session.scalar(select(CaseRow.updated_at))
+            engine.dispose()
+
+            self.assertEqual(second_updated_at, first_updated_at)
 
     def test_scheduler_uses_six_hour_intervals_at_minute_twenty(self):
         now = datetime(2026, 8, 5, 10, 25, tzinfo=UTC)
