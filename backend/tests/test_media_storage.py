@@ -48,6 +48,24 @@ class MediaStorageTests(unittest.TestCase):
             with Image.open(output_path) as uploaded:
                 self.assertLessEqual(max(uploaded.size), media_storage.MAX_IMAGE_DIMENSION)
                 self.assertEqual(uploaded.getexif(), {})
+            self.assertLessEqual(
+                output_path.stat().st_size,
+                media_storage.MAX_STORED_IMAGE_BYTES,
+            )
+
+    def test_noisy_upload_is_compressed_below_storage_limit(self):
+        source = BytesIO()
+        Image.effect_noise((3200, 2400), 100).convert("RGB").save(
+            source,
+            format="JPEG",
+            quality=95,
+        )
+
+        compressed = media_storage.prepare_uploaded_image(source.getvalue())
+
+        self.assertLessEqual(len(compressed), media_storage.MAX_STORED_IMAGE_BYTES)
+        with Image.open(BytesIO(compressed)) as uploaded:
+            self.assertLessEqual(max(uploaded.size), media_storage.MAX_IMAGE_DIMENSION)
 
     def test_invalid_upload_is_rejected(self):
         with self.assertRaises(media_storage.InvalidImageUpload):

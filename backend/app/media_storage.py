@@ -12,7 +12,10 @@ from PIL import Image, ImageOps, UnidentifiedImageError
 
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024
 MAX_IMAGE_PIXELS = 25_000_000
-MAX_IMAGE_DIMENSION = 2400
+MAX_IMAGE_DIMENSION = 1600
+MAX_STORED_IMAGE_BYTES = 600 * 1024
+MIN_IMAGE_DIMENSION = 720
+JPEG_QUALITY_STEPS = (78, 70, 62, 54, 46)
 MEDIA_DIR = Path(__file__).resolve().parents[1] / "data" / "media"
 Image.MAX_IMAGE_PIXELS = MAX_IMAGE_PIXELS
 
@@ -39,6 +42,44 @@ def media_storage_status() -> dict[str, object]:
     return {"ready": True, "provider": "local", "missing": missing}
 
 
+def _encode_jpeg_under_limit(image: Image.Image) -> bytes:
+    working = image
+    smallest_result: bytes | None = None
+
+    while True:
+        for quality in JPEG_QUALITY_STEPS:
+            output = BytesIO()
+            working.save(
+                output,
+                format="JPEG",
+                optimize=True,
+                progressive=True,
+                quality=quality,
+            )
+            encoded = output.getvalue()
+            if smallest_result is None or len(encoded) < len(smallest_result):
+                smallest_result = encoded
+            if len(encoded) <= MAX_STORED_IMAGE_BYTES:
+                return encoded
+
+        largest_dimension = max(working.size)
+        if largest_dimension <= MIN_IMAGE_DIMENSION:
+            break
+
+        scale = max(MIN_IMAGE_DIMENSION / largest_dimension, 0.82)
+        next_size = (
+            max(1, round(working.width * scale)),
+            max(1, round(working.height * scale)),
+        )
+        if next_size == working.size:
+            break
+        working = working.resize(next_size, Image.Resampling.LANCZOS)
+
+    if smallest_result is not None and len(smallest_result) <= MAX_STORED_IMAGE_BYTES:
+        return smallest_result
+    raise InvalidImageUpload("The image could not be compressed below 600 KB")
+
+
 def prepare_uploaded_image(contents: bytes) -> bytes:
     if not contents:
         raise InvalidImageUpload("The image file is empty")
@@ -59,9 +100,7 @@ def prepare_uploaded_image(contents: bytes) -> bytes:
                 elif image.mode != "RGB":
                     image = image.convert("RGB")
 
-                output = BytesIO()
-                image.save(output, format="JPEG", optimize=True, quality=86)
-                return output.getvalue()
+                return _encode_jpeg_under_limit(image)
     except (Image.DecompressionBombError, Image.DecompressionBombWarning, UnidentifiedImageError, OSError) as exc:
         raise InvalidImageUpload("Only valid JPEG, PNG, or WebP images are accepted") from exc
 

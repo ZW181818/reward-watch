@@ -204,7 +204,7 @@ export function AdminPhotoManager({
       <View style={styles.headingRow}>
         <View style={styles.headingCopy}>
           <Text style={styles.title}>Photos</Text>
-          <Text style={styles.hint}>Preview, choose a cover, or remove individual images. Up to 8 JPEG, PNG, or WebP files.</Text>
+          <Text style={styles.hint}>Preview, choose a cover, or remove individual images. Up to 8 JPEG, PNG, or WebP files, 10 MB each.</Text>
         </View>
         <Text style={styles.count}>{imageUrls.length + pendingUploads.length}/{MAX_CASE_IMAGES}</Text>
       </View>
@@ -282,7 +282,7 @@ export function AdminPhotoManager({
           <Text style={styles.storageWarningText}>{storageWarning}</Text>
         </View>
       ) : null}
-      <Text style={styles.metadataNote}>Uploads are resized, re-encoded, and stripped of metadata by the API.</Text>
+      <Text style={styles.metadataNote}>Uploads are resized to 1600 px or smaller, compressed below 600 KB, and stripped of metadata by the API.</Text>
     </View>
   );
 }
