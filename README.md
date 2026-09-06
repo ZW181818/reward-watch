@@ -63,9 +63,10 @@ records without overwriting administrator display overrides or deleting manual
 notices.
 
 There is no public administrator registration route. Uploaded images are
-validated, resized, re-encoded, and stripped of metadata. Development stores
-them below `backend/data/media`; production requires Cloudflare R2 because the
-Render filesystem is not durable. The form is intentionally for public,
+validated, resized, re-encoded, compressed below 600 KB, and stripped of
+metadata. Development stores them below `backend/data/media`; production uses
+the no-credit-card Cloudinary Free plan because the Render filesystem is not
+durable. The form is intentionally for public,
 source-backed notices only: do not publish live locations, private addresses,
 tracking history, or instructions to approach or detain anyone.
 

@@ -286,10 +286,16 @@ class AdminTests(unittest.TestCase):
         source = BytesIO()
         Image.new("RGB", (640, 480), "#4466AA").save(source, format="PNG")
 
-        empty_r2 = {key: "" for key in media_storage.R2_ENVIRONMENT_KEYS}
+        empty_cloudinary = {
+            key: "" for key in media_storage.CLOUDINARY_ENVIRONMENT_KEYS
+        }
         with tempfile.TemporaryDirectory() as media_directory, patch.object(
             media_storage, "MEDIA_DIR", Path(media_directory)
-        ), patch.dict(os.environ, {"APP_ENV": "development", **empty_r2}, clear=False):
+        ), patch.dict(
+            os.environ,
+            {"APP_ENV": "development", **empty_cloudinary},
+            clear=False,
+        ):
             storage_status = media_storage.media_storage_status()
             self.assertTrue(storage_status["ready"])
             self.assertEqual(storage_status["provider"], "local")

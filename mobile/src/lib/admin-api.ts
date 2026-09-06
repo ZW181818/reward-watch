@@ -233,7 +233,7 @@ export async function uploadAdminImage(token: string, file: Blob, fileName: stri
 export function fetchAdminMediaStatus(token: string) {
   return adminRequest<{
     ready: boolean;
-    provider: 'local' | 'r2';
+    provider: 'cloudinary' | 'local';
     missing: string[];
   }>('/admin/media/status', token);
 }

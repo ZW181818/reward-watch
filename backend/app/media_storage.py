@@ -19,13 +19,7 @@ JPEG_QUALITY_STEPS = (78, 70, 62, 54, 46)
 MEDIA_DIR = Path(__file__).resolve().parents[1] / "data" / "media"
 Image.MAX_IMAGE_PIXELS = MAX_IMAGE_PIXELS
 
-R2_ENVIRONMENT_KEYS = (
-    "R2_ENDPOINT_URL",
-    "R2_ACCESS_KEY_ID",
-    "R2_SECRET_ACCESS_KEY",
-    "R2_BUCKET_NAME",
-    "R2_PUBLIC_BASE_URL",
-)
+CLOUDINARY_ENVIRONMENT_KEYS = ("CLOUDINARY_URL",)
 
 
 class InvalidImageUpload(ValueError):
@@ -33,12 +27,12 @@ class InvalidImageUpload(ValueError):
 
 
 def media_storage_status() -> dict[str, object]:
-    missing = [key for key in R2_ENVIRONMENT_KEYS if not os.getenv(key)]
+    missing = [key for key in CLOUDINARY_ENVIRONMENT_KEYS if not os.getenv(key)]
     is_production = os.getenv("APP_ENV", "development").lower() == "production"
     if not missing:
-        return {"ready": True, "provider": "r2", "missing": []}
+        return {"ready": True, "provider": "cloudinary", "missing": []}
     if is_production:
-        return {"ready": False, "provider": "r2", "missing": missing}
+        return {"ready": False, "provider": "cloudinary", "missing": missing}
     return {"ready": True, "provider": "local", "missing": missing}
 
 
@@ -110,32 +104,29 @@ def store_admin_image(contents: bytes) -> str:
     date_path = datetime.now(UTC).strftime("%Y/%m")
     object_key = f"admin/{date_path}/{uuid4().hex}.jpg"
 
-    r2_config = {
-        "endpoint": os.getenv(R2_ENVIRONMENT_KEYS[0]),
-        "access_key": os.getenv(R2_ENVIRONMENT_KEYS[1]),
-        "secret_key": os.getenv(R2_ENVIRONMENT_KEYS[2]),
-        "bucket": os.getenv(R2_ENVIRONMENT_KEYS[3]),
-        "public_url": os.getenv(R2_ENVIRONMENT_KEYS[4]),
-    }
     storage_status = media_storage_status()
-    if storage_status["provider"] == "r2" and not storage_status["missing"]:
-        import boto3
+    if storage_status["provider"] == "cloudinary" and not storage_status["missing"]:
+        try:
+            import cloudinary
+            import cloudinary.uploader
 
-        client = boto3.client(
-            "s3",
-            endpoint_url=r2_config["endpoint"],
-            aws_access_key_id=r2_config["access_key"],
-            aws_secret_access_key=r2_config["secret_key"],
-            region_name="auto",
-        )
-        client.put_object(
-            Bucket=r2_config["bucket"],
-            Key=object_key,
-            Body=image_bytes,
-            ContentType="image/jpeg",
-            CacheControl="public, max-age=31536000, immutable",
-        )
-        return f"{str(r2_config['public_url']).rstrip('/')}/{object_key}"
+            cloudinary.config(secure=True)
+            result = cloudinary.uploader.upload(
+                BytesIO(image_bytes),
+                format="jpg",
+                overwrite=False,
+                public_id=f"reward-watch/{object_key.removesuffix('.jpg')}",
+                resource_type="image",
+                tags=["reward-watch", "admin-upload"],
+                unique_filename=False,
+            )
+        except Exception as exc:
+            raise RuntimeError("Persistent image upload failed") from exc
+
+        secure_url = result.get("secure_url")
+        if not isinstance(secure_url, str) or not secure_url.startswith("https://"):
+            raise RuntimeError("Persistent image upload returned no secure URL")
+        return secure_url
 
     if not storage_status["ready"]:
         raise RuntimeError("Persistent image storage is not configured")

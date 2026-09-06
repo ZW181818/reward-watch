@@ -11,23 +11,57 @@ from app import media_storage
 
 
 class MediaStorageTests(unittest.TestCase):
-    def test_production_storage_status_reports_missing_r2_configuration(self):
-        environment = {"APP_ENV": "production", **{key: "" for key in media_storage.R2_ENVIRONMENT_KEYS}}
+    def test_production_storage_status_reports_missing_cloudinary_configuration(self):
+        environment = {
+            "APP_ENV": "production",
+            **{key: "" for key in media_storage.CLOUDINARY_ENVIRONMENT_KEYS},
+        }
         with patch.dict(os.environ, environment, clear=False):
             status = media_storage.media_storage_status()
 
         self.assertFalse(status["ready"])
-        self.assertEqual(status["provider"], "r2")
-        self.assertEqual(status["missing"], list(media_storage.R2_ENVIRONMENT_KEYS))
+        self.assertEqual(status["provider"], "cloudinary")
+        self.assertEqual(
+            status["missing"],
+            list(media_storage.CLOUDINARY_ENVIRONMENT_KEYS),
+        )
 
-    def test_complete_r2_configuration_reports_ready(self):
-        environment = {"APP_ENV": "production", **{key: "configured" for key in media_storage.R2_ENVIRONMENT_KEYS}}
+    def test_complete_cloudinary_configuration_reports_ready(self):
+        environment = {
+            "APP_ENV": "production",
+            "CLOUDINARY_URL": "cloudinary://key:secret@example",
+        }
         with patch.dict(os.environ, environment, clear=False):
             status = media_storage.media_storage_status()
 
         self.assertTrue(status["ready"])
-        self.assertEqual(status["provider"], "r2")
+        self.assertEqual(status["provider"], "cloudinary")
         self.assertEqual(status["missing"], [])
+
+    def test_cloudinary_upload_returns_secure_delivery_url(self):
+        source = BytesIO()
+        Image.new("RGB", (800, 600), "#4466AA").save(source, format="PNG")
+        environment = {
+            "APP_ENV": "production",
+            "CLOUDINARY_URL": "cloudinary://key:secret@example",
+        }
+
+        with patch.dict(os.environ, environment, clear=False), patch(
+            "cloudinary.uploader.upload",
+            return_value={"secure_url": "https://res.cloudinary.com/example/image/upload/test.jpg"},
+        ) as upload:
+            url = media_storage.store_admin_image(source.getvalue())
+
+        self.assertEqual(
+            url,
+            "https://res.cloudinary.com/example/image/upload/test.jpg",
+        )
+        uploaded_file = upload.call_args.args[0]
+        self.assertLessEqual(
+            len(uploaded_file.getvalue()),
+            media_storage.MAX_STORED_IMAGE_BYTES,
+        )
+        self.assertTrue(upload.call_args.kwargs["public_id"].startswith("reward-watch/admin/"))
 
     def test_local_upload_is_resized_and_strips_metadata(self):
         source = BytesIO()
@@ -40,7 +74,11 @@ class MediaStorageTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as directory, patch.object(
             media_storage, "MEDIA_DIR", Path(directory)
-        ), patch.dict(os.environ, {"APP_ENV": "development"}, clear=False):
+        ), patch.dict(
+            os.environ,
+            {"APP_ENV": "development", "CLOUDINARY_URL": ""},
+            clear=False,
+        ):
             url = media_storage.store_admin_image(source.getvalue())
             output_path = Path(directory) / url.removeprefix("/media/")
 

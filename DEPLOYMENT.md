@@ -27,13 +27,13 @@ production:
 
 1. Create a Neon PostgreSQL database and set its pooled connection string as
    `DATABASE_URL` in Render.
-2. Create a private Cloudflare R2 bucket for uploaded case images, connect a
-   public media domain, and set `R2_ENDPOINT_URL`, `R2_ACCESS_KEY_ID`,
-   `R2_SECRET_ACCESS_KEY`, `R2_BUCKET_NAME`, and `R2_PUBLIC_BASE_URL` in Render.
+2. Create a Cloudinary Free product environment for uploaded case images and
+   set its server-side `CLOUDINARY_URL` in Render. Keep the API secret out of
+   source control and frontend builds.
 3. Keep `ADMIN_JWT_SECRET` as a generated Render secret and never expose it to
    the frontend.
 
-The API refuses production image uploads if R2 is incomplete. This prevents
+The API refuses production image uploads if Cloudinary is incomplete. This prevents
 administrator media from being written to Render's temporary filesystem.
 
 After `DATABASE_URL` is configured, initialize the database from a trusted
