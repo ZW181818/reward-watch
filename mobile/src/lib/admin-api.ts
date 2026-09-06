@@ -230,6 +230,14 @@ export async function uploadAdminImage(token: string, file: Blob, fileName: stri
   return response.json() as Promise<{ url: string }>;
 }
 
+export function fetchAdminMediaStatus(token: string) {
+  return adminRequest<{
+    ready: boolean;
+    provider: 'local' | 'r2';
+    missing: string[];
+  }>('/admin/media/status', token);
+}
+
 export function resetAdminCase(token: string, caseId: string) {
   return adminRequest(`/admin/cases/${encodeURIComponent(caseId)}/override`, token, {
     method: 'DELETE',

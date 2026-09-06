@@ -21,6 +21,7 @@ import {
   DEFAULT_CASE_WARNING,
   emptyAdminCaseForm,
 } from '@/components/admin-case-fields';
+import { AdminNoticePreview } from '@/components/admin-notice-preview';
 import { AdminPhotoManager, normalizeCaseImages } from '@/components/admin-photo-manager';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { createThemedStyles, themedForeground } from '@/lib/themed-styles';
@@ -557,9 +558,16 @@ function ManualCaseForm({
   const [note, setNote] = useState('');
   const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [imageUrl, setImageUrl] = useState('');
+  const [previewImageUrls, setPreviewImageUrls] = useState<string[]>([]);
+  const [previewCoverUrl, setPreviewCoverUrl] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+
+  const updatePhotoPreview = useCallback((nextUrls: string[], nextCover: string) => {
+    setPreviewImageUrls(nextUrls);
+    setPreviewCoverUrl(nextCover);
+  }, []);
 
   async function saveDraft() {
     setIsSaving(true);
@@ -628,6 +636,7 @@ function ManualCaseForm({
           A public source URL and publishing organization are required. Enter only a general jurisdiction or city area, never a live location, home address, or movement history.
         </Text>
       </View>
+      <AdminNoticePreview coverUrl={previewCoverUrl} form={form} imageUrls={previewImageUrls} />
       <AdminCaseFields includeSourceRecords={false} manualCreate onChange={setForm} values={form} />
       <AdminPhotoManager
         coverUrl={imageUrl}
@@ -639,6 +648,7 @@ function ManualCaseForm({
           setImageUrl(nextCover || normalized[0] || '');
         }}
         onMessage={setMessage}
+        onPreviewChange={updatePhotoPreview}
         token={token}
       />
 

@@ -23,7 +23,7 @@ from .database import (
     SyncRunRow,
     initialize_database,
 )
-from .media_storage import InvalidImageUpload, MAX_UPLOAD_BYTES, store_admin_image
+from .media_storage import InvalidImageUpload, MAX_UPLOAD_BYTES, media_storage_status, store_admin_image
 from .models import (
     CountryCode,
     OfficialSourceRecord,
@@ -342,6 +342,11 @@ async def upload_admin_media(
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except RuntimeError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+
+@router.get("/media/status")
+def get_admin_media_status(_admin_email: str = Depends(require_admin)):
+    return media_storage_status()
 
 
 @router.post("/cases/manual", status_code=status.HTTP_201_CREATED)

@@ -16,9 +16,27 @@ MAX_IMAGE_DIMENSION = 2400
 MEDIA_DIR = Path(__file__).resolve().parents[1] / "data" / "media"
 Image.MAX_IMAGE_PIXELS = MAX_IMAGE_PIXELS
 
+R2_ENVIRONMENT_KEYS = (
+    "R2_ENDPOINT_URL",
+    "R2_ACCESS_KEY_ID",
+    "R2_SECRET_ACCESS_KEY",
+    "R2_BUCKET_NAME",
+    "R2_PUBLIC_BASE_URL",
+)
+
 
 class InvalidImageUpload(ValueError):
     pass
+
+
+def media_storage_status() -> dict[str, object]:
+    missing = [key for key in R2_ENVIRONMENT_KEYS if not os.getenv(key)]
+    is_production = os.getenv("APP_ENV", "development").lower() == "production"
+    if not missing:
+        return {"ready": True, "provider": "r2", "missing": []}
+    if is_production:
+        return {"ready": False, "provider": "r2", "missing": missing}
+    return {"ready": True, "provider": "local", "missing": missing}
 
 
 def prepare_uploaded_image(contents: bytes) -> bytes:
@@ -54,13 +72,14 @@ def store_admin_image(contents: bytes) -> str:
     object_key = f"admin/{date_path}/{uuid4().hex}.jpg"
 
     r2_config = {
-        "endpoint": os.getenv("R2_ENDPOINT_URL"),
-        "access_key": os.getenv("R2_ACCESS_KEY_ID"),
-        "secret_key": os.getenv("R2_SECRET_ACCESS_KEY"),
-        "bucket": os.getenv("R2_BUCKET_NAME"),
-        "public_url": os.getenv("R2_PUBLIC_BASE_URL"),
+        "endpoint": os.getenv(R2_ENVIRONMENT_KEYS[0]),
+        "access_key": os.getenv(R2_ENVIRONMENT_KEYS[1]),
+        "secret_key": os.getenv(R2_ENVIRONMENT_KEYS[2]),
+        "bucket": os.getenv(R2_ENVIRONMENT_KEYS[3]),
+        "public_url": os.getenv(R2_ENVIRONMENT_KEYS[4]),
     }
-    if all(r2_config.values()):
+    storage_status = media_storage_status()
+    if storage_status["provider"] == "r2" and not storage_status["missing"]:
         import boto3
 
         client = boto3.client(
@@ -79,7 +98,7 @@ def store_admin_image(contents: bytes) -> str:
         )
         return f"{str(r2_config['public_url']).rstrip('/')}/{object_key}"
 
-    if os.getenv("APP_ENV", "development").lower() == "production":
+    if not storage_status["ready"]:
         raise RuntimeError("Persistent image storage is not configured")
 
     target = MEDIA_DIR / object_key

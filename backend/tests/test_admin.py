@@ -1,11 +1,14 @@
 import os
 import tempfile
 import unittest
+from io import BytesIO
 from pathlib import Path
 from unittest.mock import patch
 
+from PIL import Image
 from sqlalchemy.orm import Session
 
+from app import media_storage
 from app.admin import (
     CaseUpdateRequest,
     ChangePasswordRequest,
@@ -25,6 +28,7 @@ from app.admin import (
 )
 from app.admin_security import hash_password
 from app.database import AdminUserRow, initialize_database
+from app.main import get_case
 from app.storage import load_database_cases, sync_case_snapshot
 from app.settings import HomeSettings, get_home_settings
 
@@ -277,6 +281,48 @@ class AdminTests(unittest.TestCase):
 
         delete_manual_case(case_id, "admin@example.test")
         self.assertNotIn(case_id, {case.id for case in load_database_cases(self.database_url)})
+
+    def test_uploaded_photo_can_be_previewed_in_a_draft_and_published(self):
+        source = BytesIO()
+        Image.new("RGB", (640, 480), "#4466AA").save(source, format="PNG")
+
+        empty_r2 = {key: "" for key in media_storage.R2_ENVIRONMENT_KEYS}
+        with tempfile.TemporaryDirectory() as media_directory, patch.object(
+            media_storage, "MEDIA_DIR", Path(media_directory)
+        ), patch.dict(os.environ, {"APP_ENV": "development", **empty_r2}, clear=False):
+            storage_status = media_storage.media_storage_status()
+            self.assertTrue(storage_status["ready"])
+            self.assertEqual(storage_status["provider"], "local")
+
+            image_url = media_storage.store_admin_image(source.getvalue())
+            self.assertTrue((Path(media_directory) / image_url.removeprefix("/media/")).exists())
+
+            created = create_manual_case(
+                ManualCaseCreateRequest(
+                    title="Previewable test notice",
+                    summary="A complete test notice used to verify draft image preview and publication.",
+                    agency="Example Test Agency",
+                    country="US",
+                    regions=["Washington"],
+                    status="Information Requested",
+                    sourceUrl="https://example.test/notices/previewable",
+                    sourceTitle="Previewable public test notice",
+                    sourceAuthor="Example Test Agency",
+                    imageUrls=[image_url],
+                ),
+                "admin@example.test",
+            )
+            case_id = created["case"]["id"]
+            self.assertEqual(created["case"]["imageUrl"], image_url)
+            self.assertNotIn(case_id, {case.id for case in load_database_cases(self.database_url)})
+
+            update_admin_case(
+                case_id,
+                CaseUpdateRequest(isVisible=True, reviewStatus="published"),
+                "admin@example.test",
+            )
+            public_case = get_case(case_id)
+            self.assertEqual(public_case.imageUrls, [image_url])
 
     def test_manual_case_requires_a_real_region(self):
         with self.assertRaises(ValueError):
