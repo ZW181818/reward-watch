@@ -1,14 +1,17 @@
 {
-  "updatedAt": "2026-09-07T16:26:45.317286+00:00",
+  "updatedAt": "2026-09-07T18:51:11.741564+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "china",
+    "name": "canada-east",
     "requestedSources": [
-      "cn-police"
+      "opp",
+      "fq",
+      "eps",
+      "ns-reward"
     ],
-    "updatedToday": 11,
+    "updatedToday": 12,
     "totalSources": 14
   },
   "sources": [
@@ -33,10 +36,10 @@
       "usedStaleData": false,
       "count": 92,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T10:29:30.151115+00:00",
-      "lastSuccessAt": "2026-09-07T10:29:30.151115+00:00"
+      "durationSeconds": 1.136,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-07T18:51:11.741564+00:00",
+      "lastSuccessAt": "2026-09-07T18:51:11.741564+00:00"
     },
     {
       "id": "rcmp-sk",
@@ -55,13 +58,13 @@
       "id": "fq",
       "name": "Fugitifs Quebec provincial wanted list",
       "country": "Canada",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 15,
-      "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T10:29:30.151115+00:00",
+      "error": "ValueError: Fugitifs Quebec index did not include active profiles",
+      "durationSeconds": 0.201,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-07T18:51:11.741564+00:00",
       "lastSuccessAt": "2026-09-07T10:29:30.151115+00:00"
     },
     {
@@ -72,10 +75,10 @@
       "usedStaleData": false,
       "count": 10,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T10:29:30.151115+00:00",
-      "lastSuccessAt": "2026-09-07T10:29:30.151115+00:00"
+      "durationSeconds": 3.988,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-07T18:51:11.741564+00:00",
+      "lastSuccessAt": "2026-09-07T18:51:11.741564+00:00"
     },
     {
       "id": "rcmp-bc",
@@ -146,14 +149,14 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 117,
-      "error": "URLError: <urlopen error timed out>",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T10:29:30.151115+00:00",
-      "lastSuccessAt": "2026-09-06T17:20:14.760303+00:00"
+      "error": null,
+      "durationSeconds": 6.065,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-07T18:51:11.741564+00:00",
+      "lastSuccessAt": "2026-09-07T18:51:11.741564+00:00"
     },
     {
       "id": "uspis",
@@ -189,8 +192,8 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": 204.199,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-07T16:26:45.317286+00:00",
       "lastSuccessAt": "2026-09-07T16:26:45.317286+00:00"
     }
