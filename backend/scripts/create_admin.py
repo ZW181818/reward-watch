@@ -14,7 +14,7 @@ if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
 from app.admin_security import hash_password  # noqa: E402
-from app.database import AdminUserRow, initialize_database  # noqa: E402
+from app.database import AdminUserRow, initialize_database, release_database_engine  # noqa: E402
 
 
 def main() -> int:
@@ -39,7 +39,7 @@ def main() -> int:
                 action = "Reset"
         print(f"{action} administrator {email}")
     finally:
-        engine.dispose()
+        release_database_engine(engine)
     return 0
 
 

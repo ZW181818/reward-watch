@@ -1,7 +1,10 @@
+import asyncio
 import unittest
 from unittest.mock import patch
 
-from app.main import get_case, list_cases
+from fastapi import Request, Response
+
+from app.main import cache_public_reads, get_case, list_cases
 from app.models import RewardCase
 
 
@@ -28,6 +31,33 @@ def make_case(case_id: str, reward: int | None) -> RewardCase:
 
 
 class ApiTests(unittest.TestCase):
+    def test_public_reads_are_browser_cacheable(self):
+        request = Request(
+            {
+                "type": "http",
+                "http_version": "1.1",
+                "method": "GET",
+                "scheme": "https",
+                "path": "/cases",
+                "raw_path": b"/cases",
+                "query_string": b"",
+                "headers": [],
+                "client": ("127.0.0.1", 1234),
+                "server": ("testserver", 443),
+            }
+        )
+
+        async def call_next(_request):
+            return Response(status_code=200)
+
+        response = asyncio.run(cache_public_reads(request, call_next))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.headers["cache-control"],
+            "public, max-age=60, stale-while-revalidate=300",
+        )
+
     @patch("app.main.load_cases")
     def test_reward_sort_keeps_unpublished_amounts_last(self, load_cases):
         load_cases.return_value = [make_case("unknown", None), make_case("known", 500)]

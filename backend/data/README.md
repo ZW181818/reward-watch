@@ -6,10 +6,16 @@
 .\backend\.venv\Scripts\python.exe backend\scripts\update_cases.py --strict
 ```
 
-When `DATABASE_URL` is configured, the FastAPI app reads the synchronized
-PostgreSQL snapshot and applies published administrator overrides. If the
-database is unavailable it reads `backend/data/cases.json`; if that file does
-not exist it falls back to the fictional `sample_cases.json` file.
+When `DATABASE_URL` is configured, synchronization materializes a PostgreSQL
+public catalog containing only visible, published records with administrator
+overrides already applied. Public list and detail endpoints use bounded reads
+from that catalog instead of downloading the complete snapshot. Before the
+first catalog synchronization, the API can read the legacy synchronized rows;
+after the reviewed catalog is ready, database failures fail closed rather than
+serving raw JSON that could bypass hidden/draft controls. Without a configured
+database, local development reads `backend/data/cases.json`, then falls back to
+the fictional `sample_cases.json` file. The per-source recovery snapshot remains
+versioned as `source_cases.json`; it is intentionally not duplicated in Neon.
 
 The US adapter follows the official FBI Wanted API's reported total through all
 pages. One Canada adapter reads the official Ontario Provincial Police public

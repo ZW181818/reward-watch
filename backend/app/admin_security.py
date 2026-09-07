@@ -12,7 +12,7 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt import InvalidTokenError
 from sqlalchemy.orm import Session
 
-from .database import AdminUserRow, initialize_database
+from .database import AdminUserRow, initialize_database, release_database_engine
 
 
 TOKEN_ALGORITHM = "HS256"
@@ -107,6 +107,6 @@ def require_admin(
             if user is None or not user.is_active:
                 raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Admin access disabled")
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
     return email

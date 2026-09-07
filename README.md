@@ -25,7 +25,11 @@ API endpoints:
 
 `GET /cases` returns `items`, `total`, `page`, `pageSize`, `totalPages`, and
 filter facets. The app requests only the page it needs instead of downloading
-the complete catalog.
+the complete catalog. PostgreSQL-backed deployments query a materialized public
+projection containing only visible, published, administrator-reviewed values.
+Search, filters, facets, sorting, pagination, and legacy source-ID lookup all use
+bounded database queries. Five-minute server and shared-facet caches plus a
+one-minute browser cache remove repeat database work during normal browsing.
 
 ## PostgreSQL And Hourly Sync
 
@@ -39,6 +43,13 @@ The scheduler refreshes official sources at minute 20 of every hour. Validated
 records are written to PostgreSQL while JSON files remain the last-known-good
 recovery snapshots. In GitHub Actions, add a `DATABASE_URL` repository secret
 to synchronize the validated hourly snapshot after tests pass.
+
+Database synchronization compares canonical payload fingerprints, reads only
+IDs and hashes, and updates changed records in one transaction. It also updates
+the effective public projection and preserves manual cases and administrator
+overrides. Per-source records stay in the versioned JSON recovery artifact and
+are not duplicated in Neon, avoiding a second payload table and its recurring
+read/write cost.
 
 ## Operations Console
 

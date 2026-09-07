@@ -22,6 +22,7 @@ from .database import (
     CaseRow,
     SyncRunRow,
     initialize_database,
+    release_database_engine,
 )
 from .media_storage import InvalidImageUpload, MAX_UPLOAD_BYTES, media_storage_status, store_admin_image
 from .models import (
@@ -31,8 +32,17 @@ from .models import (
     RewardCurrency,
     SourceKind,
 )
-from .settings import DEFAULT_HOME_SETTINGS, HomeSettings
-from .storage import MANUAL_CASE_PREFIX, upsert_case_payload
+from .settings import (
+    DEFAULT_HOME_SETTINGS,
+    HomeSettings,
+    clear_home_settings_cache_after_commit,
+)
+from .storage import (
+    MANUAL_CASE_PREFIX,
+    refresh_public_case,
+    remove_public_case,
+    upsert_case_payload,
+)
 
 
 router = APIRouter(prefix="/admin", tags=["admin"])
@@ -267,7 +277,7 @@ def login(body: LoginRequest):
                 "admin": {"email": user.email, "role": user.role},
             }
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.post("/auth/change-password")
@@ -296,7 +306,7 @@ def change_password(
             )
         return {"changed": True}
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.get("/dashboard")
@@ -324,7 +334,7 @@ def dashboard(admin_email: str = Depends(require_admin)):
                 "syncRunning": SYNC_LOCK.locked(),
             }
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.post("/media", status_code=status.HTTP_201_CREATED)
@@ -359,7 +369,7 @@ def create_manual_case(
     engine = initialize_database()
     try:
         with Session(engine) as session, session.begin():
-            upsert_case_payload(session, payload)
+            row = upsert_case_payload(session, payload)
             override = CaseOverrideRow(
                 case_id=payload["id"],
                 fields={},
@@ -370,6 +380,7 @@ def create_manual_case(
                 updated_at=datetime.now(UTC),
             )
             session.add(override)
+            refresh_public_case(session, row, override)
             _audit(
                 session,
                 admin_email=admin_email,
@@ -388,7 +399,7 @@ def create_manual_case(
             },
         }
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.get("/cases")
@@ -454,7 +465,7 @@ def list_admin_cases(
                 )
             return {"items": items, "total": total, "page": page, "pageSize": page_size}
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.get("/cases/{case_id}")
@@ -480,7 +491,7 @@ def get_admin_case(case_id: str, _admin_email: str = Depends(require_admin)):
                 } if override else None,
             }
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.patch("/cases/{case_id}")
@@ -528,6 +539,12 @@ def update_admin_case(
                 override.note = body.note
             override.updated_by = admin_email
             override.updated_at = datetime.now(UTC)
+            refresh_public_case(
+                session,
+                row,
+                override,
+                now=override.updated_at,
+            )
 
             after = {
                 "fields": next_fields,
@@ -545,7 +562,7 @@ def update_admin_case(
             )
             return {"case": effective, "override": after}
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.delete("/cases/{case_id}/override")
@@ -558,6 +575,9 @@ def reset_admin_case(case_id: str, admin_email: str = Depends(require_admin)):
                     status_code=409,
                     detail="Manual cases do not have official source values to restore",
                 )
+            row = session.get(CaseRow, case_id)
+            if row is None:
+                raise HTTPException(status_code=404, detail="Case not found")
             override = session.get(CaseOverrideRow, case_id)
             if override is None:
                 return {"reset": False}
@@ -568,6 +588,7 @@ def reset_admin_case(case_id: str, admin_email: str = Depends(require_admin)):
                 "note": override.note,
             }
             session.delete(override)
+            refresh_public_case(session, row, None)
             _audit(
                 session,
                 admin_email=admin_email,
@@ -578,7 +599,7 @@ def reset_admin_case(case_id: str, admin_email: str = Depends(require_admin)):
             )
             return {"reset": True}
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.delete("/cases/manual/{case_id}")
@@ -596,6 +617,7 @@ def delete_manual_case(case_id: str, admin_email: str = Depends(require_admin)):
             override = session.get(CaseOverrideRow, case_id)
             if override is not None:
                 session.delete(override)
+            remove_public_case(session, case_id)
             session.delete(row)
             _audit(
                 session,
@@ -607,7 +629,7 @@ def delete_manual_case(case_id: str, admin_email: str = Depends(require_admin)):
             )
             return {"deleted": True}
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.get("/audit")
@@ -633,7 +655,7 @@ def audit_log(
                 for row in rows
             ]
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.get("/settings/home")
@@ -652,7 +674,7 @@ def get_admin_home_settings(_admin_email: str = Depends(require_admin)):
                 "draftUpdatedBy": draft.updated_by if draft else None,
             }
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.patch("/settings/home")
@@ -694,7 +716,7 @@ def save_admin_home_settings(
             )
             return {"saved": True, "draft": body.model_dump()}
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 @router.post("/settings/home/publish")
@@ -730,9 +752,10 @@ def publish_admin_home_settings(admin_email: str = Depends(require_admin)):
                 )
             )
             session.delete(draft)
+            clear_home_settings_cache_after_commit(session)
             return {"published": True, "settings": settings_payload}
     finally:
-        engine.dispose()
+        release_database_engine(engine)
 
 
 def _run_manual_sync() -> None:

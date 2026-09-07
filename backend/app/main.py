@@ -1,15 +1,17 @@
 from collections import Counter
 from math import ceil
+import logging
 import os
 from pathlib import Path
 from typing import Annotated, Literal
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from .data import load_cases
 from .admin import router as admin_router
+from .database import get_database_url
 from .settings import router as settings_router
 from .models import (
     CaseFacetOption,
@@ -19,11 +21,13 @@ from .models import (
     HealthResponse,
     RewardCase,
 )
+from .storage import load_database_case, query_database_case_page
 
 
 SortMode = Literal["published_desc", "reward_desc", "reward_asc", "title_asc"]
 MEDIA_DIR = Path(__file__).resolve().parents[1] / "data" / "media"
 MEDIA_DIR.mkdir(parents=True, exist_ok=True)
+logger = logging.getLogger(__name__)
 
 
 app = FastAPI(
@@ -49,6 +53,24 @@ app.add_middleware(
 app.mount("/media", StaticFiles(directory=MEDIA_DIR), name="media")
 app.include_router(admin_router)
 app.include_router(settings_router)
+
+
+@app.middleware("http")
+async def cache_public_reads(request: Request, call_next):
+    response = await call_next(request)
+    path = request.url.path
+    if (
+        request.method == "GET"
+        and response.status_code == 200
+        and (path == "/cases" or path.startswith("/cases/") or path == "/settings/home")
+    ):
+        # Browser caching avoids repeat API and Neon work during normal browsing.
+        # The shorter browser TTL sits in front of the five-minute server cache.
+        response.headers.setdefault(
+            "Cache-Control",
+            "public, max-age=60, stale-while-revalidate=300",
+        )
+    return response
 
 
 @app.get("/health", response_model=HealthResponse)
@@ -87,6 +109,33 @@ def list_cases(
     page: Annotated[int, Query(ge=1)] = 1,
     page_size: Annotated[int, Query(ge=1, le=100)] = 12,
 ) -> CaseListResponse:
+    if get_database_url():
+        try:
+            database_result = query_database_case_page(
+                q=q,
+                country=country,
+                region=region,
+                status=status,
+                source=source,
+                reward_min=reward_min,
+                reward_max=reward_max,
+                sort=sort,
+                page=page,
+                page_size=page_size,
+            )
+        except Exception as exc:
+            logger.exception("Optimized public case query failed")
+            raise HTTPException(
+                status_code=503,
+                detail="The reviewed case catalog is temporarily unavailable",
+            ) from exc
+        if database_result is not None:
+            return database_result
+
+    # A newly upgraded database has a short migration window before its first
+    # synchronized public projection is ready. Preserve the reviewed legacy
+    # database behavior during that window; normal production reads never enter
+    # this full-snapshot path once the catalog state is marked ready.
     cases = load_cases()
 
     if q:
@@ -168,6 +217,20 @@ def list_cases(
 
 @app.get("/cases/{case_id}", response_model=RewardCase)
 def get_case(case_id: str) -> RewardCase:
+    if get_database_url():
+        try:
+            catalog_ready, database_case = load_database_case(case_id)
+        except Exception as exc:
+            logger.exception("Optimized public case detail query failed")
+            raise HTTPException(
+                status_code=503,
+                detail="The reviewed case catalog is temporarily unavailable",
+            ) from exc
+        if catalog_ready:
+            if database_case is not None:
+                return database_case
+            raise HTTPException(status_code=404, detail="Case not found")
+
     for reward_case in load_cases():
         if reward_case.id == case_id or any(
             source.caseId == case_id for source in reward_case.sourceRecords

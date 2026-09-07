@@ -47,6 +47,29 @@ cd backend
 .\.venv\Scripts\python.exe scripts\create_admin.py --email you@example.com
 ```
 
+The first database synchronization also builds the reviewed `public_cases`
+catalog and its region, source, and legacy-ID indexes. Public list requests then
+read only the requested page and aggregate facets in PostgreSQL; detail requests
+read one exact case. Hidden and draft records never enter this projection.
+Repeated public queries and shared facets are cached in the Render process for
+five minutes, while administrator edits invalidate that cache as soon as their
+transaction commits. Public reads also skip schema introspection; table creation
+is handled by synchronization and administrator initialization paths. Successful
+public GET responses advertise a one-minute browser cache with five minutes of
+stale-while-revalidate coverage.
+
+Snapshot synchronization stores canonical fingerprints for merged case payloads
+and normally reads only IDs and hashes before updating changed rows. Per-source
+normalized payloads remain in the versioned `source_cases.json` artifact instead
+of being duplicated in Neon; the first catalog migration removes legacy copies.
+PostgreSQL connections share one small application pool, and synchronization
+history is capped at the latest 500 runs to protect the Neon Free allowance.
+
+When the reviewed projection is ready, a database failure returns a temporary
+503 instead of falling back to the raw JSON snapshot. This fail-closed behavior
+prevents a database outage from making hidden/draft records public or dropping
+manual administrator notices from the effective catalog.
+
 Do not pass the password with `--password` in a shared shell or CI log. Open
 `https://reward-watch.pages.dev/admin`, sign in, create a notice as a hidden
 draft, verify its public source and images, then set it visible and published.
