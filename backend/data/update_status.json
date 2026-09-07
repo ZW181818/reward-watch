@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-09-06T22:15:21.475602+00:00",
+  "updatedAt": "2026-09-07T05:11:33.795117+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "cfseu-bc",
+      "fbi",
       "rfj"
     ],
-    "updatedToday": 13,
+    "updatedToday": 1,
     "totalSources": 14
   },
   "sources": [
@@ -21,10 +21,10 @@
       "usedStaleData": false,
       "count": 1213,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-06T13:22:58.683521+00:00",
-      "lastSuccessAt": "2026-09-06T13:22:58.683521+00:00"
+      "durationSeconds": 1.238,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-07T05:11:33.795117+00:00",
+      "lastSuccessAt": "2026-09-07T05:11:33.795117+00:00"
     },
     {
       "id": "opp",
@@ -112,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 1.022,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-06T22:15:21.475602+00:00",
       "lastSuccessAt": null
     },
@@ -124,10 +124,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 236,
-      "error": "IncompleteRead: IncompleteRead(105798 bytes read)",
-      "durationSeconds": 2.131,
+      "error": "IncompleteRead: IncompleteRead(110134 bytes read)",
+      "durationSeconds": 1.873,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-06T22:15:21.475602+00:00",
+      "lastAttemptAt": "2026-09-07T05:11:33.795117+00:00",
       "lastSuccessAt": "2026-09-06T13:22:58.683521+00:00"
     },
     {
