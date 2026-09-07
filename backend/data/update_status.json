@@ -1,17 +1,15 @@
 {
-  "updatedAt": "2026-09-07T21:28:46.537229+00:00",
+  "updatedAt": "2026-09-07T22:58:06.727221+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj"
     ],
-    "updatedToday": 12,
+    "updatedToday": 13,
     "totalSources": 14
   },
   "sources": [
@@ -49,8 +47,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 1.12,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-07T21:28:46.537229+00:00",
       "lastSuccessAt": "2026-09-07T21:28:46.537229+00:00"
     },
@@ -88,8 +86,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 19.922,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-07T21:28:46.537229+00:00",
       "lastSuccessAt": "2026-09-07T21:28:46.537229+00:00"
     },
@@ -101,8 +99,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.79,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-07T21:28:46.537229+00:00",
       "lastSuccessAt": "2026-09-07T21:28:46.537229+00:00"
     },
@@ -114,23 +112,23 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.41,
+      "durationSeconds": 1.052,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-07T21:28:46.537229+00:00",
+      "lastAttemptAt": "2026-09-07T22:58:06.727221+00:00",
       "lastSuccessAt": null
     },
     {
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 236,
-      "error": "IncompleteRead: IncompleteRead(97118 bytes read)",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T10:29:30.151115+00:00",
-      "lastSuccessAt": "2026-09-06T13:22:58.683521+00:00"
+      "error": null,
+      "durationSeconds": 1.314,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-07T22:58:06.727221+00:00",
+      "lastSuccessAt": "2026-09-07T22:58:06.727221+00:00"
     },
     {
       "id": "usms",
