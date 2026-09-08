@@ -4266,54 +4266,6 @@
     "rewardCurrency": "USD"
   },
   {
-    "id": "txdps-1846",
-    "title": "Fermin Alejandro Calles Garcia",
-    "agency": "Texas Department of Public Safety",
-    "country": "US",
-    "regions": [
-      "Texas"
-    ],
-    "caseType": "Wanted Person",
-    "description": "Sexual Assault of a Child, Assault Causes Bodily Injury, Stalking",
-    "reward": 3000,
-    "rewardText": "Up To $3,000 Reward",
-    "status": "Open",
-    "summary": "Fermin Alejandro CALLES GARCIA is a criminal illegal immigrant from Venezuela with ties to Travis County, including the city of Austin, Texas. In July 2024, CALLES GARCIA was arrested by the Williamson County Sheriff's Office for Assault Causes Bodily Injury. In September 2024, CALLES GARCIA was arrested by the Travis County Sheriff's Office for Stalking. On March 21, 2025, a warrant was issued out of Travis County for CALLES GARCIA 's arrest for Sexual Assault of a Child.",
-    "warningMessage": "Do not approach or attempt to apprehend any individual. Submit information directly to the Texas Department of Public Safety.",
-    "aliases": [
-      "Fermin Alejandro GARCIA",
-      "Fermin Alejandro CALLES"
-    ],
-    "age": null,
-    "dateOfBirth": "2/24/2002",
-    "placeOfBirth": null,
-    "sex": "Male",
-    "race": "White (Hispanic)",
-    "nationality": null,
-    "hair": null,
-    "eyes": null,
-    "height": "5'8\"",
-    "weight": "170",
-    "locations": "Texas",
-    "distinguishingFeatures": "None Reported",
-    "fieldOffice": "Texas",
-    "publishedDate": "2026-08-05",
-    "lastVerified": "2026-09-08",
-    "sourceUpdatedDate": null,
-    "sourceUrl": "https://www.dps.texas.gov/Texas10MostWanted/MostWanted/CriminalIllegalImmigrantDetails?id=1846",
-    "sourceTitle": "Texas DPS Most Wanted: Fermin Alejandro Calles Garcia",
-    "sourceAuthor": "Texas Department of Public Safety",
-    "imageUrl": "/media/texas-dps/txdps-1846-1.jpg",
-    "imageUrls": [
-      "/media/texas-dps/txdps-1846-1.jpg",
-      "/media/texas-dps/txdps-1846-2.jpg",
-      "/media/texas-dps/txdps-1846-3.jpg",
-      "/media/texas-dps/txdps-1846-4.jpg",
-      "/media/texas-dps/txdps-1846-5.jpg"
-    ],
-    "rewardCurrency": "USD"
-  },
-  {
     "id": "txdps-93",
     "title": "Ernesto Alonso Garcia",
     "agency": "Texas Department of Public Safety",
@@ -10997,7 +10949,7 @@
     "fieldOffice": "Federal",
     "publishedDate": "2026-01-21",
     "lastVerified": "2026-09-08",
-    "sourceUpdatedDate": "2025-09-25",
+    "sourceUpdatedDate": "2026-09-08",
     "sourceUrl": "https://rewardsforjustice.net/rewards/foreign-terrorist-organizations-ftos-designated-drug-cartels/",
     "sourceTitle": "Rewards for Justice: Foreign Terrorist Organizations (FTOs)-Designated Drug Cartels",
     "sourceAuthor": "U.S. Department of State - Rewards for Justice",

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-08T21:06:33.817385+00:00",
-  "sourceFingerprint": "bebc92e4bfe234bbf9a1e42d20c6811dd94e2440783d4d56ef100a58933ee2bd",
+  "generatedAt": "2026-09-08T22:55:49.983643+00:00",
+  "sourceFingerprint": "ee5b6f99092ae21b8f36de05a8b5426ccf22d6a36d795158bd2e740da878269c",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
     "city": 389,
-    "region": 176
+    "region": 175
   },
   "unresolved": [
     "Air Ronge, Saskatchewan",
@@ -777,16 +777,6 @@
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
-      }
-    ],
-    "txdps-1846": [
-      {
-        "label": "Texas",
-        "latitude": 31.0545,
-        "longitude": -97.5635,
-        "precision": "region",
-        "locationType": "broad_region",
-        "approximate": true
       }
     ],
     "txdps-93": [
