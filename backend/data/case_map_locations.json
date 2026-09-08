@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-08T12:27:40.171037+00:00",
-  "sourceFingerprint": "a1ac74c9b0f5e5d81dd3877adb42b96e0eeb730bf57747721f9eaf12b61ced0f",
+  "generatedAt": "2026-09-08T21:06:33.817385+00:00",
+  "sourceFingerprint": "bebc92e4bfe234bbf9a1e42d20c6811dd94e2440783d4d56ef100a58933ee2bd",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 390,
+    "city": 389,
     "region": 176
   },
   "unresolved": [
@@ -1120,16 +1120,6 @@
       }
     ],
     "rcmp-bc-4352384-mani-chopra": [
-      {
-        "label": "Prince George, British Columbia",
-        "latitude": 53.9166,
-        "longitude": -122.75301,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-bc-4352121-bryce-raymond-cote": [
       {
         "label": "Prince George, British Columbia",
         "latitude": 53.9166,
