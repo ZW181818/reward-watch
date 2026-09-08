@@ -1,12 +1,15 @@
 {
-  "updatedAt": "2026-09-08T15:05:24.274796+00:00",
+  "updatedAt": "2026-09-08T18:04:07.703991+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "china",
+    "name": "canada-east",
     "requestedSources": [
-      "cn-police"
+      "opp",
+      "fq",
+      "eps",
+      "ns-reward"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -33,10 +36,10 @@
       "usedStaleData": false,
       "count": 92,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-08T14:48:47.047883+00:00",
-      "lastSuccessAt": "2026-09-08T14:48:47.047883+00:00"
+      "durationSeconds": 1.521,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-08T18:04:07.703991+00:00",
+      "lastSuccessAt": "2026-09-08T18:04:07.703991+00:00"
     },
     {
       "id": "rcmp-sk",
@@ -59,10 +62,10 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-08T14:48:47.047883+00:00",
-      "lastSuccessAt": "2026-09-08T14:48:47.047883+00:00"
+      "durationSeconds": 5.308,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-08T18:04:07.703991+00:00",
+      "lastSuccessAt": "2026-09-08T18:04:07.703991+00:00"
     },
     {
       "id": "eps",
@@ -72,10 +75,10 @@
       "usedStaleData": false,
       "count": 10,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-08T14:48:47.047883+00:00",
-      "lastSuccessAt": "2026-09-08T14:48:47.047883+00:00"
+      "durationSeconds": 3.711,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-08T18:04:07.703991+00:00",
+      "lastSuccessAt": "2026-09-08T18:04:07.703991+00:00"
     },
     {
       "id": "rcmp-bc",
@@ -150,10 +153,10 @@
       "usedStaleData": false,
       "count": 117,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-08T14:48:47.047883+00:00",
-      "lastSuccessAt": "2026-09-08T14:48:47.047883+00:00"
+      "durationSeconds": 8.936,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-08T18:04:07.703991+00:00",
+      "lastSuccessAt": "2026-09-08T18:04:07.703991+00:00"
     },
     {
       "id": "uspis",
@@ -189,8 +192,8 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": 171.321,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-08T15:05:24.274796+00:00",
       "lastSuccessAt": "2026-09-08T15:05:24.274796+00:00"
     }
