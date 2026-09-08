@@ -10,6 +10,8 @@ from sqlalchemy.orm import Session
 
 from app import media_storage
 from app.admin import (
+    AdminMapLocationInput,
+    AdminMapLocationUpdateRequest,
     CaseUpdateRequest,
     ChangePasswordRequest,
     LoginRequest,
@@ -20,16 +22,19 @@ from app.admin import (
     delete_manual_case,
     get_admin_case,
     get_admin_home_settings,
+    list_admin_map_locations,
     login,
     reset_admin_case,
+    reset_admin_map_locations,
     publish_admin_home_settings,
     save_admin_home_settings,
     update_admin_case,
+    update_admin_map_locations,
 )
 from app.admin_security import hash_password
 from app.database import AdminUserRow, initialize_database
 from app.main import get_case
-from app.storage import load_database_cases, sync_case_snapshot
+from app.storage import load_database_cases, query_database_case_map, sync_case_snapshot
 from app.settings import HomeSettings, get_home_settings
 
 
@@ -212,6 +217,71 @@ class AdminTests(unittest.TestCase):
             ],
         )
         self.assertEqual(load_database_cases(self.database_url)[0].agency, "Reviewed Agency")
+
+    def test_manual_map_location_survives_source_refresh_and_can_be_reset(self):
+        with patch("app.map_data._load_map_data", return_value=("2026-08-05", {})):
+            queue = list_admin_map_locations(
+                None,
+                "needs_review",
+                1,
+                20,
+                "admin@example.test",
+            )
+            self.assertEqual(queue["counts"]["needsReview"], 1)
+            self.assertEqual(queue["items"][0]["id"], "fbi-admin-test")
+
+            update_admin_map_locations(
+                "fbi-admin-test",
+                AdminMapLocationUpdateRequest(
+                    locations=[
+                        AdminMapLocationInput(
+                            label="Seattle, Washington",
+                            latitude=47.6062,
+                            longitude=-122.3321,
+                        )
+                    ],
+                    note="Reviewed against the official notice",
+                ),
+                "admin@example.test",
+            )
+            detail = get_admin_case("fbi-admin-test", "admin@example.test")
+            self.assertEqual(detail["mapLocation"]["status"], "manual")
+            self.assertEqual(
+                detail["mapLocation"]["effectiveLocations"][0]["locationType"],
+                "manual_location",
+            )
+            public_map = query_database_case_map(self.database_url)
+            self.assertEqual(public_map.total, 1)
+            self.assertEqual(public_map.items[0].locations[0].label, "Seattle, Washington")
+
+            refreshed = case_payload()
+            refreshed["title"] = "Source-refreshed title"
+            sync_case_snapshot(
+                cases=[refreshed],
+                source_cases=[refreshed],
+                update_status={
+                    "updatedAt": "2026-08-05T12:00:00+00:00",
+                    "allSourcesFresh": True,
+                    "totalCount": 1,
+                    "sources": [],
+                },
+                quality_report={"qualityGate": {"passed": True}},
+                database_url=self.database_url,
+            )
+            public_map = query_database_case_map(self.database_url)
+            self.assertEqual(public_map.items[0].title, "Source-refreshed title")
+            self.assertEqual(public_map.items[0].locations[0].label, "Seattle, Washington")
+
+            reset = reset_admin_map_locations(
+                "fbi-admin-test",
+                "admin@example.test",
+            )
+            self.assertTrue(reset["reset"])
+            self.assertEqual(reset["mapLocation"]["status"], "unresolved")
+            self.assertEqual(query_database_case_map(self.database_url).total, 0)
+            actions = [entry["action"] for entry in audit_log(30, "admin@example.test")]
+            self.assertIn("case.map_location.updated", actions)
+            self.assertIn("case.map_location.reset", actions)
 
     def test_home_settings_require_draft_then_publish(self):
         settings = HomeSettings(

@@ -79,6 +79,38 @@ class CaseListResponse(BaseModel):
     facets: CaseFacets
 
 
+class CaseMapLocation(BaseModel):
+    label: str
+    latitude: float = Field(ge=-90, le=90)
+    longitude: float = Field(ge=-180, le=180)
+    precision: Literal["city", "region"]
+    locationType: Literal[
+        "official_location",
+        "title_location",
+        "broad_region",
+        "manual_location",
+    ]
+    approximate: bool = False
+
+
+class CaseMapItem(BaseModel):
+    id: str
+    title: str
+    agency: str
+    country: CountryCode
+    reward: int | None = Field(default=None, ge=0)
+    rewardCurrency: RewardCurrency | None = None
+    status: str
+    imageUrl: str | None = None
+    locations: list[CaseMapLocation] = Field(default_factory=list)
+
+
+class CaseMapResponse(BaseModel):
+    items: list[CaseMapItem]
+    total: int = Field(ge=0)
+    generatedAt: str | None = None
+
+
 class HealthResponse(BaseModel):
     status: str
     service: str

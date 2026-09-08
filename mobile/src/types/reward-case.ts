@@ -71,3 +71,30 @@ export type CaseListResponse = {
   totalPages: number;
   facets: CaseFacets;
 };
+
+export type CaseMapLocation = {
+  label: string;
+  latitude: number;
+  longitude: number;
+  precision: 'city' | 'region';
+  locationType: 'official_location' | 'title_location' | 'broad_region' | 'manual_location';
+  approximate: boolean;
+};
+
+export type CaseMapItem = {
+  id: string;
+  title: string;
+  agency: string;
+  country: RewardCountry;
+  reward: number | null;
+  rewardCurrency?: RewardCurrency | null;
+  status: string;
+  imageUrl?: string | null;
+  locations: CaseMapLocation[];
+};
+
+export type CaseMapResponse = {
+  items: CaseMapItem[];
+  total: number;
+  generatedAt?: string | null;
+};

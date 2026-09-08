@@ -21,6 +21,7 @@ import {
   DEFAULT_CASE_WARNING,
   emptyAdminCaseForm,
 } from '@/components/admin-case-fields';
+import { AdminLocationEditor } from '@/components/admin-location-editor';
 import { AdminNoticePreview } from '@/components/admin-notice-preview';
 import { AdminPhotoManager, normalizeCaseImages } from '@/components/admin-photo-manager';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -34,6 +35,7 @@ import {
   fetchAdminCases,
   fetchAdminDashboard,
   fetchAdminHomeSettings,
+  fetchAdminMapLocations,
   fetchAuditLog,
   loadAdminToken,
   loginAdmin,
@@ -47,13 +49,15 @@ import {
   type AdminCaseDetail,
   type AdminCaseSummary,
   type AdminDashboard,
+  type AdminMapLocationFilter,
+  type AdminMapLocationQueueItem,
   type AuditEntry,
   type HomeSettings,
   type ManualCaseInput,
 } from '@/lib/admin-api';
 
 
-type AdminView = 'overview' | 'cases' | 'settings' | 'audit';
+type AdminView = 'overview' | 'cases' | 'locations' | 'settings' | 'audit';
 type VisibilityFilter = 'all' | 'visible' | 'hidden';
 
 function useDebouncedValue(value: string, delayMs: number) {
@@ -180,6 +184,7 @@ function AdminWorkspace({ onSignOut, token }: { onSignOut: () => void; token: st
           <View style={[styles.nav, !isWide && styles.navCompact]}>
             <NavButton active={view === 'overview'} icon="dashboard" iconOnly={usesIconOnlyNavigation} label="Overview" onPress={() => setView('overview')} />
             <NavButton active={view === 'cases'} icon="folder" iconOnly={usesIconOnlyNavigation} label="Cases" onPress={() => setView('cases')} />
+            <NavButton active={view === 'locations'} icon="location" iconOnly={usesIconOnlyNavigation} label="Map locations" onPress={() => setView('locations')} />
             <NavButton active={view === 'settings'} icon="settings" iconOnly={usesIconOnlyNavigation} label="Home" onPress={() => setView('settings')} />
             <NavButton active={view === 'audit'} icon="history" iconOnly={usesIconOnlyNavigation} label="Audit" onPress={() => setView('audit')} />
           </View>
@@ -198,7 +203,7 @@ function AdminWorkspace({ onSignOut, token }: { onSignOut: () => void; token: st
           <View style={styles.contentHeader}>
             <View>
               <Text style={styles.contentEyebrow}>INTERNAL OPERATIONS</Text>
-              <Text style={styles.contentTitle}>{view === 'overview' ? 'Overview' : view === 'cases' ? 'Case Management' : view === 'settings' ? 'Home Publishing' : 'Audit Log'}</Text>
+              <Text style={styles.contentTitle}>{view === 'overview' ? 'Overview' : view === 'cases' ? 'Case Management' : view === 'locations' ? 'Map Locations' : view === 'settings' ? 'Home Publishing' : 'Audit Log'}</Text>
             </View>
             <View style={styles.contentHeaderActions}>
               <ThemeToggle />
@@ -210,6 +215,8 @@ function AdminWorkspace({ onSignOut, token }: { onSignOut: () => void; token: st
             <Overview dashboard={dashboard} onRefresh={refreshDashboard} token={token} />
           ) : view === 'cases' ? (
             <CasesManager token={token} />
+          ) : view === 'locations' ? (
+            <MapLocationsManager token={token} />
           ) : view === 'settings' ? (
             <SettingsPanel token={token} />
           ) : (
@@ -221,11 +228,13 @@ function AdminWorkspace({ onSignOut, token }: { onSignOut: () => void; token: st
   );
 }
 
-function NavButton({ active, icon, iconOnly, label, onPress }: { active: boolean; icon: 'dashboard' | 'folder' | 'settings' | 'history'; iconOnly: boolean; label: string; onPress: () => void }) {
+function NavButton({ active, icon, iconOnly, label, onPress }: { active: boolean; icon: 'dashboard' | 'folder' | 'location' | 'settings' | 'history'; iconOnly: boolean; label: string; onPress: () => void }) {
   const names = icon === 'dashboard'
     ? { ios: 'rectangle.3.group.fill' as const, android: 'dashboard' as const, web: 'dashboard' as const }
     : icon === 'folder'
       ? { ios: 'folder.fill' as const, android: 'folder' as const, web: 'folder' as const }
+      : icon === 'location'
+        ? { ios: 'mappin.and.ellipse' as const, android: 'location_on' as const, web: 'location_on' as const }
       : icon === 'settings'
         ? { ios: 'house.and.flag.fill' as const, android: 'home_work' as const, web: 'home_work' as const }
         : { ios: 'clock.arrow.circlepath' as const, android: 'history' as const, web: 'history' as const };
@@ -385,6 +394,196 @@ function PasswordPanel({ token }: { token: string }) {
           style={[styles.primaryButton, styles.securityButton, (!canSave || isSaving) && styles.buttonDisabled]}>
           {isSaving ? <ActivityIndicator color={themedForeground('#FFFFFF')} /> : <Text style={styles.primaryButtonText}>Update password</Text>}
         </Pressable>
+      </View>
+    </View>
+  );
+}
+
+const LOCATION_FILTERS: { label: string; value: AdminMapLocationFilter }[] = [
+  { label: 'Needs review', value: 'needs_review' },
+  { label: 'Broad only', value: 'broad' },
+  { label: 'Manual', value: 'manual' },
+  { label: 'Automatic', value: 'automatic' },
+  { label: 'All', value: 'all' },
+];
+
+function MapLocationsManager({ token }: { token: string }) {
+  const [query, setQuery] = useState('');
+  const [filter, setFilter] = useState<AdminMapLocationFilter>('needs_review');
+  const [items, setItems] = useState<AdminMapLocationQueueItem[]>([]);
+  const [counts, setCounts] = useState({ all: 0, manual: 0, automatic: 0, broad: 0, needsReview: 0 });
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [detail, setDetail] = useState<AdminCaseDetail | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const debouncedQuery = useDebouncedValue(query, 300);
+  const totalPages = Math.max(1, Math.ceil(total / 20));
+  const { width } = useWindowDimensions();
+  const hasSplitEditor = width >= 1080;
+
+  const loadLocations = useCallback(async (nextPage: number) => {
+    setIsLoading(true);
+    try {
+      const response = await fetchAdminMapLocations(token, {
+        locationStatus: filter,
+        page: nextPage,
+        q: debouncedQuery || undefined,
+      });
+      setItems(response.items);
+      setCounts(response.counts);
+      setTotal(response.total);
+      setPage(response.page);
+      setError(null);
+    } catch (requestError) {
+      setError(requestError instanceof Error ? requestError.message : 'Unable to load map locations');
+    } finally {
+      setIsLoading(false);
+    }
+  }, [debouncedQuery, filter, token]);
+
+  useEffect(() => {
+    loadLocations(1);
+  }, [loadLocations]);
+
+  async function openCase(caseId: string) {
+    setSelectedId(caseId);
+    setDetail(null);
+    try {
+      setDetail(await fetchAdminCase(token, caseId));
+    } catch (requestError) {
+      setError(requestError instanceof Error ? requestError.message : 'Unable to open case');
+    }
+  }
+
+  function chooseFilter(value: AdminMapLocationFilter) {
+    setFilter(value);
+    setSelectedId(null);
+    setDetail(null);
+  }
+
+  return (
+    <View style={styles.caseManager}>
+      <View style={styles.locationIntro}>
+        <View style={styles.locationIntroIcon}>
+          <SymbolView name={{ ios: 'mappin.and.ellipse', android: 'location_on', web: 'location_on' }} size={22} tintColor={themedForeground('#FFFFFF')} />
+        </View>
+        <View style={styles.locationIntroCopy}>
+          <Text style={styles.panelTitle}>Review the cases the automatic matcher could not place</Text>
+          <Text style={styles.panelMeta}>Select a case, verify the public city or general area from its official source, then click the map. Manual results survive every scheduled data refresh.</Text>
+        </View>
+      </View>
+
+      <View style={styles.locationMetrics}>
+        <LocationMetric label="Needs review" tone="danger" value={counts.needsReview} />
+        <LocationMetric label="Broad only" tone="warning" value={counts.broad} />
+        <LocationMetric label="Manual" tone="success" value={counts.manual} />
+        <LocationMetric label="Automatic" tone="blue" value={counts.automatic} />
+      </View>
+
+      <View style={styles.caseToolbar}>
+        <View style={styles.adminSearch}>
+          <SymbolView name={{ ios: 'magnifyingglass', android: 'search', web: 'search' }} size={20} tintColor={themedForeground('#667085')} />
+          <TextInput autoCapitalize="none" onChangeText={setQuery} placeholder="Search case ID, title or source" placeholderTextColor={themedForeground('#98A2B3')} style={styles.adminSearchInput} value={query} />
+        </View>
+        <View style={styles.locationFilters}>
+          {LOCATION_FILTERS.map((item) => (
+            <Pressable key={item.value} onPress={() => chooseFilter(item.value)} style={[styles.smallSegmentButton, filter === item.value && styles.smallSegmentButtonActive]}>
+              <Text style={[styles.smallSegmentText, filter === item.value && styles.smallSegmentTextActive]}>{item.label}</Text>
+            </Pressable>
+          ))}
+        </View>
+      </View>
+      {error ? <Notice text={error} /> : null}
+
+      {!hasSplitEditor && selectedId ? (
+        <Pressable onPress={() => { setSelectedId(null); setDetail(null); }} style={styles.compactBackButton}>
+          <SymbolView name={{ ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' }} size={17} tintColor={themedForeground('#475467')} />
+          <Text style={styles.compactBackText}>Back to review queue</Text>
+        </Pressable>
+      ) : null}
+
+      <View style={[styles.caseWorkspace, !hasSplitEditor && styles.caseWorkspaceCompact]}>
+        {hasSplitEditor || !selectedId ? (
+          <View style={[styles.caseListPanel, !hasSplitEditor && styles.caseListPanelCompact]}>
+            <View style={styles.listCountRow}>
+              <Text style={styles.listCount}>{total.toLocaleString()} results</Text>
+              <Text style={styles.panelMeta}>Page {page} of {totalPages}</Text>
+            </View>
+            {isLoading ? <CenteredLoader embedded label="Loading map review queue" /> : items.length ? (
+              <View style={styles.adminCaseList}>
+                {items.map((item) => (
+                  <Pressable key={item.id} onPress={() => openCase(item.id)} style={[styles.adminCaseRow, selectedId === item.id && styles.adminCaseRowSelected]}>
+                    {item.imageUrl ? <Image contentFit="cover" source={resolveAdminImage(item.imageUrl)} style={styles.adminCaseImage} /> : <View style={styles.adminCaseImageFallback}><SymbolView name={{ ios: 'mappin', android: 'location_on', web: 'location_on' }} size={19} tintColor={themedForeground('#98A2B3')} /></View>}
+                    <View style={styles.adminCaseCopy}>
+                      <Text style={styles.adminCaseTitle} numberOfLines={1}>{item.title}</Text>
+                      <Text style={styles.adminCaseMeta} numberOfLines={1}>{item.sourceName} · {item.country}</Text>
+                      <View style={styles.adminCaseFlags}>
+                        <Text style={[styles.locationStatus, item.locationStatus === 'manual' ? styles.locationStatusManual : item.locationStatus === 'automatic' ? styles.locationStatusAutomatic : item.locationStatus === 'broad' ? styles.locationStatusBroad : styles.locationStatusUnresolved]}>
+                          {item.locationStatus === 'manual' ? 'Manual' : item.locationStatus === 'automatic' ? 'Automatic' : item.locationStatus === 'broad' ? 'Broad only' : 'Needs review'}
+                        </Text>
+                        <Text numberOfLines={1} style={styles.locationSourceText}>{item.officialLocation || 'No source location'}</Text>
+                      </View>
+                    </View>
+                    <SymbolView name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }} size={17} tintColor={themedForeground('#98A2B3')} />
+                  </Pressable>
+                ))}
+              </View>
+            ) : (
+              <View style={styles.editorEmpty}>
+                <SymbolView name={{ ios: 'checkmark.circle', android: 'check_circle', web: 'check_circle' }} size={28} tintColor={themedForeground('#12B76A')} />
+                <Text style={styles.editorEmptyTitle}>No cases in this queue</Text>
+              </View>
+            )}
+            <View style={styles.pagination}>
+              <Pressable disabled={page <= 1} onPress={() => loadLocations(page - 1)} style={[styles.pageButton, page <= 1 && styles.buttonDisabled]}><SymbolView name={{ ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' }} size={17} tintColor={themedForeground('#475467')} /></Pressable>
+              <Pressable disabled={page >= totalPages} onPress={() => loadLocations(page + 1)} style={[styles.pageButton, page >= totalPages && styles.buttonDisabled]}><SymbolView name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }} size={17} tintColor={themedForeground('#475467')} /></Pressable>
+            </View>
+          </View>
+        ) : null}
+
+        {hasSplitEditor || selectedId ? (
+          <View style={[styles.editorPanel, !hasSplitEditor && styles.editorPanelCompact]}>
+            {!selectedId ? (
+              <View style={styles.editorEmpty}>
+                <SymbolView name={{ ios: 'mappin.and.ellipse', android: 'location_on', web: 'location_on' }} size={28} tintColor={themedForeground('#98A2B3')} />
+                <Text style={styles.editorEmptyTitle}>Select a case to review its location</Text>
+              </View>
+            ) : !detail ? <CenteredLoader embedded label="Opening map editor" /> : (
+              <View style={styles.locationEditorContent}>
+                <View style={styles.editorHeader}>
+                  <View style={styles.editorHeaderCopy}>
+                    <Text style={styles.editorId}>{detail.effective.title}</Text>
+                    <Text style={styles.editorSource}>{detail.effective.id} · {detail.effective.sourceAuthor ?? detail.effective.agency}</Text>
+                  </View>
+                </View>
+                <AdminLocationEditor
+                  caseId={detail.effective.id}
+                  location={detail.mapLocation}
+                  onChanged={async () => {
+                    await loadLocations(page);
+                    setDetail(await fetchAdminCase(token, detail.effective.id));
+                  }}
+                  sourceLocation={detail.effective.locations || detail.effective.regions?.join(', ')}
+                  token={token}
+                />
+              </View>
+            )}
+          </View>
+        ) : null}
+      </View>
+    </View>
+  );
+}
+
+function LocationMetric({ label, tone, value }: { label: string; tone: 'danger' | 'warning' | 'success' | 'blue'; value: number }) {
+  return (
+    <View style={styles.locationMetric}>
+      <View style={[styles.locationMetricDot, tone === 'danger' ? styles.locationMetricDanger : tone === 'warning' ? styles.locationMetricWarning : tone === 'success' ? styles.locationMetricSuccess : styles.locationMetricBlue]} />
+      <View>
+        <Text style={styles.locationMetricValue}>{value.toLocaleString()}</Text>
+        <Text style={styles.locationMetricLabel}>{label}</Text>
       </View>
     </View>
   );
@@ -981,6 +1180,26 @@ const styles = createThemedStyles({
   sourceStateGood: { backgroundColor: '#ECFDF3', color: '#027A48' },
   sourceStateBad: { backgroundColor: '#FEF3F2', color: '#B42318' },
   caseManager: { gap: 14 },
+  locationIntro: { alignItems: 'flex-start', backgroundColor: '#FFFFFF', borderColor: '#E4E7EC', borderRadius: 8, borderWidth: 1, flexDirection: 'row', gap: 12, padding: 16 },
+  locationIntroIcon: { alignItems: 'center', backgroundColor: '#5B4DFF', borderRadius: 8, height: 40, justifyContent: 'center', width: 40 },
+  locationIntroCopy: { flex: 1, gap: 4, minWidth: 0 },
+  locationMetrics: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  locationMetric: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#E4E7EC', borderRadius: 8, borderWidth: 1, flex: 1, flexDirection: 'row', gap: 10, minWidth: 150, padding: 13 },
+  locationMetricDot: { borderRadius: 5, height: 10, width: 10 },
+  locationMetricDanger: { backgroundColor: '#F04438' },
+  locationMetricWarning: { backgroundColor: '#F79009' },
+  locationMetricSuccess: { backgroundColor: '#12B76A' },
+  locationMetricBlue: { backgroundColor: '#2E90FA' },
+  locationMetricValue: { color: '#101828', fontSize: 18, fontWeight: '900', lineHeight: 22 },
+  locationMetricLabel: { color: '#667085', fontSize: 10, fontWeight: '800' },
+  locationFilters: { backgroundColor: '#EAECF0', borderRadius: 8, flexDirection: 'row', flexWrap: 'wrap', padding: 3 },
+  locationStatus: { borderRadius: 999, fontSize: 9, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 6, paddingVertical: 2 },
+  locationStatusManual: { backgroundColor: '#ECFDF3', color: '#027A48' },
+  locationStatusAutomatic: { backgroundColor: '#EEF4FF', color: '#3538CD' },
+  locationStatusBroad: { backgroundColor: '#FFF6ED', color: '#B93815' },
+  locationStatusUnresolved: { backgroundColor: '#FEF3F2', color: '#B42318' },
+  locationSourceText: { color: '#98A2B3', flex: 1, fontSize: 9, fontWeight: '700' },
+  locationEditorContent: { gap: 15, padding: 18 },
   caseToolbar: { alignItems: 'center', flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
   createButton: { alignItems: 'center', backgroundColor: '#5B4DFF', borderRadius: 8, flexDirection: 'row', gap: 7, minHeight: 44, paddingHorizontal: 14 },
   createButtonText: { color: '#FFFFFF', fontSize: 12, fontWeight: '900' },

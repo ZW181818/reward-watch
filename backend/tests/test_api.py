@@ -4,8 +4,8 @@ from unittest.mock import patch
 
 from fastapi import Request, Response
 
-from app.main import cache_public_reads, get_case, list_cases
-from app.models import RewardCase
+from app.main import cache_public_reads, get_case, get_nearby_case_index, list_cases
+from app.models import CaseMapItem, CaseMapLocation, RewardCase
 
 
 def make_case(case_id: str, reward: int | None) -> RewardCase:
@@ -57,6 +57,64 @@ class ApiTests(unittest.TestCase):
             response.headers["cache-control"],
             "public, max-age=60, stale-while-revalidate=300",
         )
+
+    def test_nearby_index_uses_public_browser_cache(self):
+        request = Request(
+            {
+                "type": "http",
+                "http_version": "1.1",
+                "method": "GET",
+                "scheme": "https",
+                "path": "/cases/nearby-index",
+                "raw_path": b"/cases/nearby-index",
+                "query_string": b"",
+                "headers": [],
+                "client": ("127.0.0.1", 1234),
+                "server": ("testserver", 443),
+            }
+        )
+
+        async def call_next(_request):
+            return Response(status_code=200)
+
+        response = asyncio.run(cache_public_reads(request, call_next))
+        self.assertEqual(
+            response.headers["cache-control"],
+            "public, max-age=60, stale-while-revalidate=300",
+        )
+
+    @patch("app.main.get_database_url", return_value=None)
+    @patch("app.main.load_cases")
+    @patch("app.main.build_case_map_items")
+    def test_nearby_index_returns_compact_map_items(
+        self, build_case_map_items, load_cases, _get_database_url
+    ):
+        map_item = CaseMapItem(
+            id="mapped",
+            title="Mapped case",
+            agency="Official Agency",
+            country="US",
+            reward=500,
+            rewardCurrency="USD",
+            status="Open",
+            locations=[
+                CaseMapLocation(
+                    label="Austin, Texas",
+                    latitude=30.26715,
+                    longitude=-97.74306,
+                    precision="city",
+                    locationType="official_location",
+                )
+            ],
+        )
+        load_cases.return_value = [make_case("mapped", 500)]
+        build_case_map_items.return_value = [map_item]
+
+        response = get_nearby_case_index()
+
+        self.assertEqual(response.total, 1)
+        self.assertEqual(response.items[0].id, "mapped")
+        self.assertEqual(response.items[0].locations[0].precision, "city")
 
     @patch("app.main.load_cases")
     def test_reward_sort_keeps_unpublished_amounts_last(self, load_cases):

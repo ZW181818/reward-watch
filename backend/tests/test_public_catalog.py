@@ -19,6 +19,7 @@ from app.database import initialize_database
 from app.storage import (
     clear_public_query_cache,
     load_database_case,
+    query_database_case_map,
     query_database_case_page,
     sync_case_snapshot,
 )
@@ -80,6 +81,30 @@ class PublicCatalogTests(unittest.TestCase):
         self.database_url = f"sqlite:///{Path(self.directory.name, 'catalog.db').as_posix()}"
         self.environment = patch.dict(os.environ, {"DATABASE_URL": self.database_url})
         self.environment.start()
+        map_locations = {
+            case_id: [
+                {
+                    "label": "Austin, Texas",
+                    "latitude": 30.26715,
+                    "longitude": -97.74306,
+                    "precision": "city",
+                    "locationType": "official_location",
+                    "approximate": False,
+                }
+            ]
+            for case_id in (
+                "fbi-alpha",
+                "usms-bravo",
+                "rcmp-charlie",
+                "cn-police-delta",
+                "fbi-echo",
+            )
+        }
+        self.map_data = patch(
+            "app.map_data._load_map_data",
+            return_value=("2026-08-10T10:00:00+00:00", map_locations),
+        )
+        self.map_data.start()
         self.cases = [
             make_case(
                 "fbi-alpha",
@@ -156,6 +181,7 @@ class PublicCatalogTests(unittest.TestCase):
         )
 
     def tearDown(self):
+        self.map_data.stop()
         self.environment.stop()
         self.directory.cleanup()
 
@@ -361,6 +387,12 @@ class PublicCatalogTests(unittest.TestCase):
             facet_map(result.facets.sources),
         )
         self.assertNotIn("U.S. Marshals Service", facet_map(result.facets.sources))
+        map_result = query_database_case_map(database_url=self.database_url)
+        self.assertIsNotNone(map_result)
+        self.assertEqual(
+            {item.id for item in map_result.items},
+            {"fbi-alpha", "rcmp-charlie", "fbi-echo"},
+        )
 
         for case_id in (
             "cn-police-delta",

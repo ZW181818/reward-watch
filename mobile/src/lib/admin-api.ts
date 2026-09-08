@@ -1,7 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { API_BASE_URL, resolveApiAssetUrl } from '@/lib/cases';
-import type { RewardCase, RewardCountry, RewardCurrency } from '@/types/reward-case';
+import type {
+  CaseMapLocation,
+  RewardCase,
+  RewardCountry,
+  RewardCurrency,
+} from '@/types/reward-case';
 
 
 const ADMIN_TOKEN_KEY = 'reward-watch:admin-token';
@@ -55,7 +60,38 @@ export type AdminCaseDetail = {
     updatedBy?: string | null;
     updatedAt: string;
   } | null;
+  mapLocation: AdminMapLocationDetail;
 };
+
+export type AdminMapLocationStatus = 'manual' | 'automatic' | 'broad' | 'unresolved';
+
+export type AdminMapLocationDetail = {
+  status: AdminMapLocationStatus;
+  automaticLocations: CaseMapLocation[];
+  manualLocations: CaseMapLocation[] | null;
+  effectiveLocations: CaseMapLocation[];
+  note?: string | null;
+  updatedBy?: string | null;
+  updatedAt?: string | null;
+};
+
+export type AdminMapLocationQueueItem = {
+  id: string;
+  title: string;
+  country: string;
+  sourceName: string;
+  imageUrl?: string | null;
+  officialLocation?: string | null;
+  locationStatus: AdminMapLocationStatus;
+  effectiveLocations: CaseMapLocation[];
+};
+
+export type AdminMapLocationFilter =
+  | 'needs_review'
+  | 'broad'
+  | 'automatic'
+  | 'manual'
+  | 'all';
 
 export type ManualCaseInput = {
   title: string;
@@ -191,6 +227,52 @@ export function fetchAdminCases(
 
 export function fetchAdminCase(token: string, caseId: string) {
   return adminRequest<AdminCaseDetail>(`/admin/cases/${encodeURIComponent(caseId)}`, token);
+}
+
+export function fetchAdminMapLocations(
+  token: string,
+  query: { q?: string; locationStatus?: AdminMapLocationFilter; page?: number } = {}
+) {
+  const params = new URLSearchParams({ page_size: '20' });
+  if (query.q) params.set('q', query.q);
+  if (query.locationStatus) params.set('location_status', query.locationStatus);
+  if (query.page) params.set('page', String(query.page));
+  return adminRequest<{
+    items: AdminMapLocationQueueItem[];
+    counts: {
+      all: number;
+      manual: number;
+      automatic: number;
+      broad: number;
+      needsReview: number;
+    };
+    total: number;
+    page: number;
+    pageSize: number;
+  }>(`/admin/map-locations?${params}`, token);
+}
+
+export function updateAdminMapLocations(
+  token: string,
+  caseId: string,
+  body: {
+    locations: { label: string; latitude: number; longitude: number }[];
+    note?: string | null;
+  }
+) {
+  return adminRequest<{ mapLocation: AdminMapLocationDetail }>(
+    `/admin/cases/${encodeURIComponent(caseId)}/map-locations`,
+    token,
+    { method: 'PUT', body: JSON.stringify(body) }
+  );
+}
+
+export function resetAdminMapLocations(token: string, caseId: string) {
+  return adminRequest<{ reset: boolean; mapLocation: AdminMapLocationDetail }>(
+    `/admin/cases/${encodeURIComponent(caseId)}/map-locations`,
+    token,
+    { method: 'DELETE' }
+  );
 }
 
 export function updateAdminCase(token: string, caseId: string, body: Record<string, unknown>) {

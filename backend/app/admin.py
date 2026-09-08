@@ -18,14 +18,17 @@ from .database import (
     AdminUserRow,
     AppSettingRow,
     AuditLogRow,
+    CaseMapLocationOverrideRow,
     CaseOverrideRow,
     CaseRow,
     SyncRunRow,
     initialize_database,
     release_database_engine,
 )
+from .map_data import get_case_map_location_ids, get_case_map_locations
 from .media_storage import InvalidImageUpload, MAX_UPLOAD_BYTES, media_storage_status, store_admin_image
 from .models import (
+    CaseMapLocation,
     CountryCode,
     OfficialSourceRecord,
     RewardCase,
@@ -164,6 +167,40 @@ class ManualCaseCreateRequest(BaseModel):
         return cleaned
 
 
+class AdminMapLocationInput(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True)
+
+    label: str = Field(min_length=2, max_length=180)
+    latitude: float = Field(ge=-90, le=90)
+    longitude: float = Field(ge=-180, le=180)
+
+
+class AdminMapLocationUpdateRequest(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True)
+
+    locations: list[AdminMapLocationInput] = Field(min_length=1, max_length=8)
+    note: str | None = Field(default=None, max_length=1000)
+
+    @field_validator("locations")
+    @classmethod
+    def deduplicate_locations(
+        cls,
+        values: list[AdminMapLocationInput],
+    ) -> list[AdminMapLocationInput]:
+        unique: list[AdminMapLocationInput] = []
+        seen: set[tuple[str, float, float]] = set()
+        for value in values:
+            key = (
+                value.label.casefold(),
+                round(value.latitude, 6),
+                round(value.longitude, 6),
+            )
+            if key not in seen:
+                seen.add(key)
+                unique.append(value)
+        return unique
+
+
 EDITABLE_FIELDS = set(RewardCase.model_fields) - {"id"}
 
 
@@ -172,6 +209,54 @@ def _effective_payload(row: CaseRow, override: CaseOverrideRow | None) -> dict:
     if override:
         payload.update(override.fields)
     return payload
+
+
+def _manual_map_locations(
+    values: list[AdminMapLocationInput],
+) -> list[dict]:
+    return [
+        CaseMapLocation(
+            label=value.label,
+            latitude=value.latitude,
+            longitude=value.longitude,
+            precision="city",
+            locationType="manual_location",
+            approximate=False,
+        ).model_dump(mode="json")
+        for value in values
+    ]
+
+
+def _map_location_payload(
+    case_id: str,
+    override: CaseMapLocationOverrideRow | None,
+) -> dict:
+    automatic = [
+        location.model_dump(mode="json")
+        for location in get_case_map_locations(case_id)
+    ]
+    manual = list(override.locations) if override is not None else None
+    if manual is not None:
+        location_status = "manual"
+        effective = manual
+    elif any(location["precision"] == "city" for location in automatic):
+        location_status = "automatic"
+        effective = automatic
+    elif automatic:
+        location_status = "broad"
+        effective = automatic
+    else:
+        location_status = "unresolved"
+        effective = []
+    return {
+        "status": location_status,
+        "automaticLocations": automatic,
+        "manualLocations": manual,
+        "effectiveLocations": effective,
+        "note": override.note if override else None,
+        "updatedBy": override.updated_by if override else None,
+        "updatedAt": override.updated_at.isoformat() if override else None,
+    }
 
 
 def _audit(
@@ -468,6 +553,106 @@ def list_admin_cases(
         release_database_engine(engine)
 
 
+@router.get("/map-locations")
+def list_admin_map_locations(
+    q: Annotated[str | None, Query(min_length=1)] = None,
+    location_status: Literal[
+        "needs_review", "broad", "automatic", "manual", "all"
+    ] = "needs_review",
+    page: Annotated[int, Query(ge=1)] = 1,
+    page_size: Annotated[int, Query(ge=1, le=100)] = 20,
+    _admin_email: str = Depends(require_admin),
+):
+    engine = initialize_database()
+    try:
+        with Session(engine) as session:
+            city_ids, broad_ids = get_case_map_location_ids()
+            all_case_ids = set(session.scalars(select(CaseRow.id)).all())
+            manual_ids = set(
+                session.scalars(select(CaseMapLocationOverrideRow.case_id)).all()
+            ) & all_case_ids
+            counts = {
+                "all": len(all_case_ids),
+                "manual": len(manual_ids),
+                "automatic": len((city_ids & all_case_ids) - manual_ids),
+                "broad": len((broad_ids & all_case_ids) - manual_ids),
+                "needsReview": len(
+                    all_case_ids - city_ids - broad_ids - manual_ids
+                ),
+            }
+
+            statement = (
+                select(CaseRow, CaseOverrideRow, CaseMapLocationOverrideRow)
+                .outerjoin(CaseOverrideRow, CaseOverrideRow.case_id == CaseRow.id)
+                .outerjoin(
+                    CaseMapLocationOverrideRow,
+                    CaseMapLocationOverrideRow.case_id == CaseRow.id,
+                )
+            )
+            if q:
+                needle = f"%{q.strip().casefold()}%"
+                statement = statement.where(
+                    or_(CaseRow.search_text.like(needle), func.lower(CaseRow.id).like(needle))
+                )
+
+            if location_status == "manual":
+                statement = statement.where(
+                    CaseMapLocationOverrideRow.case_id.is_not(None)
+                )
+            elif location_status == "automatic":
+                statement = statement.where(
+                    CaseMapLocationOverrideRow.case_id.is_(None),
+                    CaseRow.id.in_(city_ids),
+                )
+            elif location_status == "broad":
+                statement = statement.where(
+                    CaseMapLocationOverrideRow.case_id.is_(None),
+                    CaseRow.id.in_(broad_ids),
+                )
+            elif location_status == "needs_review":
+                mapped_ids = city_ids | broad_ids
+                statement = statement.where(
+                    CaseMapLocationOverrideRow.case_id.is_(None)
+                )
+                if mapped_ids:
+                    statement = statement.where(CaseRow.id.notin_(mapped_ids))
+
+            total = session.scalar(
+                select(func.count()).select_from(statement.order_by(None).subquery())
+            ) or 0
+            rows = session.execute(
+                statement.order_by(CaseRow.published_date.desc(), CaseRow.id.asc())
+                .offset((page - 1) * page_size)
+                .limit(page_size)
+            ).all()
+            items = []
+            for row, case_override, map_override in rows:
+                effective = _effective_payload(row, case_override)
+                location = _map_location_payload(row.id, map_override)
+                items.append(
+                    {
+                        "id": row.id,
+                        "title": effective["title"],
+                        "country": effective["country"],
+                        "sourceName": effective.get("sourceAuthor") or effective.get("agency"),
+                        "imageUrl": effective.get("imageUrl"),
+                        "officialLocation": effective.get("locations")
+                        or ", ".join(effective.get("regions", [])),
+                        "locationStatus": location["status"],
+                        "effectiveLocations": location["effectiveLocations"],
+                    }
+                )
+            return {
+                "items": items,
+                "counts": counts,
+                "total": total,
+                "page": page,
+                "pageSize": page_size,
+            }
+    finally:
+        release_database_engine(engine)
+
+
 @router.get("/cases/{case_id}")
 def get_admin_case(case_id: str, _admin_email: str = Depends(require_admin)):
     engine = initialize_database()
@@ -477,6 +662,7 @@ def get_admin_case(case_id: str, _admin_email: str = Depends(require_admin)):
             if row is None:
                 raise HTTPException(status_code=404, detail="Case not found")
             override = session.get(CaseOverrideRow, case_id)
+            map_override = session.get(CaseMapLocationOverrideRow, case_id)
             return {
                 "raw": row.payload,
                 "effective": _effective_payload(row, override),
@@ -489,6 +675,112 @@ def get_admin_case(case_id: str, _admin_email: str = Depends(require_admin)):
                     "updatedBy": override.updated_by,
                     "updatedAt": override.updated_at.isoformat(),
                 } if override else None,
+                "mapLocation": _map_location_payload(case_id, map_override),
+            }
+    finally:
+        release_database_engine(engine)
+
+
+@router.put("/cases/{case_id}/map-locations")
+def update_admin_map_locations(
+    case_id: str,
+    body: AdminMapLocationUpdateRequest,
+    admin_email: str = Depends(require_admin),
+):
+    engine = initialize_database()
+    try:
+        with Session(engine) as session, session.begin():
+            row = session.get(CaseRow, case_id)
+            if row is None:
+                raise HTTPException(status_code=404, detail="Case not found")
+            case_override = session.get(CaseOverrideRow, case_id)
+            location_override = session.get(CaseMapLocationOverrideRow, case_id)
+            before = (
+                {
+                    "locations": list(location_override.locations),
+                    "note": location_override.note,
+                }
+                if location_override
+                else None
+            )
+            locations = _manual_map_locations(body.locations)
+            timestamp = datetime.now(UTC)
+            if location_override is None:
+                location_override = CaseMapLocationOverrideRow(
+                    case_id=case_id,
+                    locations=locations,
+                    note=body.note,
+                    updated_by=admin_email,
+                    updated_at=timestamp,
+                )
+                session.add(location_override)
+            else:
+                location_override.locations = locations
+                location_override.note = body.note
+                location_override.updated_by = admin_email
+                location_override.updated_at = timestamp
+            refresh_public_case(
+                session,
+                row,
+                case_override,
+                now=timestamp,
+            )
+            after = {"locations": locations, "note": body.note}
+            _audit(
+                session,
+                admin_email=admin_email,
+                action="case.map_location.updated",
+                entity_id=case_id,
+                entity_type="case_map_location",
+                before=before,
+                after=after,
+            )
+            return {"mapLocation": _map_location_payload(case_id, location_override)}
+    finally:
+        release_database_engine(engine)
+
+
+@router.delete("/cases/{case_id}/map-locations")
+def reset_admin_map_locations(
+    case_id: str,
+    admin_email: str = Depends(require_admin),
+):
+    engine = initialize_database()
+    try:
+        with Session(engine) as session, session.begin():
+            row = session.get(CaseRow, case_id)
+            if row is None:
+                raise HTTPException(status_code=404, detail="Case not found")
+            location_override = session.get(CaseMapLocationOverrideRow, case_id)
+            if location_override is None:
+                return {
+                    "reset": False,
+                    "mapLocation": _map_location_payload(case_id, None),
+                }
+            before = {
+                "locations": list(location_override.locations),
+                "note": location_override.note,
+            }
+            session.delete(location_override)
+            timestamp = datetime.now(UTC)
+            refresh_public_case(
+                session,
+                row,
+                session.get(CaseOverrideRow, case_id),
+                now=timestamp,
+            )
+            _audit(
+                session,
+                admin_email=admin_email,
+                action="case.map_location.reset",
+                entity_id=case_id,
+                entity_type="case_map_location",
+                before=before,
+                after=None,
+            )
+            return {
+                "reset": True,
+                "mapLocation": _map_location_payload(case_id, None),
             }
     finally:
         release_database_engine(engine)
@@ -617,6 +909,9 @@ def delete_manual_case(case_id: str, admin_email: str = Depends(require_admin)):
             override = session.get(CaseOverrideRow, case_id)
             if override is not None:
                 session.delete(override)
+            location_override = session.get(CaseMapLocationOverrideRow, case_id)
+            if location_override is not None:
+                session.delete(location_override)
             remove_public_case(session, case_id)
             session.delete(row)
             _audit(

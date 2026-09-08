@@ -58,6 +58,12 @@ is handled by synchronization and administrator initialization paths. Successful
 public GET responses advertise a one-minute browser cache with five minutes of
 stale-while-revalidate coverage.
 
+Map corrections made in the administrator console are stored separately from
+official case payloads. The public nearby-map projection prefers these reviewed
+city/area coordinates, while scheduled source refreshes continue to update the
+official notice without overwriting the correction. Resetting a correction
+returns that case to the generated automatic match or the review queue.
+
 Snapshot synchronization stores canonical fingerprints for merged case payloads
 and normally reads only IDs and hashes before updating changed rows. Per-source
 normalized payloads remain in the versioned `source_cases.json` artifact instead

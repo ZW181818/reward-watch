@@ -62,6 +62,20 @@ class CaseOverrideRow(Base):
     )
 
 
+class CaseMapLocationOverrideRow(Base):
+    """Durable administrator-reviewed map locations for one case."""
+
+    __tablename__ = "case_map_location_overrides"
+
+    case_id: Mapped[str] = mapped_column(String(180), primary_key=True)
+    locations: Mapped[list[dict[str, Any]]] = mapped_column(JSON)
+    note: Mapped[str | None] = mapped_column(Text)
+    updated_by: Mapped[str | None] = mapped_column(String(180))
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(UTC)
+    )
+
+
 class PublicCaseRow(Base):
     """Materialized, reviewed case data used by every public read."""
 
@@ -99,6 +113,16 @@ class PublicCaseAliasRow(Base):
 
     alias_id: Mapped[str] = mapped_column(String(180), primary_key=True)
     case_id: Mapped[str] = mapped_column(String(180), index=True)
+
+
+class PublicCaseMapRow(Base):
+    """Compact public map item, separate from the full case payload."""
+
+    __tablename__ = "public_case_map"
+
+    case_id: Mapped[str] = mapped_column(String(180), primary_key=True)
+    payload: Mapped[dict[str, Any]] = mapped_column(JSON)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
 
 
 class PublicCatalogStateRow(Base):
@@ -179,7 +203,7 @@ def get_database_url() -> str | None:
 _ENGINE_LOCK = RLock()
 _POSTGRES_ENGINES: dict[str, Engine] = {}
 _INITIALIZED_SCHEMAS: set[str] = set()
-_SCHEMA_SENTINEL_TABLE = "snapshot_fingerprints"
+_SCHEMA_SENTINEL_TABLE = "case_map_location_overrides"
 
 
 def _normalized_database_url(database_url: str | None = None) -> str:

@@ -24,9 +24,11 @@ from sqlalchemy import (
 from sqlalchemy.orm import Session
 
 from .database import (
+    CaseMapLocationOverrideRow,
     CaseOverrideRow,
     CaseRow,
     PublicCaseAliasRow,
+    PublicCaseMapRow,
     PublicCaseRegionRow,
     PublicCaseRow,
     PublicCaseSourceRow,
@@ -39,12 +41,20 @@ from .database import (
     initialize_database,
     release_database_engine,
 )
-from .models import CaseFacetOption, CaseFacets, CaseListResponse, RewardCase
+from .map_data import build_case_map_item, get_map_generated_at
+from .models import (
+    CaseFacetOption,
+    CaseFacets,
+    CaseListResponse,
+    CaseMapItem,
+    CaseMapResponse,
+    RewardCase,
+)
 
 
 MANUAL_CASE_PREFIX = "manual-"
 PUBLIC_CATALOG_KEY = "primary"
-PUBLIC_PROJECTION_VERSION = 1
+PUBLIC_PROJECTION_VERSION = 2
 CASE_FINGERPRINT_VERSION = "case-index-v1"
 DELETE_BATCH_SIZE = 400
 SYNC_RUN_RETENTION = 500
@@ -58,14 +68,17 @@ _PUBLIC_CACHE_LOCK = RLock()
 _PUBLIC_PAGE_CACHE: OrderedDict[tuple[Any, ...], tuple[float, CaseListResponse]] = OrderedDict()
 _PUBLIC_DETAIL_CACHE: OrderedDict[str, tuple[float, tuple[bool, RewardCase | None]]] = OrderedDict()
 _PUBLIC_FACET_CACHE: OrderedDict[tuple[Any, ...], tuple[float, CaseFacets]] = OrderedDict()
+_PUBLIC_MAP_CACHE: tuple[float, CaseMapResponse] | None = None
 _PUBLIC_READY_DATABASES: set[str] = set()
 
 
 def clear_public_query_cache() -> None:
+    global _PUBLIC_MAP_CACHE
     with _PUBLIC_CACHE_LOCK:
         _PUBLIC_PAGE_CACHE.clear()
         _PUBLIC_DETAIL_CACHE.clear()
         _PUBLIC_FACET_CACHE.clear()
+        _PUBLIC_MAP_CACHE = None
 
 
 def _clear_public_cache_after_commit(session: Session) -> None:
@@ -206,7 +219,12 @@ def _is_public_override(override: CaseOverrideRow | None) -> bool:
     )
 
 
-def _projection_parts(payload: dict[str, Any], *, timestamp: datetime):
+def _projection_parts(
+    payload: dict[str, Any],
+    *,
+    timestamp: datetime,
+    map_locations: list[dict[str, Any]] | None = None,
+):
     normalized = RewardCase.model_validate(payload).model_dump(mode="json")
     case_id = normalized["id"]
     public_case = PublicCaseRow(
@@ -237,6 +255,16 @@ def _projection_parts(payload: dict[str, Any], *, timestamp: datetime):
         if isinstance(source, dict) and str(source.get("caseId", "")).strip()
     }
     aliases.discard(case_id)
+    map_item = build_case_map_item(normalized, map_locations)
+    map_row = (
+        PublicCaseMapRow(
+            case_id=case_id,
+            payload=map_item.model_dump(mode="json"),
+            updated_at=timestamp,
+        )
+        if map_item is not None
+        else None
+    )
 
     return (
         public_case,
@@ -249,6 +277,7 @@ def _projection_parts(payload: dict[str, Any], *, timestamp: datetime):
             for key, value in sorted(sources_by_key.items())
         ],
         [PublicCaseAliasRow(alias_id=alias, case_id=case_id) for alias in sorted(aliases)],
+        map_row,
     )
 
 
@@ -261,6 +290,7 @@ def _chunks(values: Iterable[str]) -> Iterable[list[str]]:
 def _delete_public_projection(session: Session, case_ids: Iterable[str]) -> None:
     for batch in _chunks(case_ids):
         session.execute(delete(PublicCaseAliasRow).where(PublicCaseAliasRow.case_id.in_(batch)))
+        session.execute(delete(PublicCaseMapRow).where(PublicCaseMapRow.case_id.in_(batch)))
         session.execute(delete(PublicCaseRegionRow).where(PublicCaseRegionRow.case_id.in_(batch)))
         session.execute(delete(PublicCaseSourceRow).where(PublicCaseSourceRow.case_id.in_(batch)))
         session.execute(delete(PublicCaseRow).where(PublicCaseRow.id.in_(batch)))
@@ -281,22 +311,36 @@ def _replace_public_projection(
     region_rows: list[PublicCaseRegionRow] = []
     source_rows: list[PublicCaseSourceRow] = []
     alias_rows: list[PublicCaseAliasRow] = []
+    map_rows: list[PublicCaseMapRow] = []
+    row_ids = [row.id for row, _ in rows]
+    map_overrides = {
+        override.case_id: override.locations
+        for override in session.scalars(
+            select(CaseMapLocationOverrideRow).where(
+                CaseMapLocationOverrideRow.case_id.in_(row_ids)
+            )
+        ).all()
+    } if row_ids else {}
     for row, override in rows:
         if not _is_public_override(override):
             continue
-        public_case, regions, sources, aliases = _projection_parts(
+        public_case, regions, sources, aliases, map_row = _projection_parts(
             _effective_payload(row, override),
             timestamp=timestamp,
+            map_locations=map_overrides.get(row.id),
         )
         public_rows.append(public_case)
         region_rows.extend(regions)
         source_rows.extend(sources)
         alias_rows.extend(aliases)
+        if map_row is not None:
+            map_rows.append(map_row)
 
     session.add_all(public_rows)
     session.add_all(region_rows)
     session.add_all(source_rows)
     session.add_all(alias_rows)
+    session.add_all(map_rows)
 
 
 def _catalog_state(session: Session) -> PublicCatalogStateRow | None:
@@ -388,6 +432,7 @@ def _rebuild_public_catalog(
         for override in session.scalars(select(CaseOverrideRow)).all()
     }
     session.execute(delete(PublicCaseAliasRow))
+    session.execute(delete(PublicCaseMapRow))
     session.execute(delete(PublicCaseRegionRow))
     session.execute(delete(PublicCaseSourceRow))
     session.execute(delete(PublicCaseRow))
@@ -864,6 +909,45 @@ def load_database_case(
                     result,
                     max_size=PUBLIC_DETAIL_CACHE_SIZE,
                 )
+            return result
+    finally:
+        release_database_engine(engine)
+
+
+def query_database_case_map(
+    database_url: str | None = None,
+) -> CaseMapResponse | None:
+    global _PUBLIC_MAP_CACHE
+
+    if database_url is None:
+        with _PUBLIC_CACHE_LOCK:
+            if _PUBLIC_MAP_CACHE is not None:
+                expires_at, cached = _PUBLIC_MAP_CACHE
+                if expires_at > monotonic():
+                    return cached.model_copy(deep=True)
+                _PUBLIC_MAP_CACHE = None
+
+    production_database_key = get_database_url() if database_url is None else None
+    engine = create_database_engine(database_url)
+    try:
+        with Session(engine) as session:
+            if not _catalog_is_ready(session, cache_key=production_database_key):
+                return None
+            payloads = session.scalars(
+                select(PublicCaseMapRow.payload).order_by(PublicCaseMapRow.case_id.asc())
+            ).all()
+            items = [CaseMapItem.model_validate(payload) for payload in payloads]
+            result = CaseMapResponse(
+                items=items,
+                total=len(items),
+                generatedAt=get_map_generated_at(),
+            )
+            if database_url is None:
+                with _PUBLIC_CACHE_LOCK:
+                    _PUBLIC_MAP_CACHE = (
+                        monotonic() + PUBLIC_CACHE_TTL_SECONDS,
+                        result.model_copy(deep=True),
+                    )
             return result
     finally:
         release_database_engine(engine)

@@ -1,6 +1,11 @@
 import { Platform } from 'react-native';
 
-import type { CaseListResponse, RewardCase, RewardCountry } from '@/types/reward-case';
+import type {
+  CaseListResponse,
+  CaseMapResponse,
+  RewardCase,
+  RewardCountry,
+} from '@/types/reward-case';
 import type { HomeSettings } from '@/lib/admin-api';
 
 const fallbackApiBaseUrl = Platform.select({
@@ -72,6 +77,16 @@ export async function fetchCase(id: string): Promise<RewardCase> {
 
   if (!response.ok) {
     throw new Error(`Case request failed with status ${response.status}`);
+  }
+
+  return response.json();
+}
+
+export async function fetchCaseMap(signal?: AbortSignal): Promise<CaseMapResponse> {
+  const response = await fetch(`${API_BASE_URL}/cases/nearby-index`, { signal });
+
+  if (!response.ok) {
+    throw new Error(`Case map request failed with status ${response.status}`);
   }
 
   return response.json();

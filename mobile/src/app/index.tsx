@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'expo-router';
+import { Link, type Href } from 'expo-router';
 import { SymbolView, type SymbolViewProps } from 'expo-symbols';
 import {
   ActivityIndicator,
@@ -66,6 +66,12 @@ export default function HomeScreen() {
   const { width } = useWindowDimensions();
   const isWide = width >= 820;
   const debouncedQuery = useDebouncedValue(query, 300);
+  const nearbyLabel = {
+    en: 'Nearby map',
+    zh: '附近地图',
+    fr: 'Carte à proximité',
+    es: 'Mapa cercano',
+  }[language];
 
   useEffect(() => {
     fetchHomeSettings()
@@ -178,6 +184,17 @@ export default function HomeScreen() {
               )}
               </View>
             </View>
+
+            <Link href={'/nearby' as Href} asChild>
+              <Pressable accessibilityRole="link" style={styles.nearbyButton}>
+                <SymbolView
+                  name={{ ios: 'map.fill', android: 'map', web: 'map' }}
+                  size={17}
+                  tintColor="#FFFFFF"
+                />
+                <Text style={styles.nearbyButtonText}>{nearbyLabel}</Text>
+              </Pressable>
+            </Link>
 
             <Link href="/favorites" asChild>
               <Pressable accessibilityRole="link" style={styles.savedButton}>
@@ -720,6 +737,24 @@ const styles = createThemedStyles({
     gap: 7,
     paddingHorizontal: 13,
     paddingVertical: 10,
+  },
+  nearbyButton: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: '#5B4DFF',
+    borderColor: '#5B4DFF',
+    borderRadius: 12,
+    borderWidth: 1,
+    flexDirection: 'row',
+    gap: 7,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    boxShadow: '0 12px 24px rgba(91, 77, 255, 0.20)',
+  },
+  nearbyButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '900',
   },
   savedButtonText: {
     color: '#5B4DFF',

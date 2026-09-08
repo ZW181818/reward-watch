@@ -97,6 +97,17 @@ jobs:
             python backend/scripts/update_cases.py --strict --skip-database
           fi
 
+      - name: Cache GeoNames city data
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/reward-watch-cities500.zip
+          key: geonames-cities500-v1
+
+      - name: Build public map locations
+        run: >-
+          python backend/scripts/build_case_map_locations.py
+          --geonames-zip "${{ runner.temp }}/reward-watch-cities500.zip"
+
       - name: Validate generated snapshot
         env:
           REFRESH_OUTCOME: ${{ steps.refresh.outcome }}
@@ -154,13 +165,13 @@ jobs:
       - name: Commit changed data
         shell: bash
         run: |
-          if [ -z "$(git status --porcelain -- backend/data/cases.json backend/data/source_cases.json backend/data/update_status.json backend/data/data_quality_report.json backend/data/media/texas-dps backend/data/media/china-police)" ]; then
+          if [ -z "$(git status --porcelain -- backend/data/cases.json backend/data/source_cases.json backend/data/update_status.json backend/data/data_quality_report.json backend/data/case_map_locations.json backend/data/media/texas-dps backend/data/media/china-police)" ]; then
             echo "Official data is unchanged."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add backend/data/cases.json backend/data/source_cases.json backend/data/update_status.json backend/data/data_quality_report.json backend/data/media/texas-dps backend/data/media/china-police
+          git add backend/data/cases.json backend/data/source_cases.json backend/data/update_status.json backend/data/data_quality_report.json backend/data/case_map_locations.json backend/data/media/texas-dps backend/data/media/china-police
           git commit -m "chore(data): refresh official cases"
           git push
 

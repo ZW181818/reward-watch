@@ -1,0 +1,5759 @@
+{
+  "generatedAt": "2026-09-08T12:27:40.171037+00:00",
+  "sourceFingerprint": "a1ac74c9b0f5e5d81dd3877adb42b96e0eeb730bf57747721f9eaf12b61ced0f",
+  "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
+  "precisionCounts": {
+    "city": 390,
+    "region": 176
+  },
+  "unresolved": [
+    "Air Ronge, Saskatchewan",
+    "Barrow, Georgia",
+    "Big River First Nation, Saskatchewan",
+    "Caret, Virginia",
+    "Cary, Mississippi",
+    "Colony Ridge, Texas",
+    "Colorado, Wyoming",
+    "Columbia, District of Columbia",
+    "Creek, Oklahoma",
+    "Cut Knife, Saskatchewan",
+    "Debden, Saskatchewan",
+    "Deschambault Lake, Saskatchewan",
+    "Emery, Utah",
+    "Essex County, New Jersey",
+    "Guaynabo, Puerto Rico",
+    "Harris County, Houston, Texas",
+    "Howard, Maryland",
+    "Jersey, Virginia",
+    "La Grange, California",
+    "Malott, Washington",
+    "McDowell, West Virginia",
+    "Panorama City, California",
+    "Pelican Lake, Saskatchewan",
+    "Redberry, Saskatchewan",
+    "San Juan, Puerto Rico",
+    "San Rafael and San Fidel, New Mexico",
+    "Sandy Bay, Saskatchewan",
+    "Seeking Information About an Ongoing Investigation in Smith Station, Arizona",
+    "Sherman Oaks, Tarzana, and Valley Village, California",
+    "St. Albert, Ontario",
+    "Stanley Mission, Saskatchewan",
+    "Taiban, New Mexico",
+    "Wallace, California",
+    "Waverly, Georgia",
+    "West Shore, British Columbia",
+    "Wikieup, Arizona",
+    "Wildomar, CA, California",
+    "Wilson Creek, Washington"
+  ],
+  "cases": {
+    "rcmp-bc-4356590-dallas-lee-blanchette": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1974": [
+      {
+        "label": "San Antonio, Texas",
+        "latitude": 29.42412,
+        "longitude": -98.49363,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-dillon-sewap": [
+      {
+        "label": "La Ronge, Saskatchewan",
+        "latitude": 55.10013,
+        "longitude": -105.28422,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "Pelican Narrows, Saskatchewan",
+        "latitude": 55.16685,
+        "longitude": -102.9341,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-jonathan-bear": [
+      {
+        "label": "Yorkton, Saskatchewan",
+        "latitude": 51.2167,
+        "longitude": -102.46766,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-daniel-ratt": [
+      {
+        "label": "La Ronge, Saskatchewan",
+        "latitude": 55.10013,
+        "longitude": -105.28422,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-dakota-matchee": [
+      {
+        "label": "Swift Current, Saskatchewan",
+        "latitude": 50.28337,
+        "longitude": -107.80135,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "La Ronge, Saskatchewan",
+        "latitude": 55.10013,
+        "longitude": -105.28422,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "Prince Albert, Saskatchewan",
+        "latitude": 53.20008,
+        "longitude": -105.76772,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-ricky-gagne": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-jonas-sewap": [
+      {
+        "label": "Pelican Narrows, Saskatchewan",
+        "latitude": 55.16685,
+        "longitude": -102.9341,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4356367-george-lincoln": [
+      {
+        "label": "Terrace, British Columbia",
+        "latitude": 54.51634,
+        "longitude": -128.60345,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-20318": [
+      {
+        "label": "San Bruno, California",
+        "latitude": 37.63049,
+        "longitude": -122.41108,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1971": [
+      {
+        "label": "Greenville, Texas",
+        "latitude": 33.13845,
+        "longitude": -96.11081,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-20310": [
+      {
+        "label": "Hayward, California",
+        "latitude": 37.66882,
+        "longitude": -122.0808,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-20307": [
+      {
+        "label": "Albuquerque, New Mexico",
+        "latitude": 35.08449,
+        "longitude": -106.65114,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-20286": [
+      {
+        "label": "Las Cruces, New Mexico",
+        "latitude": 32.31232,
+        "longitude": -106.77834,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-20283": [
+      {
+        "label": "Salem, New Mexico",
+        "latitude": 32.70758,
+        "longitude": -107.21308,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-dennikia-rachelle-boyce": [
+      {
+        "label": "Chesterfield, Virginia",
+        "latitude": 37.37709,
+        "longitude": -77.50499,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-20267": [
+      {
+        "label": "San Bruno, California",
+        "latitude": 37.63049,
+        "longitude": -122.41108,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      },
+      {
+        "label": "Alameda, California",
+        "latitude": 37.77099,
+        "longitude": -122.26087,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "txdps-596": [
+      {
+        "label": "Trophy Club, Texas",
+        "latitude": 32.9979,
+        "longitude": -97.18362,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1895": [
+      {
+        "label": "Fort Worth, Texas",
+        "latitude": 32.72541,
+        "longitude": -97.32085,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-685": [
+      {
+        "label": "Austin, Texas",
+        "latitude": 30.26715,
+        "longitude": -97.74306,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-36": [
+      {
+        "label": "Lufkin, Texas",
+        "latitude": 31.33824,
+        "longitude": -94.7291,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-632": [
+      {
+        "label": "Mabank, Texas",
+        "latitude": 32.36653,
+        "longitude": -96.10081,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-566": [
+      {
+        "label": "Coldspring, Texas",
+        "latitude": 30.59242,
+        "longitude": -95.12938,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-181": [
+      {
+        "label": "Blue Mound, Texas",
+        "latitude": 32.85652,
+        "longitude": -97.33891,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-681": [
+      {
+        "label": "Cleveland, Texas",
+        "latitude": 30.34132,
+        "longitude": -95.08549,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-592": [
+      {
+        "label": "Odessa, Texas",
+        "latitude": 31.84568,
+        "longitude": -102.36764,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1962": [
+      {
+        "label": "Lockhart, Texas",
+        "latitude": 29.88494,
+        "longitude": -97.67,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-799": [
+      {
+        "label": "Grand Prairie, Texas",
+        "latitude": 32.74596,
+        "longitude": -96.99778,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-549": [
+      {
+        "label": "La Grulla, Texas",
+        "latitude": 26.26951,
+        "longitude": -98.64725,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-712": [
+      {
+        "label": "Waco, Texas",
+        "latitude": 31.54933,
+        "longitude": -97.14667,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-7": [
+      {
+        "label": "Austin, Texas",
+        "latitude": 30.26715,
+        "longitude": -97.74306,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1900": [
+      {
+        "label": "Pharr, Texas",
+        "latitude": 26.1948,
+        "longitude": -98.18362,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-18": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-643": [
+      {
+        "label": "McAllen, Texas",
+        "latitude": 26.20341,
+        "longitude": -98.23001,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-197": [
+      {
+        "label": "San Antonio, Texas",
+        "latitude": 29.42412,
+        "longitude": -98.49363,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1965": [
+      {
+        "label": "Groves, Texas",
+        "latitude": 29.94827,
+        "longitude": -93.91712,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-709": [
+      {
+        "label": "Marshall, Texas",
+        "latitude": 32.54487,
+        "longitude": -94.36742,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-714": [
+      {
+        "label": "Dripping Springs, Texas",
+        "latitude": 30.19021,
+        "longitude": -98.08668,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-802": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1854": [
+      {
+        "label": "Lancaster, Texas",
+        "latitude": 32.59208,
+        "longitude": -96.75611,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1880": [
+      {
+        "label": "Dallas, Texas",
+        "latitude": 32.78306,
+        "longitude": -96.80667,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-35": [
+      {
+        "label": "Austin, Texas",
+        "latitude": 30.26715,
+        "longitude": -97.74306,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-466": [
+      {
+        "label": "Angleton, Texas",
+        "latitude": 29.16941,
+        "longitude": -95.43188,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-450": [
+      {
+        "label": "El Paso, Texas",
+        "latitude": 31.75872,
+        "longitude": -106.48693,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-679": [
+      {
+        "label": "Conroe, Texas",
+        "latitude": 30.31188,
+        "longitude": -95.45605,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-201": [
+      {
+        "label": "Dallas, Texas",
+        "latitude": 32.78306,
+        "longitude": -96.80667,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1836": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-16": [
+      {
+        "label": "Dallas, Texas",
+        "latitude": 32.78306,
+        "longitude": -96.80667,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-196": [
+      {
+        "label": "Spring, Texas",
+        "latitude": 30.07994,
+        "longitude": -95.41716,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-162": [
+      {
+        "label": "Laredo, Texas",
+        "latitude": 27.50641,
+        "longitude": -99.50754,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-215": [
+      {
+        "label": "Grapevine, Texas",
+        "latitude": 32.93429,
+        "longitude": -97.07807,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-323": [
+      {
+        "label": "Dilley, Texas",
+        "latitude": 28.66748,
+        "longitude": -99.17059,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-156": [
+      {
+        "label": "San Elizario, Texas",
+        "latitude": 31.58511,
+        "longitude": -106.27276,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-414": [
+      {
+        "label": "Electra, Texas",
+        "latitude": 34.02926,
+        "longitude": -98.91896,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1872": [
+      {
+        "label": "Austin, Texas",
+        "latitude": 30.26715,
+        "longitude": -97.74306,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1864": [
+      {
+        "label": "San Antonio, Texas",
+        "latitude": 29.42412,
+        "longitude": -98.49363,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1956": [
+      {
+        "label": "Palacios, Texas",
+        "latitude": 28.70805,
+        "longitude": -96.21747,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-39": [
+      {
+        "label": "Abilene, Texas",
+        "latitude": 32.44874,
+        "longitude": -99.73314,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1964": [
+      {
+        "label": "San Antonio, Texas",
+        "latitude": 29.42412,
+        "longitude": -98.49363,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-249": [
+      {
+        "label": "Dallas, Texas",
+        "latitude": 32.78306,
+        "longitude": -96.80667,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1863": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1862": [
+      {
+        "label": "Fabens, Texas",
+        "latitude": 31.50234,
+        "longitude": -106.15859,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1938": [
+      {
+        "label": "Frisco, Texas",
+        "latitude": 33.15067,
+        "longitude": -96.82361,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-25": [
+      {
+        "label": "El Paso, Texas",
+        "latitude": 31.75872,
+        "longitude": -106.48693,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-507": [
+      {
+        "label": "Grand Prairie, Texas",
+        "latitude": 32.74596,
+        "longitude": -96.99778,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-708": [
+      {
+        "label": "El Paso, Texas",
+        "latitude": 31.75872,
+        "longitude": -106.48693,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-815": [
+      {
+        "label": "Sherman, Texas",
+        "latitude": 33.63566,
+        "longitude": -96.60888,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-2": [
+      {
+        "label": "Weslaco, Texas",
+        "latitude": 26.15952,
+        "longitude": -97.99084,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1952": [
+      {
+        "label": "New Braunfels, Texas",
+        "latitude": 29.703,
+        "longitude": -98.12445,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-710": [
+      {
+        "label": "Irving, Texas",
+        "latitude": 32.81402,
+        "longitude": -96.94889,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1846": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "txdps-93": [
+      {
+        "label": "Edinburg, Texas",
+        "latitude": 26.30174,
+        "longitude": -98.16334,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-723": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1967": [
+      {
+        "label": "Plano, Texas",
+        "latitude": 33.01984,
+        "longitude": -96.69889,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1869": [
+      {
+        "label": "McAllen, Texas",
+        "latitude": 26.20341,
+        "longitude": -98.23001,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1927": [
+      {
+        "label": "Amarillo, Texas",
+        "latitude": 35.222,
+        "longitude": -101.8313,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-86": [
+      {
+        "label": "Dallas, Texas",
+        "latitude": 32.78306,
+        "longitude": -96.80667,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-602": [
+      {
+        "label": "Edinburg, Texas",
+        "latitude": 26.30174,
+        "longitude": -98.16334,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-827": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-371": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-580": [
+      {
+        "label": "Gatesville, Texas",
+        "latitude": 31.43516,
+        "longitude": -97.74391,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-231": [
+      {
+        "label": "El Paso, Texas",
+        "latitude": 31.75872,
+        "longitude": -106.48693,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-629": [
+      {
+        "label": "Austin, Texas",
+        "latitude": 30.26715,
+        "longitude": -97.74306,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1950": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "txdps-560": [
+      {
+        "label": "Midland, Texas",
+        "latitude": 31.99735,
+        "longitude": -102.07791,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-114": [
+      {
+        "label": "Goliad, Texas",
+        "latitude": 28.66833,
+        "longitude": -97.38833,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1942": [
+      {
+        "label": "Dallas, Texas",
+        "latitude": 32.78306,
+        "longitude": -96.80667,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1849": [
+      {
+        "label": "Edinburg, Texas",
+        "latitude": 26.30174,
+        "longitude": -98.16334,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-831": [
+      {
+        "label": "Fort Worth, Texas",
+        "latitude": 32.72541,
+        "longitude": -97.32085,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1949": [
+      {
+        "label": "Fort Worth, Texas",
+        "latitude": 32.72541,
+        "longitude": -97.32085,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-dexter-lamar-scales-sr": [
+      {
+        "label": "Greensboro, North Carolina",
+        "latitude": 36.07264,
+        "longitude": -79.79198,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4355482-mranda-may-dumont": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-jacqua-cowan": [
+      {
+        "label": "Albany, New York",
+        "latitude": 42.65258,
+        "longitude": -73.75623,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4355223-darcy-kris-l-hirondelle": [
+      {
+        "label": "Kamloops, British Columbia",
+        "latitude": 50.66648,
+        "longitude": -120.3192,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-20234": [
+      {
+        "label": "Riverside, California",
+        "latitude": 33.95335,
+        "longitude": -117.39616,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-joquan-antonio-porter": [
+      {
+        "label": "Norfolk, Virginia",
+        "latitude": 36.84681,
+        "longitude": -76.28522,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-kaiseem-smith": [
+      {
+        "label": "Philadelphia, Pennsylvania",
+        "latitude": 39.95238,
+        "longitude": -75.16362,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-david-anthony-sawicki": [
+      {
+        "label": "Akron, Ohio",
+        "latitude": 41.08144,
+        "longitude": -81.51901,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-20139": [
+      {
+        "label": "Buffalo, New York",
+        "latitude": 42.88645,
+        "longitude": -78.87837,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-20108": [
+      {
+        "label": "Little Rock, Arkansas",
+        "latitude": 34.74648,
+        "longitude": -92.28959,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19019": [
+      {
+        "label": "Richmond, California",
+        "latitude": 37.93576,
+        "longitude": -122.34775,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4352826-mildred-wilson": [
+      {
+        "label": "Prince Rupert, British Columbia",
+        "latitude": 54.31507,
+        "longitude": -130.32098,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-jayden-tynes-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-20027": [
+      {
+        "label": "Norfolk, Virginia",
+        "latitude": 36.84681,
+        "longitude": -76.28522,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4352384-mani-chopra": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4352121-bryce-raymond-cote": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19974": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4351903-roger-brace": [
+      {
+        "label": "Hope, British Columbia",
+        "latitude": 49.38299,
+        "longitude": -121.44144,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4351819-clint-billy": [
+      {
+        "label": "Nanaimo, British Columbia",
+        "latitude": 49.16638,
+        "longitude": -123.94003,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4351777-julian-robinson": [
+      {
+        "label": "Kamloops, British Columbia",
+        "latitude": 50.66648,
+        "longitude": -120.3192,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4351765-derek-jordan-tyshawn-levac": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19919": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19915": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19912": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-cortrell-thomas-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "eps-devinnorgaard": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4351514-kyle-gary-anderson": [
+      {
+        "label": "Cranbrook, British Columbia",
+        "latitude": 49.49991,
+        "longitude": -115.76879,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4351488-james-smart": [
+      {
+        "label": "Maple Ridge, British Columbia",
+        "latitude": 49.21939,
+        "longitude": -122.60193,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-isaac-downey-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "rcmp-bc-4351312-joel-allan-angus": [
+      {
+        "label": "Terrace, British Columbia",
+        "latitude": 54.51634,
+        "longitude": -128.60345,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19850": [
+      {
+        "label": "California",
+        "latitude": 36.1162,
+        "longitude": -119.6816,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-19790": [
+      {
+        "label": "Bronx, New York",
+        "latitude": 40.84985,
+        "longitude": -73.86641,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19721": [
+      {
+        "label": "Riverside, California",
+        "latitude": 33.95335,
+        "longitude": -117.39616,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19699": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-19661": [
+      {
+        "label": "Vallejo, California",
+        "latitude": 38.10409,
+        "longitude": -122.25664,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19641": [
+      {
+        "label": "Boston, Massachusetts",
+        "latitude": 42.35843,
+        "longitude": -71.05977,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19615": [
+      {
+        "label": "Baton Rouge, Louisiana",
+        "latitude": 30.44332,
+        "longitude": -91.18747,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19597": [
+      {
+        "label": "Sardis, Mississippi",
+        "latitude": 34.43705,
+        "longitude": -89.91592,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19589": [
+      {
+        "label": "Grand Tower, Illinois",
+        "latitude": 37.62644,
+        "longitude": -89.49787,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19584": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19575": [
+      {
+        "label": "Vallejo, California",
+        "latitude": 38.10409,
+        "longitude": -122.25664,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19525": [
+      {
+        "label": "Albuquerque, New Mexico",
+        "latitude": 35.08449,
+        "longitude": -106.65114,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19531": [
+      {
+        "label": "Buffalo, New York",
+        "latitude": 42.88645,
+        "longitude": -78.87837,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19540": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19512": [
+      {
+        "label": "Pinehurst, Texas",
+        "latitude": 30.17105,
+        "longitude": -95.68245,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19492": [
+      {
+        "label": "Columbia, South Carolina",
+        "latitude": 34.00071,
+        "longitude": -81.03481,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19470": [
+      {
+        "label": "Orlando, Florida",
+        "latitude": 28.53834,
+        "longitude": -81.37924,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "fq-jean-francois-malo": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-19451": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-19444": [
+      {
+        "label": "Charlotte, North Carolina",
+        "latitude": 35.22709,
+        "longitude": -80.84313,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19407": [
+      {
+        "label": "Peralta, New Mexico",
+        "latitude": 34.837,
+        "longitude": -106.69058,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19386": [
+      {
+        "label": "Alameda, California",
+        "latitude": 37.77099,
+        "longitude": -122.26087,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19358": [
+      {
+        "label": "Fairfax, Virginia",
+        "latitude": 38.84622,
+        "longitude": -77.30637,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19303": [
+      {
+        "label": "Jersey City, New Jersey",
+        "latitude": 40.72816,
+        "longitude": -74.07764,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19275": [
+      {
+        "label": "Rochester, New York",
+        "latitude": 43.15478,
+        "longitude": -77.61556,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19253": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-19258": [
+      {
+        "label": "Alexandria, Virginia",
+        "latitude": 38.80484,
+        "longitude": -77.04692,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19234": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-19166": [
+      {
+        "label": "Brooklyn, New York",
+        "latitude": 40.6501,
+        "longitude": -73.94958,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19114": [
+      {
+        "label": "Compton, California",
+        "latitude": 33.89585,
+        "longitude": -118.22007,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19101": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-19095": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-19032": [
+      {
+        "label": "Silver Spring, Maryland",
+        "latitude": 38.99067,
+        "longitude": -77.02609,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "vpd-52534-omid-mashinchi": [
+      {
+        "label": "Vancouver, British Columbia",
+        "latitude": 49.24966,
+        "longitude": -123.11934,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "vpd-52534-amir-navarchi": [
+      {
+        "label": "Vancouver, British Columbia",
+        "latitude": 49.24966,
+        "longitude": -123.11934,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19015": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-19008": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "fq-gianpietro-tiberio": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-18612": [
+      {
+        "label": "Bronx, New York",
+        "latitude": 40.84985,
+        "longitude": -73.86641,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18602": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-18476": [
+      {
+        "label": "Richmond, California",
+        "latitude": 37.93576,
+        "longitude": -122.34775,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18457": [
+      {
+        "label": "Brooklyn, New York",
+        "latitude": 40.6501,
+        "longitude": -73.94958,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-lilly-and-jack-sullivan-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-18441": [
+      {
+        "label": "Los Angeles, California",
+        "latitude": 34.05223,
+        "longitude": -118.24368,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "eps-rathunanrajendran": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18416": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-denarii-kadeem-springs": [
+      {
+        "label": "Sunbury, Pennsylvania",
+        "latitude": 40.86259,
+        "longitude": -76.79441,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-malachi-allah-darden": [
+      {
+        "label": "Scranton, Pennsylvania",
+        "latitude": 41.40916,
+        "longitude": -75.6649,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "fq-tommy-bernier-thibault": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-18329": [
+      {
+        "label": "Sunrise, Florida",
+        "latitude": 26.13397,
+        "longitude": -80.1131,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18333": [
+      {
+        "label": "Irvine, California",
+        "latitude": 33.66946,
+        "longitude": -117.82311,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18336": [
+      {
+        "label": "Bronx, New York",
+        "latitude": 40.84985,
+        "longitude": -73.86641,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-oren-williams-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-18299": [
+      {
+        "label": "Bethesda, Maryland",
+        "latitude": 38.98067,
+        "longitude": -77.10026,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18295": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-18233": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-zachery-vaughan-kellock-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-18230": [
+      {
+        "label": "Wilmington, Delaware",
+        "latitude": 39.74595,
+        "longitude": -75.54659,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17389": [
+      {
+        "label": "New Haven, Connecticut",
+        "latitude": 41.30815,
+        "longitude": -72.92816,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18160": [
+      {
+        "label": "Durham, North Carolina",
+        "latitude": 35.99403,
+        "longitude": -78.89862,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18146": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18136": [
+      {
+        "label": "Rockville, Maryland",
+        "latitude": 39.084,
+        "longitude": -77.15276,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18213": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-bryson-jamel-bradley": [
+      {
+        "label": "North Carolina",
+        "latitude": 35.6301,
+        "longitude": -79.8064,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-18126": [
+      {
+        "label": "Washington, District of Columbia",
+        "latitude": 38.89511,
+        "longitude": -77.03637,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18108": [
+      {
+        "label": "Vallejo, California",
+        "latitude": 38.10409,
+        "longitude": -122.25664,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18100": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-luis-soto": [
+      {
+        "label": "Brockton, Massachusetts",
+        "latitude": 42.08343,
+        "longitude": -71.01838,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-18000": [
+      {
+        "label": "Alabama",
+        "latitude": 32.8067,
+        "longitude": -86.7911,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17984": [
+      {
+        "label": "Illinois",
+        "latitude": 40.3495,
+        "longitude": -88.9861,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17981": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-john-matthew-nigh": [
+      {
+        "label": "North Carolina",
+        "latitude": 35.6301,
+        "longitude": -79.8064,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17961": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17931": [
+      {
+        "label": "New York, New York",
+        "latitude": 40.71427,
+        "longitude": -74.00597,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17921": [
+      {
+        "label": "HOUSTON, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17899": [
+      {
+        "label": "Ocoee, Florida",
+        "latitude": 28.56917,
+        "longitude": -81.54396,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17844": [
+      {
+        "label": "Denver, Colorado",
+        "latitude": 39.73915,
+        "longitude": -104.9847,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17841": [
+      {
+        "label": "Colorado",
+        "latitude": 39.0598,
+        "longitude": -105.3111,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17838": [
+      {
+        "label": "Denver, Colorado",
+        "latitude": 39.73915,
+        "longitude": -104.9847,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17822": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17807": [
+      {
+        "label": "Memphis, Tennessee",
+        "latitude": 35.14953,
+        "longitude": -90.04898,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17737": [
+      {
+        "label": "Scottdale, Georgia",
+        "latitude": 33.78983,
+        "longitude": -84.26409,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-oswaldo-perez-sanchez": [
+      {
+        "label": "Las Vegas, Nevada",
+        "latitude": 36.17497,
+        "longitude": -115.13722,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17730": [
+      {
+        "label": "New York, New York",
+        "latitude": 40.71427,
+        "longitude": -74.00597,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17715": [
+      {
+        "label": "Memphis, Tennessee",
+        "latitude": 35.14953,
+        "longitude": -90.04898,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-geovanni-otero": [
+      {
+        "label": "Philadelphia, Pennsylvania",
+        "latitude": 39.95238,
+        "longitude": -75.16362,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17688": [
+      {
+        "label": "Antioch, California",
+        "latitude": 38.00492,
+        "longitude": -121.80579,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17673": [
+      {
+        "label": "Kentucky",
+        "latitude": 37.6681,
+        "longitude": -84.6701,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17676": [
+      {
+        "label": "Memphis, Tennessee",
+        "latitude": 35.14953,
+        "longitude": -90.04898,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17679": [
+      {
+        "label": "Los Angeles, California",
+        "latitude": 34.05223,
+        "longitude": -118.24368,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17657": [
+      {
+        "label": "Augusta, Georgia",
+        "latitude": 33.47097,
+        "longitude": -81.97484,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17637": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17625": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17610": [
+      {
+        "label": "Denver, Colorado",
+        "latitude": 39.73915,
+        "longitude": -104.9847,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17603": [
+      {
+        "label": "Brooklyn, New York",
+        "latitude": 40.6501,
+        "longitude": -73.94958,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "fq-dylan-denis": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17596": [
+      {
+        "label": "Denver, Colorado",
+        "latitude": 39.73915,
+        "longitude": -104.9847,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17523": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17432": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17423": [
+      {
+        "label": "Studio City, California",
+        "latitude": 34.14862,
+        "longitude": -118.39647,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17416": [
+      {
+        "label": "Memphis, Tennessee",
+        "latitude": 35.14953,
+        "longitude": -90.04898,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "cfseu-bc-8005-brandon-james-richter": [
+      {
+        "label": "Fort Nelson, British Columbia",
+        "latitude": 58.80533,
+        "longitude": -122.7002,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17398": [
+      {
+        "label": "San Francisco, California",
+        "latitude": 37.77493,
+        "longitude": -122.41942,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17395": [
+      {
+        "label": "San Francisco, California",
+        "latitude": 37.77493,
+        "longitude": -122.41942,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17392": [
+      {
+        "label": "San Francisco, California",
+        "latitude": 37.77493,
+        "longitude": -122.41942,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-raqwean-jarrel-savage": [
+      {
+        "label": "Asheville, North Carolina",
+        "latitude": 35.60095,
+        "longitude": -82.55402,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17362": [
+      {
+        "label": "Middle River, Maryland",
+        "latitude": 39.33427,
+        "longitude": -76.43941,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17334": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17327": [
+      {
+        "label": "Lake Worth, Florida",
+        "latitude": 26.61708,
+        "longitude": -80.07231,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17301": [
+      {
+        "label": "Stockton, California",
+        "latitude": 37.9577,
+        "longitude": -121.29078,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17293": [
+      {
+        "label": "Grandview, Missouri",
+        "latitude": 38.88584,
+        "longitude": -94.53301,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "fq-dave-turmel": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17245": [
+      {
+        "label": "Detroit, Michigan",
+        "latitude": 42.33143,
+        "longitude": -83.04575,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17238": [
+      {
+        "label": "Brooklyn, New York",
+        "latitude": 40.6501,
+        "longitude": -73.94958,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17207": [
+      {
+        "label": "Sacramento, California",
+        "latitude": 38.58157,
+        "longitude": -121.4944,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17191": [
+      {
+        "label": "Kissimmee, Florida",
+        "latitude": 28.30468,
+        "longitude": -81.41667,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17171": [
+      {
+        "label": "Orlando, Florida",
+        "latitude": 28.53834,
+        "longitude": -81.37924,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17154": [
+      {
+        "label": "Memphis, Tennessee",
+        "latitude": 35.14953,
+        "longitude": -90.04898,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17105": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17043": [
+      {
+        "label": "Greensboro, North Carolina",
+        "latitude": 36.07264,
+        "longitude": -79.79198,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-joshua-zimmerman": [
+      {
+        "label": "Hernando, Mississippi",
+        "latitude": 34.82399,
+        "longitude": -89.9937,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17024": [
+      {
+        "label": "Cucamonga, California",
+        "latitude": 34.1064,
+        "longitude": -117.59311,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-17011": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "fq-maxime-paquette": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "fq-juan-pablo-serrano": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17003": [
+      {
+        "label": "Illinois",
+        "latitude": 40.3495,
+        "longitude": -88.9861,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-17000": [
+      {
+        "label": "Fort Worth, Texas",
+        "latitude": 32.72541,
+        "longitude": -97.32085,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16976": [
+      {
+        "label": "Kansas City, Missouri",
+        "latitude": 39.09973,
+        "longitude": -94.57857,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16942": [
+      {
+        "label": "Dublin, California",
+        "latitude": 37.70215,
+        "longitude": -121.93579,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-isaiah-daqwon-harris": [
+      {
+        "label": "Hampton, Virginia",
+        "latitude": 37.02987,
+        "longitude": -76.34522,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "eps-danielsakchekapo": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16878": [
+      {
+        "label": "Spring, Texas",
+        "latitude": 30.07994,
+        "longitude": -95.41716,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16873": [
+      {
+        "label": "Lakewood, California",
+        "latitude": 33.85363,
+        "longitude": -118.13396,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16862": [
+      {
+        "label": "Cincinnati, Ohio",
+        "latitude": 39.12711,
+        "longitude": -84.51439,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16847": [
+      {
+        "label": "North Hollywood, California",
+        "latitude": 34.17223,
+        "longitude": -118.37897,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16843": [
+      {
+        "label": "Las Vegas, Nevada",
+        "latitude": 36.17497,
+        "longitude": -115.13722,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16811": [
+      {
+        "label": "Charlotte, North Carolina",
+        "latitude": 35.22709,
+        "longitude": -80.84313,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16777": [
+      {
+        "label": "New York, New York",
+        "latitude": 40.71427,
+        "longitude": -74.00597,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16751": [
+      {
+        "label": "Arlington, Texas",
+        "latitude": 32.73569,
+        "longitude": -97.10807,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16744": [
+      {
+        "label": "Colorado Springs, Colorado",
+        "latitude": 38.83388,
+        "longitude": -104.82136,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16721": [
+      {
+        "label": "Austin, Texas",
+        "latitude": 30.26715,
+        "longitude": -97.74306,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16711": [
+      {
+        "label": "Wildomar, California",
+        "latitude": 33.59891,
+        "longitude": -117.28004,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16700": [
+      {
+        "label": "Memphis, Tennessee",
+        "latitude": 35.14953,
+        "longitude": -90.04898,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16645": [
+      {
+        "label": "Oakland, California",
+        "latitude": 37.80437,
+        "longitude": -122.2708,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16551": [
+      {
+        "label": "Queens, New York",
+        "latitude": 40.68149,
+        "longitude": -73.83652,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-quentin-scott": [
+      {
+        "label": "Tennessee",
+        "latitude": 35.7478,
+        "longitude": -86.6923,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      },
+      {
+        "label": "Mississippi",
+        "latitude": 32.7416,
+        "longitude": -89.6787,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-16490": [
+      {
+        "label": "Denver, Colorado",
+        "latitude": 39.73915,
+        "longitude": -104.9847,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16309": [
+      {
+        "label": "Illinois",
+        "latitude": 40.3495,
+        "longitude": -88.9861,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "cfseu-bc-7926-jonathan-erin-clifford": [
+      {
+        "label": "Comox Valley, British Columbia",
+        "latitude": 49.6841,
+        "longitude": -124.9904,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": true
+      }
+    ],
+    "usms-elijah-james-sanders": [
+      {
+        "label": "Hampton, Virginia",
+        "latitude": 37.02987,
+        "longitude": -76.34522,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-nelson-beals-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-16215": [
+      {
+        "label": "Hollywood, California",
+        "latitude": 34.09834,
+        "longitude": -118.32674,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16201": [
+      {
+        "label": "Simi Valley, California",
+        "latitude": 34.26945,
+        "longitude": -118.78148,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16205": [
+      {
+        "label": "Tijeras, New Mexico",
+        "latitude": 35.08088,
+        "longitude": -106.38808,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16208": [
+      {
+        "label": "Fort Worth, Texas",
+        "latitude": 32.72541,
+        "longitude": -97.32085,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16183": [
+      {
+        "label": "Edmonds, Washington",
+        "latitude": 47.81065,
+        "longitude": -122.37736,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16180": [
+      {
+        "label": "Riverside, California",
+        "latitude": 33.95335,
+        "longitude": -117.39616,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16186": [
+      {
+        "label": "Dallas, Texas",
+        "latitude": 32.78306,
+        "longitude": -96.80667,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16132": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16126": [
+      {
+        "label": "Crosby, Texas",
+        "latitude": 29.91189,
+        "longitude": -95.06215,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16109": [
+      {
+        "label": "Fort Worth, Texas",
+        "latitude": 32.72541,
+        "longitude": -97.32085,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16057": [
+      {
+        "label": "Landover, Maryland",
+        "latitude": 38.934,
+        "longitude": -76.89664,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16054": [
+      {
+        "label": "Jessup, Maryland",
+        "latitude": 39.14927,
+        "longitude": -76.77525,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16032": [
+      {
+        "label": "Philadelphia, Pennsylvania",
+        "latitude": 39.95238,
+        "longitude": -75.16362,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16028": [
+      {
+        "label": "Dallas, Texas",
+        "latitude": 32.78306,
+        "longitude": -96.80667,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16022": [
+      {
+        "label": "Memphis, Tennessee",
+        "latitude": 35.14953,
+        "longitude": -90.04898,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-16010": [
+      {
+        "label": "Trenton, New Jersey",
+        "latitude": 40.21705,
+        "longitude": -74.74294,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15963": [
+      {
+        "label": "Cary, North Carolina",
+        "latitude": 35.79154,
+        "longitude": -78.78112,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15950": [
+      {
+        "label": "Montgomery, Alabama",
+        "latitude": 32.36681,
+        "longitude": -86.29997,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15929": [
+      {
+        "label": "Washington, District of Columbia",
+        "latitude": 38.89511,
+        "longitude": -77.03637,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15933": [
+      {
+        "label": "Washington, District of Columbia",
+        "latitude": 38.89511,
+        "longitude": -77.03637,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15908": [
+      {
+        "label": "San Jose, California",
+        "latitude": 37.33939,
+        "longitude": -121.89496,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15905": [
+      {
+        "label": "Belmont, California",
+        "latitude": 37.52021,
+        "longitude": -122.2758,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15876": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15883": [
+      {
+        "label": "Leander, Texas",
+        "latitude": 30.57881,
+        "longitude": -97.85307,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15834": [
+      {
+        "label": "Kansas City, Missouri",
+        "latitude": 39.09973,
+        "longitude": -94.57857,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15790": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-nathaniel-brown-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-15687": [
+      {
+        "label": "Oak View, California",
+        "latitude": 34.4,
+        "longitude": -119.30011,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15609": [
+      {
+        "label": "Aurora, Colorado",
+        "latitude": 39.72943,
+        "longitude": -104.83192,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15606": [
+      {
+        "label": "Downers Grove, Illinois",
+        "latitude": 41.80892,
+        "longitude": -88.01117,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15593": [
+      {
+        "label": "Pittsburg, California",
+        "latitude": 38.02798,
+        "longitude": -121.88468,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15582": [
+      {
+        "label": "Las Vegas, Nevada",
+        "latitude": 36.17497,
+        "longitude": -115.13722,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15580": [
+      {
+        "label": "Boca Raton, Florida",
+        "latitude": 26.35869,
+        "longitude": -80.0831,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15528": [
+      {
+        "label": "La Quinta, California",
+        "latitude": 33.66336,
+        "longitude": -116.31001,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15483": [
+      {
+        "label": "Brooklyn, New York",
+        "latitude": 40.6501,
+        "longitude": -73.94958,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15473": [
+      {
+        "label": "Dayton, Ohio",
+        "latitude": 39.75895,
+        "longitude": -84.19161,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15369": [
+      {
+        "label": "Taylor, Michigan",
+        "latitude": 42.24087,
+        "longitude": -83.26965,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15372": [
+      {
+        "label": "Las Vegas, Nevada",
+        "latitude": 36.17497,
+        "longitude": -115.13722,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15366": [
+      {
+        "label": "Jacksonville, Florida",
+        "latitude": 30.33218,
+        "longitude": -81.65565,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15358": [
+      {
+        "label": "California",
+        "latitude": 36.1162,
+        "longitude": -119.6816,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-15353": [
+      {
+        "label": "Portland, Oregon",
+        "latitude": 45.52345,
+        "longitude": -122.67621,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15327": [
+      {
+        "label": "El Paso, Texas",
+        "latitude": 31.75872,
+        "longitude": -106.48693,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15325": [
+      {
+        "label": "Hampton, Virginia",
+        "latitude": 37.02987,
+        "longitude": -76.34522,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-randy-darnell-ewing": [
+      {
+        "label": "Memphis, Tennessee",
+        "latitude": 35.14953,
+        "longitude": -90.04898,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15304": [
+      {
+        "label": "Taylor, Michigan",
+        "latitude": 42.24087,
+        "longitude": -83.26965,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15288": [
+      {
+        "label": "Windsor, Connecticut",
+        "latitude": 41.8526,
+        "longitude": -72.6437,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15241": [
+      {
+        "label": "Montebello, California",
+        "latitude": 34.00946,
+        "longitude": -118.10535,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-zachery-lefave-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-15143": [
+      {
+        "label": "Bronx, New York",
+        "latitude": 40.84985,
+        "longitude": -73.86641,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15082": [
+      {
+        "label": "New Castle, Delaware",
+        "latitude": 39.65948,
+        "longitude": -75.56359,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15058": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15034": [
+      {
+        "label": "Jacksonville, Florida",
+        "latitude": 30.33218,
+        "longitude": -81.65565,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15024": [
+      {
+        "label": "Richmond, Virginia",
+        "latitude": 37.55376,
+        "longitude": -77.46026,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15003": [
+      {
+        "label": "Gaithersburg, Maryland",
+        "latitude": 39.14344,
+        "longitude": -77.20137,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14951": [
+      {
+        "label": "Southfield, Michigan",
+        "latitude": 42.47337,
+        "longitude": -83.22187,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14954": [
+      {
+        "label": "River Grove, Illinois",
+        "latitude": 41.92586,
+        "longitude": -87.83589,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-jessie-morrissey-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-14832": [
+      {
+        "label": "Stockton, California",
+        "latitude": 37.9577,
+        "longitude": -121.29078,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-michael-burham": [
+      {
+        "label": "Warren, Pennsylvania",
+        "latitude": 41.84395,
+        "longitude": -79.14504,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14829": [
+      {
+        "label": "Wrightwood, California",
+        "latitude": 34.36083,
+        "longitude": -117.63339,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14804": [
+      {
+        "label": "Vineland, New Jersey",
+        "latitude": 39.48623,
+        "longitude": -75.02573,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14801": [
+      {
+        "label": "Summerville, South Carolina",
+        "latitude": 33.0185,
+        "longitude": -80.17565,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14807": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-deborah-hutchinson-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-14781": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14753": [
+      {
+        "label": "Millburn, New Jersey",
+        "latitude": 40.72482,
+        "longitude": -74.30404,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14722": [
+      {
+        "label": "Denver, Colorado",
+        "latitude": 39.73915,
+        "longitude": -104.9847,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-15445": [
+      {
+        "label": "San Francisco, California",
+        "latitude": 37.77493,
+        "longitude": -122.41942,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14686": [
+      {
+        "label": "San Francisco, California",
+        "latitude": 37.77493,
+        "longitude": -122.41942,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-michael-steele-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-14652": [
+      {
+        "label": "Tampa, Florida",
+        "latitude": 27.94752,
+        "longitude": -82.45843,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-treyvhon-bradshaw-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-14646": [
+      {
+        "label": "Charlotte, North Carolina",
+        "latitude": 35.22709,
+        "longitude": -80.84313,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14631": [
+      {
+        "label": "Louisville, Kentucky",
+        "latitude": 38.25424,
+        "longitude": -85.75941,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-dayron-burney-thorn": [
+      {
+        "label": "Philadelphia, Pennsylvania",
+        "latitude": 39.95238,
+        "longitude": -75.16362,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-cevan-pierce": [
+      {
+        "label": "Norfolk, Virginia",
+        "latitude": 36.84681,
+        "longitude": -76.28522,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14596": [
+      {
+        "label": "Bakersfield, California",
+        "latitude": 35.37329,
+        "longitude": -119.01871,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14592": [
+      {
+        "label": "Columbus, Ohio",
+        "latitude": 39.96118,
+        "longitude": -82.99879,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14572": [
+      {
+        "label": "Dearborn, Michigan",
+        "latitude": 42.32226,
+        "longitude": -83.17631,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-matthew-jaquez-daughtery": [
+      {
+        "label": "Huntington, West Virginia",
+        "latitude": 38.41925,
+        "longitude": -82.44515,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14548": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "fq-emmanuel-puthyra-roy": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-roy-mcgrath": [
+      {
+        "label": "Baltimore, Maryland",
+        "latitude": 39.29038,
+        "longitude": -76.61219,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14346": [
+      {
+        "label": "California",
+        "latitude": 36.1162,
+        "longitude": -119.6816,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-14262": [
+      {
+        "label": "Orlando, Florida",
+        "latitude": 28.53834,
+        "longitude": -81.37924,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "fq-all-boivin": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "eps-sinanhadi": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14070": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14041": [
+      {
+        "label": "Salt Lake City, Utah",
+        "latitude": 40.76078,
+        "longitude": -111.89105,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14037": [
+      {
+        "label": "New York, New York",
+        "latitude": 40.71427,
+        "longitude": -74.00597,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-14013": [
+      {
+        "label": "Altamonte Springs, Florida",
+        "latitude": 28.66111,
+        "longitude": -81.36562,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-jose-reyes-sanchez": [
+      {
+        "label": "Springdale, Arkansas",
+        "latitude": 36.18674,
+        "longitude": -94.12881,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-carson-mcnutt-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-aaron-wade-sebastian": [
+      {
+        "label": "Farmington, Missouri",
+        "latitude": 37.78088,
+        "longitude": -90.42179,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-dakota-pace": [
+      {
+        "label": "Farmington, Missouri",
+        "latitude": 37.78088,
+        "longitude": -90.42179,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-kelly-mcsean": [
+      {
+        "label": "Farmington, Missouri",
+        "latitude": 37.78088,
+        "longitude": -90.42179,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-lujuan-tucker": [
+      {
+        "label": "Farmington, Missouri",
+        "latitude": 37.78088,
+        "longitude": -90.42179,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-michael-wilkins": [
+      {
+        "label": "Farmington, Missouri",
+        "latitude": 37.78088,
+        "longitude": -90.42179,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13945": [
+      {
+        "label": "Startup, Washington",
+        "latitude": 47.86788,
+        "longitude": -121.7404,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13940": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13932": [
+      {
+        "label": "Washington, District of Columbia",
+        "latitude": 38.89511,
+        "longitude": -77.03637,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13921": [
+      {
+        "label": "Dorchester, Massachusetts",
+        "latitude": 42.29732,
+        "longitude": -71.0745,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13868": [
+      {
+        "label": "Silver Spring, Maryland",
+        "latitude": 38.99067,
+        "longitude": -77.02609,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13860": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13766": [
+      {
+        "label": "New York, New York",
+        "latitude": 40.71427,
+        "longitude": -74.00597,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-larry-chism": [
+      {
+        "label": "Tennessee",
+        "latitude": 35.7478,
+        "longitude": -86.6923,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-13729": [
+      {
+        "label": "Delray Beach, Florida",
+        "latitude": 26.46146,
+        "longitude": -80.07282,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-chicoby-summers": [
+      {
+        "label": "Louisville, Kentucky",
+        "latitude": 38.25424,
+        "longitude": -85.75941,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-jerlen-horton": [
+      {
+        "label": "Louisville, Kentucky",
+        "latitude": 38.25424,
+        "longitude": -85.75941,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13691": [
+      {
+        "label": "Tamarac, Florida",
+        "latitude": 26.21286,
+        "longitude": -80.24977,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-donald-ray-hodges": [
+      {
+        "label": "North Carolina",
+        "latitude": 35.6301,
+        "longitude": -79.8064,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-13632": [
+      {
+        "label": "Albuquerque, New Mexico",
+        "latitude": 35.08449,
+        "longitude": -106.65114,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-alphonso-churchwell-jr": [
+      {
+        "label": "Fort Myers, Florida",
+        "latitude": 26.62168,
+        "longitude": -81.84059,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-donald-lohnes-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "eps-richardhawyward": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13484": [
+      {
+        "label": "New York, New York",
+        "latitude": 40.71427,
+        "longitude": -74.00597,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "fq-sidi-ayoub-cherkaoui": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-allen-todd-may": [
+      {
+        "label": "Denver, Colorado",
+        "latitude": 39.73915,
+        "longitude": -104.9847,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-simon-morrison-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "eps-louisdumais": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-leonard-francis": [
+      {
+        "label": "San Diego, California",
+        "latitude": 32.71571,
+        "longitude": -117.16472,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-coreyon-brown-0": [
+      {
+        "label": "Detroit, Michigan",
+        "latitude": 42.33143,
+        "longitude": -83.04575,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13425": [
+      {
+        "label": "Bronx, New York",
+        "latitude": 40.84985,
+        "longitude": -73.86641,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-jose-ortega-jr": [
+      {
+        "label": "Los Angeles, California",
+        "latitude": 34.05223,
+        "longitude": -118.24368,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-leemarion-cain-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-farren-kevin-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-kelly-timothy-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-kevin-martin-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-edward-william-phalen-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-narico-danfue-downey-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-5": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-11": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-73": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-49": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-7": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-26": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-63": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-19": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-18": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-29": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-54": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-22": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-10": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-6": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-37": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-36": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-12": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-44": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-77": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-58": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-42": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-21": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-40": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-24": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-31": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-13": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-39": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-46": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-30": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-48": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-34": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-38": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-28": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-17": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-9": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-72": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-52": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-41": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-80": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-35": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-23": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-33": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-15": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-45": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-47": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-8": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-20": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-55": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-3": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-50": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-43": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-27": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-14": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-32": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-4": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-66": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-65": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-asp-cid-25": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-jeffrey-charles-forestier": [
+      {
+        "label": "New Hampshire",
+        "latitude": 43.4525,
+        "longitude": -71.5639,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-romeo-dupree-chambers": [
+      {
+        "label": "Nebraska",
+        "latitude": 41.1254,
+        "longitude": -98.2681,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-peter-macvane-curtis": [
+      {
+        "label": "Cumberland, Maine",
+        "latitude": 43.79647,
+        "longitude": -70.25894,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "Brentwood, New Hampshire",
+        "latitude": 42.9787,
+        "longitude": -71.07284,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-13012": [
+      {
+        "label": "Miami, Florida",
+        "latitude": 25.77427,
+        "longitude": -80.19366,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12949": [
+      {
+        "label": "Ft. Pierce, Florida",
+        "latitude": 27.44671,
+        "longitude": -80.32561,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12946": [
+      {
+        "label": "Fort Pierce, Florida",
+        "latitude": 27.44671,
+        "longitude": -80.32561,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-sheila-madore-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-12914": [
+      {
+        "label": "Memphis, Tennessee",
+        "latitude": 35.14953,
+        "longitude": -90.04898,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12912": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-12905": [
+      {
+        "label": "Bronx, New York",
+        "latitude": 40.84985,
+        "longitude": -73.86641,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12868": [
+      {
+        "label": "Moreno Valley, California",
+        "latitude": 33.93752,
+        "longitude": -117.23059,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12865": [
+      {
+        "label": "Jacksonville, Florida",
+        "latitude": 30.33218,
+        "longitude": -81.65565,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-brandon-polegato-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-12646": [
+      {
+        "label": "St. Louis, Missouri",
+        "latitude": 38.62727,
+        "longitude": -90.19789,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12601": [
+      {
+        "label": "Crofton, Maryland",
+        "latitude": 39.00178,
+        "longitude": -76.68747,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12526": [
+      {
+        "label": "Riverside, California",
+        "latitude": 33.95335,
+        "longitude": -117.39616,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12510": [
+      {
+        "label": "Durham, North Carolina",
+        "latitude": 35.99403,
+        "longitude": -78.89862,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-terry-jackson": [
+      {
+        "label": "Milwaukee, Wisconsin",
+        "latitude": 43.0389,
+        "longitude": -87.90647,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-anthony-seth-burroughs": [
+      {
+        "label": "Arizona",
+        "latitude": 33.7298,
+        "longitude": -111.4312,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-david-creamer": [
+      {
+        "label": "Arizona",
+        "latitude": 33.7298,
+        "longitude": -111.4312,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "usms-samuel-cross": [
+      {
+        "label": "Bronx, New York",
+        "latitude": 40.84985,
+        "longitude": -73.86641,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "eps-saed-20osman": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12275": [
+      {
+        "label": "San Diego, California",
+        "latitude": 32.71571,
+        "longitude": -117.16472,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-12220": [
+      {
+        "label": "Orlando, Florida",
+        "latitude": 28.53834,
+        "longitude": -81.37924,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-matthew-simon-harrie-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-12091": [
+      {
+        "label": "Paramount, California",
+        "latitude": 33.88946,
+        "longitude": -118.15979,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-jose-sanchez": [
+      {
+        "label": "Milwaukee, Wisconsin",
+        "latitude": 43.0389,
+        "longitude": -87.90647,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "usms-omar-estrada": [
+      {
+        "label": "Milwaukee, Wisconsin",
+        "latitude": 43.0389,
+        "longitude": -87.90647,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-joseph-jojo-beals-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-11965": [
+      {
+        "label": "Albuquerque, New Mexico",
+        "latitude": 35.08449,
+        "longitude": -106.65114,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-11947": [
+      {
+        "label": "Philadelphia, Pennsylvania",
+        "latitude": 39.95238,
+        "longitude": -75.16362,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-11862": [
+      {
+        "label": "Providence, Rhode Island",
+        "latitude": 41.82399,
+        "longitude": -71.41283,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-11661": [
+      {
+        "label": "Mesa, Arizona",
+        "latitude": 33.42227,
+        "longitude": -111.82264,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-11430": [
+      {
+        "label": "Tacoma, Washington",
+        "latitude": 47.25288,
+        "longitude": -122.44429,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-11349": [
+      {
+        "label": "Springfield, Massachusetts",
+        "latitude": 42.10148,
+        "longitude": -72.58981,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-11344": [
+      {
+        "label": "Washington, District of Columbia",
+        "latitude": 38.89511,
+        "longitude": -77.03637,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-11327": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "usms-john-freeman-colt": [
+      {
+        "label": "Kansas",
+        "latitude": 38.5266,
+        "longitude": -96.7265,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "eps-stefan-20markovic": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-11043": [
+      {
+        "label": "Albuquerque, New Mexico",
+        "latitude": 35.08449,
+        "longitude": -106.65114,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10869": [
+      {
+        "label": "Las Vegas, Nevada",
+        "latitude": 36.17497,
+        "longitude": -115.13722,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10868": [
+      {
+        "label": "Chesapeake, Virginia",
+        "latitude": 36.81904,
+        "longitude": -76.27494,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10831": [
+      {
+        "label": "Ohio",
+        "latitude": 40.3888,
+        "longitude": -82.7649,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-10748": [
+      {
+        "label": "Dallas, Texas",
+        "latitude": 32.78306,
+        "longitude": -96.80667,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10586": [
+      {
+        "label": "Santa Fe, New Mexico",
+        "latitude": 35.68698,
+        "longitude": -105.9378,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-quintez-downey-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-10439": [
+      {
+        "label": "Washington, District of Columbia",
+        "latitude": 38.89511,
+        "longitude": -77.03637,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-ryan-james-jessop-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-10365": [
+      {
+        "label": "Lawndale, California",
+        "latitude": 33.88724,
+        "longitude": -118.35257,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10308": [
+      {
+        "label": "Cicero, Illinois",
+        "latitude": 41.84559,
+        "longitude": -87.75394,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10278": [
+      {
+        "label": "Las Vegas, Nevada",
+        "latitude": 36.17497,
+        "longitude": -115.13722,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10233": [
+      {
+        "label": "Las Vegas, Nevada",
+        "latitude": 36.17497,
+        "longitude": -115.13722,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10083": [
+      {
+        "label": "Cypress, Texas",
+        "latitude": 29.96911,
+        "longitude": -95.69717,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10081": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-10034": [
+      {
+        "label": "Tempe, Arizona",
+        "latitude": 33.41477,
+        "longitude": -111.90931,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-jason-andrew-smith-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "eps-ayoub-20ali": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "uspis-9841": [
+      {
+        "label": "Albuquerque, New Mexico",
+        "latitude": 35.08449,
+        "longitude": -106.65114,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-9788": [
+      {
+        "label": "Suitland, Maryland",
+        "latitude": 38.84872,
+        "longitude": -76.92386,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-9243": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-9216": [
+      {
+        "label": "Houston, Texas",
+        "latitude": 29.76328,
+        "longitude": -95.36327,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-8696": [
+      {
+        "label": "Minneapolis, Minnesota",
+        "latitude": 44.97997,
+        "longitude": -93.26384,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-6935": [
+      {
+        "label": "Chicago, Illinois",
+        "latitude": 41.85003,
+        "longitude": -87.65005,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "ns-reward-case-detail-raymond-floyd-peters-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "fq-youcef-abderahim-bouras": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-1368": [
+      {
+        "label": "California",
+        "latitude": 36.1162,
+        "longitude": -119.6816,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-1371": [
+      {
+        "label": "California",
+        "latitude": 36.1162,
+        "longitude": -119.6816,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-1360": [
+      {
+        "label": "California",
+        "latitude": 36.1162,
+        "longitude": -119.6816,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-1361": [
+      {
+        "label": "California",
+        "latitude": 36.1162,
+        "longitude": -119.6816,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-1356": [
+      {
+        "label": "California",
+        "latitude": 36.1162,
+        "longitude": -119.6816,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-1658": [
+      {
+        "label": "Buckeystown, Maryland",
+        "latitude": 39.33482,
+        "longitude": -77.43165,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
+    "uspis-1673": [
+      {
+        "label": "New York",
+        "latitude": 42.1657,
+        "longitude": -74.9481,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "uspis-1676": [
+      {
+        "label": "Tennessee",
+        "latitude": 35.7478,
+        "longitude": -86.6923,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-corey-william-murphy-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-ryan-nehiley-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-barron-tina-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-alexander-lyle-james-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-sparks-josiah-kaelin-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-terrance-izzard-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-jollimore-lori-katherine-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-downey-deverico-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-stevenson-donald-jermaine-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-comeau-lynda-anne-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-forgeron-edwin-michael-thomas-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-john-fulton-newcombe-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-jaumar-carvery-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-angela-hall-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-elmer-yuill-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-rickey-walker-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-mackeigan-ian-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-daniel-baker-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-clayton-naricho-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-cameron-joseph-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-richards-tyler-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-naomi-kidston-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-keya-simon-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-wayne-nicholas-marriott-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-daniel-newman-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-glenn-bourgeois-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-nathan-ross-cross-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-hannan-david-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "ns-reward-case-detail-terry-marriott-jr-asp": [
+      {
+        "label": "Nova Scotia",
+        "latitude": 44.682,
+        "longitude": -63.7443,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "fq-sylvain-maheu": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "eps-chrismeer": [
+      {
+        "label": "Edmonton, Alberta",
+        "latitude": 53.55014,
+        "longitude": -113.46871,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "fq-abdoulkadir-ali-musse": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "fq-heylel-cruz": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "fq-david-carroll": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ]
+  }
+}

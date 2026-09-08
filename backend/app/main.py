@@ -17,11 +17,13 @@ from .models import (
     CaseFacetOption,
     CaseFacets,
     CaseListResponse,
+    CaseMapResponse,
     CountryCode,
     HealthResponse,
     RewardCase,
 )
-from .storage import load_database_case, query_database_case_page
+from .map_data import build_case_map_items, get_map_generated_at
+from .storage import load_database_case, query_database_case_map, query_database_case_page
 
 
 SortMode = Literal["published_desc", "reward_desc", "reward_asc", "title_asc"]
@@ -47,7 +49,7 @@ app.add_middleware(
         if origin.strip()
     ],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PATCH", "DELETE"],
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE"],
     allow_headers=["*"],
 )
 app.mount("/media", StaticFiles(directory=MEDIA_DIR), name="media")
@@ -212,6 +214,28 @@ def list_cases(
         pageSize=page_size,
         totalPages=total_pages,
         facets=facets,
+    )
+
+
+@app.get("/cases/nearby-index", response_model=CaseMapResponse)
+def get_nearby_case_index() -> CaseMapResponse:
+    if get_database_url():
+        try:
+            database_result = query_database_case_map()
+        except Exception as exc:
+            logger.exception("Optimized public case map query failed")
+            raise HTTPException(
+                status_code=503,
+                detail="The public case map is temporarily unavailable",
+            ) from exc
+        if database_result is not None:
+            return database_result
+
+    items = build_case_map_items(load_cases())
+    return CaseMapResponse(
+        items=items,
+        total=len(items),
+        generatedAt=get_map_generated_at(),
     )
 
 

@@ -131,3 +131,204 @@ body,
   background: var(--rw-page-background);
   transition: background-color 160ms ease;
 }
+
+.rw-nearby-map-shell,
+.rw-nearby-map {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+.rw-nearby-map .maplibregl-ctrl-group {
+  border: 1px solid rgba(148, 163, 184, 0.34);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+}
+
+.rw-nearby-map .maplibregl-ctrl-attrib {
+  font-family: var(--font-display);
+  font-size: 10px;
+}
+
+.rw-map-cluster,
+.rw-map-pin {
+  align-items: center;
+  border: 2px solid #ffffff;
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.rw-map-cluster:hover,
+.rw-map-cluster:focus-visible,
+.rw-map-pin:hover,
+.rw-map-pin:focus-visible {
+  box-shadow: 0 7px 18px rgba(15, 23, 42, 0.38);
+  outline: 3px solid rgba(108, 99, 255, 0.24);
+  outline-offset: 2px;
+  transform: scale(1.08);
+}
+
+.rw-map-cluster {
+  background: #5b4dff;
+  border-radius: 999px;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  height: 38px;
+  min-width: 38px;
+  padding-inline: 7px;
+}
+
+.rw-map-pin {
+  background: #6c63ff;
+  border-radius: 999px 999px 999px 4px;
+  height: 23px;
+  transform: rotate(-45deg);
+  width: 23px;
+}
+
+.rw-map-pin:hover,
+.rw-map-pin:focus-visible {
+  transform: rotate(-45deg) scale(1.12);
+}
+
+.rw-map-pin-high {
+  background: #d92d20;
+}
+
+.rw-map-pin-medium {
+  background: #f79009;
+}
+
+.rw-map-pin-unknown {
+  background: #64748b;
+}
+
+.rw-map-origin {
+  height: 0;
+  pointer-events: none;
+  position: relative;
+  width: 0;
+  z-index: 0;
+}
+
+.rw-map-origin-radius {
+  background: rgba(108, 99, 255, 0.08);
+  border: 2px solid rgba(108, 99, 255, 0.58);
+  border-radius: 9999px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rw-map-origin-dot {
+  background: #6c63ff;
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 0 0 8px rgba(108, 99, 255, 0.2);
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+}
+
+.rw-map-origin-device .rw-map-origin-radius {
+  background: rgba(32, 138, 239, 0.09);
+  border-color: rgba(32, 138, 239, 0.62);
+}
+
+.rw-map-origin-device .rw-map-origin-dot {
+  background: #208aef;
+  box-shadow: 0 0 0 8px rgba(32, 138, 239, 0.2);
+}
+
+html[data-theme='dark'] .rw-nearby-map .maplibregl-ctrl-group,
+html[data-theme='dark'] .rw-nearby-map .maplibregl-ctrl-attrib {
+  background: rgba(17, 24, 39, 0.92);
+  color: #cbd5e1;
+}
+
+html[data-theme='dark'] .rw-nearby-map .maplibregl-ctrl button .maplibregl-ctrl-icon {
+  filter: invert(1) brightness(1.25);
+}
+
+html[data-theme='dark'] .rw-nearby-map .maplibregl-ctrl-attrib a {
+  color: #b8aeff;
+}
+
+.rw-admin-location-map-shell,
+.rw-admin-location-map {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+.rw-admin-location-map .maplibregl-ctrl-group {
+  border: 1px solid rgba(102, 112, 133, 0.25);
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.12);
+}
+
+.rw-admin-location-pin {
+  background: #5b4dff;
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.32);
+  cursor: grab;
+  height: 28px;
+  transform: rotate(-45deg);
+  width: 28px;
+}
+
+.rw-admin-location-pin:active {
+  cursor: grabbing;
+}
+
+html[data-theme='dark'] .rw-admin-location-map .maplibregl-ctrl-group,
+html[data-theme='dark'] .rw-admin-location-map .maplibregl-ctrl-attrib {
+  background: rgba(17, 24, 39, 0.92);
+  color: #cbd5e1;
+}
+
+html[data-theme='dark'] .rw-admin-location-map .maplibregl-ctrl button .maplibregl-ctrl-icon {
+  filter: invert(1) brightness(1.25);
+}
+
+html[data-theme='dark'] .rw-admin-location-map .maplibregl-ctrl-attrib a {
+  color: #b8aeff;
+}
+
+@media (min-width: 980px) {
+  [data-testid='nearby-header'] {
+    align-items: flex-start !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+
+  [data-testid='nearby-workspace'] {
+    align-items: stretch !important;
+    flex-direction: row !important;
+  }
+
+  [data-testid='nearby-map-card'] {
+    height: 660px !important;
+  }
+
+  [data-testid='nearby-results-panel'] {
+    flex-basis: 390px !important;
+    width: 390px !important;
+  }
+
+  [data-testid='nearby-radius-block'] {
+    flex-basis: auto !important;
+    width: auto !important;
+  }
+}
