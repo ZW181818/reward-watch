@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T22:55:46.928105+00:00",
-  "totalCases": 2223,
-  "sourceRecords": 2261,
+  "generatedAt": "2026-09-09T05:12:43.426274+00:00",
+  "totalCases": 2224,
+  "sourceRecords": 2262,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 259,
     "China": 122,
-    "US": 1842
+    "US": 1843
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1389,
+    "Information Requested": 1390,
     "Open": 830
   },
   "sources": {
     "CFSEU-BC": 3,
     "Cranbrook RCMP": 1,
     "Edmonton Police Service": 10,
-    "Federal Bureau of Investigation": 1213,
+    "Federal Bureau of Investigation": 1214,
     "Fugitifs Quebec": 15,
     "Hope RCMP": 1,
     "Kamloops RCMP": 2,
@@ -47,19 +47,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1472,
-    "notPublished": 751,
+    "published": 1474,
+    "notPublished": 750,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1141
+      "USD": 1143
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 197,
-    "remotePrimaryImages": 2026
+    "remotePrimaryImages": 2027
   },
   "regions": {
     "casesWithoutRegion": 45
