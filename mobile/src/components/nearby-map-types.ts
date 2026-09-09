@@ -28,9 +28,11 @@ export type NearbyMapLabels = {
 export type NearbyMapProps = {
   labels: NearbyMapLabels;
   onCenterChange: (coordinate: MapCoordinate) => void;
-  onSelectCase: (caseId: string) => void;
+  onSelectCase: (caseId: string, coordinate: MapCoordinate) => void;
+  onSelectCases: (caseIds: string[]) => void;
   origin: MapSearchOrigin | null;
   points: NearbyMapPoint[];
   radiusKm: number;
   selectedCaseId: string | null;
+  selectedCoordinate: MapCoordinate | null;
 };

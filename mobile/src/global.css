@@ -198,6 +198,20 @@ body,
   transform: rotate(-45deg) scale(1.12);
 }
 
+.rw-map-cluster.rw-map-marker-selected {
+  box-shadow: 0 0 0 5px rgba(91, 77, 255, 0.3), 0 8px 22px rgba(15, 23, 42, 0.42);
+  outline: 3px solid rgba(255, 255, 255, 0.92);
+  outline-offset: 2px;
+  transform: scale(1.16);
+}
+
+.rw-map-pin.rw-map-marker-selected {
+  box-shadow: 0 0 0 5px rgba(91, 77, 255, 0.3), 0 8px 22px rgba(15, 23, 42, 0.42);
+  outline: 3px solid rgba(255, 255, 255, 0.92);
+  outline-offset: 2px;
+  transform: rotate(-45deg) scale(1.28);
+}
+
 .rw-map-pin-high {
   background: #d92d20;
 }

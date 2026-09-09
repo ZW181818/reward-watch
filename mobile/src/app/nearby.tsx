@@ -1,7 +1,7 @@
 import { Image } from 'expo-image';
 import { Link } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
@@ -165,6 +165,9 @@ export default function NearbyScreen() {
   const [radiusKm, setRadiusKm] = useState<number>(100);
   const [locationState, setLocationState] = useState<'idle' | 'loading' | 'denied' | 'unavailable' | 'insecure'>('idle');
   const [selectedCaseId, setSelectedCaseId] = useState<string | null>(null);
+  const [selectedCaseIds, setSelectedCaseIds] = useState<string[]>([]);
+  const [selectedCoordinate, setSelectedCoordinate] = useState<MapCoordinate | null>(null);
+  const caseListRef = useRef<ScrollView | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -206,11 +209,31 @@ export default function NearbyScreen() {
     [allPreciseResults, nearbyResults, origin]
   );
   const nearestOutside = allResults.find((result) => result.distanceKm > radiusKm) ?? null;
-  const activeResults = selectedCaseId
-    ? [...nearbyResults].sort((left, right) =>
-        left.item.id === selectedCaseId ? -1 : right.item.id === selectedCaseId ? 1 : 0
-      )
+  const selectedOrder = new Map(selectedCaseIds.map((caseId, index) => [caseId, index]));
+  const activeResults = selectedCaseIds.length
+    ? [...nearbyResults].sort((left, right) => {
+        const leftOrder = selectedOrder.get(left.item.id);
+        const rightOrder = selectedOrder.get(right.item.id);
+        if (leftOrder !== undefined && rightOrder !== undefined) return leftOrder - rightOrder;
+        if (leftOrder !== undefined) return -1;
+        if (rightOrder !== undefined) return 1;
+        return left.distanceKm - right.distanceKm;
+      })
     : nearbyResults;
+  const displayedResults = origin
+    ? activeResults
+    : selectedCaseIds.length
+      ? [...allPreciseResults]
+          .filter((result) => selectedOrder.has(result.item.id))
+          .sort((left, right) => selectedOrder.get(left.item.id)! - selectedOrder.get(right.item.id)!)
+      : [];
+  const selectedCasesKey = selectedCaseIds.join('|');
+
+  useEffect(() => {
+    if (selectedCaseIds.length) {
+      caseListRef.current?.scrollTo({ animated: true, y: 0 });
+    }
+  }, [selectedCaseIds.length, selectedCasesKey]);
 
   function requestLocation() {
     if (typeof window === 'undefined' || !window.isSecureContext) {
@@ -232,6 +255,8 @@ export default function NearbyScreen() {
         });
         setLocationState('idle');
         setSelectedCaseId(null);
+        setSelectedCaseIds([]);
+        setSelectedCoordinate(null);
       },
       (positionError) => {
         setLocationState(positionError.code === positionError.PERMISSION_DENIED ? 'denied' : 'unavailable');
@@ -245,6 +270,8 @@ export default function NearbyScreen() {
     setOrigin({ ...mapCenter, kind: 'map' });
     setLocationState('idle');
     setSelectedCaseId(null);
+    setSelectedCaseIds([]);
+    setSelectedCoordinate(null);
   }
 
   return (
@@ -359,11 +386,21 @@ export default function NearbyScreen() {
                     yourLocation: copy.yourLocation,
                   }}
                   onCenterChange={setMapCenter}
-                  onSelectCase={setSelectedCaseId}
+                  onSelectCase={(caseId, coordinate) => {
+                    setSelectedCaseId(caseId);
+                    setSelectedCaseIds([caseId]);
+                    setSelectedCoordinate(coordinate);
+                  }}
+                  onSelectCases={(caseIds) => {
+                    setSelectedCaseId(null);
+                    setSelectedCaseIds(caseIds);
+                    setSelectedCoordinate(null);
+                  }}
                   origin={origin}
                   points={points}
                   radiusKm={radiusKm}
                   selectedCaseId={selectedCaseId}
+                  selectedCoordinate={selectedCoordinate}
                 />
               )}
               <View pointerEvents="none" style={styles.legend}>
@@ -379,20 +416,20 @@ export default function NearbyScreen() {
             >
               <View style={styles.resultsHeader}>
                 <View>
-                  <Text style={styles.resultsTitle}>{origin ? copy.nearbyResults : copy.beforeLocate}</Text>
+                  <Text style={styles.resultsTitle}>{origin || selectedCaseIds.length ? copy.nearbyResults : copy.beforeLocate}</Text>
                   {origin && <Text style={styles.originLabel}>{origin.kind === 'device' ? copy.deviceOrigin : copy.mapOrigin}</Text>}
                 </View>
-                {origin && <View style={styles.countBadge}><Text style={styles.countBadgeText}>{nearbyResults.length}</Text></View>}
+                {(origin || selectedCaseIds.length > 0) && <View style={styles.countBadge}><Text style={styles.countBadgeText}>{displayedResults.length}</Text></View>}
               </View>
 
-              {!origin ? (
+              {!origin && !selectedCaseIds.length ? (
                 <View style={styles.onboardingCard}>
                   <SymbolView name={{ ios: 'map.fill', android: 'map', web: 'map' }} size={34} tintColor={themedForeground('#6C63FF')} />
                   <Text style={styles.onboardingTitle}>{copy.beforeLocate}</Text>
                   <Text style={styles.onboardingBody}>{copy.beforeLocateBody}</Text>
                   <Text style={styles.mappedCount}>{interpolate(copy.mappedCases, { count: preciseCaseCount })}</Text>
                 </View>
-              ) : activeResults.length === 0 ? (
+              ) : displayedResults.length === 0 ? (
                 <View style={styles.emptyCard}>
                   <Text style={styles.emptyTitle}>{copy.noResults}</Text>
                   {nearestOutside && (
@@ -408,15 +445,24 @@ export default function NearbyScreen() {
                 <ScrollView
                   contentContainerStyle={styles.caseList}
                   nestedScrollEnabled
+                  ref={caseListRef}
                   showsVerticalScrollIndicator={false}
                   style={styles.caseListScroll}
                 >
-                  {activeResults.slice(0, 50).map((result) => (
+                  {displayedResults.slice(0, 50).map((result) => (
                     <MapCaseCard
                       copy={copy}
-                      isSelected={selectedCaseId === result.item.id}
+                      hasDistance={Boolean(origin)}
+                      isSelected={selectedCaseIds.includes(result.item.id)}
                       key={result.item.id}
-                      onSelect={() => setSelectedCaseId(result.item.id)}
+                      onSelect={() => {
+                        setSelectedCaseId(result.item.id);
+                        setSelectedCaseIds([result.item.id]);
+                        setSelectedCoordinate({
+                          latitude: result.location.latitude,
+                          longitude: result.location.longitude,
+                        });
+                      }}
                       result={result}
                     />
                   ))}
@@ -443,11 +489,13 @@ export default function NearbyScreen() {
 
 function MapCaseCard({
   copy,
+  hasDistance,
   isSelected,
   onSelect,
   result,
 }: {
   copy: NearbyCopy;
+  hasDistance: boolean;
   isSelected: boolean;
   onSelect: () => void;
   result: NearbyResult;
@@ -475,7 +523,7 @@ function MapCaseCard({
       <View style={styles.caseCardBody}>
         <View style={styles.caseCardTopLine}>
           <Text numberOfLines={2} style={styles.caseTitle}>{item.title}</Text>
-          <Text style={styles.distanceText}>{distanceLabel}</Text>
+          {hasDistance && <Text style={styles.distanceText}>{distanceLabel}</Text>}
         </View>
         <Text numberOfLines={1} style={styles.agencyText}>{item.agency}</Text>
         <Text style={styles.rewardText}>{rewardLabel}</Text>
@@ -549,7 +597,7 @@ const styles = createThemedStyles({
   caseListScroll: { maxHeight: 575 },
   caseList: { gap: 10, paddingBottom: 4, paddingTop: 13 },
   caseCard: { backgroundColor: '#F8FAFD', borderColor: '#E1E6EF', borderRadius: 15, borderWidth: 1, flexDirection: 'row', gap: 12, padding: 10 },
-  caseCardSelected: { backgroundColor: '#F3F4FF', borderColor: '#AFA9FF', borderWidth: 2 },
+  caseCardSelected: { backgroundColor: '#F0EFFF', borderColor: '#786DFF', borderWidth: 2, boxShadow: '0 5px 12px rgba(91, 77, 255, 0.20)' },
   caseImage: { backgroundColor: '#E8EEF7', borderRadius: 11, height: 94, width: 78 },
   caseImageFallback: { alignItems: 'center', backgroundColor: '#E8EEF7', borderRadius: 11, height: 94, justifyContent: 'center', width: 78 },
   caseCardBody: { flex: 1, minWidth: 0 },

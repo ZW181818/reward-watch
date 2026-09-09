@@ -71,10 +71,12 @@ export default function NearbyMap({
   labels,
   onCenterChange,
   onSelectCase,
+  onSelectCases,
   origin,
   points,
   radiusKm,
   selectedCaseId,
+  selectedCoordinate,
 }: NearbyMapProps) {
   const { mode } = useAppTheme();
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -82,8 +84,11 @@ export default function NearbyMap({
   const pointsRef = useRef(points);
   const originRef = useRef(origin);
   const radiusRef = useRef(radiusKm);
+  const selectedCaseIdRef = useRef(selectedCaseId);
+  const selectedCoordinateRef = useRef(selectedCoordinate);
   const onCenterChangeRef = useRef(onCenterChange);
   const onSelectCaseRef = useRef(onSelectCase);
+  const onSelectCasesRef = useRef(onSelectCases);
   const labelsRef = useRef(labels);
   const modeRef = useRef(mode);
   const hasInitialFitRef = useRef(false);
@@ -98,11 +103,14 @@ export default function NearbyMap({
     pointsRef.current = points;
     originRef.current = origin;
     radiusRef.current = radiusKm;
+    selectedCaseIdRef.current = selectedCaseId;
+    selectedCoordinateRef.current = selectedCoordinate;
     onCenterChangeRef.current = onCenterChange;
     onSelectCaseRef.current = onSelectCase;
+    onSelectCasesRef.current = onSelectCases;
     labelsRef.current = labels;
     modeRef.current = mode;
-  }, [labels, mode, onCenterChange, onSelectCase, origin, points, radiusKm]);
+  }, [labels, mode, onCenterChange, onSelectCase, onSelectCases, origin, points, radiusKm, selectedCaseId, selectedCoordinate]);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
@@ -167,17 +175,29 @@ export default function NearbyMap({
 
         groups.forEach((group) => {
           const representative = group.points[0];
-          const count = group.points.length;
+          const pointCount = group.points.length;
+          const caseIds = [...new Set(group.points.map((point) => point.caseId))];
+          const count = caseIds.length;
+          const containsSelectedCase = group.points.some((point) => {
+            if (point.caseId !== selectedCaseIdRef.current) return false;
+            const coordinate = selectedCoordinateRef.current;
+            return !coordinate || (
+              Math.abs(point.latitude - coordinate.latitude) < 0.000001 &&
+              Math.abs(point.longitude - coordinate.longitude) < 0.000001
+            );
+          });
           const element = document.createElement('button');
           element.type = 'button';
           if (count > 1) {
-            element.className = 'rw-map-cluster';
+            element.className = `rw-map-cluster${containsSelectedCase ? ' rw-map-marker-selected' : ''}`;
             element.textContent = count > 99 ? '99+' : String(count);
             element.setAttribute('aria-label', `${count} ${labelsRef.current.clusterCases}`);
+            element.setAttribute('aria-pressed', String(containsSelectedCase));
             element.addEventListener('click', (event) => {
               event.stopPropagation();
+              onSelectCasesRef.current(caseIds);
               map.easeTo({
-                center: [group.longitude / count, group.latitude / count],
+                center: [group.longitude / pointCount, group.latitude / pointCount],
                 duration: 450,
                 zoom: Math.min(14, map.getZoom() + 2),
               });
@@ -191,19 +211,23 @@ export default function NearbyMap({
                   : representative.reward >= 25_000
                     ? 'medium'
                     : 'standard';
-            element.className = `rw-map-pin rw-map-pin-${rewardTier}`;
+            element.className = `rw-map-pin rw-map-pin-${rewardTier}${containsSelectedCase ? ' rw-map-marker-selected' : ''}`;
             element.setAttribute(
               'aria-label',
               `${representative.title}. ${representative.label}`
             );
+            element.setAttribute('aria-pressed', String(containsSelectedCase));
             element.addEventListener('click', (event) => {
               event.stopPropagation();
-              onSelectCaseRef.current(representative.caseId);
+              onSelectCaseRef.current(representative.caseId, {
+                latitude: representative.latitude,
+                longitude: representative.longitude,
+              });
             });
           }
 
           const marker = new maplibre.Marker({ element })
-            .setLngLat([group.longitude / count, group.latitude / count])
+            .setLngLat([group.longitude / pointCount, group.latitude / pointCount])
             .addTo(map);
           caseMarkersRef.current.push(marker);
         });
@@ -345,6 +369,10 @@ export default function NearbyMap({
   }, [points]);
 
   useEffect(() => {
+    redrawCaseMarkersRef.current();
+  }, [selectedCaseId, selectedCoordinate]);
+
+  useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
     redrawOriginMarkerRef.current();
@@ -360,11 +388,15 @@ export default function NearbyMap({
 
   useEffect(() => {
     if (!selectedCaseId || !mapRef.current) return;
-    const point = points.find((item) => item.caseId === selectedCaseId);
+    const point = selectedCoordinate ?? points.find((item) => item.caseId === selectedCaseId);
     if (point) {
-      mapRef.current.easeTo({ center: [point.longitude, point.latitude], duration: 450 });
+      mapRef.current.easeTo({
+        center: [point.longitude, point.latitude],
+        duration: 550,
+        zoom: Math.max(mapRef.current.getZoom(), 11),
+      });
     }
-  }, [points, selectedCaseId]);
+  }, [points, selectedCaseId, selectedCoordinate]);
 
   return (
     <div className="rw-nearby-map-shell">
