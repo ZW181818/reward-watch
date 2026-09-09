@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-09T05:12:46.383549+00:00",
-  "sourceFingerprint": "d0b7f65aa8ff7f7d570b85113897acf6a64aad3022357ef81a0bf7e725897555",
+  "generatedAt": "2026-09-09T20:53:54.580356+00:00",
+  "sourceFingerprint": "ba20a82fc6a953ad0cbaff1fc51b9953ab0d0649b48615337d85af4326a0e502",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 389,
+    "city": 390,
     "region": 175
   },
   "unresolved": [
@@ -47,6 +47,16 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "rcmp-bc-4356800-eric-vern-west": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "rcmp-bc-4356590-dallas-lee-blanchette": [
       {
         "label": "Prince George, British Columbia",
