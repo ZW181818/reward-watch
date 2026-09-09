@@ -1,15 +1,13 @@
 {
-  "updatedAt": "2026-09-09T20:53:51.080133+00:00",
+  "updatedAt": "2026-09-09T22:42:28.697590+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj"
     ],
     "updatedToday": 13,
     "totalSources": 14
@@ -49,8 +47,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 7.838,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-09T20:53:51.080133+00:00",
       "lastSuccessAt": "2026-09-09T20:53:51.080133+00:00"
     },
@@ -88,8 +86,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 18.853,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-09T20:53:51.080133+00:00",
       "lastSuccessAt": "2026-09-09T20:53:51.080133+00:00"
     },
@@ -101,8 +99,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.392,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-09T20:53:51.080133+00:00",
       "lastSuccessAt": "2026-09-09T20:53:51.080133+00:00"
     },
@@ -114,9 +112,9 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.368,
+      "durationSeconds": 0.221,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-09T20:53:51.080133+00:00",
+      "lastAttemptAt": "2026-09-09T22:42:28.697590+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +125,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-09T05:12:43.426274+00:00",
-      "lastSuccessAt": "2026-09-09T05:12:43.426274+00:00"
+      "durationSeconds": 6.158,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-09T22:42:28.697590+00:00",
+      "lastSuccessAt": "2026-09-09T22:42:28.697590+00:00"
     },
     {
       "id": "usms",
