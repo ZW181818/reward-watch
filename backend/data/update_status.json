@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-09-08T12:16:34.511196+00:00",
+  "updatedAt": "2026-09-09T05:12:43.426274+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2225,
+  "totalCount": 2224,
   "batch": {
-    "name": "us-justice",
+    "name": "us-core",
     "requestedSources": [
-      "usms",
-      "txdps"
+      "fbi",
+      "rfj"
     ],
-    "updatedToday": 4,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -19,12 +19,12 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1213,
+      "count": 1214,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-08T05:11:27.296912+00:00",
-      "lastSuccessAt": "2026-09-08T05:11:27.296912+00:00"
+      "durationSeconds": 3.105,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-09T05:12:43.426274+00:00",
+      "lastSuccessAt": "2026-09-09T05:12:43.426274+00:00"
     },
     {
       "id": "opp",
@@ -36,8 +36,8 @@
       "error": null,
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T18:51:11.741564+00:00",
-      "lastSuccessAt": "2026-09-07T18:51:11.741564+00:00"
+      "lastAttemptAt": "2026-09-08T18:04:07.703991+00:00",
+      "lastSuccessAt": "2026-09-08T18:04:07.703991+00:00"
     },
     {
       "id": "rcmp-sk",
@@ -49,21 +49,21 @@
       "error": null,
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T21:28:46.537229+00:00",
-      "lastSuccessAt": "2026-09-07T21:28:46.537229+00:00"
+      "lastAttemptAt": "2026-09-08T21:06:27.911141+00:00",
+      "lastSuccessAt": "2026-09-08T21:06:27.911141+00:00"
     },
     {
       "id": "fq",
       "name": "Fugitifs Quebec provincial wanted list",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 15,
-      "error": "ValueError: Fugitifs Quebec index did not include active profiles",
+      "error": null,
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T18:51:11.741564+00:00",
-      "lastSuccessAt": "2026-09-07T10:29:30.151115+00:00"
+      "lastAttemptAt": "2026-09-08T18:04:07.703991+00:00",
+      "lastSuccessAt": "2026-09-08T18:04:07.703991+00:00"
     },
     {
       "id": "eps",
@@ -75,8 +75,8 @@
       "error": null,
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T18:51:11.741564+00:00",
-      "lastSuccessAt": "2026-09-07T18:51:11.741564+00:00"
+      "lastAttemptAt": "2026-09-08T18:04:07.703991+00:00",
+      "lastSuccessAt": "2026-09-08T18:04:07.703991+00:00"
     },
     {
       "id": "rcmp-bc",
@@ -84,12 +84,12 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 15,
+      "count": 14,
       "error": null,
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T21:28:46.537229+00:00",
-      "lastSuccessAt": "2026-09-07T21:28:46.537229+00:00"
+      "lastAttemptAt": "2026-09-08T21:06:27.911141+00:00",
+      "lastSuccessAt": "2026-09-08T21:06:27.911141+00:00"
     },
     {
       "id": "vpd",
@@ -101,8 +101,8 @@
       "error": null,
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T21:28:46.537229+00:00",
-      "lastSuccessAt": "2026-09-07T21:28:46.537229+00:00"
+      "lastAttemptAt": "2026-09-08T21:06:27.911141+00:00",
+      "lastSuccessAt": "2026-09-08T21:06:27.911141+00:00"
     },
     {
       "id": "cfseu-bc",
@@ -111,10 +111,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T22:58:06.727221+00:00",
+      "lastAttemptAt": "2026-09-08T22:55:46.928105+00:00",
       "lastSuccessAt": null
     },
     {
@@ -125,10 +125,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-08T05:11:27.296912+00:00",
-      "lastSuccessAt": "2026-09-08T05:11:27.296912+00:00"
+      "durationSeconds": 0.848,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-09T05:12:43.426274+00:00",
+      "lastSuccessAt": "2026-09-09T05:12:43.426274+00:00"
     },
     {
       "id": "usms",
@@ -138,10 +138,10 @@
       "usedStaleData": false,
       "count": 56,
       "error": null,
-      "durationSeconds": 7.3,
-      "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-08T12:16:34.511196+00:00",
-      "lastSuccessAt": "2026-09-08T12:16:34.511196+00:00"
+      "durationSeconds": null,
+      "attemptedThisRun": false,
+      "lastAttemptAt": "2026-09-08T14:48:47.047883+00:00",
+      "lastSuccessAt": "2026-09-08T14:48:47.047883+00:00"
     },
     {
       "id": "ns-reward",
@@ -153,8 +153,8 @@
       "error": null,
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T18:51:11.741564+00:00",
-      "lastSuccessAt": "2026-09-07T18:51:11.741564+00:00"
+      "lastAttemptAt": "2026-09-08T18:04:07.703991+00:00",
+      "lastSuccessAt": "2026-09-08T18:04:07.703991+00:00"
     },
     {
       "id": "uspis",
@@ -166,21 +166,21 @@
       "error": null,
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-08T08:51:48.099882+00:00",
-      "lastSuccessAt": "2026-09-08T08:51:48.099882+00:00"
+      "lastAttemptAt": "2026-09-08T14:48:47.047883+00:00",
+      "lastSuccessAt": "2026-09-08T14:48:47.047883+00:00"
     },
     {
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
-      "count": 76,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "durationSeconds": 0.109,
-      "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-08T12:16:34.511196+00:00",
-      "lastSuccessAt": "2026-09-07T13:39:54.519293+00:00"
+      "success": true,
+      "usedStaleData": false,
+      "count": 75,
+      "error": null,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
+      "lastAttemptAt": "2026-09-08T22:55:46.928105+00:00",
+      "lastSuccessAt": "2026-09-08T22:55:46.928105+00:00"
     },
     {
       "id": "cn-police",
@@ -192,8 +192,8 @@
       "error": null,
       "durationSeconds": null,
       "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-07T16:26:45.317286+00:00",
-      "lastSuccessAt": "2026-09-07T16:26:45.317286+00:00"
+      "lastAttemptAt": "2026-09-08T15:05:24.274796+00:00",
+      "lastSuccessAt": "2026-09-08T15:05:24.274796+00:00"
     }
   ]
 }

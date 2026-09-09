@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-08T12:27:40.171037+00:00",
-  "sourceFingerprint": "a1ac74c9b0f5e5d81dd3877adb42b96e0eeb730bf57747721f9eaf12b61ced0f",
+  "generatedAt": "2026-09-09T05:12:46.383549+00:00",
+  "sourceFingerprint": "d0b7f65aa8ff7f7d570b85113897acf6a64aad3022357ef81a0bf7e725897555",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 390,
-    "region": 176
+    "city": 389,
+    "region": 175
   },
   "unresolved": [
     "Air Ronge, Saskatchewan",
@@ -779,16 +779,6 @@
         "approximate": false
       }
     ],
-    "txdps-1846": [
-      {
-        "label": "Texas",
-        "latitude": 31.0545,
-        "longitude": -97.5635,
-        "precision": "region",
-        "locationType": "broad_region",
-        "approximate": true
-      }
-    ],
     "txdps-93": [
       {
         "label": "Edinburg, Texas",
@@ -1120,16 +1110,6 @@
       }
     ],
     "rcmp-bc-4352384-mani-chopra": [
-      {
-        "label": "Prince George, British Columbia",
-        "latitude": 53.9166,
-        "longitude": -122.75301,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-bc-4352121-bryce-raymond-cote": [
       {
         "label": "Prince George, British Columbia",
         "latitude": 53.9166,
