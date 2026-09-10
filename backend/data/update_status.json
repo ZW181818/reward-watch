@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-09-10T17:51:17.559175+00:00",
+  "updatedAt": "2026-09-10T20:49:05.517676+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "canada-east",
+    "name": "canada-west",
     "requestedSources": [
-      "opp",
-      "fq",
-      "eps",
-      "ns-reward"
+      "rcmp-sk",
+      "rcmp-bc",
+      "vpd",
+      "cfseu-bc"
     ],
-    "updatedToday": 8,
+    "updatedToday": 11,
     "totalSources": 14
   },
   "sources": [
@@ -36,8 +36,8 @@
       "usedStaleData": false,
       "count": 92,
       "error": null,
-      "durationSeconds": 1.384,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T17:51:17.559175+00:00",
       "lastSuccessAt": "2026-09-10T17:51:17.559175+00:00"
     },
@@ -49,10 +49,10 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-09T20:53:51.080133+00:00",
-      "lastSuccessAt": "2026-09-09T20:53:51.080133+00:00"
+      "durationSeconds": 5.486,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-10T20:49:05.517676+00:00",
+      "lastSuccessAt": "2026-09-10T20:49:05.517676+00:00"
     },
     {
       "id": "fq",
@@ -62,8 +62,8 @@
       "usedStaleData": true,
       "count": 15,
       "error": "ValueError: Fugitifs Quebec index did not include active profiles",
-      "durationSeconds": 0.434,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T17:51:17.559175+00:00",
       "lastSuccessAt": "2026-09-09T17:58:21.927330+00:00"
     },
@@ -75,8 +75,8 @@
       "usedStaleData": false,
       "count": 10,
       "error": null,
-      "durationSeconds": 3.834,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T17:51:17.559175+00:00",
       "lastSuccessAt": "2026-09-10T17:51:17.559175+00:00"
     },
@@ -88,10 +88,10 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-09T20:53:51.080133+00:00",
-      "lastSuccessAt": "2026-09-09T20:53:51.080133+00:00"
+      "durationSeconds": 26.333,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-10T20:49:05.517676+00:00",
+      "lastSuccessAt": "2026-09-10T20:49:05.517676+00:00"
     },
     {
       "id": "vpd",
@@ -101,10 +101,10 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-09T20:53:51.080133+00:00",
-      "lastSuccessAt": "2026-09-09T20:53:51.080133+00:00"
+      "durationSeconds": 2.583,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-10T20:49:05.517676+00:00",
+      "lastSuccessAt": "2026-09-10T20:49:05.517676+00:00"
     },
     {
       "id": "cfseu-bc",
@@ -113,10 +113,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-09T22:42:28.697590+00:00",
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "durationSeconds": 0.32,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-10T20:49:05.517676+00:00",
       "lastSuccessAt": null
     },
     {
@@ -153,8 +153,8 @@
       "usedStaleData": true,
       "count": 117,
       "error": "URLError: <urlopen error timed out>",
-      "durationSeconds": 38.512,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T17:51:17.559175+00:00",
       "lastSuccessAt": "2026-09-09T17:58:21.927330+00:00"
     },
