@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-09-10T20:49:05.517676+00:00",
+  "updatedAt": "2026-09-10T22:44:52.445626+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "fq",
+      "cfseu-bc",
+      "rfj",
+      "ns-reward"
     ],
-    "updatedToday": 11,
+    "updatedToday": 13,
     "totalSources": 14
   },
   "sources": [
@@ -49,8 +49,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 5.486,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T20:49:05.517676+00:00",
       "lastSuccessAt": "2026-09-10T20:49:05.517676+00:00"
     },
@@ -58,14 +58,14 @@
       "id": "fq",
       "name": "Fugitifs Quebec provincial wanted list",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 15,
-      "error": "ValueError: Fugitifs Quebec index did not include active profiles",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-10T17:51:17.559175+00:00",
-      "lastSuccessAt": "2026-09-09T17:58:21.927330+00:00"
+      "error": null,
+      "durationSeconds": 11.618,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-10T22:44:52.445626+00:00",
+      "lastSuccessAt": "2026-09-10T22:44:52.445626+00:00"
     },
     {
       "id": "eps",
@@ -88,8 +88,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 26.333,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T20:49:05.517676+00:00",
       "lastSuccessAt": "2026-09-10T20:49:05.517676+00:00"
     },
@@ -101,8 +101,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.583,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T20:49:05.517676+00:00",
       "lastSuccessAt": "2026-09-10T20:49:05.517676+00:00"
     },
@@ -114,9 +114,9 @@
       "usedStaleData": true,
       "count": 3,
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.32,
+      "durationSeconds": 0.291,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-10T20:49:05.517676+00:00",
+      "lastAttemptAt": "2026-09-10T22:44:52.445626+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +127,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-10T05:13:45.038393+00:00",
-      "lastSuccessAt": "2026-09-10T05:13:45.038393+00:00"
+      "durationSeconds": 5.933,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-10T22:44:52.445626+00:00",
+      "lastSuccessAt": "2026-09-10T22:44:52.445626+00:00"
     },
     {
       "id": "usms",
@@ -149,14 +149,14 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 117,
-      "error": "URLError: <urlopen error timed out>",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-10T17:51:17.559175+00:00",
-      "lastSuccessAt": "2026-09-09T17:58:21.927330+00:00"
+      "error": null,
+      "durationSeconds": 8.468,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-10T22:44:52.445626+00:00",
+      "lastSuccessAt": "2026-09-10T22:44:52.445626+00:00"
     },
     {
       "id": "uspis",
