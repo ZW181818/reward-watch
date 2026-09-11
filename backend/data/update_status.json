@@ -1,17 +1,15 @@
 {
-  "updatedAt": "2026-09-10T22:44:52.445626+00:00",
+  "updatedAt": "2026-09-11T05:12:58.557759+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "fq",
-      "cfseu-bc",
-      "rfj",
-      "ns-reward"
+      "fbi",
+      "rfj"
     ],
-    "updatedToday": 13,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -23,10 +21,10 @@
       "usedStaleData": false,
       "count": 1214,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-10T05:13:45.038393+00:00",
-      "lastSuccessAt": "2026-09-10T05:13:45.038393+00:00"
+      "durationSeconds": 1.685,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-11T05:12:58.557759+00:00",
+      "lastSuccessAt": "2026-09-11T05:12:58.557759+00:00"
     },
     {
       "id": "opp",
@@ -62,8 +60,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 11.618,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T22:44:52.445626+00:00",
       "lastSuccessAt": "2026-09-10T22:44:52.445626+00:00"
     },
@@ -114,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.291,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T22:44:52.445626+00:00",
       "lastSuccessAt": null
     },
@@ -127,10 +125,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": 5.933,
+      "durationSeconds": 0.58,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-10T22:44:52.445626+00:00",
-      "lastSuccessAt": "2026-09-10T22:44:52.445626+00:00"
+      "lastAttemptAt": "2026-09-11T05:12:58.557759+00:00",
+      "lastSuccessAt": "2026-09-11T05:12:58.557759+00:00"
     },
     {
       "id": "usms",
@@ -153,8 +151,8 @@
       "usedStaleData": false,
       "count": 117,
       "error": null,
-      "durationSeconds": 8.468,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-10T22:44:52.445626+00:00",
       "lastSuccessAt": "2026-09-10T22:44:52.445626+00:00"
     },
