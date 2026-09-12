@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-09T20:53:54.580356+00:00",
-  "sourceFingerprint": "ba20a82fc6a953ad0cbaff1fc51b9953ab0d0649b48615337d85af4326a0e502",
+  "generatedAt": "2026-09-12T11:43:14.104168+00:00",
+  "sourceFingerprint": "0e632ab1412537290718d9f335df2a6e9c389b5d7153043c5bbc669c20061f11",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
     "city": 390,
@@ -47,6 +47,16 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "txdps-1976": [
+      {
+        "label": "Anna, Texas",
+        "latitude": 33.349,
+        "longitude": -96.5486,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "rcmp-bc-4356800-eric-vern-west": [
       {
         "label": "Prince George, British Columbia",
@@ -334,16 +344,6 @@
         "label": "Cleveland, Texas",
         "latitude": 30.34132,
         "longitude": -95.08549,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "txdps-592": [
-      {
-        "label": "Odessa, Texas",
-        "latitude": 31.84568,
-        "longitude": -102.36764,
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
