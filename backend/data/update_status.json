@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-09-11T22:44:36.256875+00:00",
+  "updatedAt": "2026-09-12T04:59:29.672841+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "cfseu-bc",
+      "fbi",
       "rfj"
     ],
-    "updatedToday": 13,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -21,10 +21,10 @@
       "usedStaleData": false,
       "count": 1214,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-11T05:12:58.557759+00:00",
-      "lastSuccessAt": "2026-09-11T05:12:58.557759+00:00"
+      "durationSeconds": 2.084,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-12T04:59:29.672841+00:00",
+      "lastSuccessAt": "2026-09-12T04:59:29.672841+00:00"
     },
     {
       "id": "opp",
@@ -112,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.361,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-11T22:44:36.256875+00:00",
       "lastSuccessAt": null
     },
@@ -125,10 +125,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": 6.265,
+      "durationSeconds": 0.902,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-11T22:44:36.256875+00:00",
-      "lastSuccessAt": "2026-09-11T22:44:36.256875+00:00"
+      "lastAttemptAt": "2026-09-12T04:59:29.672841+00:00",
+      "lastSuccessAt": "2026-09-12T04:59:29.672841+00:00"
     },
     {
       "id": "usms",
