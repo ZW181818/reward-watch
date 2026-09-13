@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-09-13T05:20:49.635886+00:00",
+  "updatedAt": "2026-09-13T12:50:00.133134+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "us-core",
+    "name": "us-justice",
     "requestedSources": [
-      "fbi",
-      "rfj"
+      "usms",
+      "txdps"
     ],
-    "updatedToday": 1,
+    "updatedToday": 3,
     "totalSources": 14
   },
   "sources": [
@@ -21,8 +21,8 @@
       "usedStaleData": false,
       "count": 1214,
       "error": null,
-      "durationSeconds": 4.886,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-13T05:20:49.635886+00:00",
       "lastSuccessAt": "2026-09-13T05:20:49.635886+00:00"
     },
@@ -125,8 +125,8 @@
       "usedStaleData": true,
       "count": 236,
       "error": "IncompleteRead: IncompleteRead(153390 bytes read)",
-      "durationSeconds": 2.001,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-13T05:20:49.635886+00:00",
       "lastSuccessAt": "2026-09-12T22:31:35.792124+00:00"
     },
@@ -138,10 +138,10 @@
       "usedStaleData": false,
       "count": 56,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-12T11:43:10.168437+00:00",
-      "lastSuccessAt": "2026-09-12T11:43:10.168437+00:00"
+      "durationSeconds": 12.286,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-13T12:50:00.133134+00:00",
+      "lastSuccessAt": "2026-09-13T12:50:00.133134+00:00"
     },
     {
       "id": "ns-reward",
@@ -177,10 +177,10 @@
       "usedStaleData": false,
       "count": 75,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-12T11:43:10.168437+00:00",
-      "lastSuccessAt": "2026-09-12T11:43:10.168437+00:00"
+      "durationSeconds": 9.423,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-13T12:50:00.133134+00:00",
+      "lastSuccessAt": "2026-09-13T12:50:00.133134+00:00"
     },
     {
       "id": "cn-police",
