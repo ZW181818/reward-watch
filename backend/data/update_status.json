@@ -1,17 +1,16 @@
 {
-  "updatedAt": "2026-09-13T20:43:49.071025+00:00",
+  "updatedAt": "2026-09-13T22:36:18.886540+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj",
+      "uspis"
     ],
-    "updatedToday": 11,
+    "updatedToday": 12,
     "totalSources": 14
   },
   "sources": [
@@ -49,8 +48,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 0.54,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-13T20:43:49.071025+00:00",
       "lastSuccessAt": "2026-09-13T20:43:49.071025+00:00"
     },
@@ -88,8 +87,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 14.168,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-13T20:43:49.071025+00:00",
       "lastSuccessAt": "2026-09-13T20:43:49.071025+00:00"
     },
@@ -101,8 +100,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.64,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-13T20:43:49.071025+00:00",
       "lastSuccessAt": "2026-09-13T20:43:49.071025+00:00"
     },
@@ -113,10 +112,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.29,
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "durationSeconds": 0.287,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-13T20:43:49.071025+00:00",
+      "lastAttemptAt": "2026-09-13T22:36:18.886540+00:00",
       "lastSuccessAt": null
     },
     {
@@ -126,10 +125,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 236,
-      "error": "IncompleteRead: IncompleteRead(153390 bytes read)",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-13T05:20:49.635886+00:00",
+      "error": "IncompleteRead: IncompleteRead(110254 bytes read)",
+      "durationSeconds": 1.867,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-13T22:36:18.886540+00:00",
       "lastSuccessAt": "2026-09-12T22:31:35.792124+00:00"
     },
     {
@@ -166,10 +165,10 @@
       "usedStaleData": false,
       "count": 300,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-12T08:38:51.423651+00:00",
-      "lastSuccessAt": "2026-09-12T08:38:51.423651+00:00"
+      "durationSeconds": 135.484,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-13T22:36:18.886540+00:00",
+      "lastSuccessAt": "2026-09-13T22:36:18.886540+00:00"
     },
     {
       "id": "txdps",
