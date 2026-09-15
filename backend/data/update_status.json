@@ -1,17 +1,16 @@
 {
-  "updatedAt": "2026-09-15T21:16:24.640018+00:00",
+  "updatedAt": "2026-09-15T23:07:59.224437+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2226,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj",
+      "cn-police"
     ],
-    "updatedToday": 12,
+    "updatedToday": 13,
     "totalSources": 14
   },
   "sources": [
@@ -49,8 +48,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 0.445,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-15T21:16:24.640018+00:00",
       "lastSuccessAt": "2026-09-15T21:16:24.640018+00:00"
     },
@@ -88,8 +87,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 12.147,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-15T21:16:24.640018+00:00",
       "lastSuccessAt": "2026-09-15T21:16:24.640018+00:00"
     },
@@ -101,8 +100,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.609,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-15T21:16:24.640018+00:00",
       "lastSuccessAt": "2026-09-15T21:16:24.640018+00:00"
     },
@@ -114,9 +113,9 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.238,
+      "durationSeconds": 0.327,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-15T21:16:24.640018+00:00",
+      "lastAttemptAt": "2026-09-15T23:07:59.224437+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +126,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-15T05:18:13.917937+00:00",
-      "lastSuccessAt": "2026-09-15T05:18:13.917937+00:00"
+      "durationSeconds": 0.919,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-15T23:07:59.224437+00:00",
+      "lastSuccessAt": "2026-09-15T23:07:59.224437+00:00"
     },
     {
       "id": "usms",
@@ -188,14 +187,14 @@
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 122,
-      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-15T15:32:20.303511+00:00",
-      "lastSuccessAt": "2026-09-14T16:58:30.475293+00:00"
+      "error": null,
+      "durationSeconds": 56.275,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-15T23:07:59.224437+00:00",
+      "lastSuccessAt": "2026-09-15T23:07:59.224437+00:00"
     }
   ]
 }
