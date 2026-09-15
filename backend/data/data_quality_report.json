@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T23:22:07.613497+00:00",
+  "generatedAt": "2026-09-15T05:18:13.917937+00:00",
   "totalCases": 2225,
   "sourceRecords": 2263,
   "multiSourceCases": 38,
@@ -11,8 +11,8 @@
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1391,
-    "Open": 830
+    "Information Requested": 1392,
+    "Open": 829
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -47,13 +47,13 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1474,
-    "notPublished": 751,
+    "published": 1475,
+    "notPublished": 750,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1143
+      "USD": 1144
     }
   },
   "images": {
@@ -67,8 +67,7 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
-      "cfseu-bc",
-      "rfj"
+      "cfseu-bc"
     ]
   },
   "checks": {

@@ -1,16 +1,15 @@
 {
-  "updatedAt": "2026-09-14T23:22:07.613497+00:00",
+  "updatedAt": "2026-09-15T05:18:13.917937+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "rcmp-bc",
-      "cfseu-bc",
+      "fbi",
       "rfj"
     ],
-    "updatedToday": 12,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -22,10 +21,10 @@
       "usedStaleData": false,
       "count": 1215,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-14T05:25:04.753802+00:00",
-      "lastSuccessAt": "2026-09-14T05:25:04.753802+00:00"
+      "durationSeconds": 1.137,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-15T05:18:13.917937+00:00",
+      "lastSuccessAt": "2026-09-15T05:18:13.917937+00:00"
     },
     {
       "id": "opp",
@@ -87,8 +86,8 @@
       "usedStaleData": false,
       "count": 14,
       "error": null,
-      "durationSeconds": 12.367,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-14T23:22:07.613497+00:00",
       "lastSuccessAt": "2026-09-14T23:22:07.613497+00:00"
     },
@@ -113,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.199,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-14T23:22:07.613497+00:00",
       "lastSuccessAt": null
     },
@@ -122,14 +121,14 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 236,
-      "error": "IncompleteRead: IncompleteRead(519436 bytes read)",
-      "durationSeconds": 1.918,
+      "error": null,
+      "durationSeconds": 0.574,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-14T23:22:07.613497+00:00",
-      "lastSuccessAt": "2026-09-12T22:31:35.792124+00:00"
+      "lastAttemptAt": "2026-09-15T05:18:13.917937+00:00",
+      "lastSuccessAt": "2026-09-15T05:18:13.917937+00:00"
     },
     {
       "id": "usms",
