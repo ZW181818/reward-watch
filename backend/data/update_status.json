@@ -1,14 +1,17 @@
 {
-  "updatedAt": "2026-09-15T15:32:20.303511+00:00",
+  "updatedAt": "2026-09-15T18:27:28.056174+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "china",
+    "name": "canada-east",
     "requestedSources": [
-      "cn-police"
+      "opp",
+      "fq",
+      "eps",
+      "ns-reward"
     ],
-    "updatedToday": 5,
+    "updatedToday": 9,
     "totalSources": 14
   },
   "sources": [
@@ -33,10 +36,10 @@
       "usedStaleData": false,
       "count": 92,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-14T19:35:00.112721+00:00",
-      "lastSuccessAt": "2026-09-14T19:35:00.112721+00:00"
+      "durationSeconds": 1.39,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-15T18:27:28.056174+00:00",
+      "lastSuccessAt": "2026-09-15T18:27:28.056174+00:00"
     },
     {
       "id": "rcmp-sk",
@@ -59,10 +62,10 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-14T19:35:00.112721+00:00",
-      "lastSuccessAt": "2026-09-14T19:35:00.112721+00:00"
+      "durationSeconds": 8.915,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-15T18:27:28.056174+00:00",
+      "lastSuccessAt": "2026-09-15T18:27:28.056174+00:00"
     },
     {
       "id": "eps",
@@ -72,10 +75,10 @@
       "usedStaleData": false,
       "count": 10,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-14T19:35:00.112721+00:00",
-      "lastSuccessAt": "2026-09-14T19:35:00.112721+00:00"
+      "durationSeconds": 2.777,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-15T18:27:28.056174+00:00",
+      "lastSuccessAt": "2026-09-15T18:27:28.056174+00:00"
     },
     {
       "id": "rcmp-bc",
@@ -150,10 +153,10 @@
       "usedStaleData": false,
       "count": 117,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-14T19:35:00.112721+00:00",
-      "lastSuccessAt": "2026-09-14T19:35:00.112721+00:00"
+      "durationSeconds": 8.662,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-15T18:27:28.056174+00:00",
+      "lastSuccessAt": "2026-09-15T18:27:28.056174+00:00"
     },
     {
       "id": "uspis",
@@ -189,8 +192,8 @@
       "usedStaleData": true,
       "count": 122,
       "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
-      "durationSeconds": 36.669,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-15T15:32:20.303511+00:00",
       "lastSuccessAt": "2026-09-14T16:58:30.475293+00:00"
     }
