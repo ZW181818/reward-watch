@@ -1,16 +1,15 @@
 {
-  "updatedAt": "2026-09-15T23:07:59.224437+00:00",
+  "updatedAt": "2026-09-16T05:12:55.048147+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2226,
+  "totalCount": 2228,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "cfseu-bc",
-      "rfj",
-      "cn-police"
+      "fbi",
+      "rfj"
     ],
-    "updatedToday": 13,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -20,12 +19,12 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1215,
+      "count": 1217,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-15T05:18:13.917937+00:00",
-      "lastSuccessAt": "2026-09-15T05:18:13.917937+00:00"
+      "durationSeconds": 2.73,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-16T05:12:55.048147+00:00",
+      "lastSuccessAt": "2026-09-16T05:12:55.048147+00:00"
     },
     {
       "id": "opp",
@@ -113,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.327,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-15T23:07:59.224437+00:00",
       "lastSuccessAt": null
     },
@@ -126,10 +125,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": 0.919,
+      "durationSeconds": 0.902,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-15T23:07:59.224437+00:00",
-      "lastSuccessAt": "2026-09-15T23:07:59.224437+00:00"
+      "lastAttemptAt": "2026-09-16T05:12:55.048147+00:00",
+      "lastSuccessAt": "2026-09-16T05:12:55.048147+00:00"
     },
     {
       "id": "usms",
@@ -191,8 +190,8 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": 56.275,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-15T23:07:59.224437+00:00",
       "lastSuccessAt": "2026-09-15T23:07:59.224437+00:00"
     }
