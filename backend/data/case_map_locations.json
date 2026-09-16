@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-16T05:12:57.761341+00:00",
-  "sourceFingerprint": "2e6de959ef3adfd24f41dd2e23c5e009f66142f809c989e76a6f5badc810edc4",
+  "generatedAt": "2026-09-16T18:24:37.539370+00:00",
+  "sourceFingerprint": "80613dc60f2291c6e3c07a16b745609fbb7f5b82883d527f0309cf5113b380f7",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 389,
+    "city": 388,
     "region": 176
   },
   "unresolved": [
@@ -5233,16 +5233,6 @@
         "precision": "region",
         "locationType": "broad_region",
         "approximate": true
-      }
-    ],
-    "eps-ayoub-20ali": [
-      {
-        "label": "Edmonton, Alberta",
-        "latitude": 53.55014,
-        "longitude": -113.46871,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
       }
     ],
     "uspis-9841": [

@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-16T15:25:59.961663+00:00",
-  "totalCases": 2228,
-  "sourceRecords": 2266,
+  "generatedAt": "2026-09-16T18:24:33.848844+00:00",
+  "totalCases": 2227,
+  "sourceRecords": 2265,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 260,
+    "Canada": 259,
     "China": 122,
     "US": 1846
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1393,
-    "Open": 831
+    "Open": 830
   },
   "sources": {
     "CFSEU-BC": 3,
     "Cranbrook RCMP": 1,
-    "Edmonton Police Service": 10,
+    "Edmonton Police Service": 9,
     "Elk Valley Regional RCMP": 1,
     "Federal Bureau of Investigation": 1217,
     "Fugitifs Quebec": 15,
@@ -48,11 +48,11 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1476,
+    "published": 1475,
     "notPublished": 752,
     "maximum": 25000000,
     "currencies": {
-      "CAD": 209,
+      "CAD": 208,
       "CNY": 122,
       "USD": 1145
     }
@@ -60,7 +60,7 @@
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 197,
-    "remotePrimaryImages": 2031
+    "remotePrimaryImages": 2030
   },
   "regions": {
     "casesWithoutRegion": 45
