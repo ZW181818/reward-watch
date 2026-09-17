@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-16T23:12:25.189870+00:00",
+  "generatedAt": "2026-09-17T05:20:05.008038+00:00",
   "totalCases": 2229,
   "sourceRecords": 2267,
   "multiSourceCases": 38,
@@ -48,13 +48,13 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1476,
-    "notPublished": 753,
+    "published": 1477,
+    "notPublished": 752,
     "maximum": 25000000,
     "currencies": {
       "CAD": 208,
       "CNY": 122,
-      "USD": 1146
+      "USD": 1147
     }
   },
   "images": {
