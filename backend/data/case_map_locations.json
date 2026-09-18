@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-17T12:45:41.892079+00:00",
-  "sourceFingerprint": "7f450b8817cbfb3a28844bbc18525a10e169a241204150ff4055cf27c4610fb4",
+  "generatedAt": "2026-09-18T12:21:14.667651+00:00",
+  "sourceFingerprint": "a4dd6d9847c9871be03ecd7326e3af89f28457c8073375989c468347a73216f2",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
     "city": 389,
-    "region": 178
+    "region": 176
   },
   "unresolved": [
     "Air Ronge, Saskatchewan",
@@ -47,6 +47,16 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "txdps-1978": [
+      {
+        "label": "Corpus Christi, Texas",
+        "latitude": 27.80058,
+        "longitude": -97.39638,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "uspis-20351": [
       {
         "label": "Denver, Colorado",
@@ -679,16 +689,6 @@
         "approximate": false
       }
     ],
-    "txdps-1864": [
-      {
-        "label": "San Antonio, Texas",
-        "latitude": 29.42412,
-        "longitude": -98.49363,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
     "txdps-1956": [
       {
         "label": "Palacios, Texas",
@@ -949,16 +949,6 @@
         "approximate": false
       }
     ],
-    "txdps-1950": [
-      {
-        "label": "Texas",
-        "latitude": 31.0545,
-        "longitude": -97.5635,
-        "precision": "region",
-        "locationType": "broad_region",
-        "approximate": true
-      }
-    ],
     "txdps-560": [
       {
         "label": "Midland, Texas",
@@ -977,16 +967,6 @@
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
-      }
-    ],
-    "txdps-1942": [
-      {
-        "label": "Texas",
-        "latitude": 31.0545,
-        "longitude": -97.5635,
-        "precision": "region",
-        "locationType": "broad_region",
-        "approximate": true
       }
     ],
     "txdps-1849": [
