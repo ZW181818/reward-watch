@@ -1,17 +1,16 @@
 {
-  "updatedAt": "2026-09-19T20:34:28.501556+00:00",
+  "updatedAt": "2026-09-19T22:28:45.674146+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2227,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj",
+      "cn-police"
     ],
-    "updatedToday": 12,
+    "updatedToday": 13,
     "totalSources": 14
   },
   "sources": [
@@ -49,8 +48,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 0.569,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-19T20:34:28.501556+00:00",
       "lastSuccessAt": "2026-09-19T20:34:28.501556+00:00"
     },
@@ -88,8 +87,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 8.918,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-19T20:34:28.501556+00:00",
       "lastSuccessAt": "2026-09-19T20:34:28.501556+00:00"
     },
@@ -101,8 +100,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 3.072,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-19T20:34:28.501556+00:00",
       "lastSuccessAt": "2026-09-19T20:34:28.501556+00:00"
     },
@@ -114,9 +113,9 @@
       "usedStaleData": true,
       "count": 3,
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.239,
+      "durationSeconds": 0.257,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-19T20:34:28.501556+00:00",
+      "lastAttemptAt": "2026-09-19T22:28:45.674146+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +126,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-19T05:01:00.692672+00:00",
-      "lastSuccessAt": "2026-09-19T05:01:00.692672+00:00"
+      "durationSeconds": 0.735,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-19T22:28:45.674146+00:00",
+      "lastSuccessAt": "2026-09-19T22:28:45.674146+00:00"
     },
     {
       "id": "usms",
@@ -188,14 +187,14 @@
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 122,
-      "error": "TimeoutError: The read operation timed out",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-19T14:24:53.767433+00:00",
-      "lastSuccessAt": "2026-09-18T14:56:02.243944+00:00"
+      "error": null,
+      "durationSeconds": 143.048,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-19T22:28:45.674146+00:00",
+      "lastSuccessAt": "2026-09-19T22:28:45.674146+00:00"
     }
   ]
 }
