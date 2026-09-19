@@ -1,13 +1,12 @@
 {
-  "updatedAt": "2026-09-19T12:02:19.133866+00:00",
+  "updatedAt": "2026-09-19T14:24:53.767433+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2227,
   "batch": {
-    "name": "us-justice",
+    "name": "china",
     "requestedSources": [
-      "usms",
-      "txdps"
+      "cn-police"
     ],
     "updatedToday": 5,
     "totalSources": 14
@@ -138,8 +137,8 @@
       "usedStaleData": false,
       "count": 56,
       "error": null,
-      "durationSeconds": 7.69,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-19T12:02:19.133866+00:00",
       "lastSuccessAt": "2026-09-19T12:02:19.133866+00:00"
     },
@@ -177,8 +176,8 @@
       "usedStaleData": false,
       "count": 74,
       "error": null,
-      "durationSeconds": 8.667,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-19T12:02:19.133866+00:00",
       "lastSuccessAt": "2026-09-19T12:02:19.133866+00:00"
     },
@@ -186,13 +185,13 @@
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 122,
-      "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-18T14:56:02.243944+00:00",
+      "error": "TimeoutError: The read operation timed out",
+      "durationSeconds": 375.141,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-19T14:24:53.767433+00:00",
       "lastSuccessAt": "2026-09-18T14:56:02.243944+00:00"
     }
   ]
