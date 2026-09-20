@@ -1,16 +1,15 @@
 {
-  "updatedAt": "2026-09-19T22:28:45.674146+00:00",
+  "updatedAt": "2026-09-20T05:22:59.205115+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2227,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "cfseu-bc",
-      "rfj",
-      "cn-police"
+      "fbi",
+      "rfj"
     ],
-    "updatedToday": 13,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -22,10 +21,10 @@
       "usedStaleData": false,
       "count": 1217,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-19T05:01:00.692672+00:00",
-      "lastSuccessAt": "2026-09-19T05:01:00.692672+00:00"
+      "durationSeconds": 1.826,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-20T05:22:59.205115+00:00",
+      "lastSuccessAt": "2026-09-20T05:22:59.205115+00:00"
     },
     {
       "id": "opp",
@@ -113,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.257,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-19T22:28:45.674146+00:00",
       "lastSuccessAt": null
     },
@@ -126,10 +125,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": 0.735,
+      "durationSeconds": 0.478,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-19T22:28:45.674146+00:00",
-      "lastSuccessAt": "2026-09-19T22:28:45.674146+00:00"
+      "lastAttemptAt": "2026-09-20T05:22:59.205115+00:00",
+      "lastSuccessAt": "2026-09-20T05:22:59.205115+00:00"
     },
     {
       "id": "usms",
@@ -191,8 +190,8 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": 143.048,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-19T22:28:45.674146+00:00",
       "lastSuccessAt": "2026-09-19T22:28:45.674146+00:00"
     }
