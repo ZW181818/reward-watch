@@ -1,17 +1,16 @@
 {
-  "updatedAt": "2026-09-20T20:45:07.170643+00:00",
+  "updatedAt": "2026-09-20T22:39:24.065108+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2227,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj",
+      "ns-reward"
     ],
-    "updatedToday": 12,
+    "updatedToday": 13,
     "totalSources": 14
   },
   "sources": [
@@ -49,8 +48,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 0.502,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-20T20:45:07.170643+00:00",
       "lastSuccessAt": "2026-09-20T20:45:07.170643+00:00"
     },
@@ -88,8 +87,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 7.67,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-20T20:45:07.170643+00:00",
       "lastSuccessAt": "2026-09-20T20:45:07.170643+00:00"
     },
@@ -101,8 +100,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.404,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-20T20:45:07.170643+00:00",
       "lastSuccessAt": "2026-09-20T20:45:07.170643+00:00"
     },
@@ -113,23 +112,23 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.232,
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "durationSeconds": 0.344,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-20T20:45:07.170643+00:00",
+      "lastAttemptAt": "2026-09-20T22:39:24.065108+00:00",
       "lastSuccessAt": null
     },
     {
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 236,
-      "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-20T05:22:59.205115+00:00",
+      "error": "IncompleteRead: IncompleteRead(165110 bytes read)",
+      "durationSeconds": 4.247,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-20T22:39:24.065108+00:00",
       "lastSuccessAt": "2026-09-20T05:22:59.205115+00:00"
     },
     {
@@ -149,14 +148,14 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 117,
-      "error": "URLError: <urlopen error timed out>",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-20T17:39:23.952120+00:00",
-      "lastSuccessAt": "2026-09-19T17:25:39.991718+00:00"
+      "error": null,
+      "durationSeconds": 6.504,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-20T22:39:24.065108+00:00",
+      "lastSuccessAt": "2026-09-20T22:39:24.065108+00:00"
     },
     {
       "id": "uspis",
