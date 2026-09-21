@@ -1,15 +1,14 @@
 {
-  "updatedAt": "2026-09-21T14:30:41.879986+00:00",
+  "updatedAt": "2026-09-21T17:01:12.969320+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2227,
   "batch": {
-    "name": "us-justice",
+    "name": "china",
     "requestedSources": [
-      "usms",
-      "txdps"
+      "cn-police"
     ],
-    "updatedToday": 4,
+    "updatedToday": 5,
     "totalSources": 14
   },
   "sources": [
@@ -138,8 +137,8 @@
       "usedStaleData": false,
       "count": 56,
       "error": null,
-      "durationSeconds": 18.544,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-21T14:30:41.879986+00:00",
       "lastSuccessAt": "2026-09-21T14:30:41.879986+00:00"
     },
@@ -177,8 +176,8 @@
       "usedStaleData": true,
       "count": 74,
       "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "durationSeconds": 0.249,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-21T14:30:41.879986+00:00",
       "lastSuccessAt": "2026-09-20T12:36:02.774904+00:00"
     },
@@ -190,10 +189,10 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-20T14:41:33.166563+00:00",
-      "lastSuccessAt": "2026-09-20T14:41:33.166563+00:00"
+      "durationSeconds": 145.093,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-21T17:01:12.969320+00:00",
+      "lastSuccessAt": "2026-09-21T17:01:12.969320+00:00"
     }
   ]
 }
