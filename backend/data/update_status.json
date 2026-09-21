@@ -1,16 +1,15 @@
 {
-  "updatedAt": "2026-09-20T22:39:24.065108+00:00",
+  "updatedAt": "2026-09-21T05:26:29.973697+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2227,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "cfseu-bc",
-      "rfj",
-      "ns-reward"
+      "fbi",
+      "rfj"
     ],
-    "updatedToday": 13,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -22,10 +21,10 @@
       "usedStaleData": false,
       "count": 1217,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-20T05:22:59.205115+00:00",
-      "lastSuccessAt": "2026-09-20T05:22:59.205115+00:00"
+      "durationSeconds": 2.046,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-21T05:26:29.973697+00:00",
+      "lastSuccessAt": "2026-09-21T05:26:29.973697+00:00"
     },
     {
       "id": "opp",
@@ -113,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.344,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-20T22:39:24.065108+00:00",
       "lastSuccessAt": null
     },
@@ -122,14 +121,14 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 236,
-      "error": "IncompleteRead: IncompleteRead(165110 bytes read)",
-      "durationSeconds": 4.247,
+      "error": null,
+      "durationSeconds": 4.524,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-20T22:39:24.065108+00:00",
-      "lastSuccessAt": "2026-09-20T05:22:59.205115+00:00"
+      "lastAttemptAt": "2026-09-21T05:26:29.973697+00:00",
+      "lastSuccessAt": "2026-09-21T05:26:29.973697+00:00"
     },
     {
       "id": "usms",
@@ -152,8 +151,8 @@
       "usedStaleData": false,
       "count": 117,
       "error": null,
-      "durationSeconds": 6.504,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-20T22:39:24.065108+00:00",
       "lastSuccessAt": "2026-09-20T22:39:24.065108+00:00"
     },
