@@ -1,14 +1,15 @@
 {
-  "updatedAt": "2026-09-21T09:54:34.946261+00:00",
+  "updatedAt": "2026-09-21T14:30:41.879986+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2227,
   "batch": {
-    "name": "us-postal",
+    "name": "us-justice",
     "requestedSources": [
-      "uspis"
+      "usms",
+      "txdps"
     ],
-    "updatedToday": 3,
+    "updatedToday": 4,
     "totalSources": 14
   },
   "sources": [
@@ -137,10 +138,10 @@
       "usedStaleData": false,
       "count": 56,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-20T12:36:02.774904+00:00",
-      "lastSuccessAt": "2026-09-20T12:36:02.774904+00:00"
+      "durationSeconds": 18.544,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-21T14:30:41.879986+00:00",
+      "lastSuccessAt": "2026-09-21T14:30:41.879986+00:00"
     },
     {
       "id": "ns-reward",
@@ -163,8 +164,8 @@
       "usedStaleData": false,
       "count": 301,
       "error": null,
-      "durationSeconds": 133.561,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-21T09:54:34.946261+00:00",
       "lastSuccessAt": "2026-09-21T09:54:34.946261+00:00"
     },
@@ -172,13 +173,13 @@
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 74,
-      "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-20T12:36:02.774904+00:00",
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "durationSeconds": 0.249,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-21T14:30:41.879986+00:00",
       "lastSuccessAt": "2026-09-20T12:36:02.774904+00:00"
     },
     {
