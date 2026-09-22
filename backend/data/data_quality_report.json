@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T21:14:20.476976+00:00",
+  "generatedAt": "2026-09-22T23:12:47.381571+00:00",
   "totalCases": 2224,
   "sourceRecords": 2262,
   "multiSourceCases": 38,
@@ -66,8 +66,7 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
-      "cfseu-bc",
-      "rfj"
+      "cfseu-bc"
     ]
   },
   "checks": {
