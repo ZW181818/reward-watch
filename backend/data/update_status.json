@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-09-23T21:27:31.342709+00:00",
+  "updatedAt": "2026-09-23T23:05:24.399452+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2227,
+  "totalCount": 2225,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj",
+      "ns-reward",
+      "txdps"
     ],
-    "updatedToday": 11,
+    "updatedToday": 13,
     "totalSources": 14
   },
   "sources": [
@@ -49,8 +49,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 0.51,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-23T21:27:31.342709+00:00",
       "lastSuccessAt": "2026-09-23T21:27:31.342709+00:00"
     },
@@ -88,8 +88,8 @@
       "usedStaleData": false,
       "count": 13,
       "error": null,
-      "durationSeconds": 18.81,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-23T21:27:31.342709+00:00",
       "lastSuccessAt": "2026-09-23T21:27:31.342709+00:00"
     },
@@ -101,8 +101,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.503,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-23T21:27:31.342709+00:00",
       "lastSuccessAt": "2026-09-23T21:27:31.342709+00:00"
     },
@@ -113,10 +113,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.254,
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "durationSeconds": 0.288,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-23T21:27:31.342709+00:00",
+      "lastAttemptAt": "2026-09-23T23:05:24.399452+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +127,10 @@
       "usedStaleData": false,
       "count": 236,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-23T05:08:40.146746+00:00",
-      "lastSuccessAt": "2026-09-23T05:08:40.146746+00:00"
+      "durationSeconds": 1.152,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-23T23:05:24.399452+00:00",
+      "lastSuccessAt": "2026-09-23T23:05:24.399452+00:00"
     },
     {
       "id": "usms",
@@ -149,14 +149,14 @@
       "id": "ns-reward",
       "name": "Nova Scotia Rewards for Major Unsolved Crimes",
       "country": "Canada",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 117,
-      "error": "URLError: <urlopen error timed out>",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-23T18:37:15.148688+00:00",
-      "lastSuccessAt": "2026-09-22T18:15:29.780677+00:00"
+      "error": null,
+      "durationSeconds": 6.404,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-23T23:05:24.399452+00:00",
+      "lastSuccessAt": "2026-09-23T23:05:24.399452+00:00"
     },
     {
       "id": "uspis",
@@ -175,14 +175,14 @@
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
-      "count": 73,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-23T12:59:01.918743+00:00",
-      "lastSuccessAt": "2026-09-22T12:49:30.884952+00:00"
+      "success": true,
+      "usedStaleData": false,
+      "count": 71,
+      "error": null,
+      "durationSeconds": 6.241,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-23T23:05:24.399452+00:00",
+      "lastSuccessAt": "2026-09-23T23:05:24.399452+00:00"
     },
     {
       "id": "cn-police",
