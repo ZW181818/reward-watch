@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-09-24T18:39:02.189702+00:00",
+  "updatedAt": "2026-09-24T21:28:08.550147+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2226,
+  "totalCount": 2224,
   "batch": {
-    "name": "canada-east",
+    "name": "canada-west",
     "requestedSources": [
-      "opp",
-      "fq",
-      "eps",
-      "ns-reward"
+      "rcmp-sk",
+      "rcmp-bc",
+      "vpd",
+      "cfseu-bc"
     ],
-    "updatedToday": 8,
+    "updatedToday": 11,
     "totalSources": 14
   },
   "sources": [
@@ -36,8 +36,8 @@
       "usedStaleData": false,
       "count": 92,
       "error": null,
-      "durationSeconds": 0.975,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-24T18:39:02.189702+00:00",
       "lastSuccessAt": "2026-09-24T18:39:02.189702+00:00"
     },
@@ -49,10 +49,10 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-23T21:27:31.342709+00:00",
-      "lastSuccessAt": "2026-09-23T21:27:31.342709+00:00"
+      "durationSeconds": 7.51,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-24T21:28:08.550147+00:00",
+      "lastSuccessAt": "2026-09-24T21:28:08.550147+00:00"
     },
     {
       "id": "fq",
@@ -62,8 +62,8 @@
       "usedStaleData": false,
       "count": 15,
       "error": null,
-      "durationSeconds": 12.514,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-24T18:39:02.189702+00:00",
       "lastSuccessAt": "2026-09-24T18:39:02.189702+00:00"
     },
@@ -75,8 +75,8 @@
       "usedStaleData": false,
       "count": 9,
       "error": null,
-      "durationSeconds": 3.631,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-24T18:39:02.189702+00:00",
       "lastSuccessAt": "2026-09-24T18:39:02.189702+00:00"
     },
@@ -86,12 +86,12 @@
       "country": "Canada",
       "success": true,
       "usedStaleData": false,
-      "count": 13,
+      "count": 11,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-23T21:27:31.342709+00:00",
-      "lastSuccessAt": "2026-09-23T21:27:31.342709+00:00"
+      "durationSeconds": 10.408,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-24T21:28:08.550147+00:00",
+      "lastSuccessAt": "2026-09-24T21:28:08.550147+00:00"
     },
     {
       "id": "vpd",
@@ -101,10 +101,10 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-23T21:27:31.342709+00:00",
-      "lastSuccessAt": "2026-09-23T21:27:31.342709+00:00"
+      "durationSeconds": 2.592,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-24T21:28:08.550147+00:00",
+      "lastSuccessAt": "2026-09-24T21:28:08.550147+00:00"
     },
     {
       "id": "cfseu-bc",
@@ -114,9 +114,9 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-23T23:05:24.399452+00:00",
+      "durationSeconds": 0.777,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-24T21:28:08.550147+00:00",
       "lastSuccessAt": null
     },
     {
@@ -153,8 +153,8 @@
       "usedStaleData": false,
       "count": 117,
       "error": null,
-      "durationSeconds": 5.207,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-24T18:39:02.189702+00:00",
       "lastSuccessAt": "2026-09-24T18:39:02.189702+00:00"
     },

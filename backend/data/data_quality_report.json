@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-24T18:39:02.189702+00:00",
-  "totalCases": 2226,
-  "sourceRecords": 2264,
+  "generatedAt": "2026-09-24T21:28:08.550147+00:00",
+  "totalCases": 2224,
+  "sourceRecords": 2262,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 257,
+    "Canada": 255,
     "China": 122,
     "US": 1847
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1395,
-    "Open": 827
+    "Open": 825
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -22,10 +22,9 @@
     "Fort St. John RCMP": 1,
     "Fugitifs Quebec": 15,
     "Hope RCMP": 1,
-    "Nanaimo RCMP": 1,
     "Nova Scotia Department of Justice": 117,
     "Ontario Provincial Police": 92,
-    "Prince George RCMP": 6,
+    "Prince George RCMP": 5,
     "Prince Rupert RCMP": 1,
     "Saskatchewan RCMP": 6,
     "Terrace RCMP": 1,
@@ -47,7 +46,7 @@
   },
   "rewards": {
     "published": 1474,
-    "notPublished": 752,
+    "notPublished": 750,
     "maximum": 25000000,
     "currencies": {
       "CAD": 208,
@@ -58,7 +57,7 @@
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 193,
-    "remotePrimaryImages": 2033
+    "remotePrimaryImages": 2031
   },
   "regions": {
     "casesWithoutRegion": 45
