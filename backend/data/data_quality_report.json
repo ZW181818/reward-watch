@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-24T09:17:22.618818+00:00",
-  "totalCases": 2225,
-  "sourceRecords": 2263,
+  "generatedAt": "2026-09-24T12:52:26.695055+00:00",
+  "totalCases": 2226,
+  "sourceRecords": 2264,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 257,
     "China": 122,
-    "US": 1846
+    "US": 1847
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1395,
-    "Open": 826
+    "Open": 827
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -31,7 +31,7 @@
     "Terrace RCMP": 1,
     "Texas Department of Public Safety": 71,
     "U.S. Department of State - Rewards for Justice": 236,
-    "U.S. Marshals Service": 56,
+    "U.S. Marshals Service": 57,
     "United States Postal Inspection Service": 301,
     "Vancouver Police Department": 2,
     "West Shore RCMP": 1,
@@ -46,19 +46,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1473,
+    "published": 1474,
     "notPublished": 752,
     "maximum": 25000000,
     "currencies": {
       "CAD": 208,
       "CNY": 122,
-      "USD": 1143
+      "USD": 1144
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 193,
-    "remotePrimaryImages": 2032
+    "remotePrimaryImages": 2033
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -67,7 +67,8 @@
     "allSourcesFresh": false,
     "staleSources": [
       "cfseu-bc",
-      "rfj"
+      "rfj",
+      "txdps"
     ]
   },
   "checks": {
