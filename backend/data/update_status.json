@@ -1,17 +1,15 @@
 {
-  "updatedAt": "2026-09-23T23:05:24.399452+00:00",
+  "updatedAt": "2026-09-24T05:21:07.628107+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "cfseu-bc",
-      "rfj",
-      "ns-reward",
-      "txdps"
+      "fbi",
+      "rfj"
     ],
-    "updatedToday": 13,
+    "updatedToday": 1,
     "totalSources": 14
   },
   "sources": [
@@ -23,10 +21,10 @@
       "usedStaleData": false,
       "count": 1220,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-23T05:08:40.146746+00:00",
-      "lastSuccessAt": "2026-09-23T05:08:40.146746+00:00"
+      "durationSeconds": 2.008,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-24T05:21:07.628107+00:00",
+      "lastSuccessAt": "2026-09-24T05:21:07.628107+00:00"
     },
     {
       "id": "opp",
@@ -114,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.288,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-23T23:05:24.399452+00:00",
       "lastSuccessAt": null
     },
@@ -123,13 +121,13 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 236,
-      "error": null,
-      "durationSeconds": 1.152,
+      "error": "IncompleteRead: IncompleteRead(110254 bytes read)",
+      "durationSeconds": 1.999,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-23T23:05:24.399452+00:00",
+      "lastAttemptAt": "2026-09-24T05:21:07.628107+00:00",
       "lastSuccessAt": "2026-09-23T23:05:24.399452+00:00"
     },
     {
@@ -153,8 +151,8 @@
       "usedStaleData": false,
       "count": 117,
       "error": null,
-      "durationSeconds": 6.404,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-23T23:05:24.399452+00:00",
       "lastSuccessAt": "2026-09-23T23:05:24.399452+00:00"
     },
@@ -179,8 +177,8 @@
       "usedStaleData": false,
       "count": 71,
       "error": null,
-      "durationSeconds": 6.241,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-23T23:05:24.399452+00:00",
       "lastSuccessAt": "2026-09-23T23:05:24.399452+00:00"
     },
