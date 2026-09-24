@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-24T21:28:11.664061+00:00",
-  "sourceFingerprint": "d2993f44a7c7c85f3f349474143e58885e606a0090e3bb6b517a1954419930f3",
+  "generatedAt": "2026-09-24T23:22:18.227430+00:00",
+  "sourceFingerprint": "81517303100434679c1087e5a8823801f0be59a46fdcf18744b28d746ec44d76",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 384,
-    "region": 174
+    "city": 382,
+    "region": 175
   },
   "unresolved": [
     "Air Ronge, Saskatchewan",
@@ -238,16 +238,6 @@
         "longitude": -122.41108,
         "precision": "city",
         "locationType": "title_location",
-        "approximate": false
-      }
-    ],
-    "txdps-1971": [
-      {
-        "label": "Greenville, Texas",
-        "latitude": 33.13845,
-        "longitude": -96.11081,
-        "precision": "city",
-        "locationType": "official_location",
         "approximate": false
       }
     ],
@@ -841,12 +831,12 @@
     ],
     "txdps-723": [
       {
-        "label": "Houston, Texas",
-        "latitude": 29.76328,
-        "longitude": -95.36327,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
       }
     ],
     "txdps-1869": [
