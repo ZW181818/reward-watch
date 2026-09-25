@@ -1,15 +1,13 @@
 {
-  "updatedAt": "2026-09-25T21:31:21.832035+00:00",
+  "updatedAt": "2026-09-25T23:28:12.072370+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2226,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -49,8 +47,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 6.222,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-25T21:31:21.832035+00:00",
       "lastSuccessAt": "2026-09-25T21:31:21.832035+00:00"
     },
@@ -88,8 +86,8 @@
       "usedStaleData": false,
       "count": 11,
       "error": null,
-      "durationSeconds": 20.717,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-25T21:31:21.832035+00:00",
       "lastSuccessAt": "2026-09-25T21:31:21.832035+00:00"
     },
@@ -101,8 +99,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.832,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-25T21:31:21.832035+00:00",
       "lastSuccessAt": "2026-09-25T21:31:21.832035+00:00"
     },
@@ -113,10 +111,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.427,
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "durationSeconds": 0.19,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-25T21:31:21.832035+00:00",
+      "lastAttemptAt": "2026-09-25T23:28:12.072370+00:00",
       "lastSuccessAt": null
     },
     {
@@ -126,10 +124,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 236,
-      "error": "IncompleteRead: IncompleteRead(646358 bytes read)",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-25T05:21:54.947672+00:00",
+      "error": "IncompleteRead: IncompleteRead(343333 bytes read)",
+      "durationSeconds": 5.561,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-25T23:28:12.072370+00:00",
       "lastSuccessAt": "2026-09-23T23:05:24.399452+00:00"
     },
     {
