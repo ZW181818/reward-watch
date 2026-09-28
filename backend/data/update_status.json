@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-09-27T23:20:09.298219+00:00",
+  "updatedAt": "2026-09-28T05:49:19.340679+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2225,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "cfseu-bc",
+      "fbi",
       "rfj"
     ],
-    "updatedToday": 13,
+    "updatedToday": 1,
     "totalSources": 14
   },
   "sources": [
@@ -21,10 +21,10 @@
       "usedStaleData": false,
       "count": 1222,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-09-27T05:42:24.901448+00:00",
-      "lastSuccessAt": "2026-09-27T05:42:24.901448+00:00"
+      "durationSeconds": 4.214,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-09-28T05:49:19.340679+00:00",
+      "lastSuccessAt": "2026-09-28T05:49:19.340679+00:00"
     },
     {
       "id": "opp",
@@ -112,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.264,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-09-27T23:20:09.298219+00:00",
       "lastSuccessAt": null
     },
@@ -121,13 +121,13 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 236,
-      "error": null,
-      "durationSeconds": 0.673,
+      "error": "IncompleteRead: IncompleteRead(110262 bytes read)",
+      "durationSeconds": 2.0,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-09-27T23:20:09.298219+00:00",
+      "lastAttemptAt": "2026-09-28T05:49:19.340679+00:00",
       "lastSuccessAt": "2026-09-27T23:20:09.298219+00:00"
     },
     {
