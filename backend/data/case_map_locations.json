@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-26T21:04:56.527869+00:00",
-  "sourceFingerprint": "4762e5f9aec7d57cd4b31da8abedd3bf7578475977043efbfb23030924040823",
+  "generatedAt": "2026-09-28T23:13:15.689509+00:00",
+  "sourceFingerprint": "1b8805dcf2c9985a61d73c75dc3cb783ffe69c01a165d9ea36e96c62dc0a5428",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 382,
+    "city": 383,
     "region": 175
   },
   "unresolved": [
@@ -102,6 +102,16 @@
         "label": "Prince George, British Columbia",
         "latitude": 53.9166,
         "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-bc-4357005-andrew-christian": [
+      {
+        "label": "Vernon, British Columbia",
+        "latitude": 50.26729,
+        "longitude": -119.27337,
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
