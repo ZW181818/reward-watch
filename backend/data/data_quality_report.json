@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T22:11:30.070797+00:00",
-  "totalCases": 2228,
-  "sourceRecords": 2266,
+  "generatedAt": "2026-09-29T23:56:05.295009+00:00",
+  "totalCases": 2229,
+  "sourceRecords": 2267,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 256,
     "China": 122,
-    "US": 1850
+    "US": 1851
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1397,
+    "Information Requested": 1398,
     "Open": 827
   },
   "sources": {
@@ -28,7 +28,7 @@
     "Saskatchewan RCMP": 7,
     "Terrace RCMP": 1,
     "Texas Department of Public Safety": 70,
-    "U.S. Department of State - Rewards for Justice": 236,
+    "U.S. Department of State - Rewards for Justice": 237,
     "U.S. Marshals Service": 57,
     "United States Postal Inspection Service": 302,
     "Vancouver Police Department": 2,
@@ -45,19 +45,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1476,
+    "published": 1477,
     "notPublished": 752,
     "maximum": 25000000,
     "currencies": {
       "CAD": 208,
       "CNY": 122,
-      "USD": 1146
+      "USD": 1147
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 192,
-    "remotePrimaryImages": 2036
+    "remotePrimaryImages": 2037
   },
   "regions": {
     "casesWithoutRegion": 45
