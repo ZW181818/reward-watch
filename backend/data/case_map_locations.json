@@ -1,13 +1,12 @@
 {
-  "generatedAt": "2026-09-29T00:35:42.815633+00:00",
-  "sourceFingerprint": "f7a93a12fa369ec9fc5eb1674bf7aa822d03a4d110adf9ab3a919d0028277dd9",
+  "generatedAt": "2026-09-29T22:11:32.613888+00:00",
+  "sourceFingerprint": "dadc747d043f04cd3191aca2d7b35c9e3e21954a027748caf45513b767d79d5e",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
     "city": 383,
     "region": 175
   },
   "unresolved": [
-    "Air Ronge, Saskatchewan",
     "Barrow, Georgia",
     "Big River First Nation, Saskatchewan",
     "Caret, Virginia",
@@ -16,7 +15,6 @@
     "Colorado, Wyoming",
     "Columbia, District of Columbia",
     "Creek, Oklahoma",
-    "Cut Knife, Saskatchewan",
     "Debden, Saskatchewan",
     "Deschambault Lake, Saskatchewan",
     "Emery, Utah",
@@ -28,6 +26,7 @@
     "La Grange, California",
     "Malott, Washington",
     "McDowell, West Virginia",
+    "Michel Village, Saskatchewan",
     "Panorama City, California",
     "Pelican Lake, Saskatchewan",
     "Redberry, Saskatchewan",
@@ -47,6 +46,74 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "rcmp-sk-dillon-sewap": [
+      {
+        "label": "La Ronge, Saskatchewan",
+        "latitude": 55.10013,
+        "longitude": -105.28422,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "Pelican Narrows, Saskatchewan",
+        "latitude": 55.16685,
+        "longitude": -102.9341,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-jonathan-bear": [
+      {
+        "label": "Yorkton, Saskatchewan",
+        "latitude": 51.2167,
+        "longitude": -102.46766,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-michael-strandquist": [
+      {
+        "label": "Creighton, Saskatchewan",
+        "latitude": 54.75014,
+        "longitude": -101.90078,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-spencer-halkett": [
+      {
+        "label": "La Ronge, Saskatchewan",
+        "latitude": 55.10013,
+        "longitude": -105.28422,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-ricky-gagne": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-jonas-sewap": [
+      {
+        "label": "Pelican Narrows, Saskatchewan",
+        "latitude": 55.16685,
+        "longitude": -102.9341,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "uspis-20367": [
       {
         "label": "Beltsville, Maryland",
@@ -152,90 +219,6 @@
         "label": "San Antonio, Texas",
         "latitude": 29.42412,
         "longitude": -98.49363,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-dillon-sewap": [
-      {
-        "label": "La Ronge, Saskatchewan",
-        "latitude": 55.10013,
-        "longitude": -105.28422,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      },
-      {
-        "label": "Pelican Narrows, Saskatchewan",
-        "latitude": 55.16685,
-        "longitude": -102.9341,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-jonathan-bear": [
-      {
-        "label": "Yorkton, Saskatchewan",
-        "latitude": 51.2167,
-        "longitude": -102.46766,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-daniel-ratt": [
-      {
-        "label": "La Ronge, Saskatchewan",
-        "latitude": 55.10013,
-        "longitude": -105.28422,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-dakota-matchee": [
-      {
-        "label": "Swift Current, Saskatchewan",
-        "latitude": 50.28337,
-        "longitude": -107.80135,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      },
-      {
-        "label": "La Ronge, Saskatchewan",
-        "latitude": 55.10013,
-        "longitude": -105.28422,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      },
-      {
-        "label": "Prince Albert, Saskatchewan",
-        "latitude": 53.20008,
-        "longitude": -105.76772,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-ricky-gagne": [
-      {
-        "label": "Prince George, British Columbia",
-        "latitude": 53.9166,
-        "longitude": -122.75301,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-jonas-sewap": [
-      {
-        "label": "Pelican Narrows, Saskatchewan",
-        "latitude": 55.16685,
-        "longitude": -102.9341,
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
