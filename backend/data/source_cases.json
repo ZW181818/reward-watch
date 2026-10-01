@@ -55355,6 +55355,47 @@
     "rewardCurrency": null
   },
   {
+    "id": "rcmp-bc-4357471-victoria-blagden",
+    "title": "Victoria Blagden",
+    "agency": "Fort St. John RCMP",
+    "country": "Canada",
+    "regions": [
+      "British Columbia"
+    ],
+    "caseType": "Wanted Person",
+    "description": "Content Victoria Blagden File # 2026-254 The Fort St John RCMP is requesting the public's assistance in locating Victoria Blagden who is wanted for two counts of Theft Under $5000. Victoria Blagden is described as: Indigenous female 36-years-old Medium-length reddish-brown hair Front-neck tattoo of flowers, vines and paw prints Brown eyes 5'2\" (157 cm) 155 lbs (70 kg) Anyone with information regarding Victoria Blagden's whereabouts is asked to call the Fort St John RCMP at 250-787-8100. If you wish to remain anonymous, contact Crimestoppers at 1-800-222-TIPS (8477) or submit a tip online at www.northernbccrimestoppers.ca",
+    "reward": null,
+    "rewardText": null,
+    "status": "Open",
+    "summary": "Victoria Blagden File # 2026-254 The Fort St John RCMP is requesting the public's assistance in locating Victoria Blagden who is wanted for two counts of Theft Under $5000. Victoria Blagden is described as: Indigenous female 36-years-old Medium-length reddish-brown hair Front-neck tattoo of flowers, vines and paw prints Brown eyes 5'2\" (157 cm) 155 lbs (70 kg) Anyone with information regarding Victoria Blagden's whereabouts is asked to call the Fort St John RCMP at 250-787-8100. If you wish to remain anonymous, contact Crimestoppers at 1-800-222-TIPS (8477) or submit a tip online at www.northernbccrimestoppers.ca",
+    "warningMessage": "Do not approach or attempt to apprehend this person. Submit information directly to the RCMP.",
+    "aliases": [],
+    "age": null,
+    "dateOfBirth": null,
+    "placeOfBirth": null,
+    "sex": "Female",
+    "race": "Indigenous",
+    "nationality": null,
+    "hair": "Brown",
+    "eyes": "Brown",
+    "height": "5'2\"",
+    "weight": "155 lbs",
+    "locations": "Fort St John, British Columbia",
+    "distinguishingFeatures": "tattoo of flowers, vines and paw prints Brown eyes 5'2\" (157 cm) 155 lbs (70 kg) Anyone with information regarding Victoria Blagden's whereabouts is asked to call the Fort St John RCMP a",
+    "fieldOffice": "Fort St John",
+    "publishedDate": "2026-10-01",
+    "lastVerified": "2026-10-01",
+    "sourceUpdatedDate": "2026-10-01",
+    "sourceUrl": "https://rcmp.ca/en/bc/fort-st-john/news/2026/10/4357471",
+    "sourceTitle": "Wanted, Victoria Blagden",
+    "sourceAuthor": "Fort St. John RCMP",
+    "imageUrl": "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/victoria-blagden.jpg?itok=-hpcSJTW",
+    "imageUrls": [
+      "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/victoria-blagden.jpg?itok=-hpcSJTW"
+    ],
+    "rewardCurrency": null
+  },
+  {
     "id": "rcmp-bc-4357437-christopher-benjamin-emmorey",
     "title": "Christopher Benjamin Emmorey",
     "agency": "Prince George RCMP",
@@ -55802,47 +55843,6 @@
     "imageUrl": "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/mani-chopra.jpg?itok=Dc0hWtUb",
     "imageUrls": [
       "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/mani-chopra.jpg?itok=Dc0hWtUb"
-    ],
-    "rewardCurrency": null
-  },
-  {
-    "id": "rcmp-bc-4352030-joshua-armstrong",
-    "title": "Joshua Armstrong",
-    "agency": "West Shore RCMP",
-    "country": "Canada",
-    "regions": [
-      "British Columbia"
-    ],
-    "caseType": "Wanted Person",
-    "description": "Content Wanted Person Joshua Armstrong File #: 2024-2152 The West Shore RCMP is looking for 34-year-old Joshua Armstrong who is wanted on unendorsed warrants. Joshua Armstrong is wanted on 2 unendorsed warrants for the following: Sexual Assault Sec 271 Criminal Code Assault by Choking Sec 267 Criminal Code Joshua Armstrong is described as: Caucasian male 6' (183 cm) 201 lb (91 kg) Brown hair Brown eyes If you locate Joshua Armstrong, contact your local police immediately. If you have any information about Joshua Armstrong's whereabouts, please contact the West Shore RCMP at 250-474-2264. If you wish to remain anonymous, contact Crime Stoppers at 1-800-222-8477 (TIPS).",
-    "reward": null,
-    "rewardText": null,
-    "status": "Open",
-    "summary": "Wanted Person Joshua Armstrong File #: 2024-2152 The West Shore RCMP is looking for 34-year-old Joshua Armstrong who is wanted on unendorsed warrants. Joshua Armstrong is wanted on 2 unendorsed warrants for the following: Sexual Assault Sec 271 Criminal Code Assault by Choking Sec 267 Criminal Code Joshua Armstrong is described as: Caucasian male 6' (183 cm) 201 lb (91 kg) Brown hair Brown eyes If you locate Joshua Armstrong, contact your local police immediately. If you have any information about Joshua Armstrong's whereabouts, please contact the West Shore RCMP at 250-474-2264. If you wish to remain anonymous, contact Crime Stoppers at 1-800-222-8477 (TIPS).",
-    "warningMessage": "Do not approach or attempt to apprehend this person. Submit information directly to the RCMP.",
-    "aliases": [],
-    "age": "34",
-    "dateOfBirth": null,
-    "placeOfBirth": null,
-    "sex": "Male",
-    "race": null,
-    "nationality": null,
-    "hair": "Brown",
-    "eyes": "Brown",
-    "height": "6'0\"",
-    "weight": "201 lbs",
-    "locations": "West Shore, British Columbia",
-    "distinguishingFeatures": null,
-    "fieldOffice": "West Shore",
-    "publishedDate": "2026-04-10",
-    "lastVerified": "2026-10-01",
-    "sourceUpdatedDate": "2026-04-10",
-    "sourceUrl": "https://rcmp.ca/en/bc/west-shore/news/2026/04/4352030",
-    "sourceTitle": "Wanted: Joshua Armstrong",
-    "sourceAuthor": "West Shore RCMP",
-    "imageUrl": "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/thumbnail_2.png?itok=RmlbfdVE",
-    "imageUrls": [
-      "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/thumbnail_2.png?itok=RmlbfdVE"
     ],
     "rewardCurrency": null
   },

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-01T14:44:23.701103+00:00",
-  "sourceFingerprint": "763cac7c9d65f776034f5f65504f45ccb0a7765520ac738efb872a6312db8d6a",
+  "generatedAt": "2026-10-01T22:38:18.168149+00:00",
+  "sourceFingerprint": "5fb6ea033a98c266d8b8837c835b8424bd0cb1fcb9d42ff221e131a5ce32d26d",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 385,
+    "city": 386,
     "region": 176
   },
   "unresolved": [
@@ -40,12 +40,21 @@
     "Taiban, New Mexico",
     "Wallace, California",
     "Waverly, Georgia",
-    "West Shore, British Columbia",
     "Wikieup, Arizona",
     "Wildomar, CA, California",
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "rcmp-bc-4357471-victoria-blagden": [
+      {
+        "label": "Fort St John, British Columbia",
+        "latitude": 56.24988,
+        "longitude": -120.85292,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "txdps-1980": [
       {
         "label": "Fairfield, Texas",
