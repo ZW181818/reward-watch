@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T22:11:04.965067+00:00",
-  "totalCases": 2230,
-  "sourceRecords": 2268,
+  "generatedAt": "2026-10-01T00:13:14.936675+00:00",
+  "totalCases": 2234,
+  "sourceRecords": 2272,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 257,
     "China": 122,
-    "US": 1851
+    "US": 1855
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1398,
-    "Open": 828
+    "Information Requested": 1401,
+    "Open": 829
   },
   "sources": {
     "CFSEU-BC": 3,
     "Edmonton Police Service": 9,
     "Elk Valley Regional RCMP": 1,
-    "Federal Bureau of Investigation": 1223,
+    "Federal Bureau of Investigation": 1226,
     "Fort St. John RCMP": 1,
     "Fugitifs Quebec": 15,
     "Nova Scotia Department of Justice": 117,
@@ -30,7 +30,7 @@
     "Texas Department of Public Safety": 70,
     "U.S. Department of State - Rewards for Justice": 237,
     "U.S. Marshals Service": 57,
-    "United States Postal Inspection Service": 302,
+    "United States Postal Inspection Service": 303,
     "Vancouver Police Department": 2,
     "Vernon North Okanagan RCMP": 1,
     "West Shore RCMP": 1,
@@ -45,19 +45,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1476,
-    "notPublished": 754,
+    "published": 1479,
+    "notPublished": 755,
     "maximum": 25000000,
     "currencies": {
       "CAD": 208,
       "CNY": 122,
-      "USD": 1146
+      "USD": 1149
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 192,
-    "remotePrimaryImages": 2038
+    "remotePrimaryImages": 2042
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -65,7 +65,8 @@
   "freshness": {
     "allSourcesFresh": false,
     "staleSources": [
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj"
     ]
   },
   "checks": {
