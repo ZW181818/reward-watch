@@ -28967,6 +28967,45 @@
     "rewardCurrency": "USD"
   },
   {
+    "id": "fbi-9190f086d82d49049c0c55ec73b566bc",
+    "title": "RIM UN CHOL",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "Missouri"
+    ],
+    "caseType": "Cyber's Most Wanted",
+    "description": "Conspiracy to Violate the International Emergency Economic Powers Act; Conspiracy to Commit Wire Fraud; Money Laundering Conspiracy; Conspiracy to Commit Identity Theft",
+    "reward": 5000000,
+    "rewardText": "The Rewards For Justice Program, United States Department of State, is offering a reward of up to $5 million for information that leads to the disruption of financial mechanisms of persons engaged in certain activities that support North Korea (Democratic People’s Republic of Korea, DPRK), including the exportation of workers from North Korea to generate revenue, money laundering, and specified cyber activity and actions that support North Korea’s weapons of mass destruction proliferation.",
+    "status": "Open",
+    "summary": "Rim Un Chol is wanted for his alleged involvement in a conspiracy to generate revenue and launder it for the North Korean regime from approximately April 2017 to approximately March 2023 in violation of United States and international sanctions. A federal arrest warrant was issued for Rim Un Chol in the United States District Court, Eastern District of Missouri, Eastern Division, St. Louis, Missouri, in December 2024.",
+    "warningMessage": null,
+    "aliases": [],
+    "dateOfBirth": "January 8, 1990",
+    "placeOfBirth": null,
+    "sex": "Male",
+    "race": "Asian",
+    "nationality": "North Korean",
+    "hair": "Black",
+    "eyes": "Brown",
+    "height": null,
+    "weight": null,
+    "fieldOffice": "St. Louis",
+    "publishedDate": "2024-11-12",
+    "lastVerified": "2026-10-02",
+    "sourceUpdatedDate": "2026-03-15",
+    "sourceUrl": "https://www.fbi.gov/wanted/cyber/rim-un-chol",
+    "sourceTitle": "FBI Wanted: RIM UN CHOL",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/cyber/rim-un-chol/@@images/image",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/cyber/rim-un-chol/@@images/image",
+      "https://www.fbi.gov/wanted/cyber/rim-un-chol/rimunchol2.jpg"
+    ],
+    "rewardCurrency": "USD"
+  },
+  {
     "id": "fbi-7d53833371174f21b8daa905c4bd1fdd",
     "title": "HYON CHOL SONG",
     "agency": "Federal Bureau of Investigation",
@@ -29412,6 +29451,46 @@
       "https://www.uspis.gov/wp-content/uploads/2024/10/Hou-Div-Reward-Poster-Katy-TX.jpg"
     ],
     "rewardCurrency": "USD"
+  },
+  {
+    "id": "fbi-169adc72261a42d889e279c81b26e5b9",
+    "title": "HORST COSTA JICHA",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "New York"
+    ],
+    "caseType": "White-Collar Crime",
+    "description": "Violation of Conditions of Pretrial Release (Securities Fraud Conspiracy; Securities Fraud; Wire Fraud Conspiracy; Wire Fraud; Money Laundering Conspiracy)",
+    "reward": null,
+    "rewardText": null,
+    "status": "Open",
+    "summary": "Horst Costa Jicha is wanted for violating the conditions of his pretrial release. Jicha was arrested by the FBI in Miami, Florida, on December 23, 2023, pursuant to a federal arrest warrant issued out of the Eastern District of New York for Securities Fraud Conspiracy, Securities Fraud, Wire Fraud Conspiracy, Wire Fraud, and Money Laundering Conspiracy. Jicha is the founder of USI-Tech, a network marketing company that claimed to have allegedly built the world's first automated Bitcoin trading platform and could allegedly generate investor's guaranteed returns on investment through its Bitcoin mining and auto-trading operations. USI-Tech used aggressive social media promotion and popular interest in Bitcoin and cryptocurrencies in order to allegedly defraud thousands of people. After his arrest, Jicha was electronically monitored in Brooklyn, New York, while waiting to stand trial. On October 3, 2024, Jicha's ankle monitor malfunctioned and Jicha was unable to be located. A federal arrest warrant was issued for Jicha in the United States District Court, Eastern District of New York, Brooklyn, New York, on October 4, 2024, after he was charged with violating the conditions of his pretrial release.",
+    "warningMessage": null,
+    "aliases": [
+      "Horst Jicha"
+    ],
+    "dateOfBirth": "October 7, 1959",
+    "placeOfBirth": "Germany",
+    "sex": "Male",
+    "race": "White",
+    "nationality": "German",
+    "hair": "Gray",
+    "eyes": "Green",
+    "height": "5'11\"",
+    "weight": "180 pounds",
+    "fieldOffice": "New York",
+    "publishedDate": "2024-10-28",
+    "lastVerified": "2026-10-02",
+    "sourceUpdatedDate": "2026-03-15",
+    "sourceUrl": "https://www.fbi.gov/wanted/wcc/horst-costa-jicha",
+    "sourceTitle": "FBI Wanted: HORST COSTA JICHA",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/wcc/horst-costa-jicha/@@images/image",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/wcc/horst-costa-jicha/@@images/image"
+    ],
+    "rewardCurrency": null
   },
   {
     "id": "fbi-ef3efbd7c3194f0ca6ec628ac294172f",
@@ -51864,6 +51943,46 @@
     "rewardCurrency": "USD"
   },
   {
+    "id": "fbi-d16d3ef70c0c4d9ba5cb02a8242df44e",
+    "title": "IRANIAN CYBER ACTORS",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "New Jersey"
+    ],
+    "caseType": "Cyber's Most Wanted",
+    "description": "Conspiracy to Commit Fraud and Related Activity in Connection with Computers; Intentional Damage to a Protected Computer; Transmitting a Demand in Relation to Damaging a Protected Computer",
+    "reward": 10000000,
+    "rewardText": "The Rewards for Justice Program, United States Department of State, is offering a reward of up to $10 million for information on or about the activities of Mansour Ahmadi, Ahmad Khatibi Aghda, and Amir Hossein Nickaein Ravari.",
+    "status": "Open",
+    "summary": "Mansour Ahmadi , Ahmad Khatibi Aghda , and Amir Hossein Nickaein Ravari are wanted for their alleged involvement in a coordinated campaign which compromised hundreds of computer networks across the United States and abroad. Between October 2020 and August 2022, the three men allegedly gained unauthorized access to protected networks, exfiltrated data, encrypted computer systems, and extorted victims for ransom, causing damage to and disrupting operations of organizations across multiple sectors, including critical infrastructure, government agencies, and non-profit organizations. On August 10, 2022, a federal grand jury sitting in the United States District Court for the District of New Jersey in Newark, New Jersey, indicted Mansour Ahmadi, Ahmad Khatibi Aghda, and Amir Hossein Nickaein Ravari on charges of conspiracy to commit fraud and related activity in connection with computers, intentional damage to a protected computer, and transmitting a demand in relation to damaging a protected computer.",
+    "warningMessage": null,
+    "aliases": [],
+    "dateOfBirth": null,
+    "placeOfBirth": null,
+    "sex": null,
+    "race": null,
+    "nationality": null,
+    "hair": null,
+    "eyes": null,
+    "height": null,
+    "weight": null,
+    "fieldOffice": "Newark",
+    "publishedDate": "2022-07-28",
+    "lastVerified": "2026-10-02",
+    "sourceUpdatedDate": "2026-03-15",
+    "sourceUrl": "https://www.fbi.gov/wanted/cyber/iranian-cyber-actors",
+    "sourceTitle": "FBI Wanted: IRANIAN CYBER ACTORS",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/cyber/iranian-cyber-actors/ahmadi.jpg",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/cyber/iranian-cyber-actors/ahmadi.jpg",
+      "https://www.fbi.gov/wanted/cyber/iranian-cyber-actors/khatibi.jpg",
+      "https://www.fbi.gov/wanted/cyber/iranian-cyber-actors/nickaein.jpg"
+    ],
+    "rewardCurrency": "USD"
+  },
+  {
     "id": "uspis-12949",
     "title": "Ft. Pierce, FL: ARMED ROBBERY OF A LETTER CARRIER",
     "agency": "United States Postal Inspection Service",
@@ -52813,6 +52932,44 @@
     "rewardCurrency": "USD"
   },
   {
+    "id": "fbi-e1c8cb96e0044269bd58148272878189",
+    "title": "JACOB JEFFREY HUNTER",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "Minnesota"
+    ],
+    "caseType": "Seeking Information",
+    "description": "Murder Victim Red Lake, Minnesota October 7, 2020",
+    "reward": 5000,
+    "rewardText": "The FBI is offering a reward of up to $5,000 for independently verifiable information that leads to the arrest and conviction of those responsible for the murder of Jacob Hunter.",
+    "status": "Information Requested",
+    "summary": "The Federal Bureau of Investigation's Minneapolis Field Office is seeking information in the murder of Jacob Hunter. Hunter was murdered on October 7, 2020, at approximately 11:30 p.m. in the East Barton’s area of Red Lake, Minnesota.",
+    "warningMessage": null,
+    "aliases": [],
+    "dateOfBirth": null,
+    "placeOfBirth": null,
+    "sex": null,
+    "race": null,
+    "nationality": null,
+    "hair": null,
+    "eyes": null,
+    "height": null,
+    "weight": null,
+    "fieldOffice": "Minneapolis",
+    "publishedDate": "2022-06-06",
+    "lastVerified": "2026-10-02",
+    "sourceUpdatedDate": "2026-03-15",
+    "sourceUrl": "https://www.fbi.gov/wanted/seeking-info/jacob-jeffrey-hunter",
+    "sourceTitle": "FBI Wanted: JACOB JEFFREY HUNTER",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/seeking-info/jacob-jeffrey-hunter/@@images/image",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/seeking-info/jacob-jeffrey-hunter/@@images/image"
+    ],
+    "rewardCurrency": "USD"
+  },
+  {
     "id": "fbi-61104cb9b6a84cfca36ff0aef06125a2",
     "title": "GEORGE NAKHLE AJALTOUNI",
     "agency": "Federal Bureau of Investigation",
@@ -52958,6 +53115,53 @@
       "https://www.uspis.gov/wp-content/uploads/2022/06/Crofton-1.png"
     ],
     "rewardCurrency": "USD"
+  },
+  {
+    "id": "fbi-6a64296f10fc4d2f818b10eb8afa7b19",
+    "title": "EMILIO JOSE CORREDOR LOPEZ",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "Texas"
+    ],
+    "caseType": "Cyber's Most Wanted",
+    "description": "Bank Robbery and Incidental Crimes and Aiding and Abetting; Fraud and Related Activity in Connection with Computers; and Attempted Fraud and Related Activity in Connection with Computers",
+    "reward": null,
+    "rewardText": null,
+    "status": "Open",
+    "summary": "Emilio Jose Corredor Lopez is a wanted fugitive for illegally accessing ATMs. He allegedly exposed the internal computer, inserted malware and took cash. He has been indicted and is awaiting trial on multiple charges to include bank robbery and incidental crimes, aiding and abetting, fraud and related activity in connection with computers, and attempted fraud and related activity in connection with computers. Previously released on bond, he violated his pre-trial conditions and is now considered a fugitive.",
+    "warningMessage": "SHOULD BE CONSIDERED AN ESCAPE RISK",
+    "aliases": [
+      "Emilio Corredor",
+      "Emilio Lopez",
+      "Jose Lopez",
+      "Emilio Jose Corredo Lopez",
+      "Emilio J Corredor",
+      "Emilio Jose Corredor-Lopez"
+    ],
+    "dateOfBirth": "October 13, 1978",
+    "placeOfBirth": "Venezuela",
+    "sex": "Male",
+    "race": "Hispanic",
+    "nationality": "Venezuelan",
+    "hair": "Black",
+    "eyes": "Blue",
+    "height": "6'5\"",
+    "weight": "329 pounds",
+    "fieldOffice": "Houston",
+    "publishedDate": "2022-05-26",
+    "lastVerified": "2026-10-02",
+    "sourceUpdatedDate": "2026-03-15",
+    "sourceUrl": "https://www.fbi.gov/wanted/cyber/emilio-jose-corredor-lopez",
+    "sourceTitle": "FBI Wanted: EMILIO JOSE CORREDOR LOPEZ",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/cyber/emilio-jose-corredor-lopez/@@images/image",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/cyber/emilio-jose-corredor-lopez/@@images/image",
+      "https://www.fbi.gov/wanted/cyber/emilio-jose-corredor-lopez/emilio2.jpeg",
+      "https://www.fbi.gov/wanted/cyber/emilio-jose-corredor-lopez/emilio3.jpeg"
+    ],
+    "rewardCurrency": null
   },
   {
     "id": "fbi-3918f23bcfa140678c0e08e2df2a674f",
@@ -75206,6 +75410,47 @@
     "rewardCurrency": null
   },
   {
+    "id": "fbi-6710e4653a744fdca0229ad920f3469c",
+    "title": "DAVID WILLIAMS",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "New Jersey"
+    ],
+    "caseType": "Missing Person / Kidnapping",
+    "description": "April 7, 1975 New Lisbon, Burlington County, New Jersey",
+    "reward": null,
+    "rewardText": null,
+    "status": "Information Requested",
+    "summary": "David Williams, then age 12, and Steven Anderson , then age 17, were reported missing from the New Lisbon State School, now called the New Lisbon Developmental Center, located in Burlington County, New Jersey, on April 7, 1975. Both boys lived at the 1,896-acre center located off Route 72 in the New Jersey Pinelands. They had diagnosed developmental disabilities and were unable to care for themselves without supervision. The boys, who were roommates, were last seen at approximately 4:15 p.m., walking towards their residence from a nearby ball field where they had been playing with staff members.",
+    "warningMessage": null,
+    "aliases": [],
+    "dateOfBirth": "October 9, 1962",
+    "placeOfBirth": "Newark, New Jersey",
+    "sex": "Male",
+    "race": "Black",
+    "nationality": null,
+    "hair": "Black",
+    "eyes": "Brown",
+    "height": "5'0\"",
+    "weight": "113 pounds",
+    "fieldOffice": "Newark",
+    "publishedDate": "2017-10-19",
+    "lastVerified": "2026-10-02",
+    "sourceUpdatedDate": "2026-03-15",
+    "sourceUrl": "https://www.fbi.gov/wanted/kidnap/david-williams",
+    "sourceTitle": "FBI Wanted: DAVID WILLIAMS",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/kidnap/david-williams/@@images/image",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/kidnap/david-williams/@@images/image",
+      "https://www.fbi.gov/wanted/kidnap/david-williams/njwilliamsage.jpg",
+      "https://www.fbi.gov/wanted/kidnap/david-williams/njanderson.jpg",
+      "https://www.fbi.gov/wanted/kidnap/david-williams/njandersonage.jpg"
+    ],
+    "rewardCurrency": null
+  },
+  {
     "id": "fbi-68e52e7db7a848569d155bb786605356",
     "title": "STEVEN ANDERSON",
     "agency": "Federal Bureau of Investigation",
@@ -81894,6 +82139,45 @@
       "https://www.fbi.gov/wanted/cyber/evgeniy-mikhailovich-bogachev/bogachev4.jpg"
     ],
     "rewardCurrency": "USD"
+  },
+  {
+    "id": "fbi-330f3ba9-f601-4daf-b56c-13da8dd6ff14",
+    "title": "JABBERZEUS SUBJECTS",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "Nebraska"
+    ],
+    "caseType": "Cyber's Most Wanted",
+    "description": "Conspiracy to Participate in Racketeering Activity; Bank Fraud; Conspiracy to Violate the Computer Fraud and Abuse Act; Conspiracy to Violate the Identity Theft and Assumption Deterrence Act; Aggravated Identity Theft",
+    "reward": null,
+    "rewardText": null,
+    "status": "Open",
+    "summary": "These individuals, thought to be located in Russia and Ukraine, are wanted for their involvement in a wide-ranging racketeering enterprise and scheme that installed, without authorization, malicious software known as “Zeus” on victims’ computers. The malicious software was used to capture bank account numbers, passwords, personal identification numbers, and other information necessary to log into online banking accounts. These subjects were then able to coordinate unauthorized transfers of funds from victims’ accounts. These individuals were charged by a federal grand jury in the District of Nebraska in August of 2012 with Conspiracy to Participate in Racketeering Activity; Bank Fraud; Conspiracy to Violate the Computer Fraud and Abuse Act; Conspiracy to Violate the Identity Theft and Assumption Deterrence Act; and Aggravated Identity Theft.",
+    "warningMessage": null,
+    "aliases": [],
+    "dateOfBirth": null,
+    "placeOfBirth": null,
+    "sex": null,
+    "race": null,
+    "nationality": null,
+    "hair": null,
+    "eyes": null,
+    "height": null,
+    "weight": null,
+    "fieldOffice": "Omaha",
+    "publishedDate": "2014-05-22",
+    "lastVerified": "2026-10-02",
+    "sourceUpdatedDate": "2026-03-15",
+    "sourceUrl": "https://www.fbi.gov/wanted/cyber/jabberzeus-subjects",
+    "sourceTitle": "FBI Wanted: JABBERZEUS SUBJECTS",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/cyber/jabberzeus-subjects/bron.jpg",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/cyber/jabberzeus-subjects/bron.jpg",
+      "https://www.fbi.gov/wanted/cyber/jabberzeus-subjects/klepikov.jpg"
+    ],
+    "rewardCurrency": null
   },
   {
     "id": "opp-582b52b08f94ac155abfa630",
