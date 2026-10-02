@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T22:38:14.068229+00:00",
-  "totalCases": 2235,
-  "sourceRecords": 2273,
+  "generatedAt": "2026-10-02T00:11:58.951249+00:00",
+  "totalCases": 2231,
+  "sourceRecords": 2269,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 257,
     "China": 122,
-    "US": 1856
+    "US": 1852
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1401,
-    "Open": 830
+    "Information Requested": 1400,
+    "Open": 827
   },
   "sources": {
     "CFSEU-BC": 3,
     "Edmonton Police Service": 9,
     "Elk Valley Regional RCMP": 1,
-    "Federal Bureau of Investigation": 1226,
+    "Federal Bureau of Investigation": 1220,
     "Fort St. John RCMP": 2,
     "Fugitifs Quebec": 15,
     "Nova Scotia Department of Justice": 117,
@@ -27,10 +27,10 @@
     "Prince Rupert RCMP": 1,
     "Saskatchewan RCMP": 7,
     "Terrace RCMP": 1,
-    "Texas Department of Public Safety": 71,
+    "Texas Department of Public Safety": 72,
     "U.S. Department of State - Rewards for Justice": 237,
     "U.S. Marshals Service": 57,
-    "United States Postal Inspection Service": 303,
+    "United States Postal Inspection Service": 304,
     "Vancouver Police Department": 2,
     "Vernon North Okanagan RCMP": 1,
     "平顶山市公安局": 1,
@@ -45,7 +45,7 @@
   },
   "rewards": {
     "published": 1480,
-    "notPublished": 755,
+    "notPublished": 751,
     "maximum": 25000000,
     "currencies": {
       "CAD": 208,
@@ -55,8 +55,8 @@
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
-    "localPrimaryImages": 193,
-    "remotePrimaryImages": 2042
+    "localPrimaryImages": 194,
+    "remotePrimaryImages": 2037
   },
   "regions": {
     "casesWithoutRegion": 45

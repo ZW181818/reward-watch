@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-01T22:38:18.168149+00:00",
-  "sourceFingerprint": "5fb6ea033a98c266d8b8837c835b8424bd0cb1fcb9d42ff221e131a5ce32d26d",
+  "generatedAt": "2026-10-02T00:12:03.415994+00:00",
+  "sourceFingerprint": "4c3362c24f07f2b0e66236d03317ef4ce2bb3a4a3b5e06e42bbfa8bd72746270",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 386,
-    "region": 176
+    "city": 385,
+    "region": 178
   },
   "unresolved": [
     "Barrow, Georgia",
@@ -45,6 +45,16 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "txdps-643": [
+      {
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
     "rcmp-bc-4357471-victoria-blagden": [
       {
         "label": "Fort St John, British Columbia",
@@ -57,12 +67,12 @@
     ],
     "txdps-1980": [
       {
-        "label": "Fairfield, Texas",
-        "latitude": 31.72461,
-        "longitude": -96.16525,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
       }
     ],
     "uspis-20390": [
