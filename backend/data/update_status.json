@@ -1,15 +1,14 @@
 {
-  "updatedAt": "2026-10-02T22:08:59.470973+00:00",
+  "updatedAt": "2026-10-02T23:58:53.352691+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2236,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "fq",
+      "cfseu-bc",
+      "rfj"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -49,8 +48,8 @@
       "usedStaleData": false,
       "count": 7,
       "error": null,
-      "durationSeconds": 0.423,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-02T22:08:59.470973+00:00",
       "lastSuccessAt": "2026-10-02T22:08:59.470973+00:00"
     },
@@ -62,9 +61,9 @@
       "usedStaleData": true,
       "count": 15,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-02T19:29:49.353633+00:00",
+      "durationSeconds": 0.067,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-02T23:58:53.352691+00:00",
       "lastSuccessAt": "2026-10-01T00:13:14.936675+00:00"
     },
     {
@@ -88,8 +87,8 @@
       "usedStaleData": false,
       "count": 12,
       "error": null,
-      "durationSeconds": 12.413,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-02T22:08:59.470973+00:00",
       "lastSuccessAt": "2026-10-02T22:08:59.470973+00:00"
     },
@@ -101,8 +100,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.631,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-02T22:08:59.470973+00:00",
       "lastSuccessAt": "2026-10-02T22:08:59.470973+00:00"
     },
@@ -114,9 +113,9 @@
       "usedStaleData": true,
       "count": 3,
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.171,
+      "durationSeconds": 0.192,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-02T22:08:59.470973+00:00",
+      "lastAttemptAt": "2026-10-02T23:58:53.352691+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +126,10 @@
       "usedStaleData": false,
       "count": 237,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-02T06:09:28.118286+00:00",
-      "lastSuccessAt": "2026-10-02T06:09:28.118286+00:00"
+      "durationSeconds": 14.335,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-02T23:58:53.352691+00:00",
+      "lastSuccessAt": "2026-10-02T23:58:53.352691+00:00"
     },
     {
       "id": "usms",
