@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T09:51:26.993811+00:00",
-  "totalCases": 2237,
-  "sourceRecords": 2275,
+  "generatedAt": "2026-10-03T12:42:04.292596+00:00",
+  "totalCases": 2236,
+  "sourceRecords": 2274,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 257,
     "China": 122,
-    "US": 1858
+    "US": 1857
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1403,
-    "Open": 830
+    "Open": 829
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -27,7 +27,7 @@
     "Prince Rupert RCMP": 1,
     "Saskatchewan RCMP": 7,
     "Terrace RCMP": 1,
-    "Texas Department of Public Safety": 70,
+    "Texas Department of Public Safety": 69,
     "U.S. Department of State - Rewards for Justice": 237,
     "U.S. Marshals Service": 57,
     "United States Postal Inspection Service": 305,
@@ -44,18 +44,18 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1482,
+    "published": 1481,
     "notPublished": 755,
     "maximum": 25000000,
     "currencies": {
       "CAD": 208,
       "CNY": 122,
-      "USD": 1152
+      "USD": 1151
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
-    "localPrimaryImages": 192,
+    "localPrimaryImages": 191,
     "remotePrimaryImages": 2045
   },
   "regions": {
