@@ -1,15 +1,14 @@
 {
-  "updatedAt": "2026-10-03T21:11:26.046984+00:00",
+  "updatedAt": "2026-10-03T23:16:41.227920+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2236,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "fq",
+      "cfseu-bc",
+      "rfj"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -49,8 +48,8 @@
       "usedStaleData": false,
       "count": 7,
       "error": null,
-      "durationSeconds": 0.401,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-03T21:11:26.046984+00:00",
       "lastSuccessAt": "2026-10-03T21:11:26.046984+00:00"
     },
@@ -62,9 +61,9 @@
       "usedStaleData": true,
       "count": 15,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-03T18:08:43.578964+00:00",
+      "durationSeconds": 0.124,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-03T23:16:41.227920+00:00",
       "lastSuccessAt": "2026-10-01T00:13:14.936675+00:00"
     },
     {
@@ -88,8 +87,8 @@
       "usedStaleData": false,
       "count": 12,
       "error": null,
-      "durationSeconds": 6.364,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-03T21:11:26.046984+00:00",
       "lastSuccessAt": "2026-10-03T21:11:26.046984+00:00"
     },
@@ -101,8 +100,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.77,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-03T21:11:26.046984+00:00",
       "lastSuccessAt": "2026-10-03T21:11:26.046984+00:00"
     },
@@ -114,9 +113,9 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.128,
+      "durationSeconds": 0.828,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-03T21:11:26.046984+00:00",
+      "lastAttemptAt": "2026-10-03T23:16:41.227920+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +126,10 @@
       "usedStaleData": false,
       "count": 237,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-03T05:43:16.713816+00:00",
-      "lastSuccessAt": "2026-10-03T05:43:16.713816+00:00"
+      "durationSeconds": 0.673,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-03T23:16:41.227920+00:00",
+      "lastSuccessAt": "2026-10-03T23:16:41.227920+00:00"
     },
     {
       "id": "usms",
