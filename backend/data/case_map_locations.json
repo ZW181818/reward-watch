@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-03T05:43:20.228695+00:00",
-  "sourceFingerprint": "1c75a01d69b35a20d1cbabfc945eb853d83c9c538341ea5eaa439230b9efb2e2",
+  "generatedAt": "2026-10-03T09:51:29.535839+00:00",
+  "sourceFingerprint": "c4507f9529daa680eba0cf280b0d88c51c681f0facd1317074ca8eb1380b5e45",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 384,
+    "city": 385,
     "region": 177
   },
   "unresolved": [
@@ -45,6 +45,16 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "uspis-20403": [
+      {
+        "label": "Denver, Colorado",
+        "latitude": 39.73915,
+        "longitude": -104.9847,
+        "precision": "city",
+        "locationType": "title_location",
+        "approximate": false
+      }
+    ],
     "txdps-643": [
       {
         "label": "Texas",
