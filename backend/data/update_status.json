@@ -1,16 +1,15 @@
 {
-  "updatedAt": "2026-10-03T23:16:41.227920+00:00",
+  "updatedAt": "2026-10-04T06:18:36.147942+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2236,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "fq",
-      "cfseu-bc",
+      "fbi",
       "rfj"
     ],
-    "updatedToday": 12,
+    "updatedToday": 1,
     "totalSources": 14
   },
   "sources": [
@@ -22,10 +21,10 @@
       "usedStaleData": false,
       "count": 1227,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-03T05:43:16.713816+00:00",
-      "lastSuccessAt": "2026-10-03T05:43:16.713816+00:00"
+      "durationSeconds": 1.209,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-04T06:18:36.147942+00:00",
+      "lastSuccessAt": "2026-10-04T06:18:36.147942+00:00"
     },
     {
       "id": "opp",
@@ -61,8 +60,8 @@
       "usedStaleData": true,
       "count": 15,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.124,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-03T23:16:41.227920+00:00",
       "lastSuccessAt": "2026-10-01T00:13:14.936675+00:00"
     },
@@ -113,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.828,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-03T23:16:41.227920+00:00",
       "lastSuccessAt": null
     },
@@ -122,13 +121,13 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 237,
-      "error": null,
-      "durationSeconds": 0.673,
+      "error": "IncompleteRead: IncompleteRead(137940 bytes read)",
+      "durationSeconds": 2.097,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-03T23:16:41.227920+00:00",
+      "lastAttemptAt": "2026-10-04T06:18:36.147942+00:00",
       "lastSuccessAt": "2026-10-03T23:16:41.227920+00:00"
     },
     {
