@@ -1,25 +1,13 @@
 {
-  "updatedAt": "2026-10-06T01:30:03.383149+00:00",
+  "updatedAt": "2026-10-06T06:50:09.195710+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2239,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
       "fbi",
-      "opp",
-      "rcmp-sk",
-      "fq",
-      "eps",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc",
-      "rfj",
-      "usms",
-      "ns-reward",
-      "uspis",
-      "txdps",
-      "cn-police"
+      "rfj"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -33,10 +21,10 @@
       "usedStaleData": false,
       "count": 1228,
       "error": null,
-      "durationSeconds": 3.43,
+      "durationSeconds": 2.515,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
-      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
+      "lastAttemptAt": "2026-10-06T06:50:09.195710+00:00",
+      "lastSuccessAt": "2026-10-06T06:50:09.195710+00:00"
     },
     {
       "id": "opp",
@@ -46,8 +34,8 @@
       "usedStaleData": false,
       "count": 93,
       "error": null,
-      "durationSeconds": 1.076,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -59,8 +47,8 @@
       "usedStaleData": false,
       "count": 7,
       "error": null,
-      "durationSeconds": 0.735,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -72,8 +60,8 @@
       "usedStaleData": true,
       "count": 15,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.13,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-01T00:13:14.936675+00:00"
     },
@@ -85,8 +73,8 @@
       "usedStaleData": false,
       "count": 9,
       "error": null,
-      "durationSeconds": 2.872,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -98,8 +86,8 @@
       "usedStaleData": false,
       "count": 12,
       "error": null,
-      "durationSeconds": 3.085,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -111,8 +99,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.925,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -124,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.31,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": null
     },
@@ -133,13 +121,13 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 237,
-      "error": null,
-      "durationSeconds": 4.889,
+      "error": "IncompleteRead: IncompleteRead(588898 bytes read)",
+      "durationSeconds": 2.266,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastAttemptAt": "2026-10-06T06:50:09.195710+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
@@ -150,8 +138,8 @@
       "usedStaleData": false,
       "count": 57,
       "error": null,
-      "durationSeconds": 15.936,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -163,8 +151,8 @@
       "usedStaleData": false,
       "count": 118,
       "error": null,
-      "durationSeconds": 6.243,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -176,8 +164,8 @@
       "usedStaleData": false,
       "count": 305,
       "error": null,
-      "durationSeconds": 119.456,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -189,8 +177,8 @@
       "usedStaleData": false,
       "count": 69,
       "error": null,
-      "durationSeconds": 6.04,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -202,8 +190,8 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": 202.873,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     }
