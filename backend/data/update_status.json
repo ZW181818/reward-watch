@@ -1,15 +1,25 @@
 {
-  "updatedAt": "2026-10-05T23:59:57.224110+00:00",
+  "updatedAt": "2026-10-06T01:30:03.383149+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2238,
+  "totalCount": 2239,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
+      "fbi",
+      "opp",
       "rcmp-sk",
+      "fq",
+      "eps",
       "rcmp-bc",
       "vpd",
-      "cfseu-bc"
+      "cfseu-bc",
+      "rfj",
+      "usms",
+      "ns-reward",
+      "uspis",
+      "txdps",
+      "cn-police"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -21,12 +31,12 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1227,
+      "count": 1228,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T06:11:21.815283+00:00",
-      "lastSuccessAt": "2026-10-05T06:11:21.815283+00:00"
+      "durationSeconds": 3.43,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "opp",
@@ -36,10 +46,10 @@
       "usedStaleData": false,
       "count": 93,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T21:36:59.987790+00:00",
-      "lastSuccessAt": "2026-10-05T21:36:59.987790+00:00"
+      "durationSeconds": 1.076,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "rcmp-sk",
@@ -49,10 +59,10 @@
       "usedStaleData": false,
       "count": 7,
       "error": null,
-      "durationSeconds": 0.438,
+      "durationSeconds": 0.735,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-05T23:59:57.224110+00:00",
-      "lastSuccessAt": "2026-10-05T23:59:57.224110+00:00"
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "fq",
@@ -62,9 +72,9 @@
       "usedStaleData": true,
       "count": 15,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T21:36:59.987790+00:00",
+      "durationSeconds": 0.13,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": "2026-10-01T00:13:14.936675+00:00"
     },
     {
@@ -75,10 +85,10 @@
       "usedStaleData": false,
       "count": 9,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T21:36:59.987790+00:00",
-      "lastSuccessAt": "2026-10-05T21:36:59.987790+00:00"
+      "durationSeconds": 2.872,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "rcmp-bc",
@@ -88,10 +98,10 @@
       "usedStaleData": false,
       "count": 12,
       "error": null,
-      "durationSeconds": 10.326,
+      "durationSeconds": 3.085,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-05T23:59:57.224110+00:00",
-      "lastSuccessAt": "2026-10-05T23:59:57.224110+00:00"
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "vpd",
@@ -101,10 +111,10 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.82,
+      "durationSeconds": 2.925,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-05T23:59:57.224110+00:00",
-      "lastSuccessAt": "2026-10-05T23:59:57.224110+00:00"
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "cfseu-bc",
@@ -113,10 +123,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.261,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "durationSeconds": 0.31,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-05T23:59:57.224110+00:00",
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +137,10 @@
       "usedStaleData": false,
       "count": 237,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T06:11:21.815283+00:00",
-      "lastSuccessAt": "2026-10-05T06:11:21.815283+00:00"
+      "durationSeconds": 4.889,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "usms",
@@ -140,10 +150,10 @@
       "usedStaleData": false,
       "count": 57,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T16:20:52.634491+00:00",
-      "lastSuccessAt": "2026-10-05T16:20:52.634491+00:00"
+      "durationSeconds": 15.936,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "ns-reward",
@@ -153,10 +163,10 @@
       "usedStaleData": false,
       "count": 118,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T21:36:59.987790+00:00",
-      "lastSuccessAt": "2026-10-05T21:36:59.987790+00:00"
+      "durationSeconds": 6.243,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "uspis",
@@ -166,10 +176,10 @@
       "usedStaleData": false,
       "count": 305,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T11:25:19.656761+00:00",
-      "lastSuccessAt": "2026-10-05T11:25:19.656761+00:00"
+      "durationSeconds": 119.456,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "txdps",
@@ -179,10 +189,10 @@
       "usedStaleData": false,
       "count": 69,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T16:20:52.634491+00:00",
-      "lastSuccessAt": "2026-10-05T16:20:52.634491+00:00"
+      "durationSeconds": 6.04,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
     {
       "id": "cn-police",
@@ -192,10 +202,10 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-05T19:43:10.072221+00:00",
-      "lastSuccessAt": "2026-10-05T19:43:10.072221+00:00"
+      "durationSeconds": 202.873,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
+      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     }
   ]
 }
