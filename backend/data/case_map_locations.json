@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-06T01:30:07.424389+00:00",
-  "sourceFingerprint": "0ffab47a619e914752907fd50b378cd54af6fcd5f3be0e2546c59b0c8b7aa845",
+  "generatedAt": "2026-10-06T14:26:25.066687+00:00",
+  "sourceFingerprint": "3e9b4cd9419fb528d5948f43530e59ff03c8966f38d12a51f8284fcb15458171",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 385,
-    "region": 177
+    "city": 384,
+    "region": 178
   },
   "unresolved": [
     "Barrow, Georgia",
@@ -215,12 +215,12 @@
     ],
     "txdps-1977": [
       {
-        "label": "Gladewater, Texas",
-        "latitude": 32.53653,
-        "longitude": -94.94272,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
       }
     ],
     "rcmp-bc-4357021-kevin-ray-zaporoski": [

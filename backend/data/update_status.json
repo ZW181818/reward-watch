@@ -1,12 +1,13 @@
 {
-  "updatedAt": "2026-10-06T11:14:15.699089+00:00",
+  "updatedAt": "2026-10-06T14:26:20.601639+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2239,
   "batch": {
-    "name": "us-postal",
+    "name": "us-justice",
     "requestedSources": [
-      "uspis"
+      "usms",
+      "txdps"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -137,10 +138,10 @@
       "usedStaleData": false,
       "count": 57,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
-      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
+      "durationSeconds": 13.33,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T14:26:20.601639+00:00",
+      "lastSuccessAt": "2026-10-06T14:26:20.601639+00:00"
     },
     {
       "id": "ns-reward",
@@ -163,8 +164,8 @@
       "usedStaleData": true,
       "count": 305,
       "error": "HTTPError: HTTP Error 502: Bad Gateway",
-      "durationSeconds": 89.742,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-06T11:14:15.699089+00:00",
       "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
     },
@@ -176,10 +177,10 @@
       "usedStaleData": false,
       "count": 69,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-06T01:30:03.383149+00:00",
-      "lastSuccessAt": "2026-10-06T01:30:03.383149+00:00"
+      "durationSeconds": 8.528,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-06T14:26:20.601639+00:00",
+      "lastSuccessAt": "2026-10-06T14:26:20.601639+00:00"
     },
     {
       "id": "cn-police",
