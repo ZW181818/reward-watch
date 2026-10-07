@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-07T20:08:22.202322+00:00",
-  "sourceFingerprint": "82609f694c2b030a74e753d6703276e3d015e95c08ba67cae93e220f1fc844d5",
+  "generatedAt": "2026-10-07T23:02:23.977756+00:00",
+  "sourceFingerprint": "e60b8d1cbfc3c89287dcac7b835e0e3effba37ff3622d7fe37f36350b97abb23",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 384,
+    "city": 385,
     "region": 178
   },
   "unresolved": [
@@ -45,6 +45,16 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "rcmp-bc-4357608-johnny-james-timothy-boys": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "txdps-1985": [
       {
         "label": "Texas",
