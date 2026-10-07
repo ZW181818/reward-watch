@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-06T22:37:33.441573+00:00",
-  "totalCases": 2239,
-  "sourceRecords": 2277,
+  "generatedAt": "2026-10-07T00:06:10.439165+00:00",
+  "totalCases": 2236,
+  "sourceRecords": 2274,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 259,
     "China": 122,
-    "US": 1858
+    "US": 1855
   },
   "statuses": {
     "Closed": 4,
-    "Information Requested": 1405,
-    "Open": 830
+    "Information Requested": 1404,
+    "Open": 828
   },
   "sources": {
     "CFSEU-BC": 3,
     "Edmonton Police Service": 9,
     "Elk Valley Regional RCMP": 1,
-    "Federal Bureau of Investigation": 1228,
+    "Federal Bureau of Investigation": 1226,
     "Fort St. John RCMP": 2,
     "Fugitifs Quebec": 15,
     "Nova Scotia Department of Justice": 118,
@@ -27,7 +27,7 @@
     "Prince Rupert RCMP": 1,
     "Saskatchewan RCMP": 7,
     "Terrace RCMP": 1,
-    "Texas Department of Public Safety": 69,
+    "Texas Department of Public Safety": 68,
     "U.S. Department of State - Rewards for Justice": 237,
     "U.S. Marshals Service": 57,
     "United States Postal Inspection Service": 305,
@@ -44,19 +44,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1482,
-    "notPublished": 757,
+    "published": 1480,
+    "notPublished": 756,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1151
+      "USD": 1149
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
-    "localPrimaryImages": 191,
-    "remotePrimaryImages": 2048
+    "localPrimaryImages": 190,
+    "remotePrimaryImages": 2046
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -65,9 +65,7 @@
     "allSourcesFresh": false,
     "staleSources": [
       "fq",
-      "cfseu-bc",
-      "rfj",
-      "uspis"
+      "cfseu-bc"
     ]
   },
   "checks": {
