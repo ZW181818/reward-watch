@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T17:50:06.351962+00:00",
-  "totalCases": 2239,
-  "sourceRecords": 2277,
+  "generatedAt": "2026-10-07T20:08:19.042258+00:00",
+  "totalCases": 2241,
+  "sourceRecords": 2279,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 259,
+    "Canada": 261,
     "China": 122,
     "US": 1858
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1405,
-    "Open": 830
+    "Open": 832
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -22,7 +22,7 @@
     "Fort St. John RCMP": 2,
     "Fugitifs Quebec": 15,
     "Nova Scotia Department of Justice": 118,
-    "Ontario Provincial Police": 93,
+    "Ontario Provincial Police": 95,
     "Prince George RCMP": 6,
     "Prince Rupert RCMP": 1,
     "Saskatchewan RCMP": 7,
@@ -45,7 +45,7 @@
   },
   "rewards": {
     "published": 1482,
-    "notPublished": 757,
+    "notPublished": 759,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
@@ -56,7 +56,7 @@
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 191,
-    "remotePrimaryImages": 2048
+    "remotePrimaryImages": 2050
   },
   "regions": {
     "casesWithoutRegion": 45
