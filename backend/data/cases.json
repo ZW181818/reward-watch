@@ -33601,6 +33601,47 @@
     "rewardCurrency": "USD"
   },
   {
+    "id": "fbi-a7f41981552343d1a05fe91c7e0f25de",
+    "title": "WALTER \"LEO\" JACKSON SR.",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "Virginia"
+    ],
+    "caseType": "Seeking Information",
+    "description": null,
+    "reward": null,
+    "rewardText": null,
+    "status": "Information Requested",
+    "summary": "The FBI's Richmond Field Office is seeking assistance to identify additional possible victims of Walter \"Leo\" Jackson, Sr., who died while serving a prison sentence in Ohio, in March 2018, for charges related to kidnapping. Jackson was recently identified through DNA as the person responsible for the murders of Laura “Lollie” Winans and Julianne “Julie” Williams on May 24, 1996, in the Shenandoah National Park in Virginia. The FBI will continue to work with law enforcement partners to determine if Jackson is responsible for other unsolved crimes. Jackson, who went by the name “Leo”, had a lengthy criminal history, including kidnapping, rapes, and assaults. Jackson, a residential painter by trade, was also an avid hiker. At the time of Lollie and Julie’s murders, he may have been driving a 1984 Chestnut Brown AMC Eagle 30. Jackson later drove a 1979 Ford Econoline 250 van. Jackson was known to use temporary tags, alter license plates, and frequently change vehicles. The Ohio Department of Rehabilitation and Corrections provided the following timeline of when Jackson was incarcerated. Jackson would be excluded as a possible suspect for any unsolved crimes that occurred during this time period. January 1984 through February 1989 (Charged in Geauga County, Ohio) May 1994 through September 1994 (Charged in Cuyahoga County, Ohio) August 2000 through May 2007 (Charged in Cuyahoga County, Ohio) May 2012 until his death in March 2018 (Charged in Cuyahoga County, Ohio)",
+    "warningMessage": null,
+    "aliases": [],
+    "dateOfBirth": null,
+    "placeOfBirth": null,
+    "sex": null,
+    "race": null,
+    "nationality": null,
+    "hair": null,
+    "eyes": null,
+    "height": null,
+    "weight": null,
+    "fieldOffice": "Richmond",
+    "publishedDate": "2024-06-13",
+    "lastVerified": "2026-10-07",
+    "sourceUpdatedDate": "2026-03-15",
+    "sourceUrl": "https://www.fbi.gov/wanted/seeking-info/walter-l-jackson-sr",
+    "sourceTitle": "FBI Wanted: WALTER \"LEO\" JACKSON SR.",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/seeking-info/walter-l-jackson-sr/@@images/image",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/seeking-info/walter-l-jackson-sr/@@images/image",
+      "https://www.fbi.gov/wanted/seeking-info/walter-l-jackson-sr/walterjackson2.jpg",
+      "https://www.fbi.gov/wanted/seeking-info/walter-l-jackson-sr/amc.png",
+      "https://www.fbi.gov/wanted/seeking-info/walter-l-jackson-sr/ford-van.jpg"
+    ],
+    "rewardCurrency": null
+  },
+  {
     "id": "fq-maxime-paquette",
     "title": "Maxime Paquette",
     "agency": "Sûreté du Québec",
@@ -42142,6 +42183,46 @@
     "rewardCurrency": "USD"
   },
   {
+    "id": "fbi-35638a66dc2d4ce89f6a6735e3c2659f",
+    "title": "ILYA VIKTOROVICH BALAKAEV",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "New York"
+    ],
+    "caseType": "Counterintelligence",
+    "description": "Conspiracy to Defraud the United States; Conspiracy to Violate the International Emergency Economic Powers Act (IEEPA); Conspiracy to Violate the Export Control Reform Act (ECRA); Smuggling Goods from the United States",
+    "reward": null,
+    "rewardText": null,
+    "status": "Open",
+    "summary": "Between 2017 and the present, Ilya Viktorovich Balakaev allegedly entered into multiple contracts through his company, Radiotester LLC, with the FSB—the principal intelligence and security agency of the Russian government—to repair spectrum analyzers and signal generators. These devices were frequently used as part of alleged counterintelligence operations to sweep for surveillance bugs and transmit covert communications. As the devices were not readily available in Russia, Balakaev allegedly created a network of individuals in the United States to assist him in purchasing the equipment which he then used to repair the FSB devices, in violation of United States sanctions. Balakaev allegedly worked closely with Russian government officials from FSB Center 8’s Military Unit 43753, the agency responsible for Russia’s communication security and cryptology. In furtherance of his scheme, he allegedly entered into at least 10 contracts with FSB Military Unit 43753, purchased approximately 43 devices in the United States, and traveled to the United States approximately 14 times in the span of approximately four years. In addition to his alleged scheme to evade Russian sanctions, Balakaev also allegedly provided American technology to a North Korean government official, in violation of United States sanctions against North Korea. Balakaev allegedly contracted with the First Secretary of the North Korean Embassy to the Russian Federation, based in Moscow, to obtain hazardous gas detectors and software from the United States for the benefit of the North Korean government. On February 21, 2023, a federal arrest warrant was issued for Balakaev in the United States District Court, Eastern District of New York, Brooklyn, New York, after he was charged with multiple counts of counterintelligence-related crimes.",
+    "warningMessage": null,
+    "aliases": [
+      "Ilya Balakaev"
+    ],
+    "dateOfBirth": "January 26, 1977",
+    "placeOfBirth": "Russia",
+    "sex": "Male",
+    "race": "White",
+    "nationality": "Russian",
+    "hair": "Brown",
+    "eyes": "Brown",
+    "height": "5'7\"",
+    "weight": "175 pounds",
+    "fieldOffice": "New York",
+    "publishedDate": "2023-06-08",
+    "lastVerified": "2026-10-07",
+    "sourceUpdatedDate": "2026-10-06",
+    "sourceUrl": "https://www.fbi.gov/wanted/counterintelligence/ilya-viktorovich-balakaev",
+    "sourceTitle": "FBI Wanted: ILYA VIKTOROVICH BALAKAEV",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/counterintelligence/ilya-viktorovich-balakaev/@@images/image",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/counterintelligence/ilya-viktorovich-balakaev/@@images/image"
+    ],
+    "rewardCurrency": null
+  },
+  {
     "id": "fbi-f807afd90da34a6280be94ce45fed173",
     "title": "VICTIM - KATHERINE ANN ALSTON - BEDFORD, NEW HAMPSHIRE",
     "agency": "Federal Bureau of Investigation",
@@ -42177,46 +42258,6 @@
     "imageUrls": [
       "https://www.fbi.gov/wanted/vicap/homicides-and-sexual-assaults/victim---katherine-ann-alston---bedford-new-hampshire/@@images/image",
       "https://www.fbi.gov/wanted/vicap/homicides-and-sexual-assaults/victim---katherine-ann-alston---bedford-new-hampshire/picture2.png"
-    ],
-    "rewardCurrency": null
-  },
-  {
-    "id": "fbi-35638a66dc2d4ce89f6a6735e3c2659f",
-    "title": "ILYA VIKTOROVICH BALAKAEV",
-    "agency": "Federal Bureau of Investigation",
-    "country": "US",
-    "regions": [
-      "New York"
-    ],
-    "caseType": "Counterintelligence",
-    "description": "Conspiracy to Defraud the United States; Conspiracy to Violate the International Emergency Economic Powers Act (IEEPA); Conspiracy to Violate the Export Control Reform Act (ECRA); Smuggling Goods from the United States",
-    "reward": null,
-    "rewardText": null,
-    "status": "Open",
-    "summary": "Between 2017 and the present, Ilya Viktorovich Balakaev allegedly entered into multiple contracts through his company, Radiotester LLC, with the FSB—the principal intelligence and security agency of the Russian government—to repair spectrum analyzers and signal generators. These devices were frequently used as part of alleged counterintelligence operations to sweep for surveillance bugs and transmit covert communications. As the devices were not readily available in Russia, Balakaev allegedly created a network of individuals in the United States to assist him in purchasing the equipment which he then used to repair the FSB devices, in violation of United States sanctions. Balakaev allegedly worked closely with Russian government officials from FSB Center 8’s Military Unit 43753, the agency responsible for Russia’s communication security and cryptology. In furtherance of his scheme, he allegedly entered into at least 10 contracts with FSB Military Unit 43753, purchased approximately 43 devices in the United States, and traveled to the United States approximately 14 times in the span of approximately four years. In addition to his alleged scheme to evade Russian sanctions, Balakaev also allegedly provided American technology to a North Korean government official, in violation of United States sanctions against North Korea. Balakaev allegedly contracted with the First Secretary of the North Korean Embassy to the Russian Federation, based in Moscow, to obtain hazardous gas detectors and software from the United States for the benefit of the North Korean government. On February 21, 2023, a federal arrest warrant was issued for Balakaev in the United States District Court, Eastern District of New York, Brooklyn, New York, after he was charged with multiple counts of counterintelligence-related crimes.",
-    "warningMessage": null,
-    "aliases": [
-      "Ilya Balakaev"
-    ],
-    "dateOfBirth": "January 26, 1977",
-    "placeOfBirth": "Russia",
-    "sex": "Male",
-    "race": "White",
-    "nationality": "Russian",
-    "hair": "Brown",
-    "eyes": "Brown",
-    "height": "5'7\"",
-    "weight": "175 pounds",
-    "fieldOffice": "New York",
-    "publishedDate": "2023-06-08",
-    "lastVerified": "2026-10-07",
-    "sourceUpdatedDate": "2026-03-15",
-    "sourceUrl": "https://www.fbi.gov/wanted/counterintelligence/ilya-viktorovich-balakaev",
-    "sourceTitle": "FBI Wanted: ILYA VIKTOROVICH BALAKAEV",
-    "sourceAuthor": "Federal Bureau of Investigation",
-    "imageUrl": "https://www.fbi.gov/wanted/counterintelligence/ilya-viktorovich-balakaev/@@images/image",
-    "imageUrls": [
-      "https://www.fbi.gov/wanted/counterintelligence/ilya-viktorovich-balakaev/@@images/image"
     ],
     "rewardCurrency": null
   },
@@ -90849,6 +90890,60 @@
       "https://www.fbi.gov/wanted/dt/leo-frederick-burt/@@images/image",
       "https://www.fbi.gov/wanted/dt/leo-frederick-burt/leo-burt-age-progression1.jpg",
       "https://www.fbi.gov/wanted/dt/leo-frederick-burt/leo-burt-age-progression2.jpg"
+    ],
+    "rewardCurrency": "USD"
+  },
+  {
+    "id": "fbi-1ee23ec1990b3f713936cfa4aa6b167b",
+    "title": "JOSEPHINE SUNSHINE OVERAKER",
+    "agency": "Federal Bureau of Investigation",
+    "country": "US",
+    "regions": [
+      "Oregon"
+    ],
+    "caseType": "Domestic Terrorism",
+    "description": "Conspiracy to Commit Arson of United States Government Property and of Property Used in Interstate Commerce; Conspiracy to Commit Arson and Destruction of an Energy Facility; Attempted Arson of a Building; Arson of a Vehicle; Arson of a Building; Destruction of an Energy Facility",
+    "reward": 50000,
+    "rewardText": "The FBI is offering a reward of up to $50,000 for information leading to the arrest of Josephine Sunshine Overaker.",
+    "status": "Open",
+    "summary": "On January 19, 2006, a federal grand jury in Eugene, Oregon, indicted Josephine Sunshine Overaker on multiple charges related to her alleged role in a domestic terrorism cell. Overaker was charged with two conspiracy violations related to seventeen incidents, five counts of arson, one count of attempted arson, and one count of destruction of an energy facility. These crimes occurred in Oregon, Washington, California, Colorado, and Wyoming, and date back to 1996. Many of the crimes she is accused of participating in were claimed to be committed by the Earth Liberation Front (ELF) or the Animal Liberation Front (ALF).",
+    "warningMessage": "SHOULD BE CONSIDERED AN ESCAPE RISK",
+    "aliases": [
+      "Lisa Rachelle Quintana",
+      "Lisa R. Quintana",
+      "Maria Rachelle Quintana",
+      "Maria Quintana",
+      "\"Osha\"",
+      "\"Jo\"",
+      "\"China\"",
+      "\"Josie\"",
+      "\"Mo\""
+    ],
+    "dateOfBirth": "November 19, 1974 October 4, 1971 November 4, 1971",
+    "placeOfBirth": "Canada",
+    "sex": "Female",
+    "race": "White",
+    "nationality": "Canadian",
+    "hair": "Brown",
+    "eyes": "Brown",
+    "height": "5'3\"",
+    "weight": "130 pounds",
+    "fieldOffice": "Portland",
+    "publishedDate": "2010-08-19",
+    "lastVerified": "2026-10-07",
+    "sourceUpdatedDate": "2026-03-15",
+    "sourceUrl": "https://www.fbi.gov/wanted/dt/josephine-sunshine-overaker",
+    "sourceTitle": "FBI Wanted: JOSEPHINE SUNSHINE OVERAKER",
+    "sourceAuthor": "Federal Bureau of Investigation",
+    "imageUrl": "https://www.fbi.gov/wanted/dt/josephine-sunshine-overaker/@@images/image",
+    "imageUrls": [
+      "https://www.fbi.gov/wanted/dt/josephine-sunshine-overaker/@@images/image",
+      "https://www.fbi.gov/wanted/dt/josephine-sunshine-overaker/overaker_js3.jpg",
+      "https://www.fbi.gov/wanted/dt/josephine-sunshine-overaker/overaker_js_tattoo.jpg",
+      "https://www.fbi.gov/wanted/dt/josephine-sunshine-overaker/overakeraged.jpg",
+      "https://www.fbi.gov/wanted/dt/josephine-sunshine-overaker/overaker_js4.jpg",
+      "https://www.fbi.gov/wanted/dt/josephine-sunshine-overaker/overaker_js6.jpg",
+      "https://www.fbi.gov/wanted/dt/josephine-sunshine-overaker/overaker_js5.jpg"
     ],
     "rewardCurrency": "USD"
   },
