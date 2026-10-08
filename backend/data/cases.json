@@ -257,53 +257,6 @@
     "rewardCurrency": "USD"
   },
   {
-    "id": "txdps-1985",
-    "title": "Armando Vega Arteaga",
-    "agency": "Texas Department of Public Safety",
-    "country": "US",
-    "regions": [
-      "Texas"
-    ],
-    "caseType": "Wanted Sex Offender",
-    "description": "Failure to Comply with Sex Offender Registration Requirements",
-    "reward": 2000,
-    "rewardText": "Up To $2,000 Reward",
-    "status": "Open",
-    "summary": "Armando Vega ARTEAGA is a convicted sex offender required to register annually. He has ties to Smith, Johnson, and Anderson Counties, including the cities of Tyler, Bullard, and Palestine, Texas. In 2009, ARTEAGA was convicted for Driving While Intoxicated with a Child Under 15 Years of Age and subsequently placed on two years' probation. In 2010, he was convicted of Sexual Assault of a Child in Hidalgo County following an incident with a 14-year-old girl and sentenced to 6 years confinement in TDCJ prison. ARTEAGA also has a conviction in the past for Evading Arrest/Detention. On July 13, 2026, a warrant was issued out of Johnson County for his arrest for Failure to Comply with Sex Offender Registration Requirements.",
-    "warningMessage": "Do not approach or attempt to apprehend any individual. Submit information directly to the Texas Department of Public Safety.",
-    "aliases": [
-      "Armando Arteaga"
-    ],
-    "age": null,
-    "dateOfBirth": "10/18/1980",
-    "placeOfBirth": null,
-    "sex": "Male",
-    "race": "White (Hispanic)",
-    "nationality": null,
-    "hair": null,
-    "eyes": null,
-    "height": "5'4\"",
-    "weight": "180",
-    "locations": "Texas",
-    "distinguishingFeatures": "Scars on Abdomen, Left Thigh, Left Arm. Tattoos Full Body (Abdomen, Chest, Face, Neck, Left Arm/Upper Arm/Fingers/Hand/Leg/Thigh/Wrist/Elbow/Forearm, Right Ankle/Arm/Hand/Leg/Thigh/Forearm).",
-    "fieldOffice": "Texas",
-    "publishedDate": "2026-10-07",
-    "lastVerified": "2026-10-08",
-    "sourceUpdatedDate": null,
-    "sourceUrl": "https://www.dps.texas.gov/Texas10MostWanted/MostWanted/SexOffenderDetails?id=1985",
-    "sourceTitle": "Texas DPS Most Wanted: Armando Vega Arteaga",
-    "sourceAuthor": "Texas Department of Public Safety",
-    "imageUrl": "/media/texas-dps/txdps-1985-1.jpg",
-    "imageUrls": [
-      "/media/texas-dps/txdps-1985-1.jpg",
-      "/media/texas-dps/txdps-1985-2.jpg",
-      "/media/texas-dps/txdps-1985-3.jpg",
-      "/media/texas-dps/txdps-1985-4.jpg",
-      "/media/texas-dps/txdps-1985-5.jpg"
-    ],
-    "rewardCurrency": "USD"
-  },
-  {
     "id": "fq-ayoub-mohamed",
     "title": "Ayoub Mohamed",
     "agency": "Sûreté du Québec",
