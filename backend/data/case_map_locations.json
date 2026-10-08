@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-07T23:02:23.977756+00:00",
-  "sourceFingerprint": "e60b8d1cbfc3c89287dcac7b835e0e3effba37ff3622d7fe37f36350b97abb23",
+  "generatedAt": "2026-10-08T00:27:58.205640+00:00",
+  "sourceFingerprint": "d772da3612d95d9a2b5a187c616e2d902f0050e411018f7cb15f8c69f3c7b34e",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 385,
-    "region": 178
+    "city": 386,
+    "region": 179
   },
   "unresolved": [
     "Barrow, Georgia",
@@ -45,6 +45,26 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "txdps-1986": [
+      {
+        "label": "Canyon Lake, Texas",
+        "latitude": 29.87522,
+        "longitude": -98.26251,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "txdps-1983": [
+      {
+        "label": "Waco, Texas",
+        "latitude": 31.54933,
+        "longitude": -97.14667,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "rcmp-bc-4357608-johnny-james-timothy-boys": [
       {
         "label": "Prince George, British Columbia",
@@ -60,6 +80,16 @@
         "label": "Texas",
         "latitude": 31.0545,
         "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
+      }
+    ],
+    "fq-ayoub-mohamed": [
+      {
+        "label": "Quebec",
+        "latitude": 52.9399,
+        "longitude": -73.5491,
         "precision": "region",
         "locationType": "broad_region",
         "approximate": true
@@ -846,16 +876,6 @@
         "label": "Weslaco, Texas",
         "latitude": 26.15952,
         "longitude": -97.99084,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "txdps-1952": [
-      {
-        "label": "New Braunfels, Texas",
-        "latitude": 29.703,
-        "longitude": -98.12445,
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
