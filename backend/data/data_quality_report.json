@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-08T20:06:02.320081+00:00",
-  "totalCases": 2244,
-  "sourceRecords": 2282,
+  "generatedAt": "2026-10-08T23:17:42.289925+00:00",
+  "totalCases": 2242,
+  "sourceRecords": 2280,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 263,
+    "Canada": 261,
     "China": 122,
     "US": 1859
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1406,
-    "Open": 834
+    "Open": 832
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -23,9 +23,9 @@
     "Fugitifs Quebec": 16,
     "Nova Scotia Department of Justice": 118,
     "Ontario Provincial Police": 95,
-    "Prince George RCMP": 7,
+    "Prince George RCMP": 6,
     "Prince Rupert RCMP": 1,
-    "Saskatchewan RCMP": 7,
+    "Saskatchewan RCMP": 6,
     "Terrace RCMP": 1,
     "Texas Department of Public Safety": 69,
     "U.S. Department of State - Rewards for Justice": 238,
@@ -45,7 +45,7 @@
   },
   "rewards": {
     "published": 1483,
-    "notPublished": 761,
+    "notPublished": 759,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
@@ -56,7 +56,7 @@
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 191,
-    "remotePrimaryImages": 2053
+    "remotePrimaryImages": 2051
   },
   "regions": {
     "casesWithoutRegion": 45

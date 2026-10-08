@@ -54351,47 +54351,6 @@
     "rewardCurrency": null
   },
   {
-    "id": "rcmp-sk-ryan-montgrand",
-    "title": "Ryan Montgrand",
-    "agency": "Saskatchewan RCMP",
-    "country": "Canada",
-    "regions": [
-      "Saskatchewan"
-    ],
-    "caseType": "Wanted Person",
-    "description": "Fail to attend (two counts), fail to comply with probation, sexual assault, mischief, sexual interference",
-    "reward": null,
-    "rewardText": null,
-    "status": "Open",
-    "summary": "Ryan Montgrand is listed by Saskatchewan RCMP as wanted on an active warrant. Offences listed by the agency: Fail to attend (two counts), fail to comply with probation, sexual assault, mischief, sexual interference. The agency lists possible communities as: Michel Village, SK, Buffalo Narrows, SK, Dillon, SK, Saint George's Hill, SK.",
-    "warningMessage": "Do not attempt to contact, approach or apprehend this person. Submit information directly to the RCMP.",
-    "aliases": [],
-    "age": "38",
-    "dateOfBirth": null,
-    "placeOfBirth": null,
-    "sex": "Male",
-    "race": null,
-    "nationality": null,
-    "hair": "Black",
-    "eyes": "Brown",
-    "height": "5'10\"",
-    "weight": "141 lbs",
-    "locations": "Michel Village, SK, Buffalo Narrows, SK, Dillon, SK, Saint George's Hill, SK",
-    "distinguishingFeatures": "scars on right eye, left forearm, left shoulder",
-    "fieldOffice": "Saskatchewan",
-    "publishedDate": "2026-09-29",
-    "lastVerified": "2026-10-08",
-    "sourceUpdatedDate": "2026-09-29",
-    "sourceUrl": "https://rcmp.ca/en/saskatchewan/news/2026/09/4343801",
-    "sourceTitle": "Saskatchewan RCMP: Wanted Persons",
-    "sourceAuthor": "Saskatchewan RCMP",
-    "imageUrl": "https://rcmp.ca/sites/default/files/styles/gallery_large_1200x1200/public/2026-09/ryan.jpg?itok=HqtreNrK",
-    "imageUrls": [
-      "https://rcmp.ca/sites/default/files/styles/gallery_large_1200x1200/public/2026-09/ryan.jpg?itok=HqtreNrK"
-    ],
-    "rewardCurrency": null
-  },
-  {
     "id": "rcmp-sk-michael-strandquist",
     "title": "Michael Strandquist",
     "agency": "Saskatchewan RCMP",
@@ -56003,47 +55962,6 @@
     "imageUrl": "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/untitled_1.jpg?itok=fPCuJWbn",
     "imageUrls": [
       "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/untitled_1.jpg?itok=fPCuJWbn"
-    ],
-    "rewardCurrency": null
-  },
-  {
-    "id": "rcmp-bc-4355482-mranda-may-dumont",
-    "title": "Mranda May Dumont",
-    "agency": "Prince George RCMP",
-    "country": "Canada",
-    "regions": [
-      "British Columbia"
-    ],
-    "caseType": "Wanted Person",
-    "description": "Content Photo of Mranda May Dumont File #: 2025-26121, 2026-3577 This week, the Prince George RCMP is featuring 27-year-old Mranda May Dumont for Wanted Wednesday. Mranda May Dumont is wanted on one endorsed and one unendorsed warrant for the following: Theft under $5000 Breach of release order Possession of a loaded restricted firearm Occupying a vehicle knowing a restricted firearm is present Possession of a firearm without a licence Possession of a weapon for a dangerous purpose Contravention of weapon storage regulations Driving while prohibited (two counts) Mranda May Dumont is described as: White female 5'6\" (168 cm) 130 lb (59 kg) Blonde hair Brown eyes Mranda May Dumont is considered dangerous and should not be approached. If you locate her , contact your local police immediately. If you have any information about Mranda May Dumont's whereabouts, please contact Prince George.",
-    "reward": null,
-    "rewardText": null,
-    "status": "Open",
-    "summary": "Photo of Mranda May Dumont File #: 2025-26121, 2026-3577 This week, the Prince George RCMP is featuring 27-year-old Mranda May Dumont for Wanted Wednesday. Mranda May Dumont is wanted on one endorsed and one unendorsed warrant for the following: Theft under $5000 Breach of release order Possession of a loaded restricted firearm Occupying a vehicle knowing a restricted firearm is present Possession of a firearm without a licence Possession of a weapon for a dangerous purpose Contravention of weapon storage regulations Driving while prohibited (two counts) Mranda May Dumont is described as: White female 5'6\" (168 cm) 130 lb (59 kg) Blonde hair Brown eyes Mranda May Dumont is considered dangerous and should not be approached. If you locate her , contact your local police immediately. If you have any information about Mranda May Dumont's whereabouts, please contact Prince George RCMP at 250-561-3300. If you wish to remain anonymous, contact Crime Stoppers at 1-800-222-8477 (TIPS).",
-    "warningMessage": "Do not approach or attempt to apprehend this person. Submit information directly to the RCMP.",
-    "aliases": [],
-    "age": "27",
-    "dateOfBirth": null,
-    "placeOfBirth": null,
-    "sex": "Female",
-    "race": "White",
-    "nationality": null,
-    "hair": "Blonde",
-    "eyes": "Brown",
-    "height": "5'6\"",
-    "weight": "130 lbs",
-    "locations": "City of Prince George, British Columbia",
-    "distinguishingFeatures": null,
-    "fieldOffice": "City of Prince George",
-    "publishedDate": "2026-07-28",
-    "lastVerified": "2026-10-08",
-    "sourceUpdatedDate": "2026-07-28",
-    "sourceUrl": "https://rcmp.ca/en/bc/prince-george/news/2026/07/4355482",
-    "sourceTitle": "Wanted: Mranda May Dumont",
-    "sourceAuthor": "Prince George RCMP",
-    "imageUrl": "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/dumont.jpg?itok=nHyNbBDP",
-    "imageUrls": [
-      "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/dumont.jpg?itok=nHyNbBDP"
     ],
     "rewardCurrency": null
   },
