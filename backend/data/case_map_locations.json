@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-09T00:40:48.813508+00:00",
-  "sourceFingerprint": "fb64d90be892151d32437feb68e567daae18b3c7a89d0193e53413a9b54bf0f9",
+  "generatedAt": "2026-10-09T14:36:55.150028+00:00",
+  "sourceFingerprint": "54ac5846c983ecdad691e66f62112ba3ce5cc3ddcae270fa252d5b70bbef4f84",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 387,
-    "region": 178
+    "city": 386,
+    "region": 179
   },
   "unresolved": [
     "Barrow, Georgia",
@@ -56,12 +56,12 @@
     ],
     "txdps-1986": [
       {
-        "label": "Canyon Lake, Texas",
-        "latitude": 29.87522,
-        "longitude": -98.26251,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
       }
     ],
     "txdps-1983": [

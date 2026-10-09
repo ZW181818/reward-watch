@@ -58,7 +58,7 @@
     "reward": 2000,
     "rewardText": "Up To $2,000 Reward",
     "status": "Open",
-    "summary": "Jose GONZALEZ IV is a convicted sex offender required to register annually. He has ties to Comal and Travis Counties, including the cities of Canyon Lake, Spring Branch , and Pflugerville, Texas. In 2021, GONZALEZ was convicted in Travis County of Indecency with a Child by Sexual Contact following an incident with a 10-year-old girl. He was subsequently placed on 6 years' probation. On June 10, 2026, a warrant was issued out of Travis County for his arrest for a Probation Violation (Original Charge: Indecency with a Child Sexual Contact).",
+    "summary": "N/AJose GONZALEZ IV is a convicted sex offender required to register annually. He has ties to Comal and Travis Counties, including the cities of Canyon Lake, Spring Branch , and Pflugerville, Texas. In 2021, GONZALEZ was convicted in Travis County of Indecency with a Child by Sexual Contact following an incident with a 10-year-old girl. He was subsequently placed on 6 years' probation. On June 10, 2026, a warrant was issued out of Travis County for his arrest for a Probation Violation (Original Charge: Indecency with a Child Sexual Contact).",
     "warningMessage": "Do not approach or attempt to apprehend any individual. Submit information directly to the Texas Department of Public Safety.",
     "aliases": [],
     "age": null,
@@ -71,7 +71,7 @@
     "eyes": null,
     "height": "5'8\"",
     "weight": "160",
-    "locations": "Canyon Lake, Texas",
+    "locations": "Texas",
     "distinguishingFeatures": null,
     "fieldOffice": "Texas",
     "publishedDate": "2026-10-08",
@@ -85,7 +85,8 @@
       "/media/texas-dps/txdps-1986-1.jpg",
       "/media/texas-dps/txdps-1986-2.jpg",
       "/media/texas-dps/txdps-1986-3.jpg",
-      "/media/texas-dps/txdps-1986-4.jpg"
+      "/media/texas-dps/txdps-1986-4.jpg",
+      "/media/texas-dps/txdps-1986-5.jpg"
     ],
     "rewardCurrency": "USD"
   },
