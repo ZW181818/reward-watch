@@ -1,5 +1,46 @@
 [
   {
+    "id": "rcmp-bc-4357692-tiffany-tame",
+    "title": "Tiffany Tame",
+    "agency": "Oceanside RCMP",
+    "country": "Canada",
+    "regions": [
+      "British Columbia"
+    ],
+    "caseType": "Wanted Person",
+    "description": "Content Tiffany Tame Oceanside RCMP File 2021-11516 54-year-old Tiffany Tame is wanted by police. Oceanside RCMP are seeking the public's assistance in locating 54-year-old Tiffany Tame who has warrants for her arrest for possession of a controlled substance for the purposes of trafficking and breach of a release order. The offences date back to 2021 and 2024. Tiffany Tame is Caucasian, 165 cm, 82 kg, with blonde hair she is known to change, and brown eyes. Tiffany Tame was last known to be in the downtown east side of Vancouver, however she also has ties to Kelowna and Vancouver Island. If anyone has any information on Tiffany Tame's whereabouts, they are asked to call Oceanside RCMP at (250) 248-6111 or their local police.",
+    "reward": null,
+    "rewardText": null,
+    "status": "Open",
+    "summary": "Tiffany Tame Oceanside RCMP File 2021-11516 54-year-old Tiffany Tame is wanted by police. Oceanside RCMP are seeking the public's assistance in locating 54-year-old Tiffany Tame who has warrants for her arrest for possession of a controlled substance for the purposes of trafficking and breach of a release order. The offences date back to 2021 and 2024. Tiffany Tame is Caucasian, 165 cm, 82 kg, with blonde hair she is known to change, and brown eyes. Tiffany Tame was last known to be in the downtown east side of Vancouver, however she also has ties to Kelowna and Vancouver Island. If anyone has any information on Tiffany Tame's whereabouts, they are asked to call Oceanside RCMP at (250) 248-6111 or their local police.",
+    "warningMessage": "Do not approach or attempt to apprehend this person. Submit information directly to the RCMP.",
+    "aliases": [],
+    "age": "54",
+    "dateOfBirth": null,
+    "placeOfBirth": null,
+    "sex": null,
+    "race": null,
+    "nationality": null,
+    "hair": "Blonde",
+    "eyes": "Brown",
+    "height": "165 cm",
+    "weight": null,
+    "locations": "Oceanside, British Columbia",
+    "distinguishingFeatures": null,
+    "fieldOffice": "Oceanside",
+    "publishedDate": "2026-10-09",
+    "lastVerified": "2026-10-09",
+    "sourceUpdatedDate": "2026-10-08",
+    "sourceUrl": "https://rcmp.ca/en/bc/oceanside/news/2026/10/4357692",
+    "sourceTitle": "Wanted: Tiffany Tame",
+    "sourceAuthor": "Oceanside RCMP",
+    "imageUrl": "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/tame-tiffany.jpg?itok=vUZ4-rV0",
+    "imageUrls": [
+      "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/tame-tiffany.jpg?itok=vUZ4-rV0"
+    ],
+    "rewardCurrency": null
+  },
+  {
     "id": "txdps-1989",
     "title": "Kevin Hilton Pattison",
     "agency": "Texas Department of Public Safety",
