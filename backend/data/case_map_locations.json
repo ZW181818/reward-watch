@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-09T22:34:54.431757+00:00",
-  "sourceFingerprint": "3cac5c06df48a3bc81875ae3feaa6519d759b34484120befe5124d847d22b5b3",
+  "generatedAt": "2026-10-10T00:22:41.285459+00:00",
+  "sourceFingerprint": "920910b733adbba3114480f1b6686a13aff6da934872e227196f5ee2c57dc197",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 386,
-    "region": 179
+    "city": 385,
+    "region": 180
   },
   "unresolved": [
     "Barrow, Georgia",
@@ -1043,12 +1043,12 @@
     ],
     "txdps-1949": [
       {
-        "label": "Fort Worth, Texas",
-        "latitude": 32.72541,
-        "longitude": -97.32085,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
+        "label": "Texas",
+        "latitude": 31.0545,
+        "longitude": -97.5635,
+        "precision": "region",
+        "locationType": "broad_region",
+        "approximate": true
       }
     ],
     "usms-dexter-lamar-scales-sr": [
