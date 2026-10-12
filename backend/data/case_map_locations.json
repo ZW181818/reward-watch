@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-10T00:22:41.285459+00:00",
-  "sourceFingerprint": "920910b733adbba3114480f1b6686a13aff6da934872e227196f5ee2c57dc197",
+  "generatedAt": "2026-10-12T16:57:44.653486+00:00",
+  "sourceFingerprint": "2e8a20880c8484822946bcf6100ed3898a2774c3fe361694370544397a0567b6",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 385,
+    "city": 386,
     "region": 180
   },
   "unresolved": [
@@ -45,6 +45,16 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "txdps-1987": [
+      {
+        "label": "Seagoville, Texas",
+        "latitude": 32.63958,
+        "longitude": -96.53832,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "txdps-1989": [
       {
         "label": "Austin, Texas",
