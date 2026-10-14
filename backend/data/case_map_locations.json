@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-14T05:21:06.975010+00:00",
-  "sourceFingerprint": "973bd6677ebd79d3e416efe97dd820767d3125e43b7a4aa8859cfcd88e95c4d2",
+  "generatedAt": "2026-10-14T21:37:24.197994+00:00",
+  "sourceFingerprint": "870da57661cb9d689c62ca55f3088af66e3b0beba18ce3e17634a40f8288591c",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 386,
+    "city": 387,
     "region": 180
   },
   "unresolved": [
@@ -45,6 +45,16 @@
     "Wilson Creek, Washington"
   ],
   "cases": {
+    "rcmp-bc-4357805-craig-aaron-skin": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "txdps-1987": [
       {
         "label": "Seagoville, Texas",
