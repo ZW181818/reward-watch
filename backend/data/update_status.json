@@ -1,15 +1,14 @@
 {
-  "updatedAt": "2026-10-14T13:03:28.172011+00:00",
+  "updatedAt": "2026-10-14T15:50:56.797275+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2248,
   "batch": {
-    "name": "us-justice",
+    "name": "china",
     "requestedSources": [
-      "usms",
-      "txdps"
+      "cn-police"
     ],
-    "updatedToday": 5,
+    "updatedToday": 6,
     "totalSources": 14
   },
   "sources": [
@@ -138,8 +137,8 @@
       "usedStaleData": false,
       "count": 58,
       "error": null,
-      "durationSeconds": 15.919,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-14T13:03:28.172011+00:00",
       "lastSuccessAt": "2026-10-14T13:03:28.172011+00:00"
     },
@@ -177,8 +176,8 @@
       "usedStaleData": false,
       "count": 71,
       "error": null,
-      "durationSeconds": 8.004,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-14T13:03:28.172011+00:00",
       "lastSuccessAt": "2026-10-14T13:03:28.172011+00:00"
     },
@@ -186,14 +185,14 @@
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 122,
-      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-13T18:07:26.639299+00:00",
-      "lastSuccessAt": "2026-10-13T02:17:54.264769+00:00"
+      "error": null,
+      "durationSeconds": 209.773,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-14T15:50:56.797275+00:00",
+      "lastSuccessAt": "2026-10-14T15:50:56.797275+00:00"
     }
   ]
 }
