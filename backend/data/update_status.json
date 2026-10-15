@@ -1,16 +1,15 @@
 {
-  "updatedAt": "2026-10-14T23:23:08.243534+00:00",
+  "updatedAt": "2026-10-15T05:08:07.590089+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2249,
+  "totalCount": 2250,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "fq",
-      "cfseu-bc",
+      "fbi",
       "rfj"
     ],
-    "updatedToday": 12,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -20,12 +19,12 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1230,
+      "count": 1231,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-14T05:21:02.450154+00:00",
-      "lastSuccessAt": "2026-10-14T05:21:02.450154+00:00"
+      "durationSeconds": 1.3,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-15T05:08:07.590089+00:00",
+      "lastSuccessAt": "2026-10-15T05:08:07.590089+00:00"
     },
     {
       "id": "opp",
@@ -61,8 +60,8 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.086,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-14T23:23:08.243534+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
@@ -113,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.215,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-14T23:23:08.243534+00:00",
       "lastSuccessAt": null
     },
@@ -126,10 +125,10 @@
       "usedStaleData": false,
       "count": 238,
       "error": null,
-      "durationSeconds": 4.096,
+      "durationSeconds": 2.163,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-14T23:23:08.243534+00:00",
-      "lastSuccessAt": "2026-10-14T23:23:08.243534+00:00"
+      "lastAttemptAt": "2026-10-15T05:08:07.590089+00:00",
+      "lastSuccessAt": "2026-10-15T05:08:07.590089+00:00"
     },
     {
       "id": "usms",
