@@ -1,16 +1,15 @@
 {
-  "updatedAt": "2026-10-16T22:58:15.159791+00:00",
+  "updatedAt": "2026-10-17T04:57:46.260434+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2248,
+  "totalCount": 2247,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "fq",
-      "cfseu-bc",
+      "fbi",
       "rfj"
     ],
-    "updatedToday": 11,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -20,12 +19,12 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1230,
+      "count": 1229,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-16T04:58:16.243778+00:00",
-      "lastSuccessAt": "2026-10-16T04:58:16.243778+00:00"
+      "durationSeconds": 2.695,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-17T04:57:46.260434+00:00",
+      "lastSuccessAt": "2026-10-17T04:57:46.260434+00:00"
     },
     {
       "id": "opp",
@@ -61,8 +60,8 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.11,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-16T22:58:15.159791+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
@@ -113,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.566,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-16T22:58:15.159791+00:00",
       "lastSuccessAt": null
     },
@@ -122,14 +121,14 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 238,
-      "error": "IncompleteRead: IncompleteRead(102724 bytes read)",
-      "durationSeconds": 4.073,
+      "error": null,
+      "durationSeconds": 4.078,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-16T22:58:15.159791+00:00",
-      "lastSuccessAt": "2026-10-15T05:08:07.590089+00:00"
+      "lastAttemptAt": "2026-10-17T04:57:46.260434+00:00",
+      "lastSuccessAt": "2026-10-17T04:57:46.260434+00:00"
     },
     {
       "id": "usms",

@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T22:58:15.159791+00:00",
-  "totalCases": 2248,
-  "sourceRecords": 2286,
+  "generatedAt": "2026-10-17T04:57:46.260434+00:00",
+  "totalCases": 2247,
+  "sourceRecords": 2285,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 262,
     "China": 122,
-    "US": 1864
+    "US": 1863
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1408,
-    "Open": 836
+    "Open": 835
   },
   "sources": {
     "CFSEU-BC": 3,
     "Edmonton Police Service": 9,
     "Elk Valley Regional RCMP": 1,
-    "Federal Bureau of Investigation": 1230,
+    "Federal Bureau of Investigation": 1229,
     "Fort St. John RCMP": 2,
     "Fugitifs Quebec": 16,
     "Nova Scotia Department of Justice": 118,
@@ -45,19 +45,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1487,
+    "published": 1486,
     "notPublished": 761,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1156
+      "USD": 1155
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 193,
-    "remotePrimaryImages": 2055
+    "remotePrimaryImages": 2054
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -66,8 +66,7 @@
     "allSourcesFresh": false,
     "staleSources": [
       "fq",
-      "cfseu-bc",
-      "rfj"
+      "cfseu-bc"
     ]
   },
   "checks": {
