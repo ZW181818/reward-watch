@@ -1,17 +1,16 @@
 {
-  "updatedAt": "2026-10-19T22:17:58.706481+00:00",
+  "updatedAt": "2026-10-19T23:54:07.118068+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2251,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "fq",
+      "cfseu-bc",
+      "rfj"
     ],
-    "updatedToday": 11,
+    "updatedToday": 12,
     "totalSources": 14
   },
   "sources": [
@@ -49,8 +48,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 1.129,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-19T22:17:58.706481+00:00",
       "lastSuccessAt": "2026-10-19T22:17:58.706481+00:00"
     },
@@ -62,9 +61,9 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-19T20:09:18.861759+00:00",
+      "durationSeconds": 0.123,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-19T23:54:07.118068+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
     {
@@ -88,8 +87,8 @@
       "usedStaleData": false,
       "count": 13,
       "error": null,
-      "durationSeconds": 14.285,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-19T22:17:58.706481+00:00",
       "lastSuccessAt": "2026-10-19T22:17:58.706481+00:00"
     },
@@ -101,8 +100,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 3.239,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-19T22:17:58.706481+00:00",
       "lastSuccessAt": "2026-10-19T22:17:58.706481+00:00"
     },
@@ -114,23 +113,23 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.299,
+      "durationSeconds": 0.346,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-19T22:17:58.706481+00:00",
+      "lastAttemptAt": "2026-10-19T23:54:07.118068+00:00",
       "lastSuccessAt": null
     },
     {
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 238,
-      "error": "IncompleteRead: IncompleteRead(187698 bytes read)",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-19T05:17:20.172641+00:00",
-      "lastSuccessAt": "2026-10-18T22:32:42.555186+00:00"
+      "error": null,
+      "durationSeconds": 6.015,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-19T23:54:07.118068+00:00",
+      "lastSuccessAt": "2026-10-19T23:54:07.118068+00:00"
     },
     {
       "id": "usms",
