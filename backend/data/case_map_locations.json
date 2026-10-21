@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-21T05:16:52.244705+00:00",
-  "sourceFingerprint": "6ff0a141178fd8ecfdfdb69237a89e42f99e351a990d96371922f115fc957a4f",
+  "generatedAt": "2026-10-21T13:10:12.003799+00:00",
+  "sourceFingerprint": "15b0fc7ba01235c5733ecbd4703d04b97afd9d43eed98155c412e486a228ad9a",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 389,
-    "region": 180
+    "city": 388,
+    "region": 179
   },
   "unresolved": [
     "Barrow, Georgia",
@@ -85,16 +85,6 @@
         "approximate": false
       }
     ],
-    "txdps-1987": [
-      {
-        "label": "Seagoville, Texas",
-        "latitude": 32.63958,
-        "longitude": -96.53832,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
     "txdps-1989": [
       {
         "label": "Austin, Texas",
@@ -103,16 +93,6 @@
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
-      }
-    ],
-    "txdps-1986": [
-      {
-        "label": "Texas",
-        "latitude": 31.0545,
-        "longitude": -97.5635,
-        "precision": "region",
-        "locationType": "broad_region",
-        "approximate": true
       }
     ],
     "txdps-1983": [
