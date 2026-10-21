@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-10-21T21:36:17.859901+00:00",
+  "updatedAt": "2026-10-21T23:34:05.461158+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2252,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "fq",
+      "cfseu-bc",
+      "rfj",
+      "ns-reward"
     ],
     "updatedToday": 11,
     "totalSources": 14
@@ -49,8 +49,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 4.852,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-21T21:36:17.859901+00:00",
       "lastSuccessAt": "2026-10-21T21:36:17.859901+00:00"
     },
@@ -62,9 +62,9 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-21T18:53:32.186459+00:00",
+      "durationSeconds": 0.203,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-21T23:34:05.461158+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
     {
@@ -88,8 +88,8 @@
       "usedStaleData": false,
       "count": 14,
       "error": null,
-      "durationSeconds": 20.079,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-21T21:36:17.859901+00:00",
       "lastSuccessAt": "2026-10-21T21:36:17.859901+00:00"
     },
@@ -101,8 +101,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.65,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-21T21:36:17.859901+00:00",
       "lastSuccessAt": "2026-10-21T21:36:17.859901+00:00"
     },
@@ -114,9 +114,9 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.236,
+      "durationSeconds": 0.131,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-21T21:36:17.859901+00:00",
+      "lastAttemptAt": "2026-10-21T23:34:05.461158+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +127,10 @@
       "usedStaleData": false,
       "count": 238,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-21T05:16:48.022198+00:00",
-      "lastSuccessAt": "2026-10-21T05:16:48.022198+00:00"
+      "durationSeconds": 0.571,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-21T23:34:05.461158+00:00",
+      "lastSuccessAt": "2026-10-21T23:34:05.461158+00:00"
     },
     {
       "id": "usms",
@@ -153,9 +153,9 @@
       "usedStaleData": true,
       "count": 118,
       "error": "URLError: <urlopen error timed out>",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-21T18:53:32.186459+00:00",
+      "durationSeconds": 30.027,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-21T23:34:05.461158+00:00",
       "lastSuccessAt": "2026-10-20T18:42:04.461242+00:00"
     },
     {
