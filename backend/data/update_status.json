@@ -1,17 +1,15 @@
 {
-  "updatedAt": "2026-10-21T23:34:05.461158+00:00",
+  "updatedAt": "2026-10-22T05:19:44.551020+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2252,
+  "totalCount": 2254,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "fq",
-      "cfseu-bc",
-      "rfj",
-      "ns-reward"
+      "fbi",
+      "rfj"
     ],
-    "updatedToday": 11,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -21,12 +19,12 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 1231,
+      "count": 1233,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-21T05:16:48.022198+00:00",
-      "lastSuccessAt": "2026-10-21T05:16:48.022198+00:00"
+      "durationSeconds": 1.784,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-22T05:19:44.551020+00:00",
+      "lastSuccessAt": "2026-10-22T05:19:44.551020+00:00"
     },
     {
       "id": "opp",
@@ -62,8 +60,8 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.203,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-21T23:34:05.461158+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
@@ -114,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.131,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-21T23:34:05.461158+00:00",
       "lastSuccessAt": null
     },
@@ -127,10 +125,10 @@
       "usedStaleData": false,
       "count": 238,
       "error": null,
-      "durationSeconds": 0.571,
+      "durationSeconds": 6.218,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-21T23:34:05.461158+00:00",
-      "lastSuccessAt": "2026-10-21T23:34:05.461158+00:00"
+      "lastAttemptAt": "2026-10-22T05:19:44.551020+00:00",
+      "lastSuccessAt": "2026-10-22T05:19:44.551020+00:00"
     },
     {
       "id": "usms",
@@ -153,8 +151,8 @@
       "usedStaleData": true,
       "count": 118,
       "error": "URLError: <urlopen error timed out>",
-      "durationSeconds": 30.027,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-21T23:34:05.461158+00:00",
       "lastSuccessAt": "2026-10-20T18:42:04.461242+00:00"
     },
