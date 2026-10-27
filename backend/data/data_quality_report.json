@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T00:08:04.119266+00:00",
+  "generatedAt": "2026-10-27T05:33:53.000344+00:00",
   "totalCases": 2255,
   "sourceRecords": 2293,
   "multiSourceCases": 38,
@@ -67,7 +67,6 @@
     "staleSources": [
       "fq",
       "cfseu-bc",
-      "rfj",
       "txdps"
     ]
   },
