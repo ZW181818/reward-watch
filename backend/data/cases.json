@@ -2266,47 +2266,6 @@
     "rewardCurrency": null
   },
   {
-    "id": "rcmp-bc-4356974-nathan-smith",
-    "title": "Nathan Smith",
-    "agency": "Elk Valley Regional RCMP",
-    "country": "Canada",
-    "regions": [
-      "British Columbia"
-    ],
-    "caseType": "Wanted Person",
-    "description": "Content Photo of Nathan Smith The Elk Valley RCMP are advising that Nathan Smith is wanted for the following: One count of flight from police. One count of driving while prohibited. Nathan Smith is described as: Caucasian male 5'10\" tall 185 lbs Brown hair Blue eyes If you have information about Nathan Smith's whereabouts, please contact the Elk Valley RCMP at 250-425-6233. If you wish to remain anonymous contact Crime Stoppers at 1-800-222-8477 (TIPS).",
-    "reward": null,
-    "rewardText": null,
-    "status": "Open",
-    "summary": "Photo of Nathan Smith The Elk Valley RCMP are advising that Nathan Smith is wanted for the following: One count of flight from police. One count of driving while prohibited. Nathan Smith is described as: Caucasian male 5'10\" tall 185 lbs Brown hair Blue eyes If you have information about Nathan Smith's whereabouts, please contact the Elk Valley RCMP at 250-425-6233. If you wish to remain anonymous contact Crime Stoppers at 1-800-222-8477 (TIPS).",
-    "warningMessage": "Do not approach or attempt to apprehend this person. Submit information directly to the RCMP.",
-    "aliases": [],
-    "age": null,
-    "dateOfBirth": null,
-    "placeOfBirth": null,
-    "sex": "Male",
-    "race": null,
-    "nationality": null,
-    "hair": "Brown",
-    "eyes": "Blue",
-    "height": "5'10\"",
-    "weight": "185 lbs",
-    "locations": "Fernie, British Columbia",
-    "distinguishingFeatures": null,
-    "fieldOffice": "Fernie",
-    "publishedDate": "2026-09-15",
-    "lastVerified": "2026-10-27",
-    "sourceUpdatedDate": "2026-09-14",
-    "sourceUrl": "https://rcmp.ca/en/bc/elk-valley/news/2026/09/4356974",
-    "sourceTitle": "Wanted: Nathan Smith",
-    "sourceAuthor": "Elk Valley Regional RCMP",
-    "imageUrl": "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/nathan-smith-photo.jpg?itok=2WyWtUCr",
-    "imageUrls": [
-      "https://rcmp.ca/sites/default/files/styles/large_480x480/public/images/nathan-smith-photo.jpg?itok=2WyWtUCr"
-    ],
-    "rewardCurrency": null
-  },
-  {
     "id": "fbi-270183a5bbeb472a975b171f0d444a4c",
     "title": "SHOOTING - TUSCALOOSA, ALABAMA",
     "agency": "Federal Bureau of Investigation",
