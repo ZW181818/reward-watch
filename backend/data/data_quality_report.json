@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T13:31:43.626599+00:00",
+  "generatedAt": "2026-10-27T16:25:26.961284+00:00",
   "totalCases": 2256,
   "sourceRecords": 2294,
   "multiSourceCases": 38,
@@ -66,7 +66,8 @@
     "allSourcesFresh": false,
     "staleSources": [
       "fq",
-      "cfseu-bc"
+      "cfseu-bc",
+      "cn-police"
     ]
   },
   "checks": {

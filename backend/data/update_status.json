@@ -1,13 +1,12 @@
 {
-  "updatedAt": "2026-10-27T13:31:43.626599+00:00",
+  "updatedAt": "2026-10-27T16:25:26.961284+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2256,
   "batch": {
-    "name": "us-justice",
+    "name": "china",
     "requestedSources": [
-      "usms",
-      "txdps"
+      "cn-police"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -138,8 +137,8 @@
       "usedStaleData": false,
       "count": 59,
       "error": null,
-      "durationSeconds": 10.599,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-27T13:31:43.626599+00:00",
       "lastSuccessAt": "2026-10-27T13:31:43.626599+00:00"
     },
@@ -177,8 +176,8 @@
       "usedStaleData": false,
       "count": 71,
       "error": null,
-      "durationSeconds": 8.553,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-27T13:31:43.626599+00:00",
       "lastSuccessAt": "2026-10-27T13:31:43.626599+00:00"
     },
@@ -186,13 +185,13 @@
       "id": "cn-police",
       "name": "Mainland China official public-security criminal reward notices",
       "country": "China",
-      "success": true,
-      "usedStaleData": false,
+      "success": false,
+      "usedStaleData": true,
       "count": 122,
-      "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-27T00:08:04.119266+00:00",
+      "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+      "durationSeconds": 36.012,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-27T16:25:26.961284+00:00",
       "lastSuccessAt": "2026-10-27T00:08:04.119266+00:00"
     }
   ]
