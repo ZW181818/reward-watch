@@ -1,15 +1,14 @@
 {
-  "updatedAt": "2026-10-27T22:07:59.049639+00:00",
+  "updatedAt": "2026-10-27T23:56:25.437368+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2255,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "fq",
+      "cfseu-bc",
+      "rfj"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -49,8 +48,8 @@
       "usedStaleData": false,
       "count": 6,
       "error": null,
-      "durationSeconds": 0.894,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-27T22:07:59.049639+00:00",
       "lastSuccessAt": "2026-10-27T22:07:59.049639+00:00"
     },
@@ -62,9 +61,9 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-27T19:36:22.146578+00:00",
+      "durationSeconds": 0.17,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-27T23:56:25.437368+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
     {
@@ -88,8 +87,8 @@
       "usedStaleData": false,
       "count": 13,
       "error": null,
-      "durationSeconds": 17.43,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-27T22:07:59.049639+00:00",
       "lastSuccessAt": "2026-10-27T22:07:59.049639+00:00"
     },
@@ -101,8 +100,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 3.204,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-27T22:07:59.049639+00:00",
       "lastSuccessAt": "2026-10-27T22:07:59.049639+00:00"
     },
@@ -113,10 +112,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 3,
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.193,
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "durationSeconds": 0.237,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-10-27T22:07:59.049639+00:00",
+      "lastAttemptAt": "2026-10-27T23:56:25.437368+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +126,10 @@
       "usedStaleData": false,
       "count": 238,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-27T05:33:53.000344+00:00",
-      "lastSuccessAt": "2026-10-27T05:33:53.000344+00:00"
+      "durationSeconds": 0.691,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-27T23:56:25.437368+00:00",
+      "lastSuccessAt": "2026-10-27T23:56:25.437368+00:00"
     },
     {
       "id": "usms",
