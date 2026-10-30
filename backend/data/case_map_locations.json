@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-30T00:17:02.324487+00:00",
-  "sourceFingerprint": "8cce308e21455c0cecb71289f018727157400371e6fc141a956309be09136589",
+  "generatedAt": "2026-10-30T14:29:17.846007+00:00",
+  "sourceFingerprint": "bac37b4135343cfaf42903ba1ce96d6c5a9d7708ec296e22d8f15f711c9e3d80",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
     "city": 391,
-    "region": 179
+    "region": 178
   },
   "unresolved": [
     "Barrow, Georgia",
@@ -101,16 +101,6 @@
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
-      }
-    ],
-    "txdps-1997": [
-      {
-        "label": "Texas",
-        "latitude": 31.0545,
-        "longitude": -97.5635,
-        "precision": "region",
-        "locationType": "broad_region",
-        "approximate": true
       }
     ],
     "rcmp-bc-4358205-brenton-lyle-chambers": [

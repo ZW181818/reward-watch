@@ -1,14 +1,15 @@
 {
-  "updatedAt": "2026-10-30T10:51:24.259093+00:00",
+  "updatedAt": "2026-10-30T14:29:14.760343+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2257,
+  "totalCount": 2256,
   "batch": {
-    "name": "us-postal",
+    "name": "us-justice",
     "requestedSources": [
-      "uspis"
+      "usms",
+      "txdps"
     ],
-    "updatedToday": 11,
+    "updatedToday": 12,
     "totalSources": 14
   },
   "sources": [
@@ -137,10 +138,10 @@
       "usedStaleData": false,
       "count": 60,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-30T00:16:58.948611+00:00",
-      "lastSuccessAt": "2026-10-30T00:16:58.948611+00:00"
+      "durationSeconds": 12.156,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-30T14:29:14.760343+00:00",
+      "lastSuccessAt": "2026-10-30T14:29:14.760343+00:00"
     },
     {
       "id": "ns-reward",
@@ -163,8 +164,8 @@
       "usedStaleData": false,
       "count": 305,
       "error": null,
-      "durationSeconds": 114.871,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-10-30T10:51:24.259093+00:00",
       "lastSuccessAt": "2026-10-30T10:51:24.259093+00:00"
     },
@@ -172,14 +173,14 @@
       "id": "txdps",
       "name": "Texas DPS active Most Wanted reward directories",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
-      "count": 72,
-      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-10-30T00:16:58.948611+00:00",
-      "lastSuccessAt": "2026-10-29T14:37:37.742478+00:00"
+      "success": true,
+      "usedStaleData": false,
+      "count": 71,
+      "error": null,
+      "durationSeconds": 8.489,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-10-30T14:29:14.760343+00:00",
+      "lastSuccessAt": "2026-10-30T14:29:14.760343+00:00"
     },
     {
       "id": "cn-police",
