@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T22:42:25.726406+00:00",
-  "totalCases": 2256,
-  "sourceRecords": 2294,
+  "generatedAt": "2026-10-30T00:16:58.948611+00:00",
+  "totalCases": 2257,
+  "sourceRecords": 2295,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 266,
     "China": 122,
-    "US": 1868
+    "US": 1869
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1411,
-    "Open": 841
+    "Open": 842
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -28,7 +28,7 @@
     "Terrace RCMP": 1,
     "Texas Department of Public Safety": 72,
     "U.S. Department of State - Rewards for Justice": 238,
-    "U.S. Marshals Service": 59,
+    "U.S. Marshals Service": 60,
     "United States Postal Inspection Service": 305,
     "Vancouver Police Department": 2,
     "Vernon North Okanagan RCMP": 1,
@@ -43,19 +43,19 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1489,
+    "published": 1490,
     "notPublished": 767,
     "maximum": 25000000,
     "currencies": {
       "CAD": 209,
       "CNY": 122,
-      "USD": 1158
+      "USD": 1159
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 194,
-    "remotePrimaryImages": 2062
+    "remotePrimaryImages": 2063
   },
   "regions": {
     "casesWithoutRegion": 45
@@ -65,7 +65,7 @@
     "staleSources": [
       "fq",
       "cfseu-bc",
-      "rfj"
+      "txdps"
     ]
   },
   "checks": {
