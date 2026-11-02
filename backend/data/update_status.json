@@ -1,14 +1,15 @@
 {
-  "updatedAt": "2026-11-02T12:17:40.094184+00:00",
+  "updatedAt": "2026-11-02T17:24:26.827697+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
-  "totalCount": 2256,
+  "totalCount": 2257,
   "batch": {
-    "name": "us-postal",
+    "name": "us-justice",
     "requestedSources": [
-      "uspis"
+      "usms",
+      "txdps"
     ],
-    "updatedToday": 3,
+    "updatedToday": 5,
     "totalSources": 14
   },
   "sources": [
@@ -137,10 +138,10 @@
       "usedStaleData": false,
       "count": 60,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-01T14:28:21.764742+00:00",
-      "lastSuccessAt": "2026-11-01T14:28:21.764742+00:00"
+      "durationSeconds": 13.33,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-02T17:24:26.827697+00:00",
+      "lastSuccessAt": "2026-11-02T17:24:26.827697+00:00"
     },
     {
       "id": "ns-reward",
@@ -163,8 +164,8 @@
       "usedStaleData": false,
       "count": 305,
       "error": null,
-      "durationSeconds": 93.446,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-02T12:17:40.094184+00:00",
       "lastSuccessAt": "2026-11-02T12:17:40.094184+00:00"
     },
@@ -174,12 +175,12 @@
       "country": "US",
       "success": true,
       "usedStaleData": false,
-      "count": 71,
+      "count": 72,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-01T14:28:21.764742+00:00",
-      "lastSuccessAt": "2026-11-01T14:28:21.764742+00:00"
+      "durationSeconds": 8.254,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-02T17:24:26.827697+00:00",
+      "lastSuccessAt": "2026-11-02T17:24:26.827697+00:00"
     },
     {
       "id": "cn-police",
