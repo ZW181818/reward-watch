@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-02T17:24:29.901499+00:00",
-  "sourceFingerprint": "aa0819b5b6a384422d79a9d4dfac79fd124a69661b54ad089fb1c5dc2697de84",
+  "generatedAt": "2026-11-03T00:54:29.085353+00:00",
+  "sourceFingerprint": "db25c8f72d841e98188931e023ec086b682d8efca0195b2dc565b176a6cb94d3",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 391,
+    "city": 390,
     "region": 179
   },
   "unresolved": [
@@ -118,16 +118,6 @@
         "label": "Jackson, Tennessee",
         "latitude": 35.61452,
         "longitude": -88.81395,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-bc-4358205-brenton-lyle-chambers": [
-      {
-        "label": "Prince George, British Columbia",
-        "latitude": 53.9166,
-        "longitude": -122.75301,
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
