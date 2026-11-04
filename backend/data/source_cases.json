@@ -51887,47 +51887,6 @@
     "rewardCurrency": "CAD"
   },
   {
-    "id": "opp-56c2267a8f94ac966aa009d9",
-    "title": "David HANNAH",
-    "agency": "Ontario Provincial Police",
-    "country": "Canada",
-    "regions": [
-      "Ontario"
-    ],
-    "caseType": "Public Reward",
-    "description": "The Government of the Province of Ontario is offering a total reward of fifty thousand dollars ($50,000) for information leading to the arrest and conviction of the person(s) responsible for the murder of David HANNAH age 37, of Amherstview, Ontario, on or about January 4, 1983.",
-    "reward": 50000,
-    "rewardText": "The official source lists a reward of up to $50,000.",
-    "status": "Information Requested",
-    "summary": "The Government of the Province of Ontario is offering a total reward of fifty thousand dollars ($50,000) for information leading to the arrest and conviction of the person(s) responsible for the murder of David HANNAH age 37, of Amherstview, Ontario, on or about January 4, 1983. David HANNAH was employed at the Millhaven Federal Institution as a prison guard. He was reported missing on January 19, 1983. Neither he nor his vehicle, a 1969 Oldsmobile Delta 88, blue, Ontario licence plate number SMY 921, have been seen since January 4, 1983. Police are treating this case as a homicide.",
-    "warningMessage": "Do not approach or attempt to detain any individual. Submit information directly to the Ontario Provincial Police.",
-    "aliases": [],
-    "age": null,
-    "dateOfBirth": null,
-    "placeOfBirth": null,
-    "sex": null,
-    "race": null,
-    "nationality": null,
-    "hair": null,
-    "eyes": null,
-    "height": null,
-    "weight": null,
-    "locations": null,
-    "distinguishingFeatures": null,
-    "fieldOffice": "Ontario",
-    "publishedDate": "2016-02-15",
-    "lastVerified": "2026-11-04",
-    "sourceUpdatedDate": "2016-02-15",
-    "sourceUrl": "https://www.opp.ca/index.php?id=115&entryid=56c2267a8f94ac966aa009d9",
-    "sourceTitle": "OPP Public Reward: David HANNAH",
-    "sourceAuthor": "Ontario Provincial Police",
-    "imageUrl": "https://www.opp.ca/tms/entrydata.php?fnc=3&_id=56c2267a8f94ac966aa009de",
-    "imageUrls": [
-      "https://www.opp.ca/tms/entrydata.php?fnc=3&_id=56c2267a8f94ac966aa009de"
-    ],
-    "rewardCurrency": "CAD"
-  },
-  {
     "id": "opp-56c222378f94ac966aa009d0",
     "title": "Julie Diane FORTIER",
     "agency": "Ontario Provincial Police",
