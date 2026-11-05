@@ -1,13 +1,12 @@
 {
-  "updatedAt": "2026-11-05T07:22:09.222171+00:00",
+  "updatedAt": "2026-11-05T12:14:27.362519+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2254,
   "batch": {
-    "name": "us-core",
+    "name": "us-postal",
     "requestedSources": [
-      "fbi",
-      "rfj"
+      "uspis"
     ],
     "updatedToday": 12,
     "totalSources": 14
@@ -21,8 +20,8 @@
       "usedStaleData": false,
       "count": 1232,
       "error": null,
-      "durationSeconds": 1.278,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-05T07:22:09.222171+00:00",
       "lastSuccessAt": "2026-11-05T07:22:09.222171+00:00"
     },
@@ -125,8 +124,8 @@
       "usedStaleData": false,
       "count": 238,
       "error": null,
-      "durationSeconds": 2.31,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-05T07:22:09.222171+00:00",
       "lastSuccessAt": "2026-11-05T07:22:09.222171+00:00"
     },
@@ -164,10 +163,10 @@
       "usedStaleData": false,
       "count": 305,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-05T01:06:02.249101+00:00",
-      "lastSuccessAt": "2026-11-05T01:06:02.249101+00:00"
+      "durationSeconds": 91.449,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-05T12:14:27.362519+00:00",
+      "lastSuccessAt": "2026-11-05T12:14:27.362519+00:00"
     },
     {
       "id": "txdps",
