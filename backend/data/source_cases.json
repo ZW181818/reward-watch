@@ -86354,6 +86354,55 @@
     "rewardCurrency": "USD"
   },
   {
+    "id": "txdps-1999",
+    "title": "Raymond Odell Smith III",
+    "agency": "Texas Department of Public Safety",
+    "country": "US",
+    "regions": [
+      "Texas"
+    ],
+    "caseType": "Wanted Sex Offender",
+    "description": "Failure to Comply with Sex Offender Registration Requirements",
+    "reward": 5000,
+    "rewardText": "Up To $5,000 Reward",
+    "status": "Open",
+    "summary": "Raymond Odell SMITH III is a convicted sex offender required to register annually. He has ties to Travis and Harris Counties, including the cities of Pflugerville, Austin, and Houston, Texas. In 1992, he was convicted in Travis County of Indecency with a Child by Sexual Contact following an incident with a 12-year-old girl. SMITH was subsequently sentenced to 10 years' probation, which he later violated, resulting in 8 years confinement in prison. SMITH was convicted in Travis County of Possession of a Controlled Substance, Evading Arrest or Detention, Engaging in Organized Criminal Activity, Unlawful Possession of Metal or Body Armor by Felon, and Forgery of a Financial Instrument. SMITH has also served time in Federal prison for Cocaine Possession. On August 27, 2026, a warrant was issued out of Austin for his arrest for Failure to Comply with Sex Offender Registration Requirements.",
+    "warningMessage": "Do not approach or attempt to apprehend any individual. Submit information directly to the Texas Department of Public Safety.",
+    "aliases": [
+      "Trae Smith",
+      "Trey Smith",
+      "Tray Smith",
+      "Raymond Odell"
+    ],
+    "age": null,
+    "dateOfBirth": "9/7/1973",
+    "placeOfBirth": null,
+    "sex": "Male",
+    "race": "Black",
+    "nationality": null,
+    "hair": null,
+    "eyes": null,
+    "height": "5'6\"",
+    "weight": "150",
+    "locations": "Texas",
+    "distinguishingFeatures": "Tattoos on Neck, Abdomen, Back, Check, Left Arm, Left Leg, Left Wrist, Right Leg, Upper Left Arm, Upper Right Arm.",
+    "fieldOffice": "Texas",
+    "publishedDate": "2026-11-06",
+    "lastVerified": "2026-11-06",
+    "sourceUpdatedDate": null,
+    "sourceUrl": "https://www.dps.texas.gov/Texas10MostWanted/MostWanted/SexOffenderDetails?id=1999",
+    "sourceTitle": "Texas DPS Most Wanted: Raymond Odell Smith III",
+    "sourceAuthor": "Texas Department of Public Safety",
+    "imageUrl": "/media/texas-dps/txdps-1999-1.jpg",
+    "imageUrls": [
+      "/media/texas-dps/txdps-1999-1.jpg",
+      "/media/texas-dps/txdps-1999-2.jpg",
+      "/media/texas-dps/txdps-1999-3.jpg",
+      "/media/texas-dps/txdps-1999-4.jpg"
+    ],
+    "rewardCurrency": "USD"
+  },
+  {
     "id": "txdps-1993",
     "title": "Quintarius Desmondai Jackson",
     "agency": "Texas Department of Public Safety",
