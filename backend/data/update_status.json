@@ -1,17 +1,15 @@
 {
-  "updatedAt": "2026-11-07T23:53:09.698150+00:00",
+  "updatedAt": "2026-11-08T06:40:55.966222+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2254,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "fq",
-      "cfseu-bc",
-      "rfj",
-      "uspis"
+      "fbi",
+      "rfj"
     ],
-    "updatedToday": 11,
+    "updatedToday": 1,
     "totalSources": 14
   },
   "sources": [
@@ -23,10 +21,10 @@
       "usedStaleData": false,
       "count": 1232,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-07T06:33:52.218033+00:00",
-      "lastSuccessAt": "2026-11-07T06:33:52.218033+00:00"
+      "durationSeconds": 2.376,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-08T06:40:55.966222+00:00",
+      "lastSuccessAt": "2026-11-08T06:40:55.966222+00:00"
     },
     {
       "id": "opp",
@@ -62,8 +60,8 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.135,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-07T23:53:09.698150+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
@@ -114,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.353,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-07T23:53:09.698150+00:00",
       "lastSuccessAt": null
     },
@@ -126,10 +124,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 239,
-      "error": "IncompleteRead: IncompleteRead(128909 bytes read)",
-      "durationSeconds": 2.1,
+      "error": "IncompleteRead: IncompleteRead(110228 bytes read)",
+      "durationSeconds": 2.31,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-11-07T23:53:09.698150+00:00",
+      "lastAttemptAt": "2026-11-08T06:40:55.966222+00:00",
       "lastSuccessAt": "2026-11-07T06:33:52.218033+00:00"
     },
     {
@@ -166,8 +164,8 @@
       "usedStaleData": true,
       "count": 305,
       "error": "TimeoutError: The read operation timed out",
-      "durationSeconds": 68.096,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-07T23:53:09.698150+00:00",
       "lastSuccessAt": "2026-11-06T12:01:46.401116+00:00"
     },
