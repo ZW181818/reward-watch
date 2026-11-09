@@ -1,17 +1,15 @@
 {
-  "updatedAt": "2026-11-08T23:57:57.771841+00:00",
+  "updatedAt": "2026-11-09T07:08:46.366657+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2254,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
-      "fq",
-      "cfseu-bc",
-      "rfj",
-      "uspis"
+      "fbi",
+      "rfj"
     ],
-    "updatedToday": 10,
+    "updatedToday": 2,
     "totalSources": 14
   },
   "sources": [
@@ -23,10 +21,10 @@
       "usedStaleData": false,
       "count": 1232,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-08T06:40:55.966222+00:00",
-      "lastSuccessAt": "2026-11-08T06:40:55.966222+00:00"
+      "durationSeconds": 1.135,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-09T07:08:46.366657+00:00",
+      "lastSuccessAt": "2026-11-09T07:08:46.366657+00:00"
     },
     {
       "id": "opp",
@@ -62,8 +60,8 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.098,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-08T23:57:57.771841+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
@@ -114,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.185,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-08T23:57:57.771841+00:00",
       "lastSuccessAt": null
     },
@@ -123,14 +121,14 @@
       "id": "rfj",
       "name": "U.S. Department of State Rewards for Justice",
       "country": "US",
-      "success": false,
-      "usedStaleData": true,
+      "success": true,
+      "usedStaleData": false,
       "count": 239,
-      "error": "IncompleteRead: IncompleteRead(105884 bytes read)",
-      "durationSeconds": 1.943,
+      "error": null,
+      "durationSeconds": 6.01,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-11-08T23:57:57.771841+00:00",
-      "lastSuccessAt": "2026-11-07T06:33:52.218033+00:00"
+      "lastAttemptAt": "2026-11-09T07:08:46.366657+00:00",
+      "lastSuccessAt": "2026-11-09T07:08:46.366657+00:00"
     },
     {
       "id": "usms",
@@ -166,8 +164,8 @@
       "usedStaleData": true,
       "count": 305,
       "error": "TimeoutError: The read operation timed out",
-      "durationSeconds": 70.499,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-08T23:57:57.771841+00:00",
       "lastSuccessAt": "2026-11-06T12:01:46.401116+00:00"
     },
