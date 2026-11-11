@@ -1,13 +1,12 @@
 {
-  "updatedAt": "2026-11-11T07:04:15.904656+00:00",
+  "updatedAt": "2026-11-11T11:50:22.059137+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2258,
   "batch": {
-    "name": "us-core",
+    "name": "us-postal",
     "requestedSources": [
-      "fbi",
-      "rfj"
+      "uspis"
     ],
     "updatedToday": 10,
     "totalSources": 14
@@ -21,8 +20,8 @@
       "usedStaleData": false,
       "count": 1236,
       "error": null,
-      "durationSeconds": 2.535,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-11T07:04:15.904656+00:00",
       "lastSuccessAt": "2026-11-11T07:04:15.904656+00:00"
     },
@@ -125,8 +124,8 @@
       "usedStaleData": true,
       "count": 239,
       "error": "IncompleteRead: IncompleteRead(110220 bytes read)",
-      "durationSeconds": 1.878,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-11T07:04:15.904656+00:00",
       "lastSuccessAt": "2026-11-10T02:55:30.201547+00:00"
     },
@@ -163,10 +162,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 305,
-      "error": "HTTPError: HTTP Error 504: Gateway Time-out",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-11T00:53:41.418030+00:00",
+      "error": "TimeoutError: The read operation timed out",
+      "durationSeconds": 68.025,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-11T11:50:22.059137+00:00",
       "lastSuccessAt": "2026-11-06T12:01:46.401116+00:00"
     },
     {
