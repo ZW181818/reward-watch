@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-12T16:10:39.913901+00:00",
-  "sourceFingerprint": "074e9e2f7c77ddbb6e2804a848dc4e60751d935e0bdc447899492a63ff0102a9",
+  "generatedAt": "2026-11-12T23:32:08.871642+00:00",
+  "sourceFingerprint": "da7e03703e33a8b0be00dc879d899b1bfa6bf3868ac48a6ec816f06c34e150d1",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 390,
+    "city": 389,
     "region": 179
   },
   "unresolved": [
@@ -374,16 +374,6 @@
       }
     ],
     "rcmp-bc-4356800-eric-vern-west": [
-      {
-        "label": "Prince George, British Columbia",
-        "latitude": 53.9166,
-        "longitude": -122.75301,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-bc-4356590-dallas-lee-blanchette": [
       {
         "label": "Prince George, British Columbia",
         "latitude": 53.9166,
