@@ -1,5 +1,52 @@
 [
   {
+    "id": "txdps-2002",
+    "title": "Marcos Romero III",
+    "agency": "Texas Department of Public Safety",
+    "country": "US",
+    "regions": [
+      "Texas"
+    ],
+    "caseType": "Wanted Sex Offender",
+    "description": "Failure to Comply with Sex Offender Registration Requirements",
+    "reward": 3000,
+    "rewardText": "Up To $3,000 Reward",
+    "status": "Open",
+    "summary": "Marcos ROMERO III is a convicted sex offender required to register annually. He has ties to El Paso County, including the city of El Paso, Texas. In 2009, ROMERO was convicted in El Paso County of Aggravated Sexual Assault of a Child following an incident with a 14-year-old girl and subsequently received 10 years' probation. In 2013, ROMERO's probation was revoked and he was sentenced to 5 years of confinement in TDCJ prison. ROMERO has been convicted multiple times in El Paso County of Failure to Comply with Sex Offender Registration Requirements, including a conviction in 2022 in which he received 10 years' probation. On August 24, 2026, a warrant was issued out of El Paso County for ROMERO's arrest for Failure to Comply with Sex Offender Registration Requirements.",
+    "warningMessage": "Do not approach or attempt to apprehend any individual. Submit information directly to the Texas Department of Public Safety.",
+    "aliases": [
+      "Marcos Romero",
+      "Marco Romero"
+    ],
+    "age": null,
+    "dateOfBirth": "10/6/1988",
+    "placeOfBirth": null,
+    "sex": "Male",
+    "race": "White (Hispanic)",
+    "nationality": null,
+    "hair": null,
+    "eyes": null,
+    "height": "6'0\"",
+    "weight": "210",
+    "locations": "El Paso, Texas",
+    "distinguishingFeatures": "Scars on Left Forearm and Right Shoulder. Tattoos on Neck, Abdomen, Back, Chest, Left Arm, Left Hand, Left Leg, Left Forearm, Right Arm, Right Hand, Right Leg, Right Forearm, Upper Left Arm, Upper Right Arm.",
+    "fieldOffice": "Texas",
+    "publishedDate": "2026-11-12",
+    "lastVerified": "2026-11-12",
+    "sourceUpdatedDate": null,
+    "sourceUrl": "https://www.dps.texas.gov/Texas10MostWanted/MostWanted/SexOffenderDetails?id=2002",
+    "sourceTitle": "Texas DPS Most Wanted: Marcos Romero III",
+    "sourceAuthor": "Texas Department of Public Safety",
+    "imageUrl": "/media/texas-dps/txdps-2002-1.jpg",
+    "imageUrls": [
+      "/media/texas-dps/txdps-2002-1.jpg",
+      "/media/texas-dps/txdps-2002-2.jpg",
+      "/media/texas-dps/txdps-2002-3.jpg",
+      "/media/texas-dps/txdps-2002-4.jpg"
+    ],
+    "rewardCurrency": "USD"
+  },
+  {
     "id": "txdps-2001",
     "title": "Roger Carlos Castillo Medina",
     "agency": "Texas Department of Public Safety",
