@@ -1,50 +1,178 @@
 {
-  "generatedAt": "2026-11-13T01:28:44.860472+00:00",
-  "sourceFingerprint": "6cdc842806e7b7066324986155df4c9ff5927e3e5c9252604fc334434c0e4b6e",
+  "generatedAt": "2026-11-13T23:29:05.092012+00:00",
+  "sourceFingerprint": "e06f42ef2ee3d39089036a2d16d302f11d3bd2c99a6e11464a6c426445c25b12",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 389,
+    "city": 393,
     "region": 178
   },
   "unresolved": [
+    "Ahtahkakoop Cree Nation, Saskatchewan",
     "Barrow, Georgia",
+    "Big River First Nation, Saskatchewan",
     "Caret, Virginia",
     "Cary, Mississippi",
     "Colony Ridge, Texas",
     "Colorado, Wyoming",
     "Columbia, District of Columbia",
+    "Cote First Nation, Saskatchewan",
+    "Craven, Saskatchewan",
     "Creek, Oklahoma",
     "Deschambault Lake, Saskatchewan",
     "Emery, Utah",
     "Essex County, New Jersey",
     "Gordon First Nation, Saskatchewan",
+    "Green Lake, Saskatchewan",
     "Guaynabo, Puerto Rico",
     "Harris County, Houston, Texas",
     "Howard, Maryland",
     "Jersey, Virginia",
+    "Kelliher, Saskatchewan",
     "La Grange, California",
     "Malott, Washington",
     "McDowell, West Virginia",
-    "Montreal Lake, Saskatchewan",
-    "Muskowekwan First Nation, Saskatchewan",
     "Oceanside, British Columbia",
     "Panorama City, California",
+    "Pelican Lake First Nation, Saskatchewan",
     "Punnichy, Saskatchewan",
     "Redberry, Saskatchewan",
     "San Juan, Puerto Rico",
     "San Rafael and San Fidel, New Mexico",
     "Seeking Information About an Ongoing Investigation in Smith Station, Arizona",
     "Sherman Oaks, Tarzana, and Valley Village, California",
+    "Spiritwood, Saskatchewan",
     "St. Albert, Ontario",
     "Stanley Mission, Saskatchewan",
     "Taiban, New Mexico",
     "Wallace, California",
+    "Waskesiu Lake, Saskatchewan",
     "Waverly, Georgia",
     "Wikieup, Arizona",
     "Wildomar, CA, California",
-    "Wilson Creek, Washington"
+    "Wilson Creek, Washington",
+    "Witchekan Lake First Nation, Saskatchewan"
   ],
   "cases": {
+    "rcmp-sk-dillon-sewap": [
+      {
+        "label": "La Ronge, Saskatchewan",
+        "latitude": 55.10013,
+        "longitude": -105.28422,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "Pelican Narrows, Saskatchewan",
+        "latitude": 55.16685,
+        "longitude": -102.9341,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-tristan-scott": [
+      {
+        "label": "Saskatoon, Saskatchewan",
+        "latitude": 52.13238,
+        "longitude": -106.66892,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "North Battleford, Saskatchewan",
+        "latitude": 52.77972,
+        "longitude": -108.2967,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-michael-strandquist": [
+      {
+        "label": "Creighton, Saskatchewan",
+        "latitude": 54.75014,
+        "longitude": -101.90078,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "Prince Albert, Saskatchewan",
+        "latitude": 53.20008,
+        "longitude": -105.76772,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-debra-brittan": [
+      {
+        "label": "Wilkie, Saskatchewan",
+        "latitude": 52.41683,
+        "longitude": -108.70142,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "Saskatoon, Saskatchewan",
+        "latitude": 52.13238,
+        "longitude": -106.66892,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      },
+      {
+        "label": "Unity, Saskatchewan",
+        "latitude": 52.45014,
+        "longitude": -109.16816,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-justin-hunter": [
+      {
+        "label": "Kamsack, Saskatchewan",
+        "latitude": 51.56668,
+        "longitude": -101.90093,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-ross-mckenzie": [
+      {
+        "label": "La Ronge, Saskatchewan",
+        "latitude": 55.10013,
+        "longitude": -105.28422,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-ricky-gagne": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
+    "rcmp-sk-jonas-sewap": [
+      {
+        "label": "Pelican Narrows, Saskatchewan",
+        "latitude": 55.16685,
+        "longitude": -102.9341,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "txdps-2002": [
       {
         "label": "El Paso, Texas",
@@ -80,54 +208,6 @@
         "label": "Houston, Texas",
         "latitude": 29.76328,
         "longitude": -95.36327,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-dillon-sewap": [
-      {
-        "label": "La Ronge, Saskatchewan",
-        "latitude": 55.10013,
-        "longitude": -105.28422,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      },
-      {
-        "label": "Pelican Narrows, Saskatchewan",
-        "latitude": 55.16685,
-        "longitude": -102.9341,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-michael-strandquist": [
-      {
-        "label": "Creighton, Saskatchewan",
-        "latitude": 54.75014,
-        "longitude": -101.90078,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-ricky-gagne": [
-      {
-        "label": "Prince George, British Columbia",
-        "latitude": 53.9166,
-        "longitude": -122.75301,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-sk-jonas-sewap": [
-      {
-        "label": "Pelican Narrows, Saskatchewan",
-        "latitude": 55.16685,
-        "longitude": -102.9341,
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
