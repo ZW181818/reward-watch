@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T23:32:05.326642+00:00",
-  "totalCases": 2258,
-  "sourceRecords": 2297,
+  "generatedAt": "2026-11-13T01:28:42.188327+00:00",
+  "totalCases": 2257,
+  "sourceRecords": 2296,
   "multiSourceCases": 38,
   "countries": {
     "Canada": 264,
     "China": 122,
-    "US": 1872
+    "US": 1871
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1411,
-    "Open": 843
+    "Open": 842
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -26,7 +26,7 @@
     "Prince George RCMP": 7,
     "Saskatchewan RCMP": 6,
     "Terrace RCMP": 1,
-    "Texas Department of Public Safety": 71,
+    "Texas Department of Public Safety": 70,
     "U.S. Department of State - Rewards for Justice": 239,
     "U.S. Marshals Service": 60,
     "United States Postal Inspection Service": 305,
@@ -43,18 +43,18 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1489,
+    "published": 1488,
     "notPublished": 769,
     "maximum": 25000000,
     "currencies": {
       "CAD": 208,
       "CNY": 122,
-      "USD": 1159
+      "USD": 1158
     }
   },
   "images": {
     "casesWithoutPrimaryImage": 0,
-    "localPrimaryImages": 193,
+    "localPrimaryImages": 192,
     "remotePrimaryImages": 2065
   },
   "regions": {
@@ -65,7 +65,6 @@
     "staleSources": [
       "fq",
       "cfseu-bc",
-      "ns-reward",
       "uspis"
     ]
   },

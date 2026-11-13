@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-12T23:32:08.871642+00:00",
-  "sourceFingerprint": "da7e03703e33a8b0be00dc879d899b1bfa6bf3868ac48a6ec816f06c34e150d1",
+  "generatedAt": "2026-11-13T01:28:44.860472+00:00",
+  "sourceFingerprint": "6cdc842806e7b7066324986155df4c9ff5927e3e5c9252604fc334434c0e4b6e",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
     "city": 389,
-    "region": 179
+    "region": 178
   },
   "unresolved": [
     "Barrow, Georgia",
@@ -221,16 +221,6 @@
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
-      }
-    ],
-    "txdps-1989": [
-      {
-        "label": "Texas",
-        "latitude": 31.0545,
-        "longitude": -97.5635,
-        "precision": "region",
-        "locationType": "broad_region",
-        "approximate": true
       }
     ],
     "rcmp-bc-4357608-johnny-james-timothy-boys": [
