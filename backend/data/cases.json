@@ -27,13 +27,16 @@
     "fieldOffice": "Birmingham",
     "publishedDate": "2026-11-13",
     "lastVerified": "2026-11-15",
-    "sourceUpdatedDate": "2026-11-14",
+    "sourceUpdatedDate": "2026-11-15",
     "sourceUrl": "https://www.fbi.gov/wanted/seeking-info/gadsden-islamic-center-arson",
     "sourceTitle": "FBI Wanted: GADSDEN ISLAMIC CENTER ARSON",
     "sourceAuthor": "Federal Bureau of Investigation",
     "imageUrl": "https://www.fbi.gov/wanted/seeking-info/gadsden-islamic-center-arson/@@images/image",
     "imageUrls": [
       "https://www.fbi.gov/wanted/seeking-info/gadsden-islamic-center-arson/@@images/image",
+      "https://www.fbi.gov/wanted/seeking-info/gadsden-islamic-center-arson/gadsden3.jpg",
+      "https://www.fbi.gov/wanted/seeking-info/gadsden-islamic-center-arson/gadsden4.jpg",
+      "https://www.fbi.gov/wanted/seeking-info/gadsden-islamic-center-arson/gadsden5.jpg",
       "https://www.fbi.gov/wanted/seeking-info/gadsden-islamic-center-arson/gadsden2.jpg"
     ],
     "rewardCurrency": "USD"
