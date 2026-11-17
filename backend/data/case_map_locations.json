@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-16T00:21:39.064905+00:00",
-  "sourceFingerprint": "011813d9c33db2b1712df025bea46ffde1dca3530603806dc78100c6dbbc65bd",
+  "generatedAt": "2026-11-17T01:50:21.774971+00:00",
+  "sourceFingerprint": "aa342bd246b8a1b63edef6c6d5810eb31abb3ec770cd7c4dac3c4210cbc3474d",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 393,
+    "city": 392,
     "region": 178
   },
   "unresolved": [
@@ -238,16 +238,6 @@
         "label": "Dallas, Texas",
         "latitude": 32.78306,
         "longitude": -96.80667,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "rcmp-bc-4357986-chante-leah-rene-low": [
-      {
-        "label": "Prince George, British Columbia",
-        "latitude": 53.9166,
-        "longitude": -122.75301,
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
