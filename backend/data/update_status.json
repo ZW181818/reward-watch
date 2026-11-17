@@ -1,13 +1,12 @@
 {
-  "updatedAt": "2026-11-17T08:27:20.891695+00:00",
+  "updatedAt": "2026-11-17T13:12:47.688537+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2262,
   "batch": {
-    "name": "us-core",
+    "name": "us-postal",
     "requestedSources": [
-      "fbi",
-      "rfj"
+      "uspis"
     ],
     "updatedToday": 10,
     "totalSources": 14
@@ -21,8 +20,8 @@
       "usedStaleData": false,
       "count": 1240,
       "error": null,
-      "durationSeconds": 1.378,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-17T08:27:20.891695+00:00",
       "lastSuccessAt": "2026-11-17T08:27:20.891695+00:00"
     },
@@ -125,8 +124,8 @@
       "usedStaleData": true,
       "count": 239,
       "error": "IncompleteRead: IncompleteRead(384131 bytes read)",
-      "durationSeconds": 3.669,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-17T08:27:20.891695+00:00",
       "lastSuccessAt": "2026-11-16T00:21:35.760584+00:00"
     },
@@ -164,9 +163,9 @@
       "usedStaleData": true,
       "count": 305,
       "error": "TimeoutError: The read operation timed out",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-17T03:09:28.624146+00:00",
+      "durationSeconds": 30.14,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-17T13:12:47.688537+00:00",
       "lastSuccessAt": "2026-11-06T12:01:46.401116+00:00"
     },
     {
