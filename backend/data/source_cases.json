@@ -86771,6 +86771,53 @@
     "rewardCurrency": "USD"
   },
   {
+    "id": "txdps-2003",
+    "title": "Reginald Verzine Turner",
+    "agency": "Texas Department of Public Safety",
+    "country": "US",
+    "regions": [
+      "Texas"
+    ],
+    "caseType": "Wanted Sex Offender",
+    "description": "Parole Violation (Original Offense: Failure to Comply with Sex Offender Registration Requirements)",
+    "reward": 5000,
+    "rewardText": "Up To $5,000 Reward",
+    "status": "Open",
+    "summary": "Reginald Verzine TURNER is a convicted sex offender required to register annually. He has ties to Dallas County, including the city of Dallas, Texas. In 1994, TURNER was convicted in Dallas County of Aggravated Sexual Assault following an incident with a 26-year-old female and subsequently sentenced to 12 years confinement. In 2008, TURNER was convicted of Failure to Comply with Sex Offender Registration Requirements and subsequently sentenced to 20 years confinement in TDCJ prison. TURNER also has convictions in the past for Robbery, Burglary of Habitation, Aggravated Assault, and Possession of Prohibited Item in Correctional Facility. On August 11, 2026, the Texas Board of Pardons and Paroles issued a warrant for his arrest for a Parole Violation (Original Offense: Failure to Comply with Sex Offender Registration Requirements).",
+    "warningMessage": "Do not approach or attempt to apprehend any individual. Submit information directly to the Texas Department of Public Safety.",
+    "aliases": [
+      "Reginald Bonzine Turner",
+      "Marcus Sadler"
+    ],
+    "age": null,
+    "dateOfBirth": "9/25/1971",
+    "placeOfBirth": null,
+    "sex": "Male",
+    "race": "Black",
+    "nationality": null,
+    "hair": null,
+    "eyes": null,
+    "height": "6'1\"",
+    "weight": "230",
+    "locations": "Dallas, Texas",
+    "distinguishingFeatures": "Scars on Left Eye, Left Forearm, Right Eye, Right Shoulder, Right Forearm",
+    "fieldOffice": "Texas",
+    "publishedDate": "2026-11-18",
+    "lastVerified": "2026-11-18",
+    "sourceUpdatedDate": null,
+    "sourceUrl": "https://www.dps.texas.gov/Texas10MostWanted/MostWanted/SexOffenderDetails?id=2003",
+    "sourceTitle": "Texas DPS Most Wanted: Reginald Verzine Turner",
+    "sourceAuthor": "Texas Department of Public Safety",
+    "imageUrl": "/media/texas-dps/txdps-2003-1.jpg",
+    "imageUrls": [
+      "/media/texas-dps/txdps-2003-1.jpg",
+      "/media/texas-dps/txdps-2003-2.jpg",
+      "/media/texas-dps/txdps-2003-3.jpg",
+      "/media/texas-dps/txdps-2003-4.jpg"
+    ],
+    "rewardCurrency": "USD"
+  },
+  {
     "id": "txdps-2002",
     "title": "Marcos Romero III",
     "agency": "Texas Department of Public Safety",
