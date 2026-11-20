@@ -54974,51 +54974,6 @@
     "rewardCurrency": null
   },
   {
-    "id": "rcmp-sk-dillon-sewap",
-    "title": "Dillon Sewap",
-    "agency": "Saskatchewan RCMP",
-    "country": "Canada",
-    "regions": [
-      "Saskatchewan"
-    ],
-    "caseType": "Wanted Person",
-    "description": "Aggravated assault, forcible confinement, robbery, breach of peace bond, fail to attend",
-    "reward": null,
-    "rewardText": null,
-    "status": "Open",
-    "summary": "Dillon Sewap is listed by Saskatchewan RCMP as wanted on an active warrant. Offences listed by the agency: Aggravated assault, forcible confinement, robbery, breach of peace bond, fail to attend. The agency lists possible communities as: La Ronge, SK; Stanley Mission, SK; Pelican Narrows, SK; Deschambault Lake, SK.",
-    "warningMessage": "Do not attempt to contact, approach or apprehend this person. Submit information directly to the RCMP.",
-    "aliases": [
-      "Dillion Sewap",
-      "Hey Zeus",
-      "Buck Buck"
-    ],
-    "age": "31",
-    "dateOfBirth": null,
-    "placeOfBirth": null,
-    "sex": "Male",
-    "race": null,
-    "nationality": null,
-    "hair": "Black",
-    "eyes": "Brown",
-    "height": "5'9\"",
-    "weight": "201 lbs",
-    "locations": "La Ronge, SK; Stanley Mission, SK; Pelican Narrows, SK; Deschambault Lake, SK",
-    "distinguishingFeatures": "Scar on forehead Tattoo near right eye: 306 Tattoo near left eye: $",
-    "fieldOffice": "Saskatchewan",
-    "publishedDate": "2026-11-13",
-    "lastVerified": "2026-11-20",
-    "sourceUpdatedDate": "2026-11-13",
-    "sourceUrl": "https://rcmp.ca/en/saskatchewan/news/2026/11/4343801",
-    "sourceTitle": "Saskatchewan RCMP: Wanted Persons",
-    "sourceAuthor": "Saskatchewan RCMP",
-    "imageUrl": "https://rcmp.ca/sites/default/files/styles/gallery_large_1200x1200/public/2026-08/dillon.jpg?itok=0J7Cf8IJ",
-    "imageUrls": [
-      "https://rcmp.ca/sites/default/files/styles/gallery_large_1200x1200/public/2026-08/dillon.jpg?itok=0J7Cf8IJ"
-    ],
-    "rewardCurrency": null
-  },
-  {
     "id": "rcmp-sk-tristan-scott",
     "title": "Tristan Scott",
     "agency": "Saskatchewan RCMP",
