@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-19T02:01:00.862361+00:00",
-  "sourceFingerprint": "d70e76feb3b43fc857efa535d51bc1d311cfd47d976c8831d25d8e5175e89083",
+  "generatedAt": "2026-11-20T01:55:14.008396+00:00",
+  "sourceFingerprint": "bf72b821ab143e96be4f23240226dd2b961cf996263f1c92c2f8ff695d32b3ac",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 395,
-    "region": 177
+    "city": 394,
+    "region": 176
   },
   "unresolved": [
     "Ahtahkakoop Cree Nation, Saskatchewan",
@@ -53,16 +53,6 @@
     "Witchekan Lake First Nation, Saskatchewan"
   ],
   "cases": {
-    "txdps-2004": [
-      {
-        "label": "Texas",
-        "latitude": 31.0545,
-        "longitude": -97.5635,
-        "precision": "region",
-        "locationType": "broad_region",
-        "approximate": true
-      }
-    ],
     "rcmp-bc-4358886-cassandra-monckton-milnes": [
       {
         "label": "Terrace, British Columbia",
@@ -238,16 +228,6 @@
         "label": "Prince George, British Columbia",
         "latitude": 53.9166,
         "longitude": -122.75301,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "txdps-1993": [
-      {
-        "label": "Houston, Texas",
-        "latitude": 29.76328,
-        "longitude": -95.36327,
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
