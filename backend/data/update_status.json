@@ -1,12 +1,13 @@
 {
-  "updatedAt": "2026-11-22T12:30:36.563122+00:00",
+  "updatedAt": "2026-11-22T15:37:09.100779+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2263,
   "batch": {
-    "name": "us-postal",
+    "name": "us-justice",
     "requestedSources": [
-      "uspis"
+      "usms",
+      "txdps"
     ],
     "updatedToday": 11,
     "totalSources": 14
@@ -137,10 +138,10 @@
       "usedStaleData": false,
       "count": 60,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-22T00:41:31.073422+00:00",
-      "lastSuccessAt": "2026-11-22T00:41:31.073422+00:00"
+      "durationSeconds": 11.501,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-22T15:37:09.100779+00:00",
+      "lastSuccessAt": "2026-11-22T15:37:09.100779+00:00"
     },
     {
       "id": "ns-reward",
@@ -163,8 +164,8 @@
       "usedStaleData": true,
       "count": 305,
       "error": "TimeoutError: The read operation timed out",
-      "durationSeconds": 75.566,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-22T12:30:36.563122+00:00",
       "lastSuccessAt": "2026-11-06T12:01:46.401116+00:00"
     },
@@ -176,10 +177,10 @@
       "usedStaleData": false,
       "count": 67,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-22T00:41:31.073422+00:00",
-      "lastSuccessAt": "2026-11-22T00:41:31.073422+00:00"
+      "durationSeconds": 8.317,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-22T15:37:09.100779+00:00",
+      "lastSuccessAt": "2026-11-22T15:37:09.100779+00:00"
     },
     {
       "id": "cn-police",
