@@ -1,25 +1,13 @@
 {
-  "updatedAt": "2026-11-23T01:09:24.021531+00:00",
+  "updatedAt": "2026-11-23T08:10:40.137930+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2263,
   "batch": {
-    "name": "catch-up",
+    "name": "us-core",
     "requestedSources": [
       "fbi",
-      "opp",
-      "rcmp-sk",
-      "fq",
-      "eps",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc",
-      "rfj",
-      "usms",
-      "ns-reward",
-      "uspis",
-      "txdps",
-      "cn-police"
+      "rfj"
     ],
     "updatedToday": 11,
     "totalSources": 14
@@ -33,10 +21,10 @@
       "usedStaleData": false,
       "count": 1242,
       "error": null,
-      "durationSeconds": 2.517,
+      "durationSeconds": 1.952,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
-      "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
+      "lastAttemptAt": "2026-11-23T08:10:40.137930+00:00",
+      "lastSuccessAt": "2026-11-23T08:10:40.137930+00:00"
     },
     {
       "id": "opp",
@@ -46,8 +34,8 @@
       "usedStaleData": false,
       "count": 98,
       "error": null,
-      "durationSeconds": 1.388,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
     },
@@ -59,8 +47,8 @@
       "usedStaleData": false,
       "count": 7,
       "error": null,
-      "durationSeconds": 1.256,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
     },
@@ -72,8 +60,8 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.076,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
@@ -85,8 +73,8 @@
       "usedStaleData": false,
       "count": 9,
       "error": null,
-      "durationSeconds": 1.738,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
     },
@@ -98,8 +86,8 @@
       "usedStaleData": false,
       "count": 13,
       "error": null,
-      "durationSeconds": 6.669,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
     },
@@ -111,8 +99,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 2.198,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
     },
@@ -124,8 +112,8 @@
       "usedStaleData": true,
       "count": 3,
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "durationSeconds": 0.226,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": null
     },
@@ -137,10 +125,10 @@
       "usedStaleData": false,
       "count": 240,
       "error": null,
-      "durationSeconds": 0.473,
+      "durationSeconds": 6.589,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
-      "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
+      "lastAttemptAt": "2026-11-23T08:10:40.137930+00:00",
+      "lastSuccessAt": "2026-11-23T08:10:40.137930+00:00"
     },
     {
       "id": "usms",
@@ -150,8 +138,8 @@
       "usedStaleData": false,
       "count": 60,
       "error": null,
-      "durationSeconds": 11.673,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
     },
@@ -163,8 +151,8 @@
       "usedStaleData": false,
       "count": 118,
       "error": null,
-      "durationSeconds": 9.194,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
     },
@@ -176,8 +164,8 @@
       "usedStaleData": true,
       "count": 305,
       "error": "TimeoutError: The read operation timed out",
-      "durationSeconds": 81.994,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-06T12:01:46.401116+00:00"
     },
@@ -189,8 +177,8 @@
       "usedStaleData": false,
       "count": 67,
       "error": null,
-      "durationSeconds": 8.286,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
     },
@@ -202,8 +190,8 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": 147.539,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-23T01:09:24.021531+00:00",
       "lastSuccessAt": "2026-11-23T01:09:24.021531+00:00"
     }
