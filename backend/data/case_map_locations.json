@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-22T07:25:37.711810+00:00",
-  "sourceFingerprint": "e651aec00d2d2875cbaa2569f2a5237ced5f7dd9c52a39a1ffc1061246b95ef6",
+  "generatedAt": "2026-11-24T01:52:25.714642+00:00",
+  "sourceFingerprint": "ec326b02122dbe8d8ac4ba32fa0fc4b351b5bb066f51d7cd3dbfe88ffe778503",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 391,
+    "city": 390,
     "region": 177
   },
   "unresolved": [
@@ -230,16 +230,6 @@
         "label": "Fresno, California",
         "latitude": 36.74773,
         "longitude": -119.77237,
-        "precision": "city",
-        "locationType": "official_location",
-        "approximate": false
-      }
-    ],
-    "opp-6ad6356416f4dcbb8d0e94fe": [
-      {
-        "label": "Toronto, Ontario",
-        "latitude": 43.70643,
-        "longitude": -79.39864,
         "precision": "city",
         "locationType": "official_location",
         "approximate": false
