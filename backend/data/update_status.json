@@ -1,13 +1,12 @@
 {
-  "updatedAt": "2026-11-24T19:03:35.788082+00:00",
+  "updatedAt": "2026-11-24T21:07:39.873060+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2263,
   "batch": {
-    "name": "us-justice",
+    "name": "china",
     "requestedSources": [
-      "usms",
-      "txdps"
+      "cn-police"
     ],
     "updatedToday": 11,
     "totalSources": 14
@@ -138,8 +137,8 @@
       "usedStaleData": false,
       "count": 61,
       "error": null,
-      "durationSeconds": 13.565,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-24T19:03:35.788082+00:00",
       "lastSuccessAt": "2026-11-24T19:03:35.788082+00:00"
     },
@@ -177,8 +176,8 @@
       "usedStaleData": false,
       "count": 67,
       "error": null,
-      "durationSeconds": 8.589,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-24T19:03:35.788082+00:00",
       "lastSuccessAt": "2026-11-24T19:03:35.788082+00:00"
     },
@@ -190,10 +189,10 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-24T05:00:09.666085+00:00",
-      "lastSuccessAt": "2026-11-24T05:00:09.666085+00:00"
+      "durationSeconds": 170.643,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-24T21:07:39.873060+00:00",
+      "lastSuccessAt": "2026-11-24T21:07:39.873060+00:00"
     }
   ]
 }
