@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-24T01:52:25.714642+00:00",
-  "sourceFingerprint": "ec326b02122dbe8d8ac4ba32fa0fc4b351b5bb066f51d7cd3dbfe88ffe778503",
+  "generatedAt": "2026-11-24T19:03:39.957503+00:00",
+  "sourceFingerprint": "38c99f2681d5fb0b4b03510093d2fdd5e5b62457f165764646c1cb6608a83863",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 390,
+    "city": 391,
     "region": 177
   },
   "unresolved": [
@@ -53,6 +53,16 @@
     "Witchekan Lake First Nation, Saskatchewan"
   ],
   "cases": {
+    "usms-ronald-alan-rutledge": [
+      {
+        "label": "Spokane, Washington",
+        "latitude": 47.65966,
+        "longitude": -117.42908,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "rcmp-bc-4358886-cassandra-monckton-milnes": [
       {
         "label": "Terrace, British Columbia",

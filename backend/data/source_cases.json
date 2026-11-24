@@ -66892,6 +66892,47 @@
     "rewardCurrency": "USD"
   },
   {
+    "id": "usms-ronald-alan-rutledge",
+    "title": "Ronald Alan Rutledge",
+    "agency": "U.S. Marshals Service",
+    "country": "US",
+    "regions": [
+      "Washington"
+    ],
+    "caseType": "Wanted Person",
+    "description": "Attempted Homicide",
+    "reward": 3500,
+    "rewardText": "$3,500",
+    "status": "Open",
+    "summary": "The U.S. Marshals Service Pacific Northwest Violent Offender Task Force (PNVOTF) is actively assisting the Stevens County Sheriff's Office in the search for 45-year-old Ronald Rutledge, who is wanted in connection with the attempted murder of law enforcement officers in Stevens County, Washington. According to the Stevens County Sheriff's Office, deputies were responding to reports of a trespass and burglary in progress in the area of Waitts Lake Road and Red Marble Road when they observed a suspect farther up the road from the reported incident. During the encounter, Rutledge allegedly fired at deputies with a high-powered, semi-automatic rifle before fleeing the area in a stolen white 2018 four-door Polaris Ranger. Rutledge is described as a 45-year-old white male, approximately 6 feet 2 inches tall, weighing 205 pounds, with a bald head. Individuals with information regarding his whereabouts may also email usmstips@usdoj.gov or call the U.S. Marshals Service 24-hour tip line at 1-877-926-8332.",
+    "warningMessage": "Do not approach or attempt to apprehend any individual. Submit information directly to the U.S. Marshals Service.",
+    "aliases": [],
+    "age": null,
+    "dateOfBirth": "September 14, 1981",
+    "placeOfBirth": null,
+    "sex": "Male",
+    "race": "White",
+    "nationality": null,
+    "hair": "Unknown or bald",
+    "eyes": "Hazel",
+    "height": "6'2\"",
+    "weight": "150 lbs",
+    "locations": "Spokane, WA",
+    "distinguishingFeatures": null,
+    "fieldOffice": "Spokane, WA",
+    "publishedDate": "2026-11-24",
+    "lastVerified": "2026-11-24",
+    "sourceUpdatedDate": "2026-11-24",
+    "sourceUrl": "https://www.usmarshals.gov/what-we-do/fugitive/local/ronald-alan-rutledge",
+    "sourceTitle": "U.S. Marshals Profiled Fugitive: Ronald Alan Rutledge",
+    "sourceAuthor": "U.S. Marshals Service",
+    "imageUrl": "https://prod.usmarshals.gov/sites/default/files/styles/slick_carousel/public/acquiadam/e-wa-fugitive-rutledge.png?itok=mUiSAKPh",
+    "imageUrls": [
+      "https://prod.usmarshals.gov/sites/default/files/styles/slick_carousel/public/acquiadam/e-wa-fugitive-rutledge.png?itok=mUiSAKPh"
+    ],
+    "rewardCurrency": "USD"
+  },
+  {
     "id": "usms-jacob-allen-morley",
     "title": "Jacob Allen Morley",
     "agency": "U.S. Marshals Service",
