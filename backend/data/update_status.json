@@ -1,17 +1,21 @@
 {
-  "updatedAt": "2026-11-24T03:56:36.704599+00:00",
+  "updatedAt": "2026-11-24T05:00:09.666085+00:00",
   "allSourcesFresh": false,
   "allSourcesUpdatedToday": false,
   "totalCount": 2262,
   "batch": {
-    "name": "canada-west",
+    "name": "catch-up",
     "requestedSources": [
-      "rcmp-sk",
-      "rcmp-bc",
-      "vpd",
-      "cfseu-bc"
+      "fbi",
+      "fq",
+      "cfseu-bc",
+      "rfj",
+      "usms",
+      "uspis",
+      "txdps",
+      "cn-police"
     ],
-    "updatedToday": 6,
+    "updatedToday": 11,
     "totalSources": 14
   },
   "sources": [
@@ -23,10 +27,10 @@
       "usedStaleData": false,
       "count": 1242,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-23T08:10:40.137930+00:00",
-      "lastSuccessAt": "2026-11-23T08:10:40.137930+00:00"
+      "durationSeconds": 2.116,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-24T05:00:09.666085+00:00",
+      "lastSuccessAt": "2026-11-24T05:00:09.666085+00:00"
     },
     {
       "id": "opp",
@@ -49,8 +53,8 @@
       "usedStaleData": false,
       "count": 7,
       "error": null,
-      "durationSeconds": 0.486,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-24T03:56:36.704599+00:00",
       "lastSuccessAt": "2026-11-24T03:56:36.704599+00:00"
     },
@@ -62,9 +66,9 @@
       "usedStaleData": true,
       "count": 16,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-24T01:52:22.707225+00:00",
+      "durationSeconds": 0.083,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-24T05:00:09.666085+00:00",
       "lastSuccessAt": "2026-10-08T00:27:54.742012+00:00"
     },
     {
@@ -88,8 +92,8 @@
       "usedStaleData": false,
       "count": 13,
       "error": null,
-      "durationSeconds": 6.044,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-24T03:56:36.704599+00:00",
       "lastSuccessAt": "2026-11-24T03:56:36.704599+00:00"
     },
@@ -101,8 +105,8 @@
       "usedStaleData": false,
       "count": 2,
       "error": null,
-      "durationSeconds": 3.16,
-      "attemptedThisRun": true,
+      "durationSeconds": null,
+      "attemptedThisRun": false,
       "lastAttemptAt": "2026-11-24T03:56:36.704599+00:00",
       "lastSuccessAt": "2026-11-24T03:56:36.704599+00:00"
     },
@@ -114,9 +118,9 @@
       "usedStaleData": true,
       "count": 3,
       "error": "HTTPError: HTTP Error 403: Forbidden",
-      "durationSeconds": 0.218,
+      "durationSeconds": 0.285,
       "attemptedThisRun": true,
-      "lastAttemptAt": "2026-11-24T03:56:36.704599+00:00",
+      "lastAttemptAt": "2026-11-24T05:00:09.666085+00:00",
       "lastSuccessAt": null
     },
     {
@@ -127,10 +131,10 @@
       "usedStaleData": false,
       "count": 240,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-23T08:10:40.137930+00:00",
-      "lastSuccessAt": "2026-11-23T08:10:40.137930+00:00"
+      "durationSeconds": 0.656,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-24T05:00:09.666085+00:00",
+      "lastSuccessAt": "2026-11-24T05:00:09.666085+00:00"
     },
     {
       "id": "usms",
@@ -140,10 +144,10 @@
       "usedStaleData": false,
       "count": 60,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-23T19:27:07.770923+00:00",
-      "lastSuccessAt": "2026-11-23T19:27:07.770923+00:00"
+      "durationSeconds": 13.731,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-24T05:00:09.666085+00:00",
+      "lastSuccessAt": "2026-11-24T05:00:09.666085+00:00"
     },
     {
       "id": "ns-reward",
@@ -165,10 +169,10 @@
       "success": false,
       "usedStaleData": true,
       "count": 305,
-      "error": "TimeoutError: The read operation timed out",
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-23T14:30:04.487033+00:00",
+      "error": "HTTPError: HTTP Error 504: Gateway Time-out",
+      "durationSeconds": 62.101,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-24T05:00:09.666085+00:00",
       "lastSuccessAt": "2026-11-06T12:01:46.401116+00:00"
     },
     {
@@ -179,10 +183,10 @@
       "usedStaleData": false,
       "count": 67,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-23T19:27:07.770923+00:00",
-      "lastSuccessAt": "2026-11-23T19:27:07.770923+00:00"
+      "durationSeconds": 8.672,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-24T05:00:09.666085+00:00",
+      "lastSuccessAt": "2026-11-24T05:00:09.666085+00:00"
     },
     {
       "id": "cn-police",
@@ -192,10 +196,10 @@
       "usedStaleData": false,
       "count": 122,
       "error": null,
-      "durationSeconds": null,
-      "attemptedThisRun": false,
-      "lastAttemptAt": "2026-11-23T22:33:55.031865+00:00",
-      "lastSuccessAt": "2026-11-23T22:33:55.031865+00:00"
+      "durationSeconds": 173.204,
+      "attemptedThisRun": true,
+      "lastAttemptAt": "2026-11-24T05:00:09.666085+00:00",
+      "lastSuccessAt": "2026-11-24T05:00:09.666085+00:00"
     }
   ]
 }
