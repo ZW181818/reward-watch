@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-24T21:07:39.873060+00:00",
-  "totalCases": 2263,
-  "sourceRecords": 2302,
+  "generatedAt": "2026-11-24T23:37:16.508997+00:00",
+  "totalCases": 2262,
+  "sourceRecords": 2301,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 265,
+    "Canada": 264,
     "China": 122,
     "US": 1876
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1417,
-    "Open": 842
+    "Open": 841
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -22,7 +22,7 @@
     "Fugitifs Quebec": 16,
     "Nova Scotia Department of Justice": 118,
     "Oceanside RCMP": 1,
-    "Ontario Provincial Police": 97,
+    "Ontario Provincial Police": 96,
     "Prince George RCMP": 7,
     "Saskatchewan RCMP": 7,
     "Terrace RCMP": 2,
@@ -43,11 +43,11 @@
     "龙岩市公安局": 43
   },
   "rewards": {
-    "published": 1489,
+    "published": 1488,
     "notPublished": 774,
     "maximum": 25000000,
     "currencies": {
-      "CAD": 208,
+      "CAD": 207,
       "CNY": 122,
       "USD": 1159
     }
@@ -55,7 +55,7 @@
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 189,
-    "remotePrimaryImages": 2074
+    "remotePrimaryImages": 2073
   },
   "regions": {
     "casesWithoutRegion": 45
