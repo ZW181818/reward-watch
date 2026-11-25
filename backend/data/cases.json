@@ -1,5 +1,53 @@
 [
   {
+    "id": "txdps-2007",
+    "title": "Lavelton Adolfo McNally",
+    "agency": "Texas Department of Public Safety",
+    "country": "US",
+    "regions": [
+      "Texas"
+    ],
+    "caseType": "Wanted Fugitive",
+    "description": "Robbery, Parole Violation (Original Offense: Assault of a Family Member by Choking/Strangulation)",
+    "reward": 5000,
+    "rewardText": "Up To $5,000 Reward",
+    "status": "Open",
+    "summary": "Lavelton Adolfo MCNALLY has ties to Bexar County, including the cities of San Antonio and Cibolo, Texas. In 1998, MCNALLY was convicted in Bexar County of two counts of Aggravated Robbery and one count of Aggravated Kidnapping. Subsequently, he was sentenced to 15 years confinement in prison. In 2018, he was convicted of Assault of a Family Member by Choking/Strangulation and was sentenced to 8 years confinement. MCNALLY has also been convicted in the past of Smuggling of Persons, Unlawful Carrying of a Weapon, and Possession of Cocaine, On June 13, 2025, the Texas Board of Pardons and Paroles issued a warrant for his arrest for Parole Violation (Original Offense: Assault of a Family Member by Choking/Strangulation). Additionally, on September 26, 2026, a warrant was issued out of Bexar County for MCNALLY 's arrest for Robbery.",
+    "warningMessage": "Do not approach or attempt to apprehend any individual. Submit information directly to the Texas Department of Public Safety.",
+    "aliases": [
+      "Red",
+      "Jose Solis",
+      "Lavelton Sullivan",
+      "Jose Luissolis Duran"
+    ],
+    "age": null,
+    "dateOfBirth": "8/16/1974",
+    "placeOfBirth": null,
+    "sex": "Male",
+    "race": "Black",
+    "nationality": null,
+    "hair": null,
+    "eyes": null,
+    "height": "5'10\"",
+    "weight": "205",
+    "locations": "San Antonio, Texas",
+    "distinguishingFeatures": "Tattoos on abdominal, back, left forearm, right forearm, upper left arm, upper right arm. Wears glasses. Scars on abdominal and upper lip.",
+    "fieldOffice": "Texas",
+    "publishedDate": "2026-11-25",
+    "lastVerified": "2026-11-25",
+    "sourceUpdatedDate": null,
+    "sourceUrl": "https://www.dps.texas.gov/Texas10MostWanted/MostWanted/fugitiveDetails?id=2007",
+    "sourceTitle": "Texas DPS Most Wanted: Lavelton Adolfo McNally",
+    "sourceAuthor": "Texas Department of Public Safety",
+    "imageUrl": "/media/texas-dps/txdps-2007-1.jpg",
+    "imageUrls": [
+      "/media/texas-dps/txdps-2007-1.jpg",
+      "/media/texas-dps/txdps-2007-2.jpg",
+      "/media/texas-dps/txdps-2007-3.jpg"
+    ],
+    "rewardCurrency": "USD"
+  },
+  {
     "id": "opp-6ad63352b1ded2eb9a0c70cc",
     "title": "Waheed BARAKZIYE",
     "agency": "Ontario Provincial Police",
