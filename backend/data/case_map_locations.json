@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-25T18:09:21.409869+00:00",
-  "sourceFingerprint": "620b9f390785eed4628cdbf8199a2278e1a9d7199dff30399556b1e960b0c1a4",
+  "generatedAt": "2026-11-26T01:45:09.584921+00:00",
+  "sourceFingerprint": "7b7b8ed6c2601800f7d9630aed073621dcafddfd690b66e2517f7a066c9e03ba",
   "attribution": "GeoNames (CC BY 4.0) and official notice location labels",
   "precisionCounts": {
-    "city": 392,
+    "city": 393,
     "region": 177
   },
   "unresolved": [
@@ -53,6 +53,16 @@
     "Witchekan Lake First Nation, Saskatchewan"
   ],
   "cases": {
+    "rcmp-bc-4359066-douglas-william-gibbs": [
+      {
+        "label": "Prince George, British Columbia",
+        "latitude": 53.9166,
+        "longitude": -122.75301,
+        "precision": "city",
+        "locationType": "official_location",
+        "approximate": false
+      }
+    ],
     "txdps-2007": [
       {
         "label": "San Antonio, Texas",
