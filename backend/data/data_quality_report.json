@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-26T23:16:29.330587+00:00",
-  "totalCases": 2265,
-  "sourceRecords": 2304,
+  "generatedAt": "2026-11-27T01:41:25.904139+00:00",
+  "totalCases": 2263,
+  "sourceRecords": 2302,
   "multiSourceCases": 38,
   "countries": {
-    "Canada": 265,
+    "Canada": 263,
     "China": 122,
     "US": 1878
   },
   "statuses": {
     "Closed": 4,
     "Information Requested": 1418,
-    "Open": 843
+    "Open": 841
   },
   "sources": {
     "CFSEU-BC": 3,
@@ -23,7 +23,7 @@
     "Nova Scotia Department of Justice": 118,
     "Oceanside RCMP": 1,
     "Ontario Provincial Police": 96,
-    "Prince George RCMP": 8,
+    "Prince George RCMP": 6,
     "Saskatchewan RCMP": 7,
     "Terrace RCMP": 2,
     "Texas Department of Public Safety": 68,
@@ -44,7 +44,7 @@
   },
   "rewards": {
     "published": 1491,
-    "notPublished": 774,
+    "notPublished": 772,
     "maximum": 25000000,
     "currencies": {
       "CAD": 207,
@@ -55,7 +55,7 @@
   "images": {
     "casesWithoutPrimaryImage": 0,
     "localPrimaryImages": 190,
-    "remotePrimaryImages": 2075
+    "remotePrimaryImages": 2073
   },
   "regions": {
     "casesWithoutRegion": 45
